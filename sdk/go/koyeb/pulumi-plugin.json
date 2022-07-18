@@ -1,0 +1,5 @@
+{
+  "resource": true,
+  "name": "koyeb",
+  "server": "https://github.com/koyeb/pulumi-koyeb/releases/download/${VERSION}"
+}
