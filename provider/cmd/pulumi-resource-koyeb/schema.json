@@ -465,6 +465,14 @@
                         }
                     }
                 },
+                "secret": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "value": {
                     "type": "string",
                     "language": {
@@ -476,8 +484,7 @@
             },
             "type": "object",
             "required": [
-                "key",
-                "value"
+                "key"
             ]
         },
         "koyeb:index/KoyebServiceDefinitionGit:KoyebServiceDefinitionGit": {

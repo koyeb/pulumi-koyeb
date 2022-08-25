@@ -137,7 +137,8 @@ export interface KoyebServiceDefinitionDocker {
 
 export interface KoyebServiceDefinitionEnv {
     key: pulumi.Input<string>;
-    value: pulumi.Input<string>;
+    secret?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
 }
 
 export interface KoyebServiceDefinitionGit {

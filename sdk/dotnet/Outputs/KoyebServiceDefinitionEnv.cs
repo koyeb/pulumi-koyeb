@@ -14,15 +14,19 @@ namespace Pulumi.Koyeb.Outputs
     public sealed class KoyebServiceDefinitionEnv
     {
         public readonly string Key;
-        public readonly string Value;
+        public readonly string? Secret;
+        public readonly string? Value;
 
         [OutputConstructor]
         private KoyebServiceDefinitionEnv(
             string key,
 
-            string value)
+            string? secret,
+
+            string? value)
         {
             Key = key;
+            Secret = secret;
             Value = value;
         }
     }

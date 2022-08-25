@@ -15,8 +15,11 @@ namespace Pulumi.Koyeb.Inputs
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
-        [Input("value", required: true)]
-        public Input<string> Value { get; set; } = null!;
+        [Input("secret")]
+        public Input<string>? Secret { get; set; }
+
+        [Input("value")]
+        public Input<string>? Value { get; set; }
 
         public KoyebServiceDefinitionEnvArgs()
         {

@@ -1526,8 +1526,9 @@ func (o KoyebServiceDefinitionDockerPtrOutput) ImageRegistySecret() pulumi.Strin
 }
 
 type KoyebServiceDefinitionEnv struct {
-	Key   string `pulumi:"key"`
-	Value string `pulumi:"value"`
+	Key    string  `pulumi:"key"`
+	Secret *string `pulumi:"secret"`
+	Value  *string `pulumi:"value"`
 }
 
 // KoyebServiceDefinitionEnvInput is an input type that accepts KoyebServiceDefinitionEnvArgs and KoyebServiceDefinitionEnvOutput values.
@@ -1542,8 +1543,9 @@ type KoyebServiceDefinitionEnvInput interface {
 }
 
 type KoyebServiceDefinitionEnvArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
+	Key    pulumi.StringInput    `pulumi:"key"`
+	Secret pulumi.StringPtrInput `pulumi:"secret"`
+	Value  pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (KoyebServiceDefinitionEnvArgs) ElementType() reflect.Type {
@@ -1601,8 +1603,12 @@ func (o KoyebServiceDefinitionEnvOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v KoyebServiceDefinitionEnv) string { return v.Key }).(pulumi.StringOutput)
 }
 
-func (o KoyebServiceDefinitionEnvOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v KoyebServiceDefinitionEnv) string { return v.Value }).(pulumi.StringOutput)
+func (o KoyebServiceDefinitionEnvOutput) Secret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KoyebServiceDefinitionEnv) *string { return v.Secret }).(pulumi.StringPtrOutput)
+}
+
+func (o KoyebServiceDefinitionEnvOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KoyebServiceDefinitionEnv) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
 type KoyebServiceDefinitionEnvArrayOutput struct{ *pulumi.OutputState }

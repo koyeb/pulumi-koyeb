@@ -540,9 +540,13 @@ class KoyebServiceDefinitionDockerArgs:
 class KoyebServiceDefinitionEnvArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
+                 secret: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        if secret is not None:
+            pulumi.set(__self__, "secret", secret)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -555,11 +559,20 @@ class KoyebServiceDefinitionEnvArgs:
 
     @property
     @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
+    def secret(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "secret")
+
+    @secret.setter
+    def secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secret", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: pulumi.Input[str]):
+    def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
 
