@@ -121,7 +121,8 @@ export interface KoyebServiceDefinitionDocker {
 
 export interface KoyebServiceDefinitionEnv {
     key: string;
-    value: string;
+    secret?: string;
+    value?: string;
 }
 
 export interface KoyebServiceDefinitionGit {
