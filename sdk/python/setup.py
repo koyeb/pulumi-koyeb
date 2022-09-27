@@ -15,7 +15,7 @@ class InstallPluginCommand(install):
     def run(self):
         install.run(self)
         try:
-            check_call(['pulumi', 'plugin', 'install', 'resource', 'koyeb', PLUGIN_VERSION, '--server', 'https://github.com/koyeb/pulumi-koyeb/releases/download/${VERSION}'])
+            check_call(['pulumi', 'plugin', 'install', 'resource', 'koyeb', PLUGIN_VERSION, '--server', 'https://github.com/koyeb/pulumi-koyeb/releases/download/v${VERSION}'])
         except OSError as error:
             if error.errno == errno.ENOENT:
                 print(f"""

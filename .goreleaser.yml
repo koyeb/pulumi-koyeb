@@ -5,7 +5,7 @@ before:
   hooks:
     - make tfgen
 builds:
-  - binary: provider-resource-koyeb
+  - binary: pulumi-resource-koyeb
     dir: provider
     env:
       - CGO_ENABLED=0

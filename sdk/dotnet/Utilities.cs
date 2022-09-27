@@ -53,7 +53,7 @@ namespace Pulumi.Koyeb
         {
             var dst = src ?? new global::Pulumi.InvokeOptions{};
             dst.Version = src?.Version ?? Version;
-            dst.PluginDownloadURL = src?.PluginDownloadURL ?? "https://github.com/koyeb/pulumi-koyeb/releases/download/${VERSION}";
+            dst.PluginDownloadURL = src?.PluginDownloadURL ?? "https://github.com/koyeb/pulumi-koyeb/releases/download/v${VERSION}";
             return dst;
         }
 

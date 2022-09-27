@@ -17,57 +17,60 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-koyeb/sdk/go/koyeb"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-koyeb/sdk/go/koyeb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := koyeb.NewKoyebService(ctx, "my-service", &koyeb.KoyebServiceArgs{
-// 			AppName: pulumi.Any(koyeb_app.My_app.Name),
-// 			Definition: &KoyebServiceDefinitionArgs{
-// 				Name: pulumi.String("my-service"),
-// 				InstanceTypes: &KoyebServiceDefinitionInstanceTypesArgs{
-// 					Type: pulumi.String("micro"),
-// 				},
-// 				Ports: KoyebServiceDefinitionPortArray{
-// 					&KoyebServiceDefinitionPortArgs{
-// 						Port:     pulumi.Int(3000),
-// 						Protocol: pulumi.String("http"),
-// 					},
-// 				},
-// 				Scalings: &KoyebServiceDefinitionScalingsArgs{
-// 					Min: pulumi.Int(1),
-// 					Max: pulumi.Int(1),
-// 				},
-// 				Envs: KoyebServiceDefinitionEnvArray{
-// 					&KoyebServiceDefinitionEnvArgs{
-// 						Key:   pulumi.String("FOO"),
-// 						Value: pulumi.String("BAR"),
-// 					},
-// 				},
-// 				Routes: KoyebServiceDefinitionRouteArray{
-// 					&KoyebServiceDefinitionRouteArgs{
-// 						Path: pulumi.String("/"),
-// 						Port: pulumi.Int(3000),
-// 					},
-// 				},
-// 				Regions: pulumi.StringArray{
-// 					pulumi.String("par"),
-// 				},
-// 				Docker: &KoyebServiceDefinitionDockerArgs{
-// 					Image: pulumi.String("koyeb/demo"),
-// 				},
-// 			},
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			koyeb_app.My - app,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := koyeb.NewKoyebService(ctx, "my-service", &koyeb.KoyebServiceArgs{
+//				AppName: pulumi.Any(koyeb_app.My_app.Name),
+//				Definition: &KoyebServiceDefinitionArgs{
+//					Name: pulumi.String("my-service"),
+//					InstanceTypes: &KoyebServiceDefinitionInstanceTypesArgs{
+//						Type: pulumi.String("micro"),
+//					},
+//					Ports: KoyebServiceDefinitionPortArray{
+//						&KoyebServiceDefinitionPortArgs{
+//							Port:     pulumi.Int(3000),
+//							Protocol: pulumi.String("http"),
+//						},
+//					},
+//					Scalings: &KoyebServiceDefinitionScalingsArgs{
+//						Min: pulumi.Int(1),
+//						Max: pulumi.Int(1),
+//					},
+//					Envs: KoyebServiceDefinitionEnvArray{
+//						&KoyebServiceDefinitionEnvArgs{
+//							Key:   pulumi.String("FOO"),
+//							Value: pulumi.String("BAR"),
+//						},
+//					},
+//					Routes: KoyebServiceDefinitionRouteArray{
+//						&KoyebServiceDefinitionRouteArgs{
+//							Path: pulumi.String("/"),
+//							Port: pulumi.Int(3000),
+//						},
+//					},
+//					Regions: pulumi.StringArray{
+//						pulumi.String("par"),
+//					},
+//					Docker: &KoyebServiceDefinitionDockerArgs{
+//						Image: pulumi.String("koyeb/demo"),
+//					},
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				koyeb_app.My - app,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type KoyebService struct {
 	pulumi.CustomResourceState
@@ -254,7 +257,7 @@ func (i *KoyebService) ToKoyebServiceOutputWithContext(ctx context.Context) Koye
 // KoyebServiceArrayInput is an input type that accepts KoyebServiceArray and KoyebServiceArrayOutput values.
 // You can construct a concrete instance of `KoyebServiceArrayInput` via:
 //
-//          KoyebServiceArray{ KoyebServiceArgs{...} }
+//	KoyebServiceArray{ KoyebServiceArgs{...} }
 type KoyebServiceArrayInput interface {
 	pulumi.Input
 
@@ -279,7 +282,7 @@ func (i KoyebServiceArray) ToKoyebServiceArrayOutputWithContext(ctx context.Cont
 // KoyebServiceMapInput is an input type that accepts KoyebServiceMap and KoyebServiceMapOutput values.
 // You can construct a concrete instance of `KoyebServiceMapInput` via:
 //
-//          KoyebServiceMap{ "key": KoyebServiceArgs{...} }
+//	KoyebServiceMap{ "key": KoyebServiceArgs{...} }
 type KoyebServiceMapInput interface {
 	pulumi.Input
 

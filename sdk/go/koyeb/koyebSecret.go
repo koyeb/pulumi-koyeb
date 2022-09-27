@@ -16,21 +16,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-koyeb/sdk/go/koyeb"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-koyeb/sdk/go/koyeb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := koyeb.NewKoyebSecret(ctx, "simple-secret", &koyeb.KoyebSecretArgs{
-// 			Value: pulumi.String("secret-value"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := koyeb.NewKoyebSecret(ctx, "simple-secret", &koyeb.KoyebSecretArgs{
+//				Value: pulumi.String("secret-value"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type KoyebSecret struct {
 	pulumi.CustomResourceState
@@ -217,7 +220,7 @@ func (i *KoyebSecret) ToKoyebSecretOutputWithContext(ctx context.Context) KoyebS
 // KoyebSecretArrayInput is an input type that accepts KoyebSecretArray and KoyebSecretArrayOutput values.
 // You can construct a concrete instance of `KoyebSecretArrayInput` via:
 //
-//          KoyebSecretArray{ KoyebSecretArgs{...} }
+//	KoyebSecretArray{ KoyebSecretArgs{...} }
 type KoyebSecretArrayInput interface {
 	pulumi.Input
 
@@ -242,7 +245,7 @@ func (i KoyebSecretArray) ToKoyebSecretArrayOutputWithContext(ctx context.Contex
 // KoyebSecretMapInput is an input type that accepts KoyebSecretMap and KoyebSecretMapOutput values.
 // You can construct a concrete instance of `KoyebSecretMapInput` via:
 //
-//          KoyebSecretMap{ "key": KoyebSecretArgs{...} }
+//	KoyebSecretMap{ "key": KoyebSecretArgs{...} }
 type KoyebSecretMapInput interface {
 	pulumi.Input
 

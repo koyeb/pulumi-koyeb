@@ -10,7 +10,7 @@
     "license": "Apache-2.0",
     "attribution": "This Pulumi package is based on the [`koyeb` Terraform Provider](https://github.com/koyeb/terraform-provider-koyeb).",
     "repository": "https://github.com/koyeb/pulumi-koyeb",
-    "pluginDownloadURL": "https://github.com/koyeb/pulumi-koyeb/releases/download/${VERSION}",
+    "pluginDownloadURL": "https://github.com/koyeb/pulumi-koyeb/releases/download/v${VERSION}",
     "publisher": "Koyeb",
     "meta": {
         "moduleFormat": "(.*)(?:/[^/]*)"
