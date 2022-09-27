@@ -151,4 +151,3 @@ export interface KoyebServiceDefinitionScalings {
     max?: number;
     min?: number;
 }
-

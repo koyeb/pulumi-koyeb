@@ -36,14 +36,14 @@ export interface GetSecretDockerHubRegistryArgs {
     username: pulumi.Input<string>;
 }
 
-export interface GetSecretGithubRegistryArgs {
-    password: pulumi.Input<string>;
-    username: pulumi.Input<string>;
-}
-
 export interface GetSecretGithubRegistry {
     password: string;
     username: string;
+}
+
+export interface GetSecretGithubRegistryArgs {
+    password: pulumi.Input<string>;
+    username: pulumi.Input<string>;
 }
 
 export interface GetSecretGitlabRegistry {

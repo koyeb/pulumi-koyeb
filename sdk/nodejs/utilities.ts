@@ -50,5 +50,5 @@ export function getVersion(): string {
 
 /** @internal */
 export function resourceOptsDefaults(): any {
-    return { version: getVersion(), pluginDownloadURL: "https://github.com/koyeb/pulumi-koyeb/releases/download/${VERSION}" };
+    return { version: getVersion(), pluginDownloadURL: "https://github.com/koyeb/pulumi-koyeb/releases/download/v${VERSION}" };
 }
