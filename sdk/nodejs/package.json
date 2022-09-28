@@ -24,6 +24,7 @@
     },
     "pulumi": {
         "resource": true,
-        "pluginDownloadURL": "https://github.com/koyeb/pulumi-koyeb/releases/download/v${VERSION}"
+        "name": "koyeb",
+        "server": "https://github.com/koyeb/pulumi-koyeb/releases/download/v${VERSION}"
     }
 }

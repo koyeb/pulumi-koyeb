@@ -13,24 +13,22 @@ namespace Pulumi.Koyeb
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Koyeb = Pulumi.Koyeb;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var simple_secret = new Koyeb.KoyebSecret("simple-secret", new()
     ///     {
-    ///         var simple_secret = new Koyeb.KoyebSecret("simple-secret", new Koyeb.KoyebSecretArgs
-    ///         {
-    ///             Value = "secret-value",
-    ///         });
-    ///     }
+    ///         Value = "secret-value",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [KoyebResourceType("koyeb:index/koyebSecret:KoyebSecret")]
-    public partial class KoyebSecret : Pulumi.CustomResource
+    public partial class KoyebSecret : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Azure registry configuration to use
@@ -149,7 +147,7 @@ namespace Pulumi.Koyeb
         }
     }
 
-    public sealed class KoyebSecretArgs : Pulumi.ResourceArgs
+    public sealed class KoyebSecretArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Azure registry configuration to use
@@ -208,9 +206,10 @@ namespace Pulumi.Koyeb
         public KoyebSecretArgs()
         {
         }
+        public static new KoyebSecretArgs Empty => new KoyebSecretArgs();
     }
 
-    public sealed class KoyebSecretState : Pulumi.ResourceArgs
+    public sealed class KoyebSecretState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Azure registry configuration to use
@@ -287,5 +286,6 @@ namespace Pulumi.Koyeb
         public KoyebSecretState()
         {
         }
+        public static new KoyebSecretState Empty => new KoyebSecretState();
     }
 }

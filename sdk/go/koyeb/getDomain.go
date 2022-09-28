@@ -16,24 +16,21 @@ import (
 // package main
 //
 // import (
-//
-//	"github.com/pulumi/pulumi-koyeb/sdk/go/koyeb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
+// 	"github.com/pulumi/pulumi-koyeb/sdk/go/koyeb"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := koyeb.GetDomain(ctx, &GetDomainArgs{
-//				Name: "www.exampled.tld",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := koyeb.GetDomain(ctx, &GetDomainArgs{
+// 			Name: "www.exampled.tld",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 // ```
 func GetDomain(ctx *pulumi.Context, args *GetDomainArgs, opts ...pulumi.InvokeOption) (*GetDomainResult, error) {
 	opts = pkgInvokeDefaultOpts(opts)
@@ -47,29 +44,48 @@ func GetDomain(ctx *pulumi.Context, args *GetDomainArgs, opts ...pulumi.InvokeOp
 
 // A collection of arguments for invoking getDomain.
 type GetDomainArgs struct {
-	AppName         *string `pulumi:"appName"`
+	// The app name the domain is assigned to
+	AppName *string `pulumi:"appName"`
+	// The deployment group assigned to the domain
 	DeploymentGroup *string `pulumi:"deploymentGroup"`
-	IntendedCname   *string `pulumi:"intendedCname"`
-	Messages        *string `pulumi:"messages"`
-	Name            string  `pulumi:"name"`
-	VerifiedAt      *string `pulumi:"verifiedAt"`
+	// The CNAME record to point the domain to
+	IntendedCname *string `pulumi:"intendedCname"`
+	// The status messages of the domain
+	Messages *string `pulumi:"messages"`
+	// The domain name
+	Name string `pulumi:"name"`
+	// The date and time of when the domain was last verified
+	VerifiedAt *string `pulumi:"verifiedAt"`
 }
 
 // A collection of values returned by getDomain.
 type GetDomainResult struct {
-	AppName         *string `pulumi:"appName"`
-	CreatedAt       string  `pulumi:"createdAt"`
-	DeploymentGroup string  `pulumi:"deploymentGroup"`
-	Id              string  `pulumi:"id"`
-	IntendedCname   string  `pulumi:"intendedCname"`
-	Messages        string  `pulumi:"messages"`
-	Name            string  `pulumi:"name"`
-	OrganizationId  string  `pulumi:"organizationId"`
-	Status          string  `pulumi:"status"`
-	Type            string  `pulumi:"type"`
-	UpdatedAt       string  `pulumi:"updatedAt"`
-	VerifiedAt      string  `pulumi:"verifiedAt"`
-	Version         string  `pulumi:"version"`
+	// The app name the domain is assigned to
+	AppName *string `pulumi:"appName"`
+	// The date and time of when the domain was created
+	CreatedAt string `pulumi:"createdAt"`
+	// The deployment group assigned to the domain
+	DeploymentGroup string `pulumi:"deploymentGroup"`
+	// The domain ID
+	Id string `pulumi:"id"`
+	// The CNAME record to point the domain to
+	IntendedCname string `pulumi:"intendedCname"`
+	// The status messages of the domain
+	Messages string `pulumi:"messages"`
+	// The domain name
+	Name string `pulumi:"name"`
+	// The organization ID owning the domain
+	OrganizationId string `pulumi:"organizationId"`
+	// The status of the domain
+	Status string `pulumi:"status"`
+	// The domain type
+	Type string `pulumi:"type"`
+	// The date and time of when the domain was last updated
+	UpdatedAt string `pulumi:"updatedAt"`
+	// The date and time of when the domain was last verified
+	VerifiedAt string `pulumi:"verifiedAt"`
+	// The version of the domain
+	Version string `pulumi:"version"`
 }
 
 func GetDomainOutput(ctx *pulumi.Context, args GetDomainOutputArgs, opts ...pulumi.InvokeOption) GetDomainResultOutput {
@@ -87,12 +103,18 @@ func GetDomainOutput(ctx *pulumi.Context, args GetDomainOutputArgs, opts ...pulu
 
 // A collection of arguments for invoking getDomain.
 type GetDomainOutputArgs struct {
-	AppName         pulumi.StringPtrInput `pulumi:"appName"`
+	// The app name the domain is assigned to
+	AppName pulumi.StringPtrInput `pulumi:"appName"`
+	// The deployment group assigned to the domain
 	DeploymentGroup pulumi.StringPtrInput `pulumi:"deploymentGroup"`
-	IntendedCname   pulumi.StringPtrInput `pulumi:"intendedCname"`
-	Messages        pulumi.StringPtrInput `pulumi:"messages"`
-	Name            pulumi.StringInput    `pulumi:"name"`
-	VerifiedAt      pulumi.StringPtrInput `pulumi:"verifiedAt"`
+	// The CNAME record to point the domain to
+	IntendedCname pulumi.StringPtrInput `pulumi:"intendedCname"`
+	// The status messages of the domain
+	Messages pulumi.StringPtrInput `pulumi:"messages"`
+	// The domain name
+	Name pulumi.StringInput `pulumi:"name"`
+	// The date and time of when the domain was last verified
+	VerifiedAt pulumi.StringPtrInput `pulumi:"verifiedAt"`
 }
 
 func (GetDomainOutputArgs) ElementType() reflect.Type {
@@ -114,54 +136,67 @@ func (o GetDomainResultOutput) ToGetDomainResultOutputWithContext(ctx context.Co
 	return o
 }
 
+// The app name the domain is assigned to
 func (o GetDomainResultOutput) AppName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetDomainResult) *string { return v.AppName }).(pulumi.StringPtrOutput)
 }
 
+// The date and time of when the domain was created
 func (o GetDomainResultOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDomainResult) string { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
+// The deployment group assigned to the domain
 func (o GetDomainResultOutput) DeploymentGroup() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDomainResult) string { return v.DeploymentGroup }).(pulumi.StringOutput)
 }
 
+// The domain ID
 func (o GetDomainResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDomainResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The CNAME record to point the domain to
 func (o GetDomainResultOutput) IntendedCname() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDomainResult) string { return v.IntendedCname }).(pulumi.StringOutput)
 }
 
+// The status messages of the domain
 func (o GetDomainResultOutput) Messages() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDomainResult) string { return v.Messages }).(pulumi.StringOutput)
 }
 
+// The domain name
 func (o GetDomainResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDomainResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The organization ID owning the domain
 func (o GetDomainResultOutput) OrganizationId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDomainResult) string { return v.OrganizationId }).(pulumi.StringOutput)
 }
 
+// The status of the domain
 func (o GetDomainResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDomainResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
+// The domain type
 func (o GetDomainResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDomainResult) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// The date and time of when the domain was last updated
 func (o GetDomainResultOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDomainResult) string { return v.UpdatedAt }).(pulumi.StringOutput)
 }
 
+// The date and time of when the domain was last verified
 func (o GetDomainResultOutput) VerifiedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDomainResult) string { return v.VerifiedAt }).(pulumi.StringOutput)
 }
 
+// The version of the domain
 func (o GetDomainResultOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDomainResult) string { return v.Version }).(pulumi.StringOutput)
 }

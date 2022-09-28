@@ -16,24 +16,21 @@ import (
 // package main
 //
 // import (
-//
-//	"github.com/pulumi/pulumi-koyeb/sdk/go/koyeb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
+// 	"github.com/pulumi/pulumi-koyeb/sdk/go/koyeb"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := koyeb.GetService(ctx, &GetServiceArgs{
-//				Slug: "my-app/my-service",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := koyeb.GetService(ctx, &GetServiceArgs{
+// 			Slug: "my-app/my-service",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 // ```
 func GetService(ctx *pulumi.Context, args *GetServiceArgs, opts ...pulumi.InvokeOption) (*GetServiceResult, error) {
 	opts = pkgInvokeDefaultOpts(opts)
@@ -47,27 +44,44 @@ func GetService(ctx *pulumi.Context, args *GetServiceArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getService.
 type GetServiceArgs struct {
+	// The status messages of the service
 	Messages *string `pulumi:"messages"`
-	Slug     string  `pulumi:"slug"`
+	// The service slug composed of the app and service name, for instance my-app/my-service
+	Slug string `pulumi:"slug"`
 }
 
 // A collection of values returned by getService.
 type GetServiceResult struct {
+	// The service active deployment id
 	ActiveDeployment string `pulumi:"activeDeployment"`
-	AppId            string `pulumi:"appId"`
-	CreatedAt        string `pulumi:"createdAt"`
-	Id               string `pulumi:"id"`
+	// The app id the service is assigned
+	AppId string `pulumi:"appId"`
+	// The date and time of when the service was created
+	CreatedAt string `pulumi:"createdAt"`
+	// The id of the service
+	Id string `pulumi:"id"`
+	// The service latest deployment id
 	LatestDeployment string `pulumi:"latestDeployment"`
-	Messages         string `pulumi:"messages"`
-	Name             string `pulumi:"name"`
-	OrganizationId   string `pulumi:"organizationId"`
-	PausedAt         string `pulumi:"pausedAt"`
-	ResumedAt        string `pulumi:"resumedAt"`
-	Slug             string `pulumi:"slug"`
-	Status           string `pulumi:"status"`
-	TerminatedAt     string `pulumi:"terminatedAt"`
-	UpdatedAt        string `pulumi:"updatedAt"`
-	Version          string `pulumi:"version"`
+	// The status messages of the service
+	Messages string `pulumi:"messages"`
+	// The name of the service
+	Name string `pulumi:"name"`
+	// The organization id owning the service
+	OrganizationId string `pulumi:"organizationId"`
+	// The date and time of when the service was last updated
+	PausedAt string `pulumi:"pausedAt"`
+	// The date and time of when the service was last updated
+	ResumedAt string `pulumi:"resumedAt"`
+	// The service slug composed of the app and service name, for instance my-app/my-service
+	Slug string `pulumi:"slug"`
+	// The status of the service
+	Status string `pulumi:"status"`
+	// The date and time of when the service was last updated
+	TerminatedAt string `pulumi:"terminatedAt"`
+	// The date and time of when the service was last updated
+	UpdatedAt string `pulumi:"updatedAt"`
+	// The version of the service
+	Version string `pulumi:"version"`
 }
 
 func GetServiceOutput(ctx *pulumi.Context, args GetServiceOutputArgs, opts ...pulumi.InvokeOption) GetServiceResultOutput {
@@ -85,8 +99,10 @@ func GetServiceOutput(ctx *pulumi.Context, args GetServiceOutputArgs, opts ...pu
 
 // A collection of arguments for invoking getService.
 type GetServiceOutputArgs struct {
+	// The status messages of the service
 	Messages pulumi.StringPtrInput `pulumi:"messages"`
-	Slug     pulumi.StringInput    `pulumi:"slug"`
+	// The service slug composed of the app and service name, for instance my-app/my-service
+	Slug pulumi.StringInput `pulumi:"slug"`
 }
 
 func (GetServiceOutputArgs) ElementType() reflect.Type {
@@ -108,62 +124,77 @@ func (o GetServiceResultOutput) ToGetServiceResultOutputWithContext(ctx context.
 	return o
 }
 
+// The service active deployment id
 func (o GetServiceResultOutput) ActiveDeployment() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServiceResult) string { return v.ActiveDeployment }).(pulumi.StringOutput)
 }
 
+// The app id the service is assigned
 func (o GetServiceResultOutput) AppId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServiceResult) string { return v.AppId }).(pulumi.StringOutput)
 }
 
+// The date and time of when the service was created
 func (o GetServiceResultOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServiceResult) string { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
+// The id of the service
 func (o GetServiceResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServiceResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The service latest deployment id
 func (o GetServiceResultOutput) LatestDeployment() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServiceResult) string { return v.LatestDeployment }).(pulumi.StringOutput)
 }
 
+// The status messages of the service
 func (o GetServiceResultOutput) Messages() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServiceResult) string { return v.Messages }).(pulumi.StringOutput)
 }
 
+// The name of the service
 func (o GetServiceResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServiceResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The organization id owning the service
 func (o GetServiceResultOutput) OrganizationId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServiceResult) string { return v.OrganizationId }).(pulumi.StringOutput)
 }
 
+// The date and time of when the service was last updated
 func (o GetServiceResultOutput) PausedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServiceResult) string { return v.PausedAt }).(pulumi.StringOutput)
 }
 
+// The date and time of when the service was last updated
 func (o GetServiceResultOutput) ResumedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServiceResult) string { return v.ResumedAt }).(pulumi.StringOutput)
 }
 
+// The service slug composed of the app and service name, for instance my-app/my-service
 func (o GetServiceResultOutput) Slug() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServiceResult) string { return v.Slug }).(pulumi.StringOutput)
 }
 
+// The status of the service
 func (o GetServiceResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServiceResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
+// The date and time of when the service was last updated
 func (o GetServiceResultOutput) TerminatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServiceResult) string { return v.TerminatedAt }).(pulumi.StringOutput)
 }
 
+// The date and time of when the service was last updated
 func (o GetServiceResultOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServiceResult) string { return v.UpdatedAt }).(pulumi.StringOutput)
 }
 
+// The version of the service
 func (o GetServiceResultOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServiceResult) string { return v.Version }).(pulumi.StringOutput)
 }

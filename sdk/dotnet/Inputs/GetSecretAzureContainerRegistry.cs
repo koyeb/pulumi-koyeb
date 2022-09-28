@@ -10,19 +10,29 @@ using Pulumi.Serialization;
 namespace Pulumi.Koyeb.Inputs
 {
 
-    public sealed class GetSecretAzureContainerRegistryArgs : Pulumi.InvokeArgs
+    public sealed class GetSecretAzureContainerRegistryArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The registry password
+        /// </summary>
         [Input("password", required: true)]
         public string Password { get; set; } = null!;
 
+        /// <summary>
+        /// The registry name
+        /// </summary>
         [Input("registryName", required: true)]
         public string RegistryName { get; set; } = null!;
 
+        /// <summary>
+        /// The registry username
+        /// </summary>
         [Input("username", required: true)]
         public string Username { get; set; } = null!;
 
         public GetSecretAzureContainerRegistryArgs()
         {
         }
+        public static new GetSecretAzureContainerRegistryArgs Empty => new GetSecretAzureContainerRegistryArgs();
     }
 }

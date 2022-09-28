@@ -11,25 +11,30 @@ import (
 )
 
 type KoyebAppDomain struct {
-	AppName         *string `pulumi:"appName"`
+	AppName *string `pulumi:"appName"`
+	// The date and time of when the app was created
 	CreatedAt       *string `pulumi:"createdAt"`
 	DeploymentGroup *string `pulumi:"deploymentGroup"`
-	Id              *string `pulumi:"id"`
-	IntendedCname   *string `pulumi:"intendedCname"`
-	Messages        *string `pulumi:"messages"`
-	Name            string  `pulumi:"name"`
-	OrganizationId  *string `pulumi:"organizationId"`
-	Status          *string `pulumi:"status"`
-	Type            *string `pulumi:"type"`
-	UpdatedAt       *string `pulumi:"updatedAt"`
-	VerifiedAt      *string `pulumi:"verifiedAt"`
-	Version         *string `pulumi:"version"`
+	// The app ID
+	Id            *string `pulumi:"id"`
+	IntendedCname *string `pulumi:"intendedCname"`
+	Messages      *string `pulumi:"messages"`
+	// The app name
+	Name string `pulumi:"name"`
+	// The organization ID owning the app
+	OrganizationId *string `pulumi:"organizationId"`
+	Status         *string `pulumi:"status"`
+	Type           *string `pulumi:"type"`
+	// The date and time of when the app was last updated
+	UpdatedAt  *string `pulumi:"updatedAt"`
+	VerifiedAt *string `pulumi:"verifiedAt"`
+	Version    *string `pulumi:"version"`
 }
 
 // KoyebAppDomainInput is an input type that accepts KoyebAppDomainArgs and KoyebAppDomainOutput values.
 // You can construct a concrete instance of `KoyebAppDomainInput` via:
 //
-//	KoyebAppDomainArgs{...}
+//          KoyebAppDomainArgs{...}
 type KoyebAppDomainInput interface {
 	pulumi.Input
 
@@ -38,19 +43,24 @@ type KoyebAppDomainInput interface {
 }
 
 type KoyebAppDomainArgs struct {
-	AppName         pulumi.StringPtrInput `pulumi:"appName"`
+	AppName pulumi.StringPtrInput `pulumi:"appName"`
+	// The date and time of when the app was created
 	CreatedAt       pulumi.StringPtrInput `pulumi:"createdAt"`
 	DeploymentGroup pulumi.StringPtrInput `pulumi:"deploymentGroup"`
-	Id              pulumi.StringPtrInput `pulumi:"id"`
-	IntendedCname   pulumi.StringPtrInput `pulumi:"intendedCname"`
-	Messages        pulumi.StringPtrInput `pulumi:"messages"`
-	Name            pulumi.StringInput    `pulumi:"name"`
-	OrganizationId  pulumi.StringPtrInput `pulumi:"organizationId"`
-	Status          pulumi.StringPtrInput `pulumi:"status"`
-	Type            pulumi.StringPtrInput `pulumi:"type"`
-	UpdatedAt       pulumi.StringPtrInput `pulumi:"updatedAt"`
-	VerifiedAt      pulumi.StringPtrInput `pulumi:"verifiedAt"`
-	Version         pulumi.StringPtrInput `pulumi:"version"`
+	// The app ID
+	Id            pulumi.StringPtrInput `pulumi:"id"`
+	IntendedCname pulumi.StringPtrInput `pulumi:"intendedCname"`
+	Messages      pulumi.StringPtrInput `pulumi:"messages"`
+	// The app name
+	Name pulumi.StringInput `pulumi:"name"`
+	// The organization ID owning the app
+	OrganizationId pulumi.StringPtrInput `pulumi:"organizationId"`
+	Status         pulumi.StringPtrInput `pulumi:"status"`
+	Type           pulumi.StringPtrInput `pulumi:"type"`
+	// The date and time of when the app was last updated
+	UpdatedAt  pulumi.StringPtrInput `pulumi:"updatedAt"`
+	VerifiedAt pulumi.StringPtrInput `pulumi:"verifiedAt"`
+	Version    pulumi.StringPtrInput `pulumi:"version"`
 }
 
 func (KoyebAppDomainArgs) ElementType() reflect.Type {
@@ -68,7 +78,7 @@ func (i KoyebAppDomainArgs) ToKoyebAppDomainOutputWithContext(ctx context.Contex
 // KoyebAppDomainArrayInput is an input type that accepts KoyebAppDomainArray and KoyebAppDomainArrayOutput values.
 // You can construct a concrete instance of `KoyebAppDomainArrayInput` via:
 //
-//	KoyebAppDomainArray{ KoyebAppDomainArgs{...} }
+//          KoyebAppDomainArray{ KoyebAppDomainArgs{...} }
 type KoyebAppDomainArrayInput interface {
 	pulumi.Input
 
@@ -108,6 +118,7 @@ func (o KoyebAppDomainOutput) AppName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KoyebAppDomain) *string { return v.AppName }).(pulumi.StringPtrOutput)
 }
 
+// The date and time of when the app was created
 func (o KoyebAppDomainOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KoyebAppDomain) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
@@ -116,6 +127,7 @@ func (o KoyebAppDomainOutput) DeploymentGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KoyebAppDomain) *string { return v.DeploymentGroup }).(pulumi.StringPtrOutput)
 }
 
+// The app ID
 func (o KoyebAppDomainOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KoyebAppDomain) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -128,10 +140,12 @@ func (o KoyebAppDomainOutput) Messages() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KoyebAppDomain) *string { return v.Messages }).(pulumi.StringPtrOutput)
 }
 
+// The app name
 func (o KoyebAppDomainOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v KoyebAppDomain) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The organization ID owning the app
 func (o KoyebAppDomainOutput) OrganizationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KoyebAppDomain) *string { return v.OrganizationId }).(pulumi.StringPtrOutput)
 }
@@ -144,6 +158,7 @@ func (o KoyebAppDomainOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KoyebAppDomain) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
+// The date and time of when the app was last updated
 func (o KoyebAppDomainOutput) UpdatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KoyebAppDomain) *string { return v.UpdatedAt }).(pulumi.StringPtrOutput)
 }
@@ -177,15 +192,18 @@ func (o KoyebAppDomainArrayOutput) Index(i pulumi.IntInput) KoyebAppDomainOutput
 }
 
 type KoyebSecretAzureContainerRegistry struct {
-	Password     string `pulumi:"password"`
+	// The registry password
+	Password string `pulumi:"password"`
+	// The registry name
 	RegistryName string `pulumi:"registryName"`
-	Username     string `pulumi:"username"`
+	// The registry username
+	Username string `pulumi:"username"`
 }
 
 // KoyebSecretAzureContainerRegistryInput is an input type that accepts KoyebSecretAzureContainerRegistryArgs and KoyebSecretAzureContainerRegistryOutput values.
 // You can construct a concrete instance of `KoyebSecretAzureContainerRegistryInput` via:
 //
-//	KoyebSecretAzureContainerRegistryArgs{...}
+//          KoyebSecretAzureContainerRegistryArgs{...}
 type KoyebSecretAzureContainerRegistryInput interface {
 	pulumi.Input
 
@@ -194,9 +212,12 @@ type KoyebSecretAzureContainerRegistryInput interface {
 }
 
 type KoyebSecretAzureContainerRegistryArgs struct {
-	Password     pulumi.StringInput `pulumi:"password"`
+	// The registry password
+	Password pulumi.StringInput `pulumi:"password"`
+	// The registry name
 	RegistryName pulumi.StringInput `pulumi:"registryName"`
-	Username     pulumi.StringInput `pulumi:"username"`
+	// The registry username
+	Username pulumi.StringInput `pulumi:"username"`
 }
 
 func (KoyebSecretAzureContainerRegistryArgs) ElementType() reflect.Type {
@@ -222,11 +243,11 @@ func (i KoyebSecretAzureContainerRegistryArgs) ToKoyebSecretAzureContainerRegist
 // KoyebSecretAzureContainerRegistryPtrInput is an input type that accepts KoyebSecretAzureContainerRegistryArgs, KoyebSecretAzureContainerRegistryPtr and KoyebSecretAzureContainerRegistryPtrOutput values.
 // You can construct a concrete instance of `KoyebSecretAzureContainerRegistryPtrInput` via:
 //
-//	        KoyebSecretAzureContainerRegistryArgs{...}
+//          KoyebSecretAzureContainerRegistryArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type KoyebSecretAzureContainerRegistryPtrInput interface {
 	pulumi.Input
 
@@ -276,14 +297,17 @@ func (o KoyebSecretAzureContainerRegistryOutput) ToKoyebSecretAzureContainerRegi
 	}).(KoyebSecretAzureContainerRegistryPtrOutput)
 }
 
+// The registry password
 func (o KoyebSecretAzureContainerRegistryOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v KoyebSecretAzureContainerRegistry) string { return v.Password }).(pulumi.StringOutput)
 }
 
+// The registry name
 func (o KoyebSecretAzureContainerRegistryOutput) RegistryName() pulumi.StringOutput {
 	return o.ApplyT(func(v KoyebSecretAzureContainerRegistry) string { return v.RegistryName }).(pulumi.StringOutput)
 }
 
+// The registry username
 func (o KoyebSecretAzureContainerRegistryOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v KoyebSecretAzureContainerRegistry) string { return v.Username }).(pulumi.StringOutput)
 }
@@ -312,6 +336,7 @@ func (o KoyebSecretAzureContainerRegistryPtrOutput) Elem() KoyebSecretAzureConta
 	}).(KoyebSecretAzureContainerRegistryOutput)
 }
 
+// The registry password
 func (o KoyebSecretAzureContainerRegistryPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KoyebSecretAzureContainerRegistry) *string {
 		if v == nil {
@@ -321,6 +346,7 @@ func (o KoyebSecretAzureContainerRegistryPtrOutput) Password() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// The registry name
 func (o KoyebSecretAzureContainerRegistryPtrOutput) RegistryName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KoyebSecretAzureContainerRegistry) *string {
 		if v == nil {
@@ -330,6 +356,7 @@ func (o KoyebSecretAzureContainerRegistryPtrOutput) RegistryName() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
+// The registry username
 func (o KoyebSecretAzureContainerRegistryPtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KoyebSecretAzureContainerRegistry) *string {
 		if v == nil {
@@ -340,14 +367,16 @@ func (o KoyebSecretAzureContainerRegistryPtrOutput) Username() pulumi.StringPtrO
 }
 
 type KoyebSecretDigitalOceanContainerRegistry struct {
+	// The registry password
 	Password string `pulumi:"password"`
+	// The registry username
 	Username string `pulumi:"username"`
 }
 
 // KoyebSecretDigitalOceanContainerRegistryInput is an input type that accepts KoyebSecretDigitalOceanContainerRegistryArgs and KoyebSecretDigitalOceanContainerRegistryOutput values.
 // You can construct a concrete instance of `KoyebSecretDigitalOceanContainerRegistryInput` via:
 //
-//	KoyebSecretDigitalOceanContainerRegistryArgs{...}
+//          KoyebSecretDigitalOceanContainerRegistryArgs{...}
 type KoyebSecretDigitalOceanContainerRegistryInput interface {
 	pulumi.Input
 
@@ -356,7 +385,9 @@ type KoyebSecretDigitalOceanContainerRegistryInput interface {
 }
 
 type KoyebSecretDigitalOceanContainerRegistryArgs struct {
+	// The registry password
 	Password pulumi.StringInput `pulumi:"password"`
+	// The registry username
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -383,11 +414,11 @@ func (i KoyebSecretDigitalOceanContainerRegistryArgs) ToKoyebSecretDigitalOceanC
 // KoyebSecretDigitalOceanContainerRegistryPtrInput is an input type that accepts KoyebSecretDigitalOceanContainerRegistryArgs, KoyebSecretDigitalOceanContainerRegistryPtr and KoyebSecretDigitalOceanContainerRegistryPtrOutput values.
 // You can construct a concrete instance of `KoyebSecretDigitalOceanContainerRegistryPtrInput` via:
 //
-//	        KoyebSecretDigitalOceanContainerRegistryArgs{...}
+//          KoyebSecretDigitalOceanContainerRegistryArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type KoyebSecretDigitalOceanContainerRegistryPtrInput interface {
 	pulumi.Input
 
@@ -437,10 +468,12 @@ func (o KoyebSecretDigitalOceanContainerRegistryOutput) ToKoyebSecretDigitalOcea
 	}).(KoyebSecretDigitalOceanContainerRegistryPtrOutput)
 }
 
+// The registry password
 func (o KoyebSecretDigitalOceanContainerRegistryOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v KoyebSecretDigitalOceanContainerRegistry) string { return v.Password }).(pulumi.StringOutput)
 }
 
+// The registry username
 func (o KoyebSecretDigitalOceanContainerRegistryOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v KoyebSecretDigitalOceanContainerRegistry) string { return v.Username }).(pulumi.StringOutput)
 }
@@ -469,6 +502,7 @@ func (o KoyebSecretDigitalOceanContainerRegistryPtrOutput) Elem() KoyebSecretDig
 	}).(KoyebSecretDigitalOceanContainerRegistryOutput)
 }
 
+// The registry password
 func (o KoyebSecretDigitalOceanContainerRegistryPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KoyebSecretDigitalOceanContainerRegistry) *string {
 		if v == nil {
@@ -478,6 +512,7 @@ func (o KoyebSecretDigitalOceanContainerRegistryPtrOutput) Password() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
+// The registry username
 func (o KoyebSecretDigitalOceanContainerRegistryPtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KoyebSecretDigitalOceanContainerRegistry) *string {
 		if v == nil {
@@ -488,14 +523,16 @@ func (o KoyebSecretDigitalOceanContainerRegistryPtrOutput) Username() pulumi.Str
 }
 
 type KoyebSecretDockerHubRegistry struct {
+	// The registry password
 	Password string `pulumi:"password"`
+	// The registry username
 	Username string `pulumi:"username"`
 }
 
 // KoyebSecretDockerHubRegistryInput is an input type that accepts KoyebSecretDockerHubRegistryArgs and KoyebSecretDockerHubRegistryOutput values.
 // You can construct a concrete instance of `KoyebSecretDockerHubRegistryInput` via:
 //
-//	KoyebSecretDockerHubRegistryArgs{...}
+//          KoyebSecretDockerHubRegistryArgs{...}
 type KoyebSecretDockerHubRegistryInput interface {
 	pulumi.Input
 
@@ -504,7 +541,9 @@ type KoyebSecretDockerHubRegistryInput interface {
 }
 
 type KoyebSecretDockerHubRegistryArgs struct {
+	// The registry password
 	Password pulumi.StringInput `pulumi:"password"`
+	// The registry username
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -531,11 +570,11 @@ func (i KoyebSecretDockerHubRegistryArgs) ToKoyebSecretDockerHubRegistryPtrOutpu
 // KoyebSecretDockerHubRegistryPtrInput is an input type that accepts KoyebSecretDockerHubRegistryArgs, KoyebSecretDockerHubRegistryPtr and KoyebSecretDockerHubRegistryPtrOutput values.
 // You can construct a concrete instance of `KoyebSecretDockerHubRegistryPtrInput` via:
 //
-//	        KoyebSecretDockerHubRegistryArgs{...}
+//          KoyebSecretDockerHubRegistryArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type KoyebSecretDockerHubRegistryPtrInput interface {
 	pulumi.Input
 
@@ -585,10 +624,12 @@ func (o KoyebSecretDockerHubRegistryOutput) ToKoyebSecretDockerHubRegistryPtrOut
 	}).(KoyebSecretDockerHubRegistryPtrOutput)
 }
 
+// The registry password
 func (o KoyebSecretDockerHubRegistryOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v KoyebSecretDockerHubRegistry) string { return v.Password }).(pulumi.StringOutput)
 }
 
+// The registry username
 func (o KoyebSecretDockerHubRegistryOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v KoyebSecretDockerHubRegistry) string { return v.Username }).(pulumi.StringOutput)
 }
@@ -617,6 +658,7 @@ func (o KoyebSecretDockerHubRegistryPtrOutput) Elem() KoyebSecretDockerHubRegist
 	}).(KoyebSecretDockerHubRegistryOutput)
 }
 
+// The registry password
 func (o KoyebSecretDockerHubRegistryPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KoyebSecretDockerHubRegistry) *string {
 		if v == nil {
@@ -626,6 +668,7 @@ func (o KoyebSecretDockerHubRegistryPtrOutput) Password() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// The registry username
 func (o KoyebSecretDockerHubRegistryPtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KoyebSecretDockerHubRegistry) *string {
 		if v == nil {
@@ -636,14 +679,16 @@ func (o KoyebSecretDockerHubRegistryPtrOutput) Username() pulumi.StringPtrOutput
 }
 
 type KoyebSecretGithubRegistry struct {
+	// The registry password
 	Password string `pulumi:"password"`
+	// The registry username
 	Username string `pulumi:"username"`
 }
 
 // KoyebSecretGithubRegistryInput is an input type that accepts KoyebSecretGithubRegistryArgs and KoyebSecretGithubRegistryOutput values.
 // You can construct a concrete instance of `KoyebSecretGithubRegistryInput` via:
 //
-//	KoyebSecretGithubRegistryArgs{...}
+//          KoyebSecretGithubRegistryArgs{...}
 type KoyebSecretGithubRegistryInput interface {
 	pulumi.Input
 
@@ -652,7 +697,9 @@ type KoyebSecretGithubRegistryInput interface {
 }
 
 type KoyebSecretGithubRegistryArgs struct {
+	// The registry password
 	Password pulumi.StringInput `pulumi:"password"`
+	// The registry username
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -679,11 +726,11 @@ func (i KoyebSecretGithubRegistryArgs) ToKoyebSecretGithubRegistryPtrOutputWithC
 // KoyebSecretGithubRegistryPtrInput is an input type that accepts KoyebSecretGithubRegistryArgs, KoyebSecretGithubRegistryPtr and KoyebSecretGithubRegistryPtrOutput values.
 // You can construct a concrete instance of `KoyebSecretGithubRegistryPtrInput` via:
 //
-//	        KoyebSecretGithubRegistryArgs{...}
+//          KoyebSecretGithubRegistryArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type KoyebSecretGithubRegistryPtrInput interface {
 	pulumi.Input
 
@@ -733,10 +780,12 @@ func (o KoyebSecretGithubRegistryOutput) ToKoyebSecretGithubRegistryPtrOutputWit
 	}).(KoyebSecretGithubRegistryPtrOutput)
 }
 
+// The registry password
 func (o KoyebSecretGithubRegistryOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v KoyebSecretGithubRegistry) string { return v.Password }).(pulumi.StringOutput)
 }
 
+// The registry username
 func (o KoyebSecretGithubRegistryOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v KoyebSecretGithubRegistry) string { return v.Username }).(pulumi.StringOutput)
 }
@@ -765,6 +814,7 @@ func (o KoyebSecretGithubRegistryPtrOutput) Elem() KoyebSecretGithubRegistryOutp
 	}).(KoyebSecretGithubRegistryOutput)
 }
 
+// The registry password
 func (o KoyebSecretGithubRegistryPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KoyebSecretGithubRegistry) *string {
 		if v == nil {
@@ -774,6 +824,7 @@ func (o KoyebSecretGithubRegistryPtrOutput) Password() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The registry username
 func (o KoyebSecretGithubRegistryPtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KoyebSecretGithubRegistry) *string {
 		if v == nil {
@@ -784,14 +835,16 @@ func (o KoyebSecretGithubRegistryPtrOutput) Username() pulumi.StringPtrOutput {
 }
 
 type KoyebSecretGitlabRegistry struct {
+	// The registry password
 	Password string `pulumi:"password"`
+	// The registry username
 	Username string `pulumi:"username"`
 }
 
 // KoyebSecretGitlabRegistryInput is an input type that accepts KoyebSecretGitlabRegistryArgs and KoyebSecretGitlabRegistryOutput values.
 // You can construct a concrete instance of `KoyebSecretGitlabRegistryInput` via:
 //
-//	KoyebSecretGitlabRegistryArgs{...}
+//          KoyebSecretGitlabRegistryArgs{...}
 type KoyebSecretGitlabRegistryInput interface {
 	pulumi.Input
 
@@ -800,7 +853,9 @@ type KoyebSecretGitlabRegistryInput interface {
 }
 
 type KoyebSecretGitlabRegistryArgs struct {
+	// The registry password
 	Password pulumi.StringInput `pulumi:"password"`
+	// The registry username
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -827,11 +882,11 @@ func (i KoyebSecretGitlabRegistryArgs) ToKoyebSecretGitlabRegistryPtrOutputWithC
 // KoyebSecretGitlabRegistryPtrInput is an input type that accepts KoyebSecretGitlabRegistryArgs, KoyebSecretGitlabRegistryPtr and KoyebSecretGitlabRegistryPtrOutput values.
 // You can construct a concrete instance of `KoyebSecretGitlabRegistryPtrInput` via:
 //
-//	        KoyebSecretGitlabRegistryArgs{...}
+//          KoyebSecretGitlabRegistryArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type KoyebSecretGitlabRegistryPtrInput interface {
 	pulumi.Input
 
@@ -881,10 +936,12 @@ func (o KoyebSecretGitlabRegistryOutput) ToKoyebSecretGitlabRegistryPtrOutputWit
 	}).(KoyebSecretGitlabRegistryPtrOutput)
 }
 
+// The registry password
 func (o KoyebSecretGitlabRegistryOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v KoyebSecretGitlabRegistry) string { return v.Password }).(pulumi.StringOutput)
 }
 
+// The registry username
 func (o KoyebSecretGitlabRegistryOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v KoyebSecretGitlabRegistry) string { return v.Username }).(pulumi.StringOutput)
 }
@@ -913,6 +970,7 @@ func (o KoyebSecretGitlabRegistryPtrOutput) Elem() KoyebSecretGitlabRegistryOutp
 	}).(KoyebSecretGitlabRegistryOutput)
 }
 
+// The registry password
 func (o KoyebSecretGitlabRegistryPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KoyebSecretGitlabRegistry) *string {
 		if v == nil {
@@ -922,6 +980,7 @@ func (o KoyebSecretGitlabRegistryPtrOutput) Password() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The registry username
 func (o KoyebSecretGitlabRegistryPtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KoyebSecretGitlabRegistry) *string {
 		if v == nil {
@@ -932,15 +991,18 @@ func (o KoyebSecretGitlabRegistryPtrOutput) Username() pulumi.StringPtrOutput {
 }
 
 type KoyebSecretPrivateRegistry struct {
+	// The registry password
 	Password string `pulumi:"password"`
-	Url      string `pulumi:"url"`
+	// The registry url
+	Url string `pulumi:"url"`
+	// The registry username
 	Username string `pulumi:"username"`
 }
 
 // KoyebSecretPrivateRegistryInput is an input type that accepts KoyebSecretPrivateRegistryArgs and KoyebSecretPrivateRegistryOutput values.
 // You can construct a concrete instance of `KoyebSecretPrivateRegistryInput` via:
 //
-//	KoyebSecretPrivateRegistryArgs{...}
+//          KoyebSecretPrivateRegistryArgs{...}
 type KoyebSecretPrivateRegistryInput interface {
 	pulumi.Input
 
@@ -949,8 +1011,11 @@ type KoyebSecretPrivateRegistryInput interface {
 }
 
 type KoyebSecretPrivateRegistryArgs struct {
+	// The registry password
 	Password pulumi.StringInput `pulumi:"password"`
-	Url      pulumi.StringInput `pulumi:"url"`
+	// The registry url
+	Url pulumi.StringInput `pulumi:"url"`
+	// The registry username
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -977,11 +1042,11 @@ func (i KoyebSecretPrivateRegistryArgs) ToKoyebSecretPrivateRegistryPtrOutputWit
 // KoyebSecretPrivateRegistryPtrInput is an input type that accepts KoyebSecretPrivateRegistryArgs, KoyebSecretPrivateRegistryPtr and KoyebSecretPrivateRegistryPtrOutput values.
 // You can construct a concrete instance of `KoyebSecretPrivateRegistryPtrInput` via:
 //
-//	        KoyebSecretPrivateRegistryArgs{...}
+//          KoyebSecretPrivateRegistryArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type KoyebSecretPrivateRegistryPtrInput interface {
 	pulumi.Input
 
@@ -1031,14 +1096,17 @@ func (o KoyebSecretPrivateRegistryOutput) ToKoyebSecretPrivateRegistryPtrOutputW
 	}).(KoyebSecretPrivateRegistryPtrOutput)
 }
 
+// The registry password
 func (o KoyebSecretPrivateRegistryOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v KoyebSecretPrivateRegistry) string { return v.Password }).(pulumi.StringOutput)
 }
 
+// The registry url
 func (o KoyebSecretPrivateRegistryOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v KoyebSecretPrivateRegistry) string { return v.Url }).(pulumi.StringOutput)
 }
 
+// The registry username
 func (o KoyebSecretPrivateRegistryOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v KoyebSecretPrivateRegistry) string { return v.Username }).(pulumi.StringOutput)
 }
@@ -1067,6 +1135,7 @@ func (o KoyebSecretPrivateRegistryPtrOutput) Elem() KoyebSecretPrivateRegistryOu
 	}).(KoyebSecretPrivateRegistryOutput)
 }
 
+// The registry password
 func (o KoyebSecretPrivateRegistryPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KoyebSecretPrivateRegistry) *string {
 		if v == nil {
@@ -1076,6 +1145,7 @@ func (o KoyebSecretPrivateRegistryPtrOutput) Password() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The registry url
 func (o KoyebSecretPrivateRegistryPtrOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KoyebSecretPrivateRegistry) *string {
 		if v == nil {
@@ -1085,6 +1155,7 @@ func (o KoyebSecretPrivateRegistryPtrOutput) Url() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The registry username
 func (o KoyebSecretPrivateRegistryPtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KoyebSecretPrivateRegistry) *string {
 		if v == nil {
@@ -1099,17 +1170,19 @@ type KoyebServiceDefinition struct {
 	Envs          []KoyebServiceDefinitionEnv         `pulumi:"envs"`
 	Git           *KoyebServiceDefinitionGit          `pulumi:"git"`
 	InstanceTypes KoyebServiceDefinitionInstanceTypes `pulumi:"instanceTypes"`
-	Name          string                              `pulumi:"name"`
-	Ports         []KoyebServiceDefinitionPort        `pulumi:"ports"`
-	Regions       []string                            `pulumi:"regions"`
-	Routes        []KoyebServiceDefinitionRoute       `pulumi:"routes"`
-	Scalings      KoyebServiceDefinitionScalings      `pulumi:"scalings"`
+	// The service name
+	Name  string                       `pulumi:"name"`
+	Ports []KoyebServiceDefinitionPort `pulumi:"ports"`
+	// The service deployment regions to deploy to
+	Regions  []string                       `pulumi:"regions"`
+	Routes   []KoyebServiceDefinitionRoute  `pulumi:"routes"`
+	Scalings KoyebServiceDefinitionScalings `pulumi:"scalings"`
 }
 
 // KoyebServiceDefinitionInput is an input type that accepts KoyebServiceDefinitionArgs and KoyebServiceDefinitionOutput values.
 // You can construct a concrete instance of `KoyebServiceDefinitionInput` via:
 //
-//	KoyebServiceDefinitionArgs{...}
+//          KoyebServiceDefinitionArgs{...}
 type KoyebServiceDefinitionInput interface {
 	pulumi.Input
 
@@ -1122,11 +1195,13 @@ type KoyebServiceDefinitionArgs struct {
 	Envs          KoyebServiceDefinitionEnvArrayInput      `pulumi:"envs"`
 	Git           KoyebServiceDefinitionGitPtrInput        `pulumi:"git"`
 	InstanceTypes KoyebServiceDefinitionInstanceTypesInput `pulumi:"instanceTypes"`
-	Name          pulumi.StringInput                       `pulumi:"name"`
-	Ports         KoyebServiceDefinitionPortArrayInput     `pulumi:"ports"`
-	Regions       pulumi.StringArrayInput                  `pulumi:"regions"`
-	Routes        KoyebServiceDefinitionRouteArrayInput    `pulumi:"routes"`
-	Scalings      KoyebServiceDefinitionScalingsInput      `pulumi:"scalings"`
+	// The service name
+	Name  pulumi.StringInput                   `pulumi:"name"`
+	Ports KoyebServiceDefinitionPortArrayInput `pulumi:"ports"`
+	// The service deployment regions to deploy to
+	Regions  pulumi.StringArrayInput               `pulumi:"regions"`
+	Routes   KoyebServiceDefinitionRouteArrayInput `pulumi:"routes"`
+	Scalings KoyebServiceDefinitionScalingsInput   `pulumi:"scalings"`
 }
 
 func (KoyebServiceDefinitionArgs) ElementType() reflect.Type {
@@ -1152,11 +1227,11 @@ func (i KoyebServiceDefinitionArgs) ToKoyebServiceDefinitionPtrOutputWithContext
 // KoyebServiceDefinitionPtrInput is an input type that accepts KoyebServiceDefinitionArgs, KoyebServiceDefinitionPtr and KoyebServiceDefinitionPtrOutput values.
 // You can construct a concrete instance of `KoyebServiceDefinitionPtrInput` via:
 //
-//	        KoyebServiceDefinitionArgs{...}
+//          KoyebServiceDefinitionArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type KoyebServiceDefinitionPtrInput interface {
 	pulumi.Input
 
@@ -1222,6 +1297,7 @@ func (o KoyebServiceDefinitionOutput) InstanceTypes() KoyebServiceDefinitionInst
 	return o.ApplyT(func(v KoyebServiceDefinition) KoyebServiceDefinitionInstanceTypes { return v.InstanceTypes }).(KoyebServiceDefinitionInstanceTypesOutput)
 }
 
+// The service name
 func (o KoyebServiceDefinitionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v KoyebServiceDefinition) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1230,6 +1306,7 @@ func (o KoyebServiceDefinitionOutput) Ports() KoyebServiceDefinitionPortArrayOut
 	return o.ApplyT(func(v KoyebServiceDefinition) []KoyebServiceDefinitionPort { return v.Ports }).(KoyebServiceDefinitionPortArrayOutput)
 }
 
+// The service deployment regions to deploy to
 func (o KoyebServiceDefinitionOutput) Regions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v KoyebServiceDefinition) []string { return v.Regions }).(pulumi.StringArrayOutput)
 }
@@ -1302,6 +1379,7 @@ func (o KoyebServiceDefinitionPtrOutput) InstanceTypes() KoyebServiceDefinitionI
 	}).(KoyebServiceDefinitionInstanceTypesPtrOutput)
 }
 
+// The service name
 func (o KoyebServiceDefinitionPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KoyebServiceDefinition) *string {
 		if v == nil {
@@ -1320,6 +1398,7 @@ func (o KoyebServiceDefinitionPtrOutput) Ports() KoyebServiceDefinitionPortArray
 	}).(KoyebServiceDefinitionPortArrayOutput)
 }
 
+// The service deployment regions to deploy to
 func (o KoyebServiceDefinitionPtrOutput) Regions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *KoyebServiceDefinition) []string {
 		if v == nil {
@@ -1357,7 +1436,7 @@ type KoyebServiceDefinitionDocker struct {
 // KoyebServiceDefinitionDockerInput is an input type that accepts KoyebServiceDefinitionDockerArgs and KoyebServiceDefinitionDockerOutput values.
 // You can construct a concrete instance of `KoyebServiceDefinitionDockerInput` via:
 //
-//	KoyebServiceDefinitionDockerArgs{...}
+//          KoyebServiceDefinitionDockerArgs{...}
 type KoyebServiceDefinitionDockerInput interface {
 	pulumi.Input
 
@@ -1395,11 +1474,11 @@ func (i KoyebServiceDefinitionDockerArgs) ToKoyebServiceDefinitionDockerPtrOutpu
 // KoyebServiceDefinitionDockerPtrInput is an input type that accepts KoyebServiceDefinitionDockerArgs, KoyebServiceDefinitionDockerPtr and KoyebServiceDefinitionDockerPtrOutput values.
 // You can construct a concrete instance of `KoyebServiceDefinitionDockerPtrInput` via:
 //
-//	        KoyebServiceDefinitionDockerArgs{...}
+//          KoyebServiceDefinitionDockerArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type KoyebServiceDefinitionDockerPtrInput interface {
 	pulumi.Input
 
@@ -1534,7 +1613,7 @@ type KoyebServiceDefinitionEnv struct {
 // KoyebServiceDefinitionEnvInput is an input type that accepts KoyebServiceDefinitionEnvArgs and KoyebServiceDefinitionEnvOutput values.
 // You can construct a concrete instance of `KoyebServiceDefinitionEnvInput` via:
 //
-//	KoyebServiceDefinitionEnvArgs{...}
+//          KoyebServiceDefinitionEnvArgs{...}
 type KoyebServiceDefinitionEnvInput interface {
 	pulumi.Input
 
@@ -1563,7 +1642,7 @@ func (i KoyebServiceDefinitionEnvArgs) ToKoyebServiceDefinitionEnvOutputWithCont
 // KoyebServiceDefinitionEnvArrayInput is an input type that accepts KoyebServiceDefinitionEnvArray and KoyebServiceDefinitionEnvArrayOutput values.
 // You can construct a concrete instance of `KoyebServiceDefinitionEnvArrayInput` via:
 //
-//	KoyebServiceDefinitionEnvArray{ KoyebServiceDefinitionEnvArgs{...} }
+//          KoyebServiceDefinitionEnvArray{ KoyebServiceDefinitionEnvArgs{...} }
 type KoyebServiceDefinitionEnvArrayInput interface {
 	pulumi.Input
 
@@ -1642,7 +1721,7 @@ type KoyebServiceDefinitionGit struct {
 // KoyebServiceDefinitionGitInput is an input type that accepts KoyebServiceDefinitionGitArgs and KoyebServiceDefinitionGitOutput values.
 // You can construct a concrete instance of `KoyebServiceDefinitionGitInput` via:
 //
-//	KoyebServiceDefinitionGitArgs{...}
+//          KoyebServiceDefinitionGitArgs{...}
 type KoyebServiceDefinitionGitInput interface {
 	pulumi.Input
 
@@ -1681,11 +1760,11 @@ func (i KoyebServiceDefinitionGitArgs) ToKoyebServiceDefinitionGitPtrOutputWithC
 // KoyebServiceDefinitionGitPtrInput is an input type that accepts KoyebServiceDefinitionGitArgs, KoyebServiceDefinitionGitPtr and KoyebServiceDefinitionGitPtrOutput values.
 // You can construct a concrete instance of `KoyebServiceDefinitionGitPtrInput` via:
 //
-//	        KoyebServiceDefinitionGitArgs{...}
+//          KoyebServiceDefinitionGitArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type KoyebServiceDefinitionGitPtrInput interface {
 	pulumi.Input
 
@@ -1831,7 +1910,7 @@ type KoyebServiceDefinitionInstanceTypes struct {
 // KoyebServiceDefinitionInstanceTypesInput is an input type that accepts KoyebServiceDefinitionInstanceTypesArgs and KoyebServiceDefinitionInstanceTypesOutput values.
 // You can construct a concrete instance of `KoyebServiceDefinitionInstanceTypesInput` via:
 //
-//	KoyebServiceDefinitionInstanceTypesArgs{...}
+//          KoyebServiceDefinitionInstanceTypesArgs{...}
 type KoyebServiceDefinitionInstanceTypesInput interface {
 	pulumi.Input
 
@@ -1866,11 +1945,11 @@ func (i KoyebServiceDefinitionInstanceTypesArgs) ToKoyebServiceDefinitionInstanc
 // KoyebServiceDefinitionInstanceTypesPtrInput is an input type that accepts KoyebServiceDefinitionInstanceTypesArgs, KoyebServiceDefinitionInstanceTypesPtr and KoyebServiceDefinitionInstanceTypesPtrOutput values.
 // You can construct a concrete instance of `KoyebServiceDefinitionInstanceTypesPtrInput` via:
 //
-//	        KoyebServiceDefinitionInstanceTypesArgs{...}
+//          KoyebServiceDefinitionInstanceTypesArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type KoyebServiceDefinitionInstanceTypesPtrInput interface {
 	pulumi.Input
 
@@ -1965,7 +2044,7 @@ type KoyebServiceDefinitionPort struct {
 // KoyebServiceDefinitionPortInput is an input type that accepts KoyebServiceDefinitionPortArgs and KoyebServiceDefinitionPortOutput values.
 // You can construct a concrete instance of `KoyebServiceDefinitionPortInput` via:
 //
-//	KoyebServiceDefinitionPortArgs{...}
+//          KoyebServiceDefinitionPortArgs{...}
 type KoyebServiceDefinitionPortInput interface {
 	pulumi.Input
 
@@ -1993,7 +2072,7 @@ func (i KoyebServiceDefinitionPortArgs) ToKoyebServiceDefinitionPortOutputWithCo
 // KoyebServiceDefinitionPortArrayInput is an input type that accepts KoyebServiceDefinitionPortArray and KoyebServiceDefinitionPortArrayOutput values.
 // You can construct a concrete instance of `KoyebServiceDefinitionPortArrayInput` via:
 //
-//	KoyebServiceDefinitionPortArray{ KoyebServiceDefinitionPortArgs{...} }
+//          KoyebServiceDefinitionPortArray{ KoyebServiceDefinitionPortArgs{...} }
 type KoyebServiceDefinitionPortArrayInput interface {
 	pulumi.Input
 
@@ -2065,7 +2144,7 @@ type KoyebServiceDefinitionRoute struct {
 // KoyebServiceDefinitionRouteInput is an input type that accepts KoyebServiceDefinitionRouteArgs and KoyebServiceDefinitionRouteOutput values.
 // You can construct a concrete instance of `KoyebServiceDefinitionRouteInput` via:
 //
-//	KoyebServiceDefinitionRouteArgs{...}
+//          KoyebServiceDefinitionRouteArgs{...}
 type KoyebServiceDefinitionRouteInput interface {
 	pulumi.Input
 
@@ -2093,7 +2172,7 @@ func (i KoyebServiceDefinitionRouteArgs) ToKoyebServiceDefinitionRouteOutputWith
 // KoyebServiceDefinitionRouteArrayInput is an input type that accepts KoyebServiceDefinitionRouteArray and KoyebServiceDefinitionRouteArrayOutput values.
 // You can construct a concrete instance of `KoyebServiceDefinitionRouteArrayInput` via:
 //
-//	KoyebServiceDefinitionRouteArray{ KoyebServiceDefinitionRouteArgs{...} }
+//          KoyebServiceDefinitionRouteArray{ KoyebServiceDefinitionRouteArgs{...} }
 type KoyebServiceDefinitionRouteArrayInput interface {
 	pulumi.Input
 
@@ -2165,7 +2244,7 @@ type KoyebServiceDefinitionScalings struct {
 // KoyebServiceDefinitionScalingsInput is an input type that accepts KoyebServiceDefinitionScalingsArgs and KoyebServiceDefinitionScalingsOutput values.
 // You can construct a concrete instance of `KoyebServiceDefinitionScalingsInput` via:
 //
-//	KoyebServiceDefinitionScalingsArgs{...}
+//          KoyebServiceDefinitionScalingsArgs{...}
 type KoyebServiceDefinitionScalingsInput interface {
 	pulumi.Input
 
@@ -2201,11 +2280,11 @@ func (i KoyebServiceDefinitionScalingsArgs) ToKoyebServiceDefinitionScalingsPtrO
 // KoyebServiceDefinitionScalingsPtrInput is an input type that accepts KoyebServiceDefinitionScalingsArgs, KoyebServiceDefinitionScalingsPtr and KoyebServiceDefinitionScalingsPtrOutput values.
 // You can construct a concrete instance of `KoyebServiceDefinitionScalingsPtrInput` via:
 //
-//	        KoyebServiceDefinitionScalingsArgs{...}
+//          KoyebServiceDefinitionScalingsArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type KoyebServiceDefinitionScalingsPtrInput interface {
 	pulumi.Input
 
@@ -2306,25 +2385,30 @@ func (o KoyebServiceDefinitionScalingsPtrOutput) Min() pulumi.IntPtrOutput {
 }
 
 type GetAppDomain struct {
-	AppName         *string `pulumi:"appName"`
-	CreatedAt       string  `pulumi:"createdAt"`
-	DeploymentGroup string  `pulumi:"deploymentGroup"`
-	Id              string  `pulumi:"id"`
-	IntendedCname   string  `pulumi:"intendedCname"`
-	Messages        string  `pulumi:"messages"`
-	Name            string  `pulumi:"name"`
-	OrganizationId  string  `pulumi:"organizationId"`
-	Status          string  `pulumi:"status"`
-	Type            string  `pulumi:"type"`
-	UpdatedAt       string  `pulumi:"updatedAt"`
-	VerifiedAt      string  `pulumi:"verifiedAt"`
-	Version         string  `pulumi:"version"`
+	AppName *string `pulumi:"appName"`
+	// The date and time of when the app was created
+	CreatedAt       string `pulumi:"createdAt"`
+	DeploymentGroup string `pulumi:"deploymentGroup"`
+	// The app ID
+	Id            string `pulumi:"id"`
+	IntendedCname string `pulumi:"intendedCname"`
+	Messages      string `pulumi:"messages"`
+	// The app name
+	Name string `pulumi:"name"`
+	// The organization ID owning the app
+	OrganizationId string `pulumi:"organizationId"`
+	Status         string `pulumi:"status"`
+	Type           string `pulumi:"type"`
+	// The date and time of when the app was last updated
+	UpdatedAt  string `pulumi:"updatedAt"`
+	VerifiedAt string `pulumi:"verifiedAt"`
+	Version    string `pulumi:"version"`
 }
 
 // GetAppDomainInput is an input type that accepts GetAppDomainArgs and GetAppDomainOutput values.
 // You can construct a concrete instance of `GetAppDomainInput` via:
 //
-//	GetAppDomainArgs{...}
+//          GetAppDomainArgs{...}
 type GetAppDomainInput interface {
 	pulumi.Input
 
@@ -2333,19 +2417,24 @@ type GetAppDomainInput interface {
 }
 
 type GetAppDomainArgs struct {
-	AppName         pulumi.StringPtrInput `pulumi:"appName"`
-	CreatedAt       pulumi.StringInput    `pulumi:"createdAt"`
-	DeploymentGroup pulumi.StringInput    `pulumi:"deploymentGroup"`
-	Id              pulumi.StringInput    `pulumi:"id"`
-	IntendedCname   pulumi.StringInput    `pulumi:"intendedCname"`
-	Messages        pulumi.StringInput    `pulumi:"messages"`
-	Name            pulumi.StringInput    `pulumi:"name"`
-	OrganizationId  pulumi.StringInput    `pulumi:"organizationId"`
-	Status          pulumi.StringInput    `pulumi:"status"`
-	Type            pulumi.StringInput    `pulumi:"type"`
-	UpdatedAt       pulumi.StringInput    `pulumi:"updatedAt"`
-	VerifiedAt      pulumi.StringInput    `pulumi:"verifiedAt"`
-	Version         pulumi.StringInput    `pulumi:"version"`
+	AppName pulumi.StringPtrInput `pulumi:"appName"`
+	// The date and time of when the app was created
+	CreatedAt       pulumi.StringInput `pulumi:"createdAt"`
+	DeploymentGroup pulumi.StringInput `pulumi:"deploymentGroup"`
+	// The app ID
+	Id            pulumi.StringInput `pulumi:"id"`
+	IntendedCname pulumi.StringInput `pulumi:"intendedCname"`
+	Messages      pulumi.StringInput `pulumi:"messages"`
+	// The app name
+	Name pulumi.StringInput `pulumi:"name"`
+	// The organization ID owning the app
+	OrganizationId pulumi.StringInput `pulumi:"organizationId"`
+	Status         pulumi.StringInput `pulumi:"status"`
+	Type           pulumi.StringInput `pulumi:"type"`
+	// The date and time of when the app was last updated
+	UpdatedAt  pulumi.StringInput `pulumi:"updatedAt"`
+	VerifiedAt pulumi.StringInput `pulumi:"verifiedAt"`
+	Version    pulumi.StringInput `pulumi:"version"`
 }
 
 func (GetAppDomainArgs) ElementType() reflect.Type {
@@ -2363,7 +2452,7 @@ func (i GetAppDomainArgs) ToGetAppDomainOutputWithContext(ctx context.Context) G
 // GetAppDomainArrayInput is an input type that accepts GetAppDomainArray and GetAppDomainArrayOutput values.
 // You can construct a concrete instance of `GetAppDomainArrayInput` via:
 //
-//	GetAppDomainArray{ GetAppDomainArgs{...} }
+//          GetAppDomainArray{ GetAppDomainArgs{...} }
 type GetAppDomainArrayInput interface {
 	pulumi.Input
 
@@ -2403,6 +2492,7 @@ func (o GetAppDomainOutput) AppName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetAppDomain) *string { return v.AppName }).(pulumi.StringPtrOutput)
 }
 
+// The date and time of when the app was created
 func (o GetAppDomainOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAppDomain) string { return v.CreatedAt }).(pulumi.StringOutput)
 }
@@ -2411,6 +2501,7 @@ func (o GetAppDomainOutput) DeploymentGroup() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAppDomain) string { return v.DeploymentGroup }).(pulumi.StringOutput)
 }
 
+// The app ID
 func (o GetAppDomainOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAppDomain) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -2423,10 +2514,12 @@ func (o GetAppDomainOutput) Messages() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAppDomain) string { return v.Messages }).(pulumi.StringOutput)
 }
 
+// The app name
 func (o GetAppDomainOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAppDomain) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The organization ID owning the app
 func (o GetAppDomainOutput) OrganizationId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAppDomain) string { return v.OrganizationId }).(pulumi.StringOutput)
 }
@@ -2439,6 +2532,7 @@ func (o GetAppDomainOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAppDomain) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// The date and time of when the app was last updated
 func (o GetAppDomainOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAppDomain) string { return v.UpdatedAt }).(pulumi.StringOutput)
 }
@@ -2472,15 +2566,18 @@ func (o GetAppDomainArrayOutput) Index(i pulumi.IntInput) GetAppDomainOutput {
 }
 
 type GetSecretAzureContainerRegistry struct {
-	Password     string `pulumi:"password"`
+	// The registry password
+	Password string `pulumi:"password"`
+	// The registry name
 	RegistryName string `pulumi:"registryName"`
-	Username     string `pulumi:"username"`
+	// The registry username
+	Username string `pulumi:"username"`
 }
 
 // GetSecretAzureContainerRegistryInput is an input type that accepts GetSecretAzureContainerRegistryArgs and GetSecretAzureContainerRegistryOutput values.
 // You can construct a concrete instance of `GetSecretAzureContainerRegistryInput` via:
 //
-//	GetSecretAzureContainerRegistryArgs{...}
+//          GetSecretAzureContainerRegistryArgs{...}
 type GetSecretAzureContainerRegistryInput interface {
 	pulumi.Input
 
@@ -2489,9 +2586,12 @@ type GetSecretAzureContainerRegistryInput interface {
 }
 
 type GetSecretAzureContainerRegistryArgs struct {
-	Password     pulumi.StringInput `pulumi:"password"`
+	// The registry password
+	Password pulumi.StringInput `pulumi:"password"`
+	// The registry name
 	RegistryName pulumi.StringInput `pulumi:"registryName"`
-	Username     pulumi.StringInput `pulumi:"username"`
+	// The registry username
+	Username pulumi.StringInput `pulumi:"username"`
 }
 
 func (GetSecretAzureContainerRegistryArgs) ElementType() reflect.Type {
@@ -2517,11 +2617,11 @@ func (i GetSecretAzureContainerRegistryArgs) ToGetSecretAzureContainerRegistryPt
 // GetSecretAzureContainerRegistryPtrInput is an input type that accepts GetSecretAzureContainerRegistryArgs, GetSecretAzureContainerRegistryPtr and GetSecretAzureContainerRegistryPtrOutput values.
 // You can construct a concrete instance of `GetSecretAzureContainerRegistryPtrInput` via:
 //
-//	        GetSecretAzureContainerRegistryArgs{...}
+//          GetSecretAzureContainerRegistryArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type GetSecretAzureContainerRegistryPtrInput interface {
 	pulumi.Input
 
@@ -2571,14 +2671,17 @@ func (o GetSecretAzureContainerRegistryOutput) ToGetSecretAzureContainerRegistry
 	}).(GetSecretAzureContainerRegistryPtrOutput)
 }
 
+// The registry password
 func (o GetSecretAzureContainerRegistryOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecretAzureContainerRegistry) string { return v.Password }).(pulumi.StringOutput)
 }
 
+// The registry name
 func (o GetSecretAzureContainerRegistryOutput) RegistryName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecretAzureContainerRegistry) string { return v.RegistryName }).(pulumi.StringOutput)
 }
 
+// The registry username
 func (o GetSecretAzureContainerRegistryOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecretAzureContainerRegistry) string { return v.Username }).(pulumi.StringOutput)
 }
@@ -2607,6 +2710,7 @@ func (o GetSecretAzureContainerRegistryPtrOutput) Elem() GetSecretAzureContainer
 	}).(GetSecretAzureContainerRegistryOutput)
 }
 
+// The registry password
 func (o GetSecretAzureContainerRegistryPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetSecretAzureContainerRegistry) *string {
 		if v == nil {
@@ -2616,6 +2720,7 @@ func (o GetSecretAzureContainerRegistryPtrOutput) Password() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// The registry name
 func (o GetSecretAzureContainerRegistryPtrOutput) RegistryName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetSecretAzureContainerRegistry) *string {
 		if v == nil {
@@ -2625,6 +2730,7 @@ func (o GetSecretAzureContainerRegistryPtrOutput) RegistryName() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// The registry username
 func (o GetSecretAzureContainerRegistryPtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetSecretAzureContainerRegistry) *string {
 		if v == nil {
@@ -2635,14 +2741,16 @@ func (o GetSecretAzureContainerRegistryPtrOutput) Username() pulumi.StringPtrOut
 }
 
 type GetSecretDigitalOceanContainerRegistry struct {
+	// The registry password
 	Password string `pulumi:"password"`
+	// The registry username
 	Username string `pulumi:"username"`
 }
 
 // GetSecretDigitalOceanContainerRegistryInput is an input type that accepts GetSecretDigitalOceanContainerRegistryArgs and GetSecretDigitalOceanContainerRegistryOutput values.
 // You can construct a concrete instance of `GetSecretDigitalOceanContainerRegistryInput` via:
 //
-//	GetSecretDigitalOceanContainerRegistryArgs{...}
+//          GetSecretDigitalOceanContainerRegistryArgs{...}
 type GetSecretDigitalOceanContainerRegistryInput interface {
 	pulumi.Input
 
@@ -2651,7 +2759,9 @@ type GetSecretDigitalOceanContainerRegistryInput interface {
 }
 
 type GetSecretDigitalOceanContainerRegistryArgs struct {
+	// The registry password
 	Password pulumi.StringInput `pulumi:"password"`
+	// The registry username
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -2678,11 +2788,11 @@ func (i GetSecretDigitalOceanContainerRegistryArgs) ToGetSecretDigitalOceanConta
 // GetSecretDigitalOceanContainerRegistryPtrInput is an input type that accepts GetSecretDigitalOceanContainerRegistryArgs, GetSecretDigitalOceanContainerRegistryPtr and GetSecretDigitalOceanContainerRegistryPtrOutput values.
 // You can construct a concrete instance of `GetSecretDigitalOceanContainerRegistryPtrInput` via:
 //
-//	        GetSecretDigitalOceanContainerRegistryArgs{...}
+//          GetSecretDigitalOceanContainerRegistryArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type GetSecretDigitalOceanContainerRegistryPtrInput interface {
 	pulumi.Input
 
@@ -2732,10 +2842,12 @@ func (o GetSecretDigitalOceanContainerRegistryOutput) ToGetSecretDigitalOceanCon
 	}).(GetSecretDigitalOceanContainerRegistryPtrOutput)
 }
 
+// The registry password
 func (o GetSecretDigitalOceanContainerRegistryOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecretDigitalOceanContainerRegistry) string { return v.Password }).(pulumi.StringOutput)
 }
 
+// The registry username
 func (o GetSecretDigitalOceanContainerRegistryOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecretDigitalOceanContainerRegistry) string { return v.Username }).(pulumi.StringOutput)
 }
@@ -2764,6 +2876,7 @@ func (o GetSecretDigitalOceanContainerRegistryPtrOutput) Elem() GetSecretDigital
 	}).(GetSecretDigitalOceanContainerRegistryOutput)
 }
 
+// The registry password
 func (o GetSecretDigitalOceanContainerRegistryPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetSecretDigitalOceanContainerRegistry) *string {
 		if v == nil {
@@ -2773,6 +2886,7 @@ func (o GetSecretDigitalOceanContainerRegistryPtrOutput) Password() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// The registry username
 func (o GetSecretDigitalOceanContainerRegistryPtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetSecretDigitalOceanContainerRegistry) *string {
 		if v == nil {
@@ -2783,14 +2897,16 @@ func (o GetSecretDigitalOceanContainerRegistryPtrOutput) Username() pulumi.Strin
 }
 
 type GetSecretDockerHubRegistry struct {
+	// The registry password
 	Password string `pulumi:"password"`
+	// The registry username
 	Username string `pulumi:"username"`
 }
 
 // GetSecretDockerHubRegistryInput is an input type that accepts GetSecretDockerHubRegistryArgs and GetSecretDockerHubRegistryOutput values.
 // You can construct a concrete instance of `GetSecretDockerHubRegistryInput` via:
 //
-//	GetSecretDockerHubRegistryArgs{...}
+//          GetSecretDockerHubRegistryArgs{...}
 type GetSecretDockerHubRegistryInput interface {
 	pulumi.Input
 
@@ -2799,7 +2915,9 @@ type GetSecretDockerHubRegistryInput interface {
 }
 
 type GetSecretDockerHubRegistryArgs struct {
+	// The registry password
 	Password pulumi.StringInput `pulumi:"password"`
+	// The registry username
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -2826,11 +2944,11 @@ func (i GetSecretDockerHubRegistryArgs) ToGetSecretDockerHubRegistryPtrOutputWit
 // GetSecretDockerHubRegistryPtrInput is an input type that accepts GetSecretDockerHubRegistryArgs, GetSecretDockerHubRegistryPtr and GetSecretDockerHubRegistryPtrOutput values.
 // You can construct a concrete instance of `GetSecretDockerHubRegistryPtrInput` via:
 //
-//	        GetSecretDockerHubRegistryArgs{...}
+//          GetSecretDockerHubRegistryArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type GetSecretDockerHubRegistryPtrInput interface {
 	pulumi.Input
 
@@ -2880,10 +2998,12 @@ func (o GetSecretDockerHubRegistryOutput) ToGetSecretDockerHubRegistryPtrOutputW
 	}).(GetSecretDockerHubRegistryPtrOutput)
 }
 
+// The registry password
 func (o GetSecretDockerHubRegistryOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecretDockerHubRegistry) string { return v.Password }).(pulumi.StringOutput)
 }
 
+// The registry username
 func (o GetSecretDockerHubRegistryOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecretDockerHubRegistry) string { return v.Username }).(pulumi.StringOutput)
 }
@@ -2912,6 +3032,7 @@ func (o GetSecretDockerHubRegistryPtrOutput) Elem() GetSecretDockerHubRegistryOu
 	}).(GetSecretDockerHubRegistryOutput)
 }
 
+// The registry password
 func (o GetSecretDockerHubRegistryPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetSecretDockerHubRegistry) *string {
 		if v == nil {
@@ -2921,6 +3042,7 @@ func (o GetSecretDockerHubRegistryPtrOutput) Password() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The registry username
 func (o GetSecretDockerHubRegistryPtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetSecretDockerHubRegistry) *string {
 		if v == nil {
@@ -2931,14 +3053,16 @@ func (o GetSecretDockerHubRegistryPtrOutput) Username() pulumi.StringPtrOutput {
 }
 
 type GetSecretGithubRegistry struct {
+	// The registry password
 	Password string `pulumi:"password"`
+	// The registry username
 	Username string `pulumi:"username"`
 }
 
 // GetSecretGithubRegistryInput is an input type that accepts GetSecretGithubRegistryArgs and GetSecretGithubRegistryOutput values.
 // You can construct a concrete instance of `GetSecretGithubRegistryInput` via:
 //
-//	GetSecretGithubRegistryArgs{...}
+//          GetSecretGithubRegistryArgs{...}
 type GetSecretGithubRegistryInput interface {
 	pulumi.Input
 
@@ -2947,7 +3071,9 @@ type GetSecretGithubRegistryInput interface {
 }
 
 type GetSecretGithubRegistryArgs struct {
+	// The registry password
 	Password pulumi.StringInput `pulumi:"password"`
+	// The registry username
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -2974,11 +3100,11 @@ func (i GetSecretGithubRegistryArgs) ToGetSecretGithubRegistryPtrOutputWithConte
 // GetSecretGithubRegistryPtrInput is an input type that accepts GetSecretGithubRegistryArgs, GetSecretGithubRegistryPtr and GetSecretGithubRegistryPtrOutput values.
 // You can construct a concrete instance of `GetSecretGithubRegistryPtrInput` via:
 //
-//	        GetSecretGithubRegistryArgs{...}
+//          GetSecretGithubRegistryArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type GetSecretGithubRegistryPtrInput interface {
 	pulumi.Input
 
@@ -3028,10 +3154,12 @@ func (o GetSecretGithubRegistryOutput) ToGetSecretGithubRegistryPtrOutputWithCon
 	}).(GetSecretGithubRegistryPtrOutput)
 }
 
+// The registry password
 func (o GetSecretGithubRegistryOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecretGithubRegistry) string { return v.Password }).(pulumi.StringOutput)
 }
 
+// The registry username
 func (o GetSecretGithubRegistryOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecretGithubRegistry) string { return v.Username }).(pulumi.StringOutput)
 }
@@ -3060,6 +3188,7 @@ func (o GetSecretGithubRegistryPtrOutput) Elem() GetSecretGithubRegistryOutput {
 	}).(GetSecretGithubRegistryOutput)
 }
 
+// The registry password
 func (o GetSecretGithubRegistryPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetSecretGithubRegistry) *string {
 		if v == nil {
@@ -3069,6 +3198,7 @@ func (o GetSecretGithubRegistryPtrOutput) Password() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The registry username
 func (o GetSecretGithubRegistryPtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetSecretGithubRegistry) *string {
 		if v == nil {
@@ -3079,14 +3209,16 @@ func (o GetSecretGithubRegistryPtrOutput) Username() pulumi.StringPtrOutput {
 }
 
 type GetSecretGitlabRegistry struct {
+	// The registry password
 	Password string `pulumi:"password"`
+	// The registry username
 	Username string `pulumi:"username"`
 }
 
 // GetSecretGitlabRegistryInput is an input type that accepts GetSecretGitlabRegistryArgs and GetSecretGitlabRegistryOutput values.
 // You can construct a concrete instance of `GetSecretGitlabRegistryInput` via:
 //
-//	GetSecretGitlabRegistryArgs{...}
+//          GetSecretGitlabRegistryArgs{...}
 type GetSecretGitlabRegistryInput interface {
 	pulumi.Input
 
@@ -3095,7 +3227,9 @@ type GetSecretGitlabRegistryInput interface {
 }
 
 type GetSecretGitlabRegistryArgs struct {
+	// The registry password
 	Password pulumi.StringInput `pulumi:"password"`
+	// The registry username
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -3122,11 +3256,11 @@ func (i GetSecretGitlabRegistryArgs) ToGetSecretGitlabRegistryPtrOutputWithConte
 // GetSecretGitlabRegistryPtrInput is an input type that accepts GetSecretGitlabRegistryArgs, GetSecretGitlabRegistryPtr and GetSecretGitlabRegistryPtrOutput values.
 // You can construct a concrete instance of `GetSecretGitlabRegistryPtrInput` via:
 //
-//	        GetSecretGitlabRegistryArgs{...}
+//          GetSecretGitlabRegistryArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type GetSecretGitlabRegistryPtrInput interface {
 	pulumi.Input
 
@@ -3176,10 +3310,12 @@ func (o GetSecretGitlabRegistryOutput) ToGetSecretGitlabRegistryPtrOutputWithCon
 	}).(GetSecretGitlabRegistryPtrOutput)
 }
 
+// The registry password
 func (o GetSecretGitlabRegistryOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecretGitlabRegistry) string { return v.Password }).(pulumi.StringOutput)
 }
 
+// The registry username
 func (o GetSecretGitlabRegistryOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecretGitlabRegistry) string { return v.Username }).(pulumi.StringOutput)
 }
@@ -3208,6 +3344,7 @@ func (o GetSecretGitlabRegistryPtrOutput) Elem() GetSecretGitlabRegistryOutput {
 	}).(GetSecretGitlabRegistryOutput)
 }
 
+// The registry password
 func (o GetSecretGitlabRegistryPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetSecretGitlabRegistry) *string {
 		if v == nil {
@@ -3217,6 +3354,7 @@ func (o GetSecretGitlabRegistryPtrOutput) Password() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The registry username
 func (o GetSecretGitlabRegistryPtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetSecretGitlabRegistry) *string {
 		if v == nil {
@@ -3227,15 +3365,18 @@ func (o GetSecretGitlabRegistryPtrOutput) Username() pulumi.StringPtrOutput {
 }
 
 type GetSecretPrivateRegistry struct {
+	// The registry password
 	Password string `pulumi:"password"`
-	Url      string `pulumi:"url"`
+	// The registry url
+	Url string `pulumi:"url"`
+	// The registry username
 	Username string `pulumi:"username"`
 }
 
 // GetSecretPrivateRegistryInput is an input type that accepts GetSecretPrivateRegistryArgs and GetSecretPrivateRegistryOutput values.
 // You can construct a concrete instance of `GetSecretPrivateRegistryInput` via:
 //
-//	GetSecretPrivateRegistryArgs{...}
+//          GetSecretPrivateRegistryArgs{...}
 type GetSecretPrivateRegistryInput interface {
 	pulumi.Input
 
@@ -3244,8 +3385,11 @@ type GetSecretPrivateRegistryInput interface {
 }
 
 type GetSecretPrivateRegistryArgs struct {
+	// The registry password
 	Password pulumi.StringInput `pulumi:"password"`
-	Url      pulumi.StringInput `pulumi:"url"`
+	// The registry url
+	Url pulumi.StringInput `pulumi:"url"`
+	// The registry username
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -3272,11 +3416,11 @@ func (i GetSecretPrivateRegistryArgs) ToGetSecretPrivateRegistryPtrOutputWithCon
 // GetSecretPrivateRegistryPtrInput is an input type that accepts GetSecretPrivateRegistryArgs, GetSecretPrivateRegistryPtr and GetSecretPrivateRegistryPtrOutput values.
 // You can construct a concrete instance of `GetSecretPrivateRegistryPtrInput` via:
 //
-//	        GetSecretPrivateRegistryArgs{...}
+//          GetSecretPrivateRegistryArgs{...}
 //
-//	or:
+//  or:
 //
-//	        nil
+//          nil
 type GetSecretPrivateRegistryPtrInput interface {
 	pulumi.Input
 
@@ -3326,14 +3470,17 @@ func (o GetSecretPrivateRegistryOutput) ToGetSecretPrivateRegistryPtrOutputWithC
 	}).(GetSecretPrivateRegistryPtrOutput)
 }
 
+// The registry password
 func (o GetSecretPrivateRegistryOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecretPrivateRegistry) string { return v.Password }).(pulumi.StringOutput)
 }
 
+// The registry url
 func (o GetSecretPrivateRegistryOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecretPrivateRegistry) string { return v.Url }).(pulumi.StringOutput)
 }
 
+// The registry username
 func (o GetSecretPrivateRegistryOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecretPrivateRegistry) string { return v.Username }).(pulumi.StringOutput)
 }
@@ -3362,6 +3509,7 @@ func (o GetSecretPrivateRegistryPtrOutput) Elem() GetSecretPrivateRegistryOutput
 	}).(GetSecretPrivateRegistryOutput)
 }
 
+// The registry password
 func (o GetSecretPrivateRegistryPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetSecretPrivateRegistry) *string {
 		if v == nil {
@@ -3371,6 +3519,7 @@ func (o GetSecretPrivateRegistryPtrOutput) Password() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The registry url
 func (o GetSecretPrivateRegistryPtrOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetSecretPrivateRegistry) *string {
 		if v == nil {
@@ -3380,6 +3529,7 @@ func (o GetSecretPrivateRegistryPtrOutput) Url() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The registry username
 func (o GetSecretPrivateRegistryPtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetSecretPrivateRegistry) *string {
 		if v == nil {

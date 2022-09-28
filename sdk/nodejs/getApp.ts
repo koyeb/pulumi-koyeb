@@ -32,6 +32,9 @@ export function getApp(args: GetAppArgs, opts?: pulumi.InvokeOptions): Promise<G
  * A collection of arguments for invoking getApp.
  */
 export interface GetAppArgs {
+    /**
+     * The app name
+     */
     name: string;
 }
 
@@ -39,11 +42,29 @@ export interface GetAppArgs {
  * A collection of values returned by getApp.
  */
 export interface GetAppResult {
+    /**
+     * The date and time of when the app was created
+     */
     readonly createdAt: string;
+    /**
+     * The app domains
+     */
     readonly domains: outputs.GetAppDomain[];
+    /**
+     * The app ID
+     */
     readonly id: string;
+    /**
+     * The app name
+     */
     readonly name: string;
+    /**
+     * The organization ID owning the app
+     */
     readonly organizationId: string;
+    /**
+     * The date and time of when the app was last updated
+     */
     readonly updatedAt: string;
 }
 
@@ -55,5 +76,8 @@ export function getAppOutput(args: GetAppOutputArgs, opts?: pulumi.InvokeOptions
  * A collection of arguments for invoking getApp.
  */
 export interface GetAppOutputArgs {
+    /**
+     * The app name
+     */
     name: pulumi.Input<string>;
 }

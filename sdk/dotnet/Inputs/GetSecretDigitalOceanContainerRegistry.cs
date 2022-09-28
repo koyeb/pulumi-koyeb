@@ -10,16 +10,23 @@ using Pulumi.Serialization;
 namespace Pulumi.Koyeb.Inputs
 {
 
-    public sealed class GetSecretDigitalOceanContainerRegistryArgs : Pulumi.InvokeArgs
+    public sealed class GetSecretDigitalOceanContainerRegistryArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The registry password
+        /// </summary>
         [Input("password", required: true)]
         public string Password { get; set; } = null!;
 
+        /// <summary>
+        /// The registry username
+        /// </summary>
         [Input("username", required: true)]
         public string Username { get; set; } = null!;
 
         public GetSecretDigitalOceanContainerRegistryArgs()
         {
         }
+        public static new GetSecretDigitalOceanContainerRegistryArgs Empty => new GetSecretDigitalOceanContainerRegistryArgs();
     }
 }

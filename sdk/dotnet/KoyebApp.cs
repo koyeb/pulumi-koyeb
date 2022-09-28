@@ -13,23 +13,19 @@ namespace Pulumi.Koyeb
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Koyeb = Pulumi.Koyeb;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var my_app = new Koyeb.KoyebApp("my-app", new Koyeb.KoyebAppArgs
-    ///         {
-    ///         });
-    ///     }
+    ///     var my_app = new Koyeb.KoyebApp("my-app");
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [KoyebResourceType("koyeb:index/koyebApp:KoyebApp")]
-    public partial class KoyebApp : Pulumi.CustomResource
+    public partial class KoyebApp : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The date and time of when the app was created
@@ -106,7 +102,7 @@ namespace Pulumi.Koyeb
         }
     }
 
-    public sealed class KoyebAppArgs : Pulumi.ResourceArgs
+    public sealed class KoyebAppArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The app name
@@ -117,9 +113,10 @@ namespace Pulumi.Koyeb
         public KoyebAppArgs()
         {
         }
+        public static new KoyebAppArgs Empty => new KoyebAppArgs();
     }
 
-    public sealed class KoyebAppState : Pulumi.ResourceArgs
+    public sealed class KoyebAppState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The date and time of when the app was created
@@ -160,5 +157,6 @@ namespace Pulumi.Koyeb
         public KoyebAppState()
         {
         }
+        public static new KoyebAppState Empty => new KoyebAppState();
     }
 }

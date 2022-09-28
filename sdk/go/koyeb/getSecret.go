@@ -16,24 +16,21 @@ import (
 // package main
 //
 // import (
-//
-//	"github.com/pulumi/pulumi-koyeb/sdk/go/koyeb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
+// 	"github.com/pulumi/pulumi-koyeb/sdk/go/koyeb"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := koyeb.GetSecret(ctx, &GetSecretArgs{
-//				Name: "my-secret",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := koyeb.GetSecret(ctx, &GetSecretArgs{
+// 			Name: "my-secret",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 // ```
 func GetSecret(ctx *pulumi.Context, args *GetSecretArgs, opts ...pulumi.InvokeOption) (*GetSecretResult, error) {
 	opts = pkgInvokeDefaultOpts(opts)
@@ -47,32 +44,54 @@ func GetSecret(ctx *pulumi.Context, args *GetSecretArgs, opts ...pulumi.InvokeOp
 
 // A collection of arguments for invoking getSecret.
 type GetSecretArgs struct {
-	AzureContainerRegistry        *GetSecretAzureContainerRegistry        `pulumi:"azureContainerRegistry"`
+	// The Azure registry configuration to use
+	AzureContainerRegistry *GetSecretAzureContainerRegistry `pulumi:"azureContainerRegistry"`
+	// The DigitalOcean registry configuration to use
 	DigitalOceanContainerRegistry *GetSecretDigitalOceanContainerRegistry `pulumi:"digitalOceanContainerRegistry"`
-	DockerHubRegistry             *GetSecretDockerHubRegistry             `pulumi:"dockerHubRegistry"`
-	GithubRegistry                *GetSecretGithubRegistry                `pulumi:"githubRegistry"`
-	GitlabRegistry                *GetSecretGitlabRegistry                `pulumi:"gitlabRegistry"`
-	Name                          string                                  `pulumi:"name"`
-	PrivateRegistry               *GetSecretPrivateRegistry               `pulumi:"privateRegistry"`
-	Type                          *string                                 `pulumi:"type"`
-	Value                         *string                                 `pulumi:"value"`
+	// The DockerHub registry configuration to use
+	DockerHubRegistry *GetSecretDockerHubRegistry `pulumi:"dockerHubRegistry"`
+	// The GitHub registry configuration to use
+	GithubRegistry *GetSecretGithubRegistry `pulumi:"githubRegistry"`
+	// The GitLab registry configuration to use
+	GitlabRegistry *GetSecretGitlabRegistry `pulumi:"gitlabRegistry"`
+	// The secret name
+	Name string `pulumi:"name"`
+	// The DigitalOcean registry configuration to use
+	PrivateRegistry *GetSecretPrivateRegistry `pulumi:"privateRegistry"`
+	// The secret type
+	Type *string `pulumi:"type"`
+	// The secret value
+	Value *string `pulumi:"value"`
 }
 
 // A collection of values returned by getSecret.
 type GetSecretResult struct {
-	AzureContainerRegistry        *GetSecretAzureContainerRegistry        `pulumi:"azureContainerRegistry"`
-	CreatedAt                     string                                  `pulumi:"createdAt"`
+	// The Azure registry configuration to use
+	AzureContainerRegistry *GetSecretAzureContainerRegistry `pulumi:"azureContainerRegistry"`
+	// The date and time of when the secret was created
+	CreatedAt string `pulumi:"createdAt"`
+	// The DigitalOcean registry configuration to use
 	DigitalOceanContainerRegistry *GetSecretDigitalOceanContainerRegistry `pulumi:"digitalOceanContainerRegistry"`
-	DockerHubRegistry             *GetSecretDockerHubRegistry             `pulumi:"dockerHubRegistry"`
-	GithubRegistry                *GetSecretGithubRegistry                `pulumi:"githubRegistry"`
-	GitlabRegistry                *GetSecretGitlabRegistry                `pulumi:"gitlabRegistry"`
-	Id                            string                                  `pulumi:"id"`
-	Name                          string                                  `pulumi:"name"`
-	OrganizationId                string                                  `pulumi:"organizationId"`
-	PrivateRegistry               *GetSecretPrivateRegistry               `pulumi:"privateRegistry"`
-	Type                          *string                                 `pulumi:"type"`
-	UpdatedAt                     string                                  `pulumi:"updatedAt"`
-	Value                         *string                                 `pulumi:"value"`
+	// The DockerHub registry configuration to use
+	DockerHubRegistry *GetSecretDockerHubRegistry `pulumi:"dockerHubRegistry"`
+	// The GitHub registry configuration to use
+	GithubRegistry *GetSecretGithubRegistry `pulumi:"githubRegistry"`
+	// The GitLab registry configuration to use
+	GitlabRegistry *GetSecretGitlabRegistry `pulumi:"gitlabRegistry"`
+	// The secret ID
+	Id string `pulumi:"id"`
+	// The secret name
+	Name string `pulumi:"name"`
+	// The organization ID owning the secret
+	OrganizationId string `pulumi:"organizationId"`
+	// The DigitalOcean registry configuration to use
+	PrivateRegistry *GetSecretPrivateRegistry `pulumi:"privateRegistry"`
+	// The secret type
+	Type *string `pulumi:"type"`
+	// The date and time of when the secret was last updated
+	UpdatedAt string `pulumi:"updatedAt"`
+	// The secret value
+	Value *string `pulumi:"value"`
 }
 
 func GetSecretOutput(ctx *pulumi.Context, args GetSecretOutputArgs, opts ...pulumi.InvokeOption) GetSecretResultOutput {
@@ -90,15 +109,24 @@ func GetSecretOutput(ctx *pulumi.Context, args GetSecretOutputArgs, opts ...pulu
 
 // A collection of arguments for invoking getSecret.
 type GetSecretOutputArgs struct {
-	AzureContainerRegistry        GetSecretAzureContainerRegistryPtrInput        `pulumi:"azureContainerRegistry"`
+	// The Azure registry configuration to use
+	AzureContainerRegistry GetSecretAzureContainerRegistryPtrInput `pulumi:"azureContainerRegistry"`
+	// The DigitalOcean registry configuration to use
 	DigitalOceanContainerRegistry GetSecretDigitalOceanContainerRegistryPtrInput `pulumi:"digitalOceanContainerRegistry"`
-	DockerHubRegistry             GetSecretDockerHubRegistryPtrInput             `pulumi:"dockerHubRegistry"`
-	GithubRegistry                GetSecretGithubRegistryPtrInput                `pulumi:"githubRegistry"`
-	GitlabRegistry                GetSecretGitlabRegistryPtrInput                `pulumi:"gitlabRegistry"`
-	Name                          pulumi.StringInput                             `pulumi:"name"`
-	PrivateRegistry               GetSecretPrivateRegistryPtrInput               `pulumi:"privateRegistry"`
-	Type                          pulumi.StringPtrInput                          `pulumi:"type"`
-	Value                         pulumi.StringPtrInput                          `pulumi:"value"`
+	// The DockerHub registry configuration to use
+	DockerHubRegistry GetSecretDockerHubRegistryPtrInput `pulumi:"dockerHubRegistry"`
+	// The GitHub registry configuration to use
+	GithubRegistry GetSecretGithubRegistryPtrInput `pulumi:"githubRegistry"`
+	// The GitLab registry configuration to use
+	GitlabRegistry GetSecretGitlabRegistryPtrInput `pulumi:"gitlabRegistry"`
+	// The secret name
+	Name pulumi.StringInput `pulumi:"name"`
+	// The DigitalOcean registry configuration to use
+	PrivateRegistry GetSecretPrivateRegistryPtrInput `pulumi:"privateRegistry"`
+	// The secret type
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// The secret value
+	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (GetSecretOutputArgs) ElementType() reflect.Type {
@@ -120,56 +148,69 @@ func (o GetSecretResultOutput) ToGetSecretResultOutputWithContext(ctx context.Co
 	return o
 }
 
+// The Azure registry configuration to use
 func (o GetSecretResultOutput) AzureContainerRegistry() GetSecretAzureContainerRegistryPtrOutput {
 	return o.ApplyT(func(v GetSecretResult) *GetSecretAzureContainerRegistry { return v.AzureContainerRegistry }).(GetSecretAzureContainerRegistryPtrOutput)
 }
 
+// The date and time of when the secret was created
 func (o GetSecretResultOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecretResult) string { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
+// The DigitalOcean registry configuration to use
 func (o GetSecretResultOutput) DigitalOceanContainerRegistry() GetSecretDigitalOceanContainerRegistryPtrOutput {
 	return o.ApplyT(func(v GetSecretResult) *GetSecretDigitalOceanContainerRegistry {
 		return v.DigitalOceanContainerRegistry
 	}).(GetSecretDigitalOceanContainerRegistryPtrOutput)
 }
 
+// The DockerHub registry configuration to use
 func (o GetSecretResultOutput) DockerHubRegistry() GetSecretDockerHubRegistryPtrOutput {
 	return o.ApplyT(func(v GetSecretResult) *GetSecretDockerHubRegistry { return v.DockerHubRegistry }).(GetSecretDockerHubRegistryPtrOutput)
 }
 
+// The GitHub registry configuration to use
 func (o GetSecretResultOutput) GithubRegistry() GetSecretGithubRegistryPtrOutput {
 	return o.ApplyT(func(v GetSecretResult) *GetSecretGithubRegistry { return v.GithubRegistry }).(GetSecretGithubRegistryPtrOutput)
 }
 
+// The GitLab registry configuration to use
 func (o GetSecretResultOutput) GitlabRegistry() GetSecretGitlabRegistryPtrOutput {
 	return o.ApplyT(func(v GetSecretResult) *GetSecretGitlabRegistry { return v.GitlabRegistry }).(GetSecretGitlabRegistryPtrOutput)
 }
 
+// The secret ID
 func (o GetSecretResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecretResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The secret name
 func (o GetSecretResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecretResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The organization ID owning the secret
 func (o GetSecretResultOutput) OrganizationId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecretResult) string { return v.OrganizationId }).(pulumi.StringOutput)
 }
 
+// The DigitalOcean registry configuration to use
 func (o GetSecretResultOutput) PrivateRegistry() GetSecretPrivateRegistryPtrOutput {
 	return o.ApplyT(func(v GetSecretResult) *GetSecretPrivateRegistry { return v.PrivateRegistry }).(GetSecretPrivateRegistryPtrOutput)
 }
 
+// The secret type
 func (o GetSecretResultOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetSecretResult) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
+// The date and time of when the secret was last updated
 func (o GetSecretResultOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecretResult) string { return v.UpdatedAt }).(pulumi.StringOutput)
 }
 
+// The secret value
 func (o GetSecretResultOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetSecretResult) *string { return v.Value }).(pulumi.StringPtrOutput)
 }

@@ -13,23 +13,19 @@ namespace Pulumi.Koyeb
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Koyeb = Pulumi.Koyeb;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var my_domain = new Koyeb.KoyebDomain("my-domain", new Koyeb.KoyebDomainArgs
-    ///         {
-    ///         });
-    ///     }
+    ///     var my_domain = new Koyeb.KoyebDomain("my-domain");
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [KoyebResourceType("koyeb:index/koyebDomain:KoyebDomain")]
-    public partial class KoyebDomain : Pulumi.CustomResource
+    public partial class KoyebDomain : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The app name the domain is assigned to
@@ -148,7 +144,7 @@ namespace Pulumi.Koyeb
         }
     }
 
-    public sealed class KoyebDomainArgs : Pulumi.ResourceArgs
+    public sealed class KoyebDomainArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The app name the domain is assigned to
@@ -189,9 +185,10 @@ namespace Pulumi.Koyeb
         public KoyebDomainArgs()
         {
         }
+        public static new KoyebDomainArgs Empty => new KoyebDomainArgs();
     }
 
-    public sealed class KoyebDomainState : Pulumi.ResourceArgs
+    public sealed class KoyebDomainState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The app name the domain is assigned to
@@ -268,5 +265,6 @@ namespace Pulumi.Koyeb
         public KoyebDomainState()
         {
         }
+        public static new KoyebDomainState Empty => new KoyebDomainState();
     }
 }

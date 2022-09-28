@@ -10,16 +10,23 @@ using Pulumi.Serialization;
 namespace Pulumi.Koyeb.Inputs
 {
 
-    public sealed class GetSecretDockerHubRegistryInputArgs : Pulumi.ResourceArgs
+    public sealed class GetSecretDockerHubRegistryInputArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The registry password
+        /// </summary>
         [Input("password", required: true)]
         public Input<string> Password { get; set; } = null!;
 
+        /// <summary>
+        /// The registry username
+        /// </summary>
         [Input("username", required: true)]
         public Input<string> Username { get; set; } = null!;
 
         public GetSecretDockerHubRegistryInputArgs()
         {
         }
+        public static new GetSecretDockerHubRegistryInputArgs Empty => new GetSecretDockerHubRegistryInputArgs();
     }
 }

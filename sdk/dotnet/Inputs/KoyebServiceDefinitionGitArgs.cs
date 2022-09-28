@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Koyeb.Inputs
 {
 
-    public sealed class KoyebServiceDefinitionGitArgs : Pulumi.ResourceArgs
+    public sealed class KoyebServiceDefinitionGitArgs : global::Pulumi.ResourceArgs
     {
         [Input("branch", required: true)]
         public Input<string> Branch { get; set; } = null!;
@@ -30,5 +30,6 @@ namespace Pulumi.Koyeb.Inputs
         public KoyebServiceDefinitionGitArgs()
         {
         }
+        public static new KoyebServiceDefinitionGitArgs Empty => new KoyebServiceDefinitionGitArgs();
     }
 }

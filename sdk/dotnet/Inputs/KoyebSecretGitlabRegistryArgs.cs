@@ -10,16 +10,23 @@ using Pulumi.Serialization;
 namespace Pulumi.Koyeb.Inputs
 {
 
-    public sealed class KoyebSecretGitlabRegistryArgs : Pulumi.ResourceArgs
+    public sealed class KoyebSecretGitlabRegistryArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The registry password
+        /// </summary>
         [Input("password", required: true)]
         public Input<string> Password { get; set; } = null!;
 
+        /// <summary>
+        /// The registry username
+        /// </summary>
         [Input("username", required: true)]
         public Input<string> Username { get; set; } = null!;
 
         public KoyebSecretGitlabRegistryArgs()
         {
         }
+        public static new KoyebSecretGitlabRegistryArgs Empty => new KoyebSecretGitlabRegistryArgs();
     }
 }

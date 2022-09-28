@@ -14,15 +14,30 @@ namespace Pulumi.Koyeb.Outputs
     public sealed class KoyebAppDomain
     {
         public readonly string? AppName;
+        /// <summary>
+        /// The date and time of when the app was created
+        /// </summary>
         public readonly string? CreatedAt;
         public readonly string? DeploymentGroup;
+        /// <summary>
+        /// The app ID
+        /// </summary>
         public readonly string? Id;
         public readonly string? IntendedCname;
         public readonly string? Messages;
+        /// <summary>
+        /// The app name
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The organization ID owning the app
+        /// </summary>
         public readonly string? OrganizationId;
         public readonly string? Status;
         public readonly string? Type;
+        /// <summary>
+        /// The date and time of when the app was last updated
+        /// </summary>
         public readonly string? UpdatedAt;
         public readonly string? VerifiedAt;
         public readonly string? Version;

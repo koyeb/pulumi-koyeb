@@ -17,8 +17,14 @@ namespace Pulumi.Koyeb.Outputs
         public readonly ImmutableArray<Outputs.KoyebServiceDefinitionEnv> Envs;
         public readonly Outputs.KoyebServiceDefinitionGit? Git;
         public readonly Outputs.KoyebServiceDefinitionInstanceTypes InstanceTypes;
+        /// <summary>
+        /// The service name
+        /// </summary>
         public readonly string Name;
         public readonly ImmutableArray<Outputs.KoyebServiceDefinitionPort> Ports;
+        /// <summary>
+        /// The service deployment regions to deploy to
+        /// </summary>
         public readonly ImmutableArray<string> Regions;
         public readonly ImmutableArray<Outputs.KoyebServiceDefinitionRoute> Routes;
         public readonly Outputs.KoyebServiceDefinitionScalings Scalings;

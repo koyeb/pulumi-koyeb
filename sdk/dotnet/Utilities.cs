@@ -75,7 +75,7 @@ namespace Pulumi.Koyeb
         }
     }
 
-    internal sealed class KoyebResourceTypeAttribute : Pulumi.ResourceTypeAttribute
+    internal sealed class KoyebResourceTypeAttribute : global::Pulumi.ResourceTypeAttribute
     {
         public KoyebResourceTypeAttribute(string type) : base(type, Utilities.Version)
         {

@@ -17,20 +17,18 @@ namespace Pulumi.Koyeb
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Koyeb = Pulumi.Koyeb;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var my_app = Koyeb.GetApp.Invoke(new()
         ///     {
-        ///         var my_app = Output.Create(Koyeb.GetApp.InvokeAsync(new Koyeb.GetAppArgs
-        ///         {
-        ///             Name = "my-app",
-        ///         }));
-        ///     }
+        ///         Name = "my-app",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -44,20 +42,18 @@ namespace Pulumi.Koyeb
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Koyeb = Pulumi.Koyeb;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var my_app = Koyeb.GetApp.Invoke(new()
         ///     {
-        ///         var my_app = Output.Create(Koyeb.GetApp.InvokeAsync(new Koyeb.GetAppArgs
-        ///         {
-        ///             Name = "my-app",
-        ///         }));
-        ///     }
+        ///         Name = "my-app",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -67,35 +63,61 @@ namespace Pulumi.Koyeb
     }
 
 
-    public sealed class GetAppArgs : Pulumi.InvokeArgs
+    public sealed class GetAppArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The app name
+        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
         public GetAppArgs()
         {
         }
+        public static new GetAppArgs Empty => new GetAppArgs();
     }
 
-    public sealed class GetAppInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAppInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The app name
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         public GetAppInvokeArgs()
         {
         }
+        public static new GetAppInvokeArgs Empty => new GetAppInvokeArgs();
     }
 
 
     [OutputType]
     public sealed class GetAppResult
     {
+        /// <summary>
+        /// The date and time of when the app was created
+        /// </summary>
         public readonly string CreatedAt;
+        /// <summary>
+        /// The app domains
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetAppDomainResult> Domains;
+        /// <summary>
+        /// The app ID
+        /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The app name
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The organization ID owning the app
+        /// </summary>
         public readonly string OrganizationId;
+        /// <summary>
+        /// The date and time of when the app was last updated
+        /// </summary>
         public readonly string UpdatedAt;
 
         [OutputConstructor]

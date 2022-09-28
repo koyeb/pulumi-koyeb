@@ -13,7 +13,13 @@ namespace Pulumi.Koyeb.Outputs
     [OutputType]
     public sealed class GetSecretDigitalOceanContainerRegistryResult
     {
+        /// <summary>
+        /// The registry password
+        /// </summary>
         public readonly string Password;
+        /// <summary>
+        /// The registry username
+        /// </summary>
         public readonly string Username;
 
         [OutputConstructor]

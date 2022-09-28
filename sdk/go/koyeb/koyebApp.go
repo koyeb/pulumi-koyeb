@@ -16,22 +16,19 @@ import (
 // package main
 //
 // import (
-//
-//	"github.com/pulumi/pulumi-koyeb/sdk/go/koyeb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
+// 	"github.com/pulumi/pulumi-koyeb/sdk/go/koyeb"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := koyeb.NewKoyebApp(ctx, "my-app", nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := koyeb.NewKoyebApp(ctx, "my-app", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 // ```
 type KoyebApp struct {
 	pulumi.CustomResourceState
@@ -144,7 +141,7 @@ func (i *KoyebApp) ToKoyebAppOutputWithContext(ctx context.Context) KoyebAppOutp
 // KoyebAppArrayInput is an input type that accepts KoyebAppArray and KoyebAppArrayOutput values.
 // You can construct a concrete instance of `KoyebAppArrayInput` via:
 //
-//	KoyebAppArray{ KoyebAppArgs{...} }
+//          KoyebAppArray{ KoyebAppArgs{...} }
 type KoyebAppArrayInput interface {
 	pulumi.Input
 
@@ -169,7 +166,7 @@ func (i KoyebAppArray) ToKoyebAppArrayOutputWithContext(ctx context.Context) Koy
 // KoyebAppMapInput is an input type that accepts KoyebAppMap and KoyebAppMapOutput values.
 // You can construct a concrete instance of `KoyebAppMapInput` via:
 //
-//	KoyebAppMap{ "key": KoyebAppArgs{...} }
+//          KoyebAppMap{ "key": KoyebAppArgs{...} }
 type KoyebAppMapInput interface {
 	pulumi.Input
 

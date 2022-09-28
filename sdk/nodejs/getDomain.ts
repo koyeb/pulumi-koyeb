@@ -36,11 +36,29 @@ export function getDomain(args: GetDomainArgs, opts?: pulumi.InvokeOptions): Pro
  * A collection of arguments for invoking getDomain.
  */
 export interface GetDomainArgs {
+    /**
+     * The app name the domain is assigned to
+     */
     appName?: string;
+    /**
+     * The deployment group assigned to the domain
+     */
     deploymentGroup?: string;
+    /**
+     * The CNAME record to point the domain to
+     */
     intendedCname?: string;
+    /**
+     * The status messages of the domain
+     */
     messages?: string;
+    /**
+     * The domain name
+     */
     name: string;
+    /**
+     * The date and time of when the domain was last verified
+     */
     verifiedAt?: string;
 }
 
@@ -48,18 +66,57 @@ export interface GetDomainArgs {
  * A collection of values returned by getDomain.
  */
 export interface GetDomainResult {
+    /**
+     * The app name the domain is assigned to
+     */
     readonly appName?: string;
+    /**
+     * The date and time of when the domain was created
+     */
     readonly createdAt: string;
+    /**
+     * The deployment group assigned to the domain
+     */
     readonly deploymentGroup: string;
+    /**
+     * The domain ID
+     */
     readonly id: string;
+    /**
+     * The CNAME record to point the domain to
+     */
     readonly intendedCname: string;
+    /**
+     * The status messages of the domain
+     */
     readonly messages: string;
+    /**
+     * The domain name
+     */
     readonly name: string;
+    /**
+     * The organization ID owning the domain
+     */
     readonly organizationId: string;
+    /**
+     * The status of the domain
+     */
     readonly status: string;
+    /**
+     * The domain type
+     */
     readonly type: string;
+    /**
+     * The date and time of when the domain was last updated
+     */
     readonly updatedAt: string;
+    /**
+     * The date and time of when the domain was last verified
+     */
     readonly verifiedAt: string;
+    /**
+     * The version of the domain
+     */
     readonly version: string;
 }
 
@@ -71,10 +128,28 @@ export function getDomainOutput(args: GetDomainOutputArgs, opts?: pulumi.InvokeO
  * A collection of arguments for invoking getDomain.
  */
 export interface GetDomainOutputArgs {
+    /**
+     * The app name the domain is assigned to
+     */
     appName?: pulumi.Input<string>;
+    /**
+     * The deployment group assigned to the domain
+     */
     deploymentGroup?: pulumi.Input<string>;
+    /**
+     * The CNAME record to point the domain to
+     */
     intendedCname?: pulumi.Input<string>;
+    /**
+     * The status messages of the domain
+     */
     messages?: pulumi.Input<string>;
+    /**
+     * The domain name
+     */
     name: pulumi.Input<string>;
+    /**
+     * The date and time of when the domain was last verified
+     */
     verifiedAt?: pulumi.Input<string>;
 }

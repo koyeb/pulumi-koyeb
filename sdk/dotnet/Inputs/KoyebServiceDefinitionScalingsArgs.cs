@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Koyeb.Inputs
 {
 
-    public sealed class KoyebServiceDefinitionScalingsArgs : Pulumi.ResourceArgs
+    public sealed class KoyebServiceDefinitionScalingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("max")]
         public Input<int>? Max { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.Koyeb.Inputs
         public KoyebServiceDefinitionScalingsArgs()
         {
         }
+        public static new KoyebServiceDefinitionScalingsArgs Empty => new KoyebServiceDefinitionScalingsArgs();
     }
 }

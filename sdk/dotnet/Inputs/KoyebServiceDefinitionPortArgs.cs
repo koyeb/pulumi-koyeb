@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Koyeb.Inputs
 {
 
-    public sealed class KoyebServiceDefinitionPortArgs : Pulumi.ResourceArgs
+    public sealed class KoyebServiceDefinitionPortArgs : global::Pulumi.ResourceArgs
     {
         [Input("port", required: true)]
         public Input<int> Port { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.Koyeb.Inputs
         public KoyebServiceDefinitionPortArgs()
         {
         }
+        public static new KoyebServiceDefinitionPortArgs Empty => new KoyebServiceDefinitionPortArgs();
     }
 }

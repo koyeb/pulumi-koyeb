@@ -17,20 +17,18 @@ namespace Pulumi.Koyeb
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Koyeb = Pulumi.Koyeb;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var my_service = Koyeb.GetService.Invoke(new()
         ///     {
-        ///         var my_service = Output.Create(Koyeb.GetService.InvokeAsync(new Koyeb.GetServiceArgs
-        ///         {
-        ///             Slug = "my-app/my-service",
-        ///         }));
-        ///     }
+        ///         Slug = "my-app/my-service",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -44,20 +42,18 @@ namespace Pulumi.Koyeb
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Koyeb = Pulumi.Koyeb;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var my_service = Koyeb.GetService.Invoke(new()
         ///     {
-        ///         var my_service = Output.Create(Koyeb.GetService.InvokeAsync(new Koyeb.GetServiceArgs
-        ///         {
-        ///             Slug = "my-app/my-service",
-        ///         }));
-        ///     }
+        ///         Slug = "my-app/my-service",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -67,50 +63,109 @@ namespace Pulumi.Koyeb
     }
 
 
-    public sealed class GetServiceArgs : Pulumi.InvokeArgs
+    public sealed class GetServiceArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The status messages of the service
+        /// </summary>
         [Input("messages")]
         public string? Messages { get; set; }
 
+        /// <summary>
+        /// The service slug composed of the app and service name, for instance my-app/my-service
+        /// </summary>
         [Input("slug", required: true)]
         public string Slug { get; set; } = null!;
 
         public GetServiceArgs()
         {
         }
+        public static new GetServiceArgs Empty => new GetServiceArgs();
     }
 
-    public sealed class GetServiceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetServiceInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The status messages of the service
+        /// </summary>
         [Input("messages")]
         public Input<string>? Messages { get; set; }
 
+        /// <summary>
+        /// The service slug composed of the app and service name, for instance my-app/my-service
+        /// </summary>
         [Input("slug", required: true)]
         public Input<string> Slug { get; set; } = null!;
 
         public GetServiceInvokeArgs()
         {
         }
+        public static new GetServiceInvokeArgs Empty => new GetServiceInvokeArgs();
     }
 
 
     [OutputType]
     public sealed class GetServiceResult
     {
+        /// <summary>
+        /// The service active deployment id
+        /// </summary>
         public readonly string ActiveDeployment;
+        /// <summary>
+        /// The app id the service is assigned
+        /// </summary>
         public readonly string AppId;
+        /// <summary>
+        /// The date and time of when the service was created
+        /// </summary>
         public readonly string CreatedAt;
+        /// <summary>
+        /// The id of the service
+        /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The service latest deployment id
+        /// </summary>
         public readonly string LatestDeployment;
+        /// <summary>
+        /// The status messages of the service
+        /// </summary>
         public readonly string Messages;
+        /// <summary>
+        /// The name of the service
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The organization id owning the service
+        /// </summary>
         public readonly string OrganizationId;
+        /// <summary>
+        /// The date and time of when the service was last updated
+        /// </summary>
         public readonly string PausedAt;
+        /// <summary>
+        /// The date and time of when the service was last updated
+        /// </summary>
         public readonly string ResumedAt;
+        /// <summary>
+        /// The service slug composed of the app and service name, for instance my-app/my-service
+        /// </summary>
         public readonly string Slug;
+        /// <summary>
+        /// The status of the service
+        /// </summary>
         public readonly string Status;
+        /// <summary>
+        /// The date and time of when the service was last updated
+        /// </summary>
         public readonly string TerminatedAt;
+        /// <summary>
+        /// The date and time of when the service was last updated
+        /// </summary>
         public readonly string UpdatedAt;
+        /// <summary>
+        /// The version of the service
+        /// </summary>
         public readonly string Version;
 
         [OutputConstructor]
