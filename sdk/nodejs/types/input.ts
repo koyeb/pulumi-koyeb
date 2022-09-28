@@ -5,114 +5,255 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "../types";
 
 export interface GetSecretAzureContainerRegistry {
+    /**
+     * The registry password
+     */
     password: string;
+    /**
+     * The registry name
+     */
     registryName: string;
+    /**
+     * The registry username
+     */
     username: string;
 }
 
 export interface GetSecretAzureContainerRegistryArgs {
+    /**
+     * The registry password
+     */
     password: pulumi.Input<string>;
+    /**
+     * The registry name
+     */
     registryName: pulumi.Input<string>;
+    /**
+     * The registry username
+     */
     username: pulumi.Input<string>;
 }
 
 export interface GetSecretDigitalOceanContainerRegistry {
+    /**
+     * The registry password
+     */
     password: string;
+    /**
+     * The registry username
+     */
     username: string;
 }
 
 export interface GetSecretDigitalOceanContainerRegistryArgs {
+    /**
+     * The registry password
+     */
     password: pulumi.Input<string>;
+    /**
+     * The registry username
+     */
     username: pulumi.Input<string>;
 }
 
 export interface GetSecretDockerHubRegistry {
+    /**
+     * The registry password
+     */
     password: string;
+    /**
+     * The registry username
+     */
     username: string;
 }
 
 export interface GetSecretDockerHubRegistryArgs {
+    /**
+     * The registry password
+     */
     password: pulumi.Input<string>;
+    /**
+     * The registry username
+     */
     username: pulumi.Input<string>;
 }
 
 export interface GetSecretGithubRegistry {
+    /**
+     * The registry password
+     */
     password: string;
+    /**
+     * The registry username
+     */
     username: string;
 }
 
 export interface GetSecretGithubRegistryArgs {
+    /**
+     * The registry password
+     */
     password: pulumi.Input<string>;
+    /**
+     * The registry username
+     */
     username: pulumi.Input<string>;
 }
 
 export interface GetSecretGitlabRegistry {
+    /**
+     * The registry password
+     */
     password: string;
+    /**
+     * The registry username
+     */
     username: string;
 }
 
 export interface GetSecretGitlabRegistryArgs {
+    /**
+     * The registry password
+     */
     password: pulumi.Input<string>;
+    /**
+     * The registry username
+     */
     username: pulumi.Input<string>;
 }
 
 export interface GetSecretPrivateRegistry {
+    /**
+     * The registry password
+     */
     password: string;
+    /**
+     * The registry url
+     */
     url: string;
+    /**
+     * The registry username
+     */
     username: string;
 }
 
 export interface GetSecretPrivateRegistryArgs {
+    /**
+     * The registry password
+     */
     password: pulumi.Input<string>;
+    /**
+     * The registry url
+     */
     url: pulumi.Input<string>;
+    /**
+     * The registry username
+     */
     username: pulumi.Input<string>;
 }
 
 export interface KoyebAppDomain {
     appName?: pulumi.Input<string>;
+    /**
+     * The date and time of when the app was created
+     */
     createdAt?: pulumi.Input<string>;
     deploymentGroup?: pulumi.Input<string>;
+    /**
+     * The app ID
+     */
     id?: pulumi.Input<string>;
     intendedCname?: pulumi.Input<string>;
     messages?: pulumi.Input<string>;
+    /**
+     * The app name
+     */
     name: pulumi.Input<string>;
+    /**
+     * The organization ID owning the app
+     */
     organizationId?: pulumi.Input<string>;
     status?: pulumi.Input<string>;
     type?: pulumi.Input<string>;
+    /**
+     * The date and time of when the app was last updated
+     */
     updatedAt?: pulumi.Input<string>;
     verifiedAt?: pulumi.Input<string>;
     version?: pulumi.Input<string>;
 }
 
 export interface KoyebSecretAzureContainerRegistry {
+    /**
+     * The registry password
+     */
     password: pulumi.Input<string>;
+    /**
+     * The registry name
+     */
     registryName: pulumi.Input<string>;
+    /**
+     * The registry username
+     */
     username: pulumi.Input<string>;
 }
 
 export interface KoyebSecretDigitalOceanContainerRegistry {
+    /**
+     * The registry password
+     */
     password: pulumi.Input<string>;
+    /**
+     * The registry username
+     */
     username: pulumi.Input<string>;
 }
 
 export interface KoyebSecretDockerHubRegistry {
+    /**
+     * The registry password
+     */
     password: pulumi.Input<string>;
+    /**
+     * The registry username
+     */
     username: pulumi.Input<string>;
 }
 
 export interface KoyebSecretGithubRegistry {
+    /**
+     * The registry password
+     */
     password: pulumi.Input<string>;
+    /**
+     * The registry username
+     */
     username: pulumi.Input<string>;
 }
 
 export interface KoyebSecretGitlabRegistry {
+    /**
+     * The registry password
+     */
     password: pulumi.Input<string>;
+    /**
+     * The registry username
+     */
     username: pulumi.Input<string>;
 }
 
 export interface KoyebSecretPrivateRegistry {
+    /**
+     * The registry password
+     */
     password: pulumi.Input<string>;
+    /**
+     * The registry url
+     */
     url: pulumi.Input<string>;
+    /**
+     * The registry username
+     */
     username: pulumi.Input<string>;
 }
 
@@ -121,8 +262,14 @@ export interface KoyebServiceDefinition {
     envs?: pulumi.Input<pulumi.Input<inputs.KoyebServiceDefinitionEnv>[]>;
     git?: pulumi.Input<inputs.KoyebServiceDefinitionGit>;
     instanceTypes: pulumi.Input<inputs.KoyebServiceDefinitionInstanceTypes>;
+    /**
+     * The service name
+     */
     name: pulumi.Input<string>;
     ports: pulumi.Input<pulumi.Input<inputs.KoyebServiceDefinitionPort>[]>;
+    /**
+     * The service deployment regions to deploy to
+     */
     regions: pulumi.Input<pulumi.Input<string>[]>;
     routes?: pulumi.Input<pulumi.Input<inputs.KoyebServiceDefinitionRoute>[]>;
     scalings: pulumi.Input<inputs.KoyebServiceDefinitionScalings>;

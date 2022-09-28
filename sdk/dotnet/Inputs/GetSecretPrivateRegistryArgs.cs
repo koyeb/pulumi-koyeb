@@ -10,19 +10,29 @@ using Pulumi.Serialization;
 namespace Pulumi.Koyeb.Inputs
 {
 
-    public sealed class GetSecretPrivateRegistryInputArgs : Pulumi.ResourceArgs
+    public sealed class GetSecretPrivateRegistryInputArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The registry password
+        /// </summary>
         [Input("password", required: true)]
         public Input<string> Password { get; set; } = null!;
 
+        /// <summary>
+        /// The registry url
+        /// </summary>
         [Input("url", required: true)]
         public Input<string> Url { get; set; } = null!;
 
+        /// <summary>
+        /// The registry username
+        /// </summary>
         [Input("username", required: true)]
         public Input<string> Username { get; set; } = null!;
 
         public GetSecretPrivateRegistryInputArgs()
         {
         }
+        public static new GetSecretPrivateRegistryInputArgs Empty => new GetSecretPrivateRegistryInputArgs();
     }
 }

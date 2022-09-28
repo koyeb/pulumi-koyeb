@@ -13,75 +13,73 @@ namespace Pulumi.Koyeb
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Koyeb = Pulumi.Koyeb;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var my_service = new Koyeb.KoyebService("my-service", new()
     ///     {
-    ///         var my_service = new Koyeb.KoyebService("my-service", new Koyeb.KoyebServiceArgs
+    ///         AppName = koyeb_app.My_app.Name,
+    ///         Definition = new Koyeb.Inputs.KoyebServiceDefinitionArgs
     ///         {
-    ///             AppName = koyeb_app.My_app.Name,
-    ///             Definition = new Koyeb.Inputs.KoyebServiceDefinitionArgs
+    ///             Name = "my-service",
+    ///             InstanceTypes = new Koyeb.Inputs.KoyebServiceDefinitionInstanceTypesArgs
     ///             {
-    ///                 Name = "my-service",
-    ///                 InstanceTypes = new Koyeb.Inputs.KoyebServiceDefinitionInstanceTypesArgs
+    ///                 Type = "micro",
+    ///             },
+    ///             Ports = new[]
+    ///             {
+    ///                 new Koyeb.Inputs.KoyebServiceDefinitionPortArgs
     ///                 {
-    ///                     Type = "micro",
-    ///                 },
-    ///                 Ports = 
-    ///                 {
-    ///                     new Koyeb.Inputs.KoyebServiceDefinitionPortArgs
-    ///                     {
-    ///                         Port = 3000,
-    ///                         Protocol = "http",
-    ///                     },
-    ///                 },
-    ///                 Scalings = new Koyeb.Inputs.KoyebServiceDefinitionScalingsArgs
-    ///                 {
-    ///                     Min = 1,
-    ///                     Max = 1,
-    ///                 },
-    ///                 Envs = 
-    ///                 {
-    ///                     new Koyeb.Inputs.KoyebServiceDefinitionEnvArgs
-    ///                     {
-    ///                         Key = "FOO",
-    ///                         Value = "BAR",
-    ///                     },
-    ///                 },
-    ///                 Routes = 
-    ///                 {
-    ///                     new Koyeb.Inputs.KoyebServiceDefinitionRouteArgs
-    ///                     {
-    ///                         Path = "/",
-    ///                         Port = 3000,
-    ///                     },
-    ///                 },
-    ///                 Regions = 
-    ///                 {
-    ///                     "par",
-    ///                 },
-    ///                 Docker = new Koyeb.Inputs.KoyebServiceDefinitionDockerArgs
-    ///                 {
-    ///                     Image = "koyeb/demo",
+    ///                     Port = 3000,
+    ///                     Protocol = "http",
     ///                 },
     ///             },
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
+    ///             Scalings = new Koyeb.Inputs.KoyebServiceDefinitionScalingsArgs
     ///             {
-    ///                 koyeb_app.My_app,
+    ///                 Min = 1,
+    ///                 Max = 1,
     ///             },
-    ///         });
-    ///     }
+    ///             Envs = new[]
+    ///             {
+    ///                 new Koyeb.Inputs.KoyebServiceDefinitionEnvArgs
+    ///                 {
+    ///                     Key = "FOO",
+    ///                     Value = "BAR",
+    ///                 },
+    ///             },
+    ///             Routes = new[]
+    ///             {
+    ///                 new Koyeb.Inputs.KoyebServiceDefinitionRouteArgs
+    ///                 {
+    ///                     Path = "/",
+    ///                     Port = 3000,
+    ///                 },
+    ///             },
+    ///             Regions = new[]
+    ///             {
+    ///                 "par",
+    ///             },
+    ///             Docker = new Koyeb.Inputs.KoyebServiceDefinitionDockerArgs
+    ///             {
+    ///                 Image = "koyeb/demo",
+    ///             },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             koyeb_app.My_app,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [KoyebResourceType("koyeb:index/koyebService:KoyebService")]
-    public partial class KoyebService : Pulumi.CustomResource
+    public partial class KoyebService : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The service active deployment ID
@@ -218,7 +216,7 @@ namespace Pulumi.Koyeb
         }
     }
 
-    public sealed class KoyebServiceArgs : Pulumi.ResourceArgs
+    public sealed class KoyebServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The app name the service is assigned to
@@ -241,9 +239,10 @@ namespace Pulumi.Koyeb
         public KoyebServiceArgs()
         {
         }
+        public static new KoyebServiceArgs Empty => new KoyebServiceArgs();
     }
 
-    public sealed class KoyebServiceState : Pulumi.ResourceArgs
+    public sealed class KoyebServiceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The service active deployment ID
@@ -338,5 +337,6 @@ namespace Pulumi.Koyeb
         public KoyebServiceState()
         {
         }
+        public static new KoyebServiceState Empty => new KoyebServiceState();
     }
 }

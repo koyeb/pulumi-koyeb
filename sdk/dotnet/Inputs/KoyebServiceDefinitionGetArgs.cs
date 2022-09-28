@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Koyeb.Inputs
 {
 
-    public sealed class KoyebServiceDefinitionGetArgs : Pulumi.ResourceArgs
+    public sealed class KoyebServiceDefinitionGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("docker")]
         public Input<Inputs.KoyebServiceDefinitionDockerGetArgs>? Docker { get; set; }
@@ -29,6 +29,9 @@ namespace Pulumi.Koyeb.Inputs
         [Input("instanceTypes", required: true)]
         public Input<Inputs.KoyebServiceDefinitionInstanceTypesGetArgs> InstanceTypes { get; set; } = null!;
 
+        /// <summary>
+        /// The service name
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
@@ -42,6 +45,10 @@ namespace Pulumi.Koyeb.Inputs
 
         [Input("regions", required: true)]
         private InputList<string>? _regions;
+
+        /// <summary>
+        /// The service deployment regions to deploy to
+        /// </summary>
         public InputList<string> Regions
         {
             get => _regions ?? (_regions = new InputList<string>());
@@ -62,5 +69,6 @@ namespace Pulumi.Koyeb.Inputs
         public KoyebServiceDefinitionGetArgs()
         {
         }
+        public static new KoyebServiceDefinitionGetArgs Empty => new KoyebServiceDefinitionGetArgs();
     }
 }

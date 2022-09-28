@@ -13,8 +13,17 @@ namespace Pulumi.Koyeb.Outputs
     [OutputType]
     public sealed class KoyebSecretPrivateRegistry
     {
+        /// <summary>
+        /// The registry password
+        /// </summary>
         public readonly string Password;
+        /// <summary>
+        /// The registry url
+        /// </summary>
         public readonly string Url;
+        /// <summary>
+        /// The registry username
+        /// </summary>
         public readonly string Username;
 
         [OutputConstructor]

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Koyeb.Inputs
 {
 
-    public sealed class KoyebServiceDefinitionRouteGetArgs : Pulumi.ResourceArgs
+    public sealed class KoyebServiceDefinitionRouteGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("path", required: true)]
         public Input<string> Path { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.Koyeb.Inputs
         public KoyebServiceDefinitionRouteGetArgs()
         {
         }
+        public static new KoyebServiceDefinitionRouteGetArgs Empty => new KoyebServiceDefinitionRouteGetArgs();
     }
 }

@@ -17,20 +17,18 @@ namespace Pulumi.Koyeb
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Koyeb = Pulumi.Koyeb;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var my_secret = Koyeb.GetSecret.Invoke(new()
         ///     {
-        ///         var my_secret = Output.Create(Koyeb.GetSecret.InvokeAsync(new Koyeb.GetSecretArgs
-        ///         {
-        ///             Name = "my-secret",
-        ///         }));
-        ///     }
+        ///         Name = "my-secret",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -44,20 +42,18 @@ namespace Pulumi.Koyeb
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Koyeb = Pulumi.Koyeb;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var my_secret = Koyeb.GetSecret.Invoke(new()
         ///     {
-        ///         var my_secret = Output.Create(Koyeb.GetSecret.InvokeAsync(new Koyeb.GetSecretArgs
-        ///         {
-        ///             Name = "my-secret",
-        ///         }));
-        ///     }
+        ///         Name = "my-secret",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -67,90 +63,185 @@ namespace Pulumi.Koyeb
     }
 
 
-    public sealed class GetSecretArgs : Pulumi.InvokeArgs
+    public sealed class GetSecretArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Azure registry configuration to use
+        /// </summary>
         [Input("azureContainerRegistry")]
         public Inputs.GetSecretAzureContainerRegistryArgs? AzureContainerRegistry { get; set; }
 
+        /// <summary>
+        /// The DigitalOcean registry configuration to use
+        /// </summary>
         [Input("digitalOceanContainerRegistry")]
         public Inputs.GetSecretDigitalOceanContainerRegistryArgs? DigitalOceanContainerRegistry { get; set; }
 
+        /// <summary>
+        /// The DockerHub registry configuration to use
+        /// </summary>
         [Input("dockerHubRegistry")]
         public Inputs.GetSecretDockerHubRegistryArgs? DockerHubRegistry { get; set; }
 
+        /// <summary>
+        /// The GitHub registry configuration to use
+        /// </summary>
         [Input("githubRegistry")]
         public Inputs.GetSecretGithubRegistryArgs? GithubRegistry { get; set; }
 
+        /// <summary>
+        /// The GitLab registry configuration to use
+        /// </summary>
         [Input("gitlabRegistry")]
         public Inputs.GetSecretGitlabRegistryArgs? GitlabRegistry { get; set; }
 
+        /// <summary>
+        /// The secret name
+        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        /// <summary>
+        /// The DigitalOcean registry configuration to use
+        /// </summary>
         [Input("privateRegistry")]
         public Inputs.GetSecretPrivateRegistryArgs? PrivateRegistry { get; set; }
 
+        /// <summary>
+        /// The secret type
+        /// </summary>
         [Input("type")]
         public string? Type { get; set; }
 
+        /// <summary>
+        /// The secret value
+        /// </summary>
         [Input("value")]
         public string? Value { get; set; }
 
         public GetSecretArgs()
         {
         }
+        public static new GetSecretArgs Empty => new GetSecretArgs();
     }
 
-    public sealed class GetSecretInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSecretInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Azure registry configuration to use
+        /// </summary>
         [Input("azureContainerRegistry")]
         public Input<Inputs.GetSecretAzureContainerRegistryInputArgs>? AzureContainerRegistry { get; set; }
 
+        /// <summary>
+        /// The DigitalOcean registry configuration to use
+        /// </summary>
         [Input("digitalOceanContainerRegistry")]
         public Input<Inputs.GetSecretDigitalOceanContainerRegistryInputArgs>? DigitalOceanContainerRegistry { get; set; }
 
+        /// <summary>
+        /// The DockerHub registry configuration to use
+        /// </summary>
         [Input("dockerHubRegistry")]
         public Input<Inputs.GetSecretDockerHubRegistryInputArgs>? DockerHubRegistry { get; set; }
 
+        /// <summary>
+        /// The GitHub registry configuration to use
+        /// </summary>
         [Input("githubRegistry")]
         public Input<Inputs.GetSecretGithubRegistryInputArgs>? GithubRegistry { get; set; }
 
+        /// <summary>
+        /// The GitLab registry configuration to use
+        /// </summary>
         [Input("gitlabRegistry")]
         public Input<Inputs.GetSecretGitlabRegistryInputArgs>? GitlabRegistry { get; set; }
 
+        /// <summary>
+        /// The secret name
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The DigitalOcean registry configuration to use
+        /// </summary>
         [Input("privateRegistry")]
         public Input<Inputs.GetSecretPrivateRegistryInputArgs>? PrivateRegistry { get; set; }
 
+        /// <summary>
+        /// The secret type
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
+        /// <summary>
+        /// The secret value
+        /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
 
         public GetSecretInvokeArgs()
         {
         }
+        public static new GetSecretInvokeArgs Empty => new GetSecretInvokeArgs();
     }
 
 
     [OutputType]
     public sealed class GetSecretResult
     {
+        /// <summary>
+        /// The Azure registry configuration to use
+        /// </summary>
         public readonly Outputs.GetSecretAzureContainerRegistryResult? AzureContainerRegistry;
+        /// <summary>
+        /// The date and time of when the secret was created
+        /// </summary>
         public readonly string CreatedAt;
+        /// <summary>
+        /// The DigitalOcean registry configuration to use
+        /// </summary>
         public readonly Outputs.GetSecretDigitalOceanContainerRegistryResult? DigitalOceanContainerRegistry;
+        /// <summary>
+        /// The DockerHub registry configuration to use
+        /// </summary>
         public readonly Outputs.GetSecretDockerHubRegistryResult? DockerHubRegistry;
+        /// <summary>
+        /// The GitHub registry configuration to use
+        /// </summary>
         public readonly Outputs.GetSecretGithubRegistryResult? GithubRegistry;
+        /// <summary>
+        /// The GitLab registry configuration to use
+        /// </summary>
         public readonly Outputs.GetSecretGitlabRegistryResult? GitlabRegistry;
+        /// <summary>
+        /// The secret ID
+        /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The secret name
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The organization ID owning the secret
+        /// </summary>
         public readonly string OrganizationId;
+        /// <summary>
+        /// The DigitalOcean registry configuration to use
+        /// </summary>
         public readonly Outputs.GetSecretPrivateRegistryResult? PrivateRegistry;
+        /// <summary>
+        /// The secret type
+        /// </summary>
         public readonly string? Type;
+        /// <summary>
+        /// The date and time of when the secret was last updated
+        /// </summary>
         public readonly string UpdatedAt;
+        /// <summary>
+        /// The secret value
+        /// </summary>
         public readonly string? Value;
 
         [OutputConstructor]

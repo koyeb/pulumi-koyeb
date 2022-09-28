@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Koyeb.Inputs
 {
 
-    public sealed class KoyebServiceDefinitionInstanceTypesGetArgs : Pulumi.ResourceArgs
+    public sealed class KoyebServiceDefinitionInstanceTypesGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.Koyeb.Inputs
         public KoyebServiceDefinitionInstanceTypesGetArgs()
         {
         }
+        public static new KoyebServiceDefinitionInstanceTypesGetArgs Empty => new KoyebServiceDefinitionInstanceTypesGetArgs();
     }
 }

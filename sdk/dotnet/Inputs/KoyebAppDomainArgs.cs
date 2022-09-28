@@ -10,17 +10,23 @@ using Pulumi.Serialization;
 namespace Pulumi.Koyeb.Inputs
 {
 
-    public sealed class KoyebAppDomainArgs : Pulumi.ResourceArgs
+    public sealed class KoyebAppDomainArgs : global::Pulumi.ResourceArgs
     {
         [Input("appName")]
         public Input<string>? AppName { get; set; }
 
+        /// <summary>
+        /// The date and time of when the app was created
+        /// </summary>
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
 
         [Input("deploymentGroup")]
         public Input<string>? DeploymentGroup { get; set; }
 
+        /// <summary>
+        /// The app ID
+        /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
@@ -30,9 +36,15 @@ namespace Pulumi.Koyeb.Inputs
         [Input("messages")]
         public Input<string>? Messages { get; set; }
 
+        /// <summary>
+        /// The app name
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The organization ID owning the app
+        /// </summary>
         [Input("organizationId")]
         public Input<string>? OrganizationId { get; set; }
 
@@ -42,6 +54,9 @@ namespace Pulumi.Koyeb.Inputs
         [Input("type")]
         public Input<string>? Type { get; set; }
 
+        /// <summary>
+        /// The date and time of when the app was last updated
+        /// </summary>
         [Input("updatedAt")]
         public Input<string>? UpdatedAt { get; set; }
 
@@ -54,5 +69,6 @@ namespace Pulumi.Koyeb.Inputs
         public KoyebAppDomainArgs()
         {
         }
+        public static new KoyebAppDomainArgs Empty => new KoyebAppDomainArgs();
     }
 }

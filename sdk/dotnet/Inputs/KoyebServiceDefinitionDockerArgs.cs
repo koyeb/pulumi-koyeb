@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Koyeb.Inputs
 {
 
-    public sealed class KoyebServiceDefinitionDockerArgs : Pulumi.ResourceArgs
+    public sealed class KoyebServiceDefinitionDockerArgs : global::Pulumi.ResourceArgs
     {
         [Input("args")]
         private InputList<string>? _args;
@@ -32,5 +32,6 @@ namespace Pulumi.Koyeb.Inputs
         public KoyebServiceDefinitionDockerArgs()
         {
         }
+        public static new KoyebServiceDefinitionDockerArgs Empty => new KoyebServiceDefinitionDockerArgs();
     }
 }
