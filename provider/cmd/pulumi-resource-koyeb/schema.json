@@ -1,5 +1,6 @@
 {
     "name": "koyeb",
+    "displayName": "Koyeb",
     "description": "A Pulumi package for creating and managing koyeb cloud resources.",
     "keywords": [
         "pulumi",
