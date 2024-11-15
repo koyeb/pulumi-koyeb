@@ -34,7 +34,7 @@ type KoyebAppDomain struct {
 // KoyebAppDomainInput is an input type that accepts KoyebAppDomainArgs and KoyebAppDomainOutput values.
 // You can construct a concrete instance of `KoyebAppDomainInput` via:
 //
-//          KoyebAppDomainArgs{...}
+//	KoyebAppDomainArgs{...}
 type KoyebAppDomainInput interface {
 	pulumi.Input
 
@@ -78,7 +78,7 @@ func (i KoyebAppDomainArgs) ToKoyebAppDomainOutputWithContext(ctx context.Contex
 // KoyebAppDomainArrayInput is an input type that accepts KoyebAppDomainArray and KoyebAppDomainArrayOutput values.
 // You can construct a concrete instance of `KoyebAppDomainArrayInput` via:
 //
-//          KoyebAppDomainArray{ KoyebAppDomainArgs{...} }
+//	KoyebAppDomainArray{ KoyebAppDomainArgs{...} }
 type KoyebAppDomainArrayInput interface {
 	pulumi.Input
 
@@ -203,7 +203,7 @@ type KoyebSecretAzureContainerRegistry struct {
 // KoyebSecretAzureContainerRegistryInput is an input type that accepts KoyebSecretAzureContainerRegistryArgs and KoyebSecretAzureContainerRegistryOutput values.
 // You can construct a concrete instance of `KoyebSecretAzureContainerRegistryInput` via:
 //
-//          KoyebSecretAzureContainerRegistryArgs{...}
+//	KoyebSecretAzureContainerRegistryArgs{...}
 type KoyebSecretAzureContainerRegistryInput interface {
 	pulumi.Input
 
@@ -243,11 +243,11 @@ func (i KoyebSecretAzureContainerRegistryArgs) ToKoyebSecretAzureContainerRegist
 // KoyebSecretAzureContainerRegistryPtrInput is an input type that accepts KoyebSecretAzureContainerRegistryArgs, KoyebSecretAzureContainerRegistryPtr and KoyebSecretAzureContainerRegistryPtrOutput values.
 // You can construct a concrete instance of `KoyebSecretAzureContainerRegistryPtrInput` via:
 //
-//          KoyebSecretAzureContainerRegistryArgs{...}
+//	        KoyebSecretAzureContainerRegistryArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type KoyebSecretAzureContainerRegistryPtrInput interface {
 	pulumi.Input
 
@@ -376,7 +376,7 @@ type KoyebSecretDigitalOceanContainerRegistry struct {
 // KoyebSecretDigitalOceanContainerRegistryInput is an input type that accepts KoyebSecretDigitalOceanContainerRegistryArgs and KoyebSecretDigitalOceanContainerRegistryOutput values.
 // You can construct a concrete instance of `KoyebSecretDigitalOceanContainerRegistryInput` via:
 //
-//          KoyebSecretDigitalOceanContainerRegistryArgs{...}
+//	KoyebSecretDigitalOceanContainerRegistryArgs{...}
 type KoyebSecretDigitalOceanContainerRegistryInput interface {
 	pulumi.Input
 
@@ -414,11 +414,11 @@ func (i KoyebSecretDigitalOceanContainerRegistryArgs) ToKoyebSecretDigitalOceanC
 // KoyebSecretDigitalOceanContainerRegistryPtrInput is an input type that accepts KoyebSecretDigitalOceanContainerRegistryArgs, KoyebSecretDigitalOceanContainerRegistryPtr and KoyebSecretDigitalOceanContainerRegistryPtrOutput values.
 // You can construct a concrete instance of `KoyebSecretDigitalOceanContainerRegistryPtrInput` via:
 //
-//          KoyebSecretDigitalOceanContainerRegistryArgs{...}
+//	        KoyebSecretDigitalOceanContainerRegistryArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type KoyebSecretDigitalOceanContainerRegistryPtrInput interface {
 	pulumi.Input
 
@@ -532,7 +532,7 @@ type KoyebSecretDockerHubRegistry struct {
 // KoyebSecretDockerHubRegistryInput is an input type that accepts KoyebSecretDockerHubRegistryArgs and KoyebSecretDockerHubRegistryOutput values.
 // You can construct a concrete instance of `KoyebSecretDockerHubRegistryInput` via:
 //
-//          KoyebSecretDockerHubRegistryArgs{...}
+//	KoyebSecretDockerHubRegistryArgs{...}
 type KoyebSecretDockerHubRegistryInput interface {
 	pulumi.Input
 
@@ -570,11 +570,11 @@ func (i KoyebSecretDockerHubRegistryArgs) ToKoyebSecretDockerHubRegistryPtrOutpu
 // KoyebSecretDockerHubRegistryPtrInput is an input type that accepts KoyebSecretDockerHubRegistryArgs, KoyebSecretDockerHubRegistryPtr and KoyebSecretDockerHubRegistryPtrOutput values.
 // You can construct a concrete instance of `KoyebSecretDockerHubRegistryPtrInput` via:
 //
-//          KoyebSecretDockerHubRegistryArgs{...}
+//	        KoyebSecretDockerHubRegistryArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type KoyebSecretDockerHubRegistryPtrInput interface {
 	pulumi.Input
 
@@ -688,7 +688,7 @@ type KoyebSecretGithubRegistry struct {
 // KoyebSecretGithubRegistryInput is an input type that accepts KoyebSecretGithubRegistryArgs and KoyebSecretGithubRegistryOutput values.
 // You can construct a concrete instance of `KoyebSecretGithubRegistryInput` via:
 //
-//          KoyebSecretGithubRegistryArgs{...}
+//	KoyebSecretGithubRegistryArgs{...}
 type KoyebSecretGithubRegistryInput interface {
 	pulumi.Input
 
@@ -726,11 +726,11 @@ func (i KoyebSecretGithubRegistryArgs) ToKoyebSecretGithubRegistryPtrOutputWithC
 // KoyebSecretGithubRegistryPtrInput is an input type that accepts KoyebSecretGithubRegistryArgs, KoyebSecretGithubRegistryPtr and KoyebSecretGithubRegistryPtrOutput values.
 // You can construct a concrete instance of `KoyebSecretGithubRegistryPtrInput` via:
 //
-//          KoyebSecretGithubRegistryArgs{...}
+//	        KoyebSecretGithubRegistryArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type KoyebSecretGithubRegistryPtrInput interface {
 	pulumi.Input
 
@@ -844,7 +844,7 @@ type KoyebSecretGitlabRegistry struct {
 // KoyebSecretGitlabRegistryInput is an input type that accepts KoyebSecretGitlabRegistryArgs and KoyebSecretGitlabRegistryOutput values.
 // You can construct a concrete instance of `KoyebSecretGitlabRegistryInput` via:
 //
-//          KoyebSecretGitlabRegistryArgs{...}
+//	KoyebSecretGitlabRegistryArgs{...}
 type KoyebSecretGitlabRegistryInput interface {
 	pulumi.Input
 
@@ -882,11 +882,11 @@ func (i KoyebSecretGitlabRegistryArgs) ToKoyebSecretGitlabRegistryPtrOutputWithC
 // KoyebSecretGitlabRegistryPtrInput is an input type that accepts KoyebSecretGitlabRegistryArgs, KoyebSecretGitlabRegistryPtr and KoyebSecretGitlabRegistryPtrOutput values.
 // You can construct a concrete instance of `KoyebSecretGitlabRegistryPtrInput` via:
 //
-//          KoyebSecretGitlabRegistryArgs{...}
+//	        KoyebSecretGitlabRegistryArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type KoyebSecretGitlabRegistryPtrInput interface {
 	pulumi.Input
 
@@ -1002,7 +1002,7 @@ type KoyebSecretPrivateRegistry struct {
 // KoyebSecretPrivateRegistryInput is an input type that accepts KoyebSecretPrivateRegistryArgs and KoyebSecretPrivateRegistryOutput values.
 // You can construct a concrete instance of `KoyebSecretPrivateRegistryInput` via:
 //
-//          KoyebSecretPrivateRegistryArgs{...}
+//	KoyebSecretPrivateRegistryArgs{...}
 type KoyebSecretPrivateRegistryInput interface {
 	pulumi.Input
 
@@ -1042,11 +1042,11 @@ func (i KoyebSecretPrivateRegistryArgs) ToKoyebSecretPrivateRegistryPtrOutputWit
 // KoyebSecretPrivateRegistryPtrInput is an input type that accepts KoyebSecretPrivateRegistryArgs, KoyebSecretPrivateRegistryPtr and KoyebSecretPrivateRegistryPtrOutput values.
 // You can construct a concrete instance of `KoyebSecretPrivateRegistryPtrInput` via:
 //
-//          KoyebSecretPrivateRegistryArgs{...}
+//	        KoyebSecretPrivateRegistryArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type KoyebSecretPrivateRegistryPtrInput interface {
 	pulumi.Input
 
@@ -1166,23 +1166,28 @@ func (o KoyebSecretPrivateRegistryPtrOutput) Username() pulumi.StringPtrOutput {
 }
 
 type KoyebServiceDefinition struct {
-	Docker        *KoyebServiceDefinitionDocker       `pulumi:"docker"`
-	Envs          []KoyebServiceDefinitionEnv         `pulumi:"envs"`
-	Git           *KoyebServiceDefinitionGit          `pulumi:"git"`
-	InstanceTypes KoyebServiceDefinitionInstanceTypes `pulumi:"instanceTypes"`
+	Docker        *KoyebServiceDefinitionDocker        `pulumi:"docker"`
+	Envs          []KoyebServiceDefinitionEnv          `pulumi:"envs"`
+	Git           *KoyebServiceDefinitionGit           `pulumi:"git"`
+	HealthChecks  []KoyebServiceDefinitionHealthCheck  `pulumi:"healthChecks"`
+	InstanceTypes []KoyebServiceDefinitionInstanceType `pulumi:"instanceTypes"`
 	// The service name
 	Name  string                       `pulumi:"name"`
 	Ports []KoyebServiceDefinitionPort `pulumi:"ports"`
 	// The service deployment regions to deploy to
-	Regions  []string                       `pulumi:"regions"`
-	Routes   []KoyebServiceDefinitionRoute  `pulumi:"routes"`
-	Scalings KoyebServiceDefinitionScalings `pulumi:"scalings"`
+	Regions  []string                        `pulumi:"regions"`
+	Routes   []KoyebServiceDefinitionRoute   `pulumi:"routes"`
+	Scalings []KoyebServiceDefinitionScaling `pulumi:"scalings"`
+	// If set to true, the service will be deployed without using the cache
+	SkipCache *bool `pulumi:"skipCache"`
+	// The service type, either WEB or WORKER (default WEB)
+	Type *string `pulumi:"type"`
 }
 
 // KoyebServiceDefinitionInput is an input type that accepts KoyebServiceDefinitionArgs and KoyebServiceDefinitionOutput values.
 // You can construct a concrete instance of `KoyebServiceDefinitionInput` via:
 //
-//          KoyebServiceDefinitionArgs{...}
+//	KoyebServiceDefinitionArgs{...}
 type KoyebServiceDefinitionInput interface {
 	pulumi.Input
 
@@ -1191,17 +1196,22 @@ type KoyebServiceDefinitionInput interface {
 }
 
 type KoyebServiceDefinitionArgs struct {
-	Docker        KoyebServiceDefinitionDockerPtrInput     `pulumi:"docker"`
-	Envs          KoyebServiceDefinitionEnvArrayInput      `pulumi:"envs"`
-	Git           KoyebServiceDefinitionGitPtrInput        `pulumi:"git"`
-	InstanceTypes KoyebServiceDefinitionInstanceTypesInput `pulumi:"instanceTypes"`
+	Docker        KoyebServiceDefinitionDockerPtrInput         `pulumi:"docker"`
+	Envs          KoyebServiceDefinitionEnvArrayInput          `pulumi:"envs"`
+	Git           KoyebServiceDefinitionGitPtrInput            `pulumi:"git"`
+	HealthChecks  KoyebServiceDefinitionHealthCheckArrayInput  `pulumi:"healthChecks"`
+	InstanceTypes KoyebServiceDefinitionInstanceTypeArrayInput `pulumi:"instanceTypes"`
 	// The service name
 	Name  pulumi.StringInput                   `pulumi:"name"`
 	Ports KoyebServiceDefinitionPortArrayInput `pulumi:"ports"`
 	// The service deployment regions to deploy to
-	Regions  pulumi.StringArrayInput               `pulumi:"regions"`
-	Routes   KoyebServiceDefinitionRouteArrayInput `pulumi:"routes"`
-	Scalings KoyebServiceDefinitionScalingsInput   `pulumi:"scalings"`
+	Regions  pulumi.StringArrayInput                 `pulumi:"regions"`
+	Routes   KoyebServiceDefinitionRouteArrayInput   `pulumi:"routes"`
+	Scalings KoyebServiceDefinitionScalingArrayInput `pulumi:"scalings"`
+	// If set to true, the service will be deployed without using the cache
+	SkipCache pulumi.BoolPtrInput `pulumi:"skipCache"`
+	// The service type, either WEB or WORKER (default WEB)
+	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (KoyebServiceDefinitionArgs) ElementType() reflect.Type {
@@ -1227,11 +1237,11 @@ func (i KoyebServiceDefinitionArgs) ToKoyebServiceDefinitionPtrOutputWithContext
 // KoyebServiceDefinitionPtrInput is an input type that accepts KoyebServiceDefinitionArgs, KoyebServiceDefinitionPtr and KoyebServiceDefinitionPtrOutput values.
 // You can construct a concrete instance of `KoyebServiceDefinitionPtrInput` via:
 //
-//          KoyebServiceDefinitionArgs{...}
+//	        KoyebServiceDefinitionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type KoyebServiceDefinitionPtrInput interface {
 	pulumi.Input
 
@@ -1293,8 +1303,12 @@ func (o KoyebServiceDefinitionOutput) Git() KoyebServiceDefinitionGitPtrOutput {
 	return o.ApplyT(func(v KoyebServiceDefinition) *KoyebServiceDefinitionGit { return v.Git }).(KoyebServiceDefinitionGitPtrOutput)
 }
 
-func (o KoyebServiceDefinitionOutput) InstanceTypes() KoyebServiceDefinitionInstanceTypesOutput {
-	return o.ApplyT(func(v KoyebServiceDefinition) KoyebServiceDefinitionInstanceTypes { return v.InstanceTypes }).(KoyebServiceDefinitionInstanceTypesOutput)
+func (o KoyebServiceDefinitionOutput) HealthChecks() KoyebServiceDefinitionHealthCheckArrayOutput {
+	return o.ApplyT(func(v KoyebServiceDefinition) []KoyebServiceDefinitionHealthCheck { return v.HealthChecks }).(KoyebServiceDefinitionHealthCheckArrayOutput)
+}
+
+func (o KoyebServiceDefinitionOutput) InstanceTypes() KoyebServiceDefinitionInstanceTypeArrayOutput {
+	return o.ApplyT(func(v KoyebServiceDefinition) []KoyebServiceDefinitionInstanceType { return v.InstanceTypes }).(KoyebServiceDefinitionInstanceTypeArrayOutput)
 }
 
 // The service name
@@ -1315,8 +1329,18 @@ func (o KoyebServiceDefinitionOutput) Routes() KoyebServiceDefinitionRouteArrayO
 	return o.ApplyT(func(v KoyebServiceDefinition) []KoyebServiceDefinitionRoute { return v.Routes }).(KoyebServiceDefinitionRouteArrayOutput)
 }
 
-func (o KoyebServiceDefinitionOutput) Scalings() KoyebServiceDefinitionScalingsOutput {
-	return o.ApplyT(func(v KoyebServiceDefinition) KoyebServiceDefinitionScalings { return v.Scalings }).(KoyebServiceDefinitionScalingsOutput)
+func (o KoyebServiceDefinitionOutput) Scalings() KoyebServiceDefinitionScalingArrayOutput {
+	return o.ApplyT(func(v KoyebServiceDefinition) []KoyebServiceDefinitionScaling { return v.Scalings }).(KoyebServiceDefinitionScalingArrayOutput)
+}
+
+// If set to true, the service will be deployed without using the cache
+func (o KoyebServiceDefinitionOutput) SkipCache() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v KoyebServiceDefinition) *bool { return v.SkipCache }).(pulumi.BoolPtrOutput)
+}
+
+// The service type, either WEB or WORKER (default WEB)
+func (o KoyebServiceDefinitionOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KoyebServiceDefinition) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type KoyebServiceDefinitionPtrOutput struct{ *pulumi.OutputState }
@@ -1370,13 +1394,22 @@ func (o KoyebServiceDefinitionPtrOutput) Git() KoyebServiceDefinitionGitPtrOutpu
 	}).(KoyebServiceDefinitionGitPtrOutput)
 }
 
-func (o KoyebServiceDefinitionPtrOutput) InstanceTypes() KoyebServiceDefinitionInstanceTypesPtrOutput {
-	return o.ApplyT(func(v *KoyebServiceDefinition) *KoyebServiceDefinitionInstanceTypes {
+func (o KoyebServiceDefinitionPtrOutput) HealthChecks() KoyebServiceDefinitionHealthCheckArrayOutput {
+	return o.ApplyT(func(v *KoyebServiceDefinition) []KoyebServiceDefinitionHealthCheck {
 		if v == nil {
 			return nil
 		}
-		return &v.InstanceTypes
-	}).(KoyebServiceDefinitionInstanceTypesPtrOutput)
+		return v.HealthChecks
+	}).(KoyebServiceDefinitionHealthCheckArrayOutput)
+}
+
+func (o KoyebServiceDefinitionPtrOutput) InstanceTypes() KoyebServiceDefinitionInstanceTypeArrayOutput {
+	return o.ApplyT(func(v *KoyebServiceDefinition) []KoyebServiceDefinitionInstanceType {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceTypes
+	}).(KoyebServiceDefinitionInstanceTypeArrayOutput)
 }
 
 // The service name
@@ -1417,26 +1450,48 @@ func (o KoyebServiceDefinitionPtrOutput) Routes() KoyebServiceDefinitionRouteArr
 	}).(KoyebServiceDefinitionRouteArrayOutput)
 }
 
-func (o KoyebServiceDefinitionPtrOutput) Scalings() KoyebServiceDefinitionScalingsPtrOutput {
-	return o.ApplyT(func(v *KoyebServiceDefinition) *KoyebServiceDefinitionScalings {
+func (o KoyebServiceDefinitionPtrOutput) Scalings() KoyebServiceDefinitionScalingArrayOutput {
+	return o.ApplyT(func(v *KoyebServiceDefinition) []KoyebServiceDefinitionScaling {
 		if v == nil {
 			return nil
 		}
-		return &v.Scalings
-	}).(KoyebServiceDefinitionScalingsPtrOutput)
+		return v.Scalings
+	}).(KoyebServiceDefinitionScalingArrayOutput)
+}
+
+// If set to true, the service will be deployed without using the cache
+func (o KoyebServiceDefinitionPtrOutput) SkipCache() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KoyebServiceDefinition) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SkipCache
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The service type, either WEB or WORKER (default WEB)
+func (o KoyebServiceDefinitionPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KoyebServiceDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 type KoyebServiceDefinitionDocker struct {
-	Args               []string `pulumi:"args"`
-	Command            *string  `pulumi:"command"`
-	Image              string   `pulumi:"image"`
-	ImageRegistySecret *string  `pulumi:"imageRegistySecret"`
+	Args                []string `pulumi:"args"`
+	Command             *string  `pulumi:"command"`
+	Entrypoints         []string `pulumi:"entrypoints"`
+	Image               string   `pulumi:"image"`
+	ImageRegistrySecret *string  `pulumi:"imageRegistrySecret"`
+	Privileged          *bool    `pulumi:"privileged"`
 }
 
 // KoyebServiceDefinitionDockerInput is an input type that accepts KoyebServiceDefinitionDockerArgs and KoyebServiceDefinitionDockerOutput values.
 // You can construct a concrete instance of `KoyebServiceDefinitionDockerInput` via:
 //
-//          KoyebServiceDefinitionDockerArgs{...}
+//	KoyebServiceDefinitionDockerArgs{...}
 type KoyebServiceDefinitionDockerInput interface {
 	pulumi.Input
 
@@ -1445,10 +1500,12 @@ type KoyebServiceDefinitionDockerInput interface {
 }
 
 type KoyebServiceDefinitionDockerArgs struct {
-	Args               pulumi.StringArrayInput `pulumi:"args"`
-	Command            pulumi.StringPtrInput   `pulumi:"command"`
-	Image              pulumi.StringInput      `pulumi:"image"`
-	ImageRegistySecret pulumi.StringPtrInput   `pulumi:"imageRegistySecret"`
+	Args                pulumi.StringArrayInput `pulumi:"args"`
+	Command             pulumi.StringPtrInput   `pulumi:"command"`
+	Entrypoints         pulumi.StringArrayInput `pulumi:"entrypoints"`
+	Image               pulumi.StringInput      `pulumi:"image"`
+	ImageRegistrySecret pulumi.StringPtrInput   `pulumi:"imageRegistrySecret"`
+	Privileged          pulumi.BoolPtrInput     `pulumi:"privileged"`
 }
 
 func (KoyebServiceDefinitionDockerArgs) ElementType() reflect.Type {
@@ -1474,11 +1531,11 @@ func (i KoyebServiceDefinitionDockerArgs) ToKoyebServiceDefinitionDockerPtrOutpu
 // KoyebServiceDefinitionDockerPtrInput is an input type that accepts KoyebServiceDefinitionDockerArgs, KoyebServiceDefinitionDockerPtr and KoyebServiceDefinitionDockerPtrOutput values.
 // You can construct a concrete instance of `KoyebServiceDefinitionDockerPtrInput` via:
 //
-//          KoyebServiceDefinitionDockerArgs{...}
+//	        KoyebServiceDefinitionDockerArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type KoyebServiceDefinitionDockerPtrInput interface {
 	pulumi.Input
 
@@ -1536,12 +1593,20 @@ func (o KoyebServiceDefinitionDockerOutput) Command() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KoyebServiceDefinitionDocker) *string { return v.Command }).(pulumi.StringPtrOutput)
 }
 
+func (o KoyebServiceDefinitionDockerOutput) Entrypoints() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v KoyebServiceDefinitionDocker) []string { return v.Entrypoints }).(pulumi.StringArrayOutput)
+}
+
 func (o KoyebServiceDefinitionDockerOutput) Image() pulumi.StringOutput {
 	return o.ApplyT(func(v KoyebServiceDefinitionDocker) string { return v.Image }).(pulumi.StringOutput)
 }
 
-func (o KoyebServiceDefinitionDockerOutput) ImageRegistySecret() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KoyebServiceDefinitionDocker) *string { return v.ImageRegistySecret }).(pulumi.StringPtrOutput)
+func (o KoyebServiceDefinitionDockerOutput) ImageRegistrySecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KoyebServiceDefinitionDocker) *string { return v.ImageRegistrySecret }).(pulumi.StringPtrOutput)
+}
+
+func (o KoyebServiceDefinitionDockerOutput) Privileged() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v KoyebServiceDefinitionDocker) *bool { return v.Privileged }).(pulumi.BoolPtrOutput)
 }
 
 type KoyebServiceDefinitionDockerPtrOutput struct{ *pulumi.OutputState }
@@ -1586,6 +1651,15 @@ func (o KoyebServiceDefinitionDockerPtrOutput) Command() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o KoyebServiceDefinitionDockerPtrOutput) Entrypoints() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *KoyebServiceDefinitionDocker) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Entrypoints
+	}).(pulumi.StringArrayOutput)
+}
+
 func (o KoyebServiceDefinitionDockerPtrOutput) Image() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KoyebServiceDefinitionDocker) *string {
 		if v == nil {
@@ -1595,25 +1669,35 @@ func (o KoyebServiceDefinitionDockerPtrOutput) Image() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o KoyebServiceDefinitionDockerPtrOutput) ImageRegistySecret() pulumi.StringPtrOutput {
+func (o KoyebServiceDefinitionDockerPtrOutput) ImageRegistrySecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KoyebServiceDefinitionDocker) *string {
 		if v == nil {
 			return nil
 		}
-		return v.ImageRegistySecret
+		return v.ImageRegistrySecret
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o KoyebServiceDefinitionDockerPtrOutput) Privileged() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KoyebServiceDefinitionDocker) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Privileged
+	}).(pulumi.BoolPtrOutput)
+}
+
 type KoyebServiceDefinitionEnv struct {
-	Key    string  `pulumi:"key"`
-	Secret *string `pulumi:"secret"`
-	Value  *string `pulumi:"value"`
+	Key    string   `pulumi:"key"`
+	Scopes []string `pulumi:"scopes"`
+	Secret *string  `pulumi:"secret"`
+	Value  *string  `pulumi:"value"`
 }
 
 // KoyebServiceDefinitionEnvInput is an input type that accepts KoyebServiceDefinitionEnvArgs and KoyebServiceDefinitionEnvOutput values.
 // You can construct a concrete instance of `KoyebServiceDefinitionEnvInput` via:
 //
-//          KoyebServiceDefinitionEnvArgs{...}
+//	KoyebServiceDefinitionEnvArgs{...}
 type KoyebServiceDefinitionEnvInput interface {
 	pulumi.Input
 
@@ -1622,9 +1706,10 @@ type KoyebServiceDefinitionEnvInput interface {
 }
 
 type KoyebServiceDefinitionEnvArgs struct {
-	Key    pulumi.StringInput    `pulumi:"key"`
-	Secret pulumi.StringPtrInput `pulumi:"secret"`
-	Value  pulumi.StringPtrInput `pulumi:"value"`
+	Key    pulumi.StringInput      `pulumi:"key"`
+	Scopes pulumi.StringArrayInput `pulumi:"scopes"`
+	Secret pulumi.StringPtrInput   `pulumi:"secret"`
+	Value  pulumi.StringPtrInput   `pulumi:"value"`
 }
 
 func (KoyebServiceDefinitionEnvArgs) ElementType() reflect.Type {
@@ -1642,7 +1727,7 @@ func (i KoyebServiceDefinitionEnvArgs) ToKoyebServiceDefinitionEnvOutputWithCont
 // KoyebServiceDefinitionEnvArrayInput is an input type that accepts KoyebServiceDefinitionEnvArray and KoyebServiceDefinitionEnvArrayOutput values.
 // You can construct a concrete instance of `KoyebServiceDefinitionEnvArrayInput` via:
 //
-//          KoyebServiceDefinitionEnvArray{ KoyebServiceDefinitionEnvArgs{...} }
+//	KoyebServiceDefinitionEnvArray{ KoyebServiceDefinitionEnvArgs{...} }
 type KoyebServiceDefinitionEnvArrayInput interface {
 	pulumi.Input
 
@@ -1682,6 +1767,10 @@ func (o KoyebServiceDefinitionEnvOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v KoyebServiceDefinitionEnv) string { return v.Key }).(pulumi.StringOutput)
 }
 
+func (o KoyebServiceDefinitionEnvOutput) Scopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v KoyebServiceDefinitionEnv) []string { return v.Scopes }).(pulumi.StringArrayOutput)
+}
+
 func (o KoyebServiceDefinitionEnvOutput) Secret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KoyebServiceDefinitionEnv) *string { return v.Secret }).(pulumi.StringPtrOutput)
 }
@@ -1711,17 +1800,18 @@ func (o KoyebServiceDefinitionEnvArrayOutput) Index(i pulumi.IntInput) KoyebServ
 }
 
 type KoyebServiceDefinitionGit struct {
-	Branch         string  `pulumi:"branch"`
-	BuildCommand   *string `pulumi:"buildCommand"`
-	NoDeployOnPush *bool   `pulumi:"noDeployOnPush"`
-	Repository     string  `pulumi:"repository"`
-	RunCommand     *string `pulumi:"runCommand"`
+	Branch         string                               `pulumi:"branch"`
+	Buildpack      *KoyebServiceDefinitionGitBuildpack  `pulumi:"buildpack"`
+	Dockerfile     *KoyebServiceDefinitionGitDockerfile `pulumi:"dockerfile"`
+	NoDeployOnPush *bool                                `pulumi:"noDeployOnPush"`
+	Repository     string                               `pulumi:"repository"`
+	Workdir        *string                              `pulumi:"workdir"`
 }
 
 // KoyebServiceDefinitionGitInput is an input type that accepts KoyebServiceDefinitionGitArgs and KoyebServiceDefinitionGitOutput values.
 // You can construct a concrete instance of `KoyebServiceDefinitionGitInput` via:
 //
-//          KoyebServiceDefinitionGitArgs{...}
+//	KoyebServiceDefinitionGitArgs{...}
 type KoyebServiceDefinitionGitInput interface {
 	pulumi.Input
 
@@ -1730,11 +1820,12 @@ type KoyebServiceDefinitionGitInput interface {
 }
 
 type KoyebServiceDefinitionGitArgs struct {
-	Branch         pulumi.StringInput    `pulumi:"branch"`
-	BuildCommand   pulumi.StringPtrInput `pulumi:"buildCommand"`
-	NoDeployOnPush pulumi.BoolPtrInput   `pulumi:"noDeployOnPush"`
-	Repository     pulumi.StringInput    `pulumi:"repository"`
-	RunCommand     pulumi.StringPtrInput `pulumi:"runCommand"`
+	Branch         pulumi.StringInput                          `pulumi:"branch"`
+	Buildpack      KoyebServiceDefinitionGitBuildpackPtrInput  `pulumi:"buildpack"`
+	Dockerfile     KoyebServiceDefinitionGitDockerfilePtrInput `pulumi:"dockerfile"`
+	NoDeployOnPush pulumi.BoolPtrInput                         `pulumi:"noDeployOnPush"`
+	Repository     pulumi.StringInput                          `pulumi:"repository"`
+	Workdir        pulumi.StringPtrInput                       `pulumi:"workdir"`
 }
 
 func (KoyebServiceDefinitionGitArgs) ElementType() reflect.Type {
@@ -1760,11 +1851,11 @@ func (i KoyebServiceDefinitionGitArgs) ToKoyebServiceDefinitionGitPtrOutputWithC
 // KoyebServiceDefinitionGitPtrInput is an input type that accepts KoyebServiceDefinitionGitArgs, KoyebServiceDefinitionGitPtr and KoyebServiceDefinitionGitPtrOutput values.
 // You can construct a concrete instance of `KoyebServiceDefinitionGitPtrInput` via:
 //
-//          KoyebServiceDefinitionGitArgs{...}
+//	        KoyebServiceDefinitionGitArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type KoyebServiceDefinitionGitPtrInput interface {
 	pulumi.Input
 
@@ -1818,8 +1909,12 @@ func (o KoyebServiceDefinitionGitOutput) Branch() pulumi.StringOutput {
 	return o.ApplyT(func(v KoyebServiceDefinitionGit) string { return v.Branch }).(pulumi.StringOutput)
 }
 
-func (o KoyebServiceDefinitionGitOutput) BuildCommand() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KoyebServiceDefinitionGit) *string { return v.BuildCommand }).(pulumi.StringPtrOutput)
+func (o KoyebServiceDefinitionGitOutput) Buildpack() KoyebServiceDefinitionGitBuildpackPtrOutput {
+	return o.ApplyT(func(v KoyebServiceDefinitionGit) *KoyebServiceDefinitionGitBuildpack { return v.Buildpack }).(KoyebServiceDefinitionGitBuildpackPtrOutput)
+}
+
+func (o KoyebServiceDefinitionGitOutput) Dockerfile() KoyebServiceDefinitionGitDockerfilePtrOutput {
+	return o.ApplyT(func(v KoyebServiceDefinitionGit) *KoyebServiceDefinitionGitDockerfile { return v.Dockerfile }).(KoyebServiceDefinitionGitDockerfilePtrOutput)
 }
 
 func (o KoyebServiceDefinitionGitOutput) NoDeployOnPush() pulumi.BoolPtrOutput {
@@ -1830,8 +1925,8 @@ func (o KoyebServiceDefinitionGitOutput) Repository() pulumi.StringOutput {
 	return o.ApplyT(func(v KoyebServiceDefinitionGit) string { return v.Repository }).(pulumi.StringOutput)
 }
 
-func (o KoyebServiceDefinitionGitOutput) RunCommand() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KoyebServiceDefinitionGit) *string { return v.RunCommand }).(pulumi.StringPtrOutput)
+func (o KoyebServiceDefinitionGitOutput) Workdir() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KoyebServiceDefinitionGit) *string { return v.Workdir }).(pulumi.StringPtrOutput)
 }
 
 type KoyebServiceDefinitionGitPtrOutput struct{ *pulumi.OutputState }
@@ -1867,13 +1962,22 @@ func (o KoyebServiceDefinitionGitPtrOutput) Branch() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o KoyebServiceDefinitionGitPtrOutput) BuildCommand() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KoyebServiceDefinitionGit) *string {
+func (o KoyebServiceDefinitionGitPtrOutput) Buildpack() KoyebServiceDefinitionGitBuildpackPtrOutput {
+	return o.ApplyT(func(v *KoyebServiceDefinitionGit) *KoyebServiceDefinitionGitBuildpack {
 		if v == nil {
 			return nil
 		}
-		return v.BuildCommand
-	}).(pulumi.StringPtrOutput)
+		return v.Buildpack
+	}).(KoyebServiceDefinitionGitBuildpackPtrOutput)
+}
+
+func (o KoyebServiceDefinitionGitPtrOutput) Dockerfile() KoyebServiceDefinitionGitDockerfilePtrOutput {
+	return o.ApplyT(func(v *KoyebServiceDefinitionGit) *KoyebServiceDefinitionGitDockerfile {
+		if v == nil {
+			return nil
+		}
+		return v.Dockerfile
+	}).(KoyebServiceDefinitionGitDockerfilePtrOutput)
 }
 
 func (o KoyebServiceDefinitionGitPtrOutput) NoDeployOnPush() pulumi.BoolPtrOutput {
@@ -1894,8 +1998,171 @@ func (o KoyebServiceDefinitionGitPtrOutput) Repository() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o KoyebServiceDefinitionGitPtrOutput) RunCommand() pulumi.StringPtrOutput {
+func (o KoyebServiceDefinitionGitPtrOutput) Workdir() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KoyebServiceDefinitionGit) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Workdir
+	}).(pulumi.StringPtrOutput)
+}
+
+type KoyebServiceDefinitionGitBuildpack struct {
+	BuildCommand *string `pulumi:"buildCommand"`
+	Privileged   *bool   `pulumi:"privileged"`
+	RunCommand   *string `pulumi:"runCommand"`
+}
+
+// KoyebServiceDefinitionGitBuildpackInput is an input type that accepts KoyebServiceDefinitionGitBuildpackArgs and KoyebServiceDefinitionGitBuildpackOutput values.
+// You can construct a concrete instance of `KoyebServiceDefinitionGitBuildpackInput` via:
+//
+//	KoyebServiceDefinitionGitBuildpackArgs{...}
+type KoyebServiceDefinitionGitBuildpackInput interface {
+	pulumi.Input
+
+	ToKoyebServiceDefinitionGitBuildpackOutput() KoyebServiceDefinitionGitBuildpackOutput
+	ToKoyebServiceDefinitionGitBuildpackOutputWithContext(context.Context) KoyebServiceDefinitionGitBuildpackOutput
+}
+
+type KoyebServiceDefinitionGitBuildpackArgs struct {
+	BuildCommand pulumi.StringPtrInput `pulumi:"buildCommand"`
+	Privileged   pulumi.BoolPtrInput   `pulumi:"privileged"`
+	RunCommand   pulumi.StringPtrInput `pulumi:"runCommand"`
+}
+
+func (KoyebServiceDefinitionGitBuildpackArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KoyebServiceDefinitionGitBuildpack)(nil)).Elem()
+}
+
+func (i KoyebServiceDefinitionGitBuildpackArgs) ToKoyebServiceDefinitionGitBuildpackOutput() KoyebServiceDefinitionGitBuildpackOutput {
+	return i.ToKoyebServiceDefinitionGitBuildpackOutputWithContext(context.Background())
+}
+
+func (i KoyebServiceDefinitionGitBuildpackArgs) ToKoyebServiceDefinitionGitBuildpackOutputWithContext(ctx context.Context) KoyebServiceDefinitionGitBuildpackOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KoyebServiceDefinitionGitBuildpackOutput)
+}
+
+func (i KoyebServiceDefinitionGitBuildpackArgs) ToKoyebServiceDefinitionGitBuildpackPtrOutput() KoyebServiceDefinitionGitBuildpackPtrOutput {
+	return i.ToKoyebServiceDefinitionGitBuildpackPtrOutputWithContext(context.Background())
+}
+
+func (i KoyebServiceDefinitionGitBuildpackArgs) ToKoyebServiceDefinitionGitBuildpackPtrOutputWithContext(ctx context.Context) KoyebServiceDefinitionGitBuildpackPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KoyebServiceDefinitionGitBuildpackOutput).ToKoyebServiceDefinitionGitBuildpackPtrOutputWithContext(ctx)
+}
+
+// KoyebServiceDefinitionGitBuildpackPtrInput is an input type that accepts KoyebServiceDefinitionGitBuildpackArgs, KoyebServiceDefinitionGitBuildpackPtr and KoyebServiceDefinitionGitBuildpackPtrOutput values.
+// You can construct a concrete instance of `KoyebServiceDefinitionGitBuildpackPtrInput` via:
+//
+//	        KoyebServiceDefinitionGitBuildpackArgs{...}
+//
+//	or:
+//
+//	        nil
+type KoyebServiceDefinitionGitBuildpackPtrInput interface {
+	pulumi.Input
+
+	ToKoyebServiceDefinitionGitBuildpackPtrOutput() KoyebServiceDefinitionGitBuildpackPtrOutput
+	ToKoyebServiceDefinitionGitBuildpackPtrOutputWithContext(context.Context) KoyebServiceDefinitionGitBuildpackPtrOutput
+}
+
+type koyebServiceDefinitionGitBuildpackPtrType KoyebServiceDefinitionGitBuildpackArgs
+
+func KoyebServiceDefinitionGitBuildpackPtr(v *KoyebServiceDefinitionGitBuildpackArgs) KoyebServiceDefinitionGitBuildpackPtrInput {
+	return (*koyebServiceDefinitionGitBuildpackPtrType)(v)
+}
+
+func (*koyebServiceDefinitionGitBuildpackPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KoyebServiceDefinitionGitBuildpack)(nil)).Elem()
+}
+
+func (i *koyebServiceDefinitionGitBuildpackPtrType) ToKoyebServiceDefinitionGitBuildpackPtrOutput() KoyebServiceDefinitionGitBuildpackPtrOutput {
+	return i.ToKoyebServiceDefinitionGitBuildpackPtrOutputWithContext(context.Background())
+}
+
+func (i *koyebServiceDefinitionGitBuildpackPtrType) ToKoyebServiceDefinitionGitBuildpackPtrOutputWithContext(ctx context.Context) KoyebServiceDefinitionGitBuildpackPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KoyebServiceDefinitionGitBuildpackPtrOutput)
+}
+
+type KoyebServiceDefinitionGitBuildpackOutput struct{ *pulumi.OutputState }
+
+func (KoyebServiceDefinitionGitBuildpackOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KoyebServiceDefinitionGitBuildpack)(nil)).Elem()
+}
+
+func (o KoyebServiceDefinitionGitBuildpackOutput) ToKoyebServiceDefinitionGitBuildpackOutput() KoyebServiceDefinitionGitBuildpackOutput {
+	return o
+}
+
+func (o KoyebServiceDefinitionGitBuildpackOutput) ToKoyebServiceDefinitionGitBuildpackOutputWithContext(ctx context.Context) KoyebServiceDefinitionGitBuildpackOutput {
+	return o
+}
+
+func (o KoyebServiceDefinitionGitBuildpackOutput) ToKoyebServiceDefinitionGitBuildpackPtrOutput() KoyebServiceDefinitionGitBuildpackPtrOutput {
+	return o.ToKoyebServiceDefinitionGitBuildpackPtrOutputWithContext(context.Background())
+}
+
+func (o KoyebServiceDefinitionGitBuildpackOutput) ToKoyebServiceDefinitionGitBuildpackPtrOutputWithContext(ctx context.Context) KoyebServiceDefinitionGitBuildpackPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KoyebServiceDefinitionGitBuildpack) *KoyebServiceDefinitionGitBuildpack {
+		return &v
+	}).(KoyebServiceDefinitionGitBuildpackPtrOutput)
+}
+
+func (o KoyebServiceDefinitionGitBuildpackOutput) BuildCommand() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KoyebServiceDefinitionGitBuildpack) *string { return v.BuildCommand }).(pulumi.StringPtrOutput)
+}
+
+func (o KoyebServiceDefinitionGitBuildpackOutput) Privileged() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v KoyebServiceDefinitionGitBuildpack) *bool { return v.Privileged }).(pulumi.BoolPtrOutput)
+}
+
+func (o KoyebServiceDefinitionGitBuildpackOutput) RunCommand() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KoyebServiceDefinitionGitBuildpack) *string { return v.RunCommand }).(pulumi.StringPtrOutput)
+}
+
+type KoyebServiceDefinitionGitBuildpackPtrOutput struct{ *pulumi.OutputState }
+
+func (KoyebServiceDefinitionGitBuildpackPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KoyebServiceDefinitionGitBuildpack)(nil)).Elem()
+}
+
+func (o KoyebServiceDefinitionGitBuildpackPtrOutput) ToKoyebServiceDefinitionGitBuildpackPtrOutput() KoyebServiceDefinitionGitBuildpackPtrOutput {
+	return o
+}
+
+func (o KoyebServiceDefinitionGitBuildpackPtrOutput) ToKoyebServiceDefinitionGitBuildpackPtrOutputWithContext(ctx context.Context) KoyebServiceDefinitionGitBuildpackPtrOutput {
+	return o
+}
+
+func (o KoyebServiceDefinitionGitBuildpackPtrOutput) Elem() KoyebServiceDefinitionGitBuildpackOutput {
+	return o.ApplyT(func(v *KoyebServiceDefinitionGitBuildpack) KoyebServiceDefinitionGitBuildpack {
+		if v != nil {
+			return *v
+		}
+		var ret KoyebServiceDefinitionGitBuildpack
+		return ret
+	}).(KoyebServiceDefinitionGitBuildpackOutput)
+}
+
+func (o KoyebServiceDefinitionGitBuildpackPtrOutput) BuildCommand() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KoyebServiceDefinitionGitBuildpack) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BuildCommand
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o KoyebServiceDefinitionGitBuildpackPtrOutput) Privileged() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KoyebServiceDefinitionGitBuildpack) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Privileged
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o KoyebServiceDefinitionGitBuildpackPtrOutput) RunCommand() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KoyebServiceDefinitionGitBuildpack) *string {
 		if v == nil {
 			return nil
 		}
@@ -1903,137 +2170,849 @@ func (o KoyebServiceDefinitionGitPtrOutput) RunCommand() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-type KoyebServiceDefinitionInstanceTypes struct {
-	Type string `pulumi:"type"`
+type KoyebServiceDefinitionGitDockerfile struct {
+	Args        []string `pulumi:"args"`
+	Command     *string  `pulumi:"command"`
+	Dockerfile  *string  `pulumi:"dockerfile"`
+	Entrypoints []string `pulumi:"entrypoints"`
+	Privileged  *bool    `pulumi:"privileged"`
+	Target      *string  `pulumi:"target"`
 }
 
-// KoyebServiceDefinitionInstanceTypesInput is an input type that accepts KoyebServiceDefinitionInstanceTypesArgs and KoyebServiceDefinitionInstanceTypesOutput values.
-// You can construct a concrete instance of `KoyebServiceDefinitionInstanceTypesInput` via:
+// KoyebServiceDefinitionGitDockerfileInput is an input type that accepts KoyebServiceDefinitionGitDockerfileArgs and KoyebServiceDefinitionGitDockerfileOutput values.
+// You can construct a concrete instance of `KoyebServiceDefinitionGitDockerfileInput` via:
 //
-//          KoyebServiceDefinitionInstanceTypesArgs{...}
-type KoyebServiceDefinitionInstanceTypesInput interface {
+//	KoyebServiceDefinitionGitDockerfileArgs{...}
+type KoyebServiceDefinitionGitDockerfileInput interface {
 	pulumi.Input
 
-	ToKoyebServiceDefinitionInstanceTypesOutput() KoyebServiceDefinitionInstanceTypesOutput
-	ToKoyebServiceDefinitionInstanceTypesOutputWithContext(context.Context) KoyebServiceDefinitionInstanceTypesOutput
+	ToKoyebServiceDefinitionGitDockerfileOutput() KoyebServiceDefinitionGitDockerfileOutput
+	ToKoyebServiceDefinitionGitDockerfileOutputWithContext(context.Context) KoyebServiceDefinitionGitDockerfileOutput
 }
 
-type KoyebServiceDefinitionInstanceTypesArgs struct {
-	Type pulumi.StringInput `pulumi:"type"`
+type KoyebServiceDefinitionGitDockerfileArgs struct {
+	Args        pulumi.StringArrayInput `pulumi:"args"`
+	Command     pulumi.StringPtrInput   `pulumi:"command"`
+	Dockerfile  pulumi.StringPtrInput   `pulumi:"dockerfile"`
+	Entrypoints pulumi.StringArrayInput `pulumi:"entrypoints"`
+	Privileged  pulumi.BoolPtrInput     `pulumi:"privileged"`
+	Target      pulumi.StringPtrInput   `pulumi:"target"`
 }
 
-func (KoyebServiceDefinitionInstanceTypesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*KoyebServiceDefinitionInstanceTypes)(nil)).Elem()
+func (KoyebServiceDefinitionGitDockerfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KoyebServiceDefinitionGitDockerfile)(nil)).Elem()
 }
 
-func (i KoyebServiceDefinitionInstanceTypesArgs) ToKoyebServiceDefinitionInstanceTypesOutput() KoyebServiceDefinitionInstanceTypesOutput {
-	return i.ToKoyebServiceDefinitionInstanceTypesOutputWithContext(context.Background())
+func (i KoyebServiceDefinitionGitDockerfileArgs) ToKoyebServiceDefinitionGitDockerfileOutput() KoyebServiceDefinitionGitDockerfileOutput {
+	return i.ToKoyebServiceDefinitionGitDockerfileOutputWithContext(context.Background())
 }
 
-func (i KoyebServiceDefinitionInstanceTypesArgs) ToKoyebServiceDefinitionInstanceTypesOutputWithContext(ctx context.Context) KoyebServiceDefinitionInstanceTypesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KoyebServiceDefinitionInstanceTypesOutput)
+func (i KoyebServiceDefinitionGitDockerfileArgs) ToKoyebServiceDefinitionGitDockerfileOutputWithContext(ctx context.Context) KoyebServiceDefinitionGitDockerfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KoyebServiceDefinitionGitDockerfileOutput)
 }
 
-func (i KoyebServiceDefinitionInstanceTypesArgs) ToKoyebServiceDefinitionInstanceTypesPtrOutput() KoyebServiceDefinitionInstanceTypesPtrOutput {
-	return i.ToKoyebServiceDefinitionInstanceTypesPtrOutputWithContext(context.Background())
+func (i KoyebServiceDefinitionGitDockerfileArgs) ToKoyebServiceDefinitionGitDockerfilePtrOutput() KoyebServiceDefinitionGitDockerfilePtrOutput {
+	return i.ToKoyebServiceDefinitionGitDockerfilePtrOutputWithContext(context.Background())
 }
 
-func (i KoyebServiceDefinitionInstanceTypesArgs) ToKoyebServiceDefinitionInstanceTypesPtrOutputWithContext(ctx context.Context) KoyebServiceDefinitionInstanceTypesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KoyebServiceDefinitionInstanceTypesOutput).ToKoyebServiceDefinitionInstanceTypesPtrOutputWithContext(ctx)
+func (i KoyebServiceDefinitionGitDockerfileArgs) ToKoyebServiceDefinitionGitDockerfilePtrOutputWithContext(ctx context.Context) KoyebServiceDefinitionGitDockerfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KoyebServiceDefinitionGitDockerfileOutput).ToKoyebServiceDefinitionGitDockerfilePtrOutputWithContext(ctx)
 }
 
-// KoyebServiceDefinitionInstanceTypesPtrInput is an input type that accepts KoyebServiceDefinitionInstanceTypesArgs, KoyebServiceDefinitionInstanceTypesPtr and KoyebServiceDefinitionInstanceTypesPtrOutput values.
-// You can construct a concrete instance of `KoyebServiceDefinitionInstanceTypesPtrInput` via:
+// KoyebServiceDefinitionGitDockerfilePtrInput is an input type that accepts KoyebServiceDefinitionGitDockerfileArgs, KoyebServiceDefinitionGitDockerfilePtr and KoyebServiceDefinitionGitDockerfilePtrOutput values.
+// You can construct a concrete instance of `KoyebServiceDefinitionGitDockerfilePtrInput` via:
 //
-//          KoyebServiceDefinitionInstanceTypesArgs{...}
+//	        KoyebServiceDefinitionGitDockerfileArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
-type KoyebServiceDefinitionInstanceTypesPtrInput interface {
+//	        nil
+type KoyebServiceDefinitionGitDockerfilePtrInput interface {
 	pulumi.Input
 
-	ToKoyebServiceDefinitionInstanceTypesPtrOutput() KoyebServiceDefinitionInstanceTypesPtrOutput
-	ToKoyebServiceDefinitionInstanceTypesPtrOutputWithContext(context.Context) KoyebServiceDefinitionInstanceTypesPtrOutput
+	ToKoyebServiceDefinitionGitDockerfilePtrOutput() KoyebServiceDefinitionGitDockerfilePtrOutput
+	ToKoyebServiceDefinitionGitDockerfilePtrOutputWithContext(context.Context) KoyebServiceDefinitionGitDockerfilePtrOutput
 }
 
-type koyebServiceDefinitionInstanceTypesPtrType KoyebServiceDefinitionInstanceTypesArgs
+type koyebServiceDefinitionGitDockerfilePtrType KoyebServiceDefinitionGitDockerfileArgs
 
-func KoyebServiceDefinitionInstanceTypesPtr(v *KoyebServiceDefinitionInstanceTypesArgs) KoyebServiceDefinitionInstanceTypesPtrInput {
-	return (*koyebServiceDefinitionInstanceTypesPtrType)(v)
+func KoyebServiceDefinitionGitDockerfilePtr(v *KoyebServiceDefinitionGitDockerfileArgs) KoyebServiceDefinitionGitDockerfilePtrInput {
+	return (*koyebServiceDefinitionGitDockerfilePtrType)(v)
 }
 
-func (*koyebServiceDefinitionInstanceTypesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**KoyebServiceDefinitionInstanceTypes)(nil)).Elem()
+func (*koyebServiceDefinitionGitDockerfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KoyebServiceDefinitionGitDockerfile)(nil)).Elem()
 }
 
-func (i *koyebServiceDefinitionInstanceTypesPtrType) ToKoyebServiceDefinitionInstanceTypesPtrOutput() KoyebServiceDefinitionInstanceTypesPtrOutput {
-	return i.ToKoyebServiceDefinitionInstanceTypesPtrOutputWithContext(context.Background())
+func (i *koyebServiceDefinitionGitDockerfilePtrType) ToKoyebServiceDefinitionGitDockerfilePtrOutput() KoyebServiceDefinitionGitDockerfilePtrOutput {
+	return i.ToKoyebServiceDefinitionGitDockerfilePtrOutputWithContext(context.Background())
 }
 
-func (i *koyebServiceDefinitionInstanceTypesPtrType) ToKoyebServiceDefinitionInstanceTypesPtrOutputWithContext(ctx context.Context) KoyebServiceDefinitionInstanceTypesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KoyebServiceDefinitionInstanceTypesPtrOutput)
+func (i *koyebServiceDefinitionGitDockerfilePtrType) ToKoyebServiceDefinitionGitDockerfilePtrOutputWithContext(ctx context.Context) KoyebServiceDefinitionGitDockerfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KoyebServiceDefinitionGitDockerfilePtrOutput)
 }
 
-type KoyebServiceDefinitionInstanceTypesOutput struct{ *pulumi.OutputState }
+type KoyebServiceDefinitionGitDockerfileOutput struct{ *pulumi.OutputState }
 
-func (KoyebServiceDefinitionInstanceTypesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KoyebServiceDefinitionInstanceTypes)(nil)).Elem()
+func (KoyebServiceDefinitionGitDockerfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KoyebServiceDefinitionGitDockerfile)(nil)).Elem()
 }
 
-func (o KoyebServiceDefinitionInstanceTypesOutput) ToKoyebServiceDefinitionInstanceTypesOutput() KoyebServiceDefinitionInstanceTypesOutput {
+func (o KoyebServiceDefinitionGitDockerfileOutput) ToKoyebServiceDefinitionGitDockerfileOutput() KoyebServiceDefinitionGitDockerfileOutput {
 	return o
 }
 
-func (o KoyebServiceDefinitionInstanceTypesOutput) ToKoyebServiceDefinitionInstanceTypesOutputWithContext(ctx context.Context) KoyebServiceDefinitionInstanceTypesOutput {
+func (o KoyebServiceDefinitionGitDockerfileOutput) ToKoyebServiceDefinitionGitDockerfileOutputWithContext(ctx context.Context) KoyebServiceDefinitionGitDockerfileOutput {
 	return o
 }
 
-func (o KoyebServiceDefinitionInstanceTypesOutput) ToKoyebServiceDefinitionInstanceTypesPtrOutput() KoyebServiceDefinitionInstanceTypesPtrOutput {
-	return o.ToKoyebServiceDefinitionInstanceTypesPtrOutputWithContext(context.Background())
+func (o KoyebServiceDefinitionGitDockerfileOutput) ToKoyebServiceDefinitionGitDockerfilePtrOutput() KoyebServiceDefinitionGitDockerfilePtrOutput {
+	return o.ToKoyebServiceDefinitionGitDockerfilePtrOutputWithContext(context.Background())
 }
 
-func (o KoyebServiceDefinitionInstanceTypesOutput) ToKoyebServiceDefinitionInstanceTypesPtrOutputWithContext(ctx context.Context) KoyebServiceDefinitionInstanceTypesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KoyebServiceDefinitionInstanceTypes) *KoyebServiceDefinitionInstanceTypes {
+func (o KoyebServiceDefinitionGitDockerfileOutput) ToKoyebServiceDefinitionGitDockerfilePtrOutputWithContext(ctx context.Context) KoyebServiceDefinitionGitDockerfilePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KoyebServiceDefinitionGitDockerfile) *KoyebServiceDefinitionGitDockerfile {
 		return &v
-	}).(KoyebServiceDefinitionInstanceTypesPtrOutput)
+	}).(KoyebServiceDefinitionGitDockerfilePtrOutput)
 }
 
-func (o KoyebServiceDefinitionInstanceTypesOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v KoyebServiceDefinitionInstanceTypes) string { return v.Type }).(pulumi.StringOutput)
+func (o KoyebServiceDefinitionGitDockerfileOutput) Args() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v KoyebServiceDefinitionGitDockerfile) []string { return v.Args }).(pulumi.StringArrayOutput)
 }
 
-type KoyebServiceDefinitionInstanceTypesPtrOutput struct{ *pulumi.OutputState }
-
-func (KoyebServiceDefinitionInstanceTypesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**KoyebServiceDefinitionInstanceTypes)(nil)).Elem()
+func (o KoyebServiceDefinitionGitDockerfileOutput) Command() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KoyebServiceDefinitionGitDockerfile) *string { return v.Command }).(pulumi.StringPtrOutput)
 }
 
-func (o KoyebServiceDefinitionInstanceTypesPtrOutput) ToKoyebServiceDefinitionInstanceTypesPtrOutput() KoyebServiceDefinitionInstanceTypesPtrOutput {
+func (o KoyebServiceDefinitionGitDockerfileOutput) Dockerfile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KoyebServiceDefinitionGitDockerfile) *string { return v.Dockerfile }).(pulumi.StringPtrOutput)
+}
+
+func (o KoyebServiceDefinitionGitDockerfileOutput) Entrypoints() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v KoyebServiceDefinitionGitDockerfile) []string { return v.Entrypoints }).(pulumi.StringArrayOutput)
+}
+
+func (o KoyebServiceDefinitionGitDockerfileOutput) Privileged() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v KoyebServiceDefinitionGitDockerfile) *bool { return v.Privileged }).(pulumi.BoolPtrOutput)
+}
+
+func (o KoyebServiceDefinitionGitDockerfileOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KoyebServiceDefinitionGitDockerfile) *string { return v.Target }).(pulumi.StringPtrOutput)
+}
+
+type KoyebServiceDefinitionGitDockerfilePtrOutput struct{ *pulumi.OutputState }
+
+func (KoyebServiceDefinitionGitDockerfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KoyebServiceDefinitionGitDockerfile)(nil)).Elem()
+}
+
+func (o KoyebServiceDefinitionGitDockerfilePtrOutput) ToKoyebServiceDefinitionGitDockerfilePtrOutput() KoyebServiceDefinitionGitDockerfilePtrOutput {
 	return o
 }
 
-func (o KoyebServiceDefinitionInstanceTypesPtrOutput) ToKoyebServiceDefinitionInstanceTypesPtrOutputWithContext(ctx context.Context) KoyebServiceDefinitionInstanceTypesPtrOutput {
+func (o KoyebServiceDefinitionGitDockerfilePtrOutput) ToKoyebServiceDefinitionGitDockerfilePtrOutputWithContext(ctx context.Context) KoyebServiceDefinitionGitDockerfilePtrOutput {
 	return o
 }
 
-func (o KoyebServiceDefinitionInstanceTypesPtrOutput) Elem() KoyebServiceDefinitionInstanceTypesOutput {
-	return o.ApplyT(func(v *KoyebServiceDefinitionInstanceTypes) KoyebServiceDefinitionInstanceTypes {
+func (o KoyebServiceDefinitionGitDockerfilePtrOutput) Elem() KoyebServiceDefinitionGitDockerfileOutput {
+	return o.ApplyT(func(v *KoyebServiceDefinitionGitDockerfile) KoyebServiceDefinitionGitDockerfile {
 		if v != nil {
 			return *v
 		}
-		var ret KoyebServiceDefinitionInstanceTypes
+		var ret KoyebServiceDefinitionGitDockerfile
 		return ret
-	}).(KoyebServiceDefinitionInstanceTypesOutput)
+	}).(KoyebServiceDefinitionGitDockerfileOutput)
 }
 
-func (o KoyebServiceDefinitionInstanceTypesPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KoyebServiceDefinitionInstanceTypes) *string {
+func (o KoyebServiceDefinitionGitDockerfilePtrOutput) Args() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *KoyebServiceDefinitionGitDockerfile) []string {
 		if v == nil {
 			return nil
 		}
-		return &v.Type
+		return v.Args
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o KoyebServiceDefinitionGitDockerfilePtrOutput) Command() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KoyebServiceDefinitionGitDockerfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Command
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o KoyebServiceDefinitionGitDockerfilePtrOutput) Dockerfile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KoyebServiceDefinitionGitDockerfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Dockerfile
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o KoyebServiceDefinitionGitDockerfilePtrOutput) Entrypoints() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *KoyebServiceDefinitionGitDockerfile) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Entrypoints
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o KoyebServiceDefinitionGitDockerfilePtrOutput) Privileged() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KoyebServiceDefinitionGitDockerfile) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Privileged
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o KoyebServiceDefinitionGitDockerfilePtrOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KoyebServiceDefinitionGitDockerfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Target
+	}).(pulumi.StringPtrOutput)
+}
+
+type KoyebServiceDefinitionHealthCheck struct {
+	GracePeriod  *int                                   `pulumi:"gracePeriod"`
+	Http         *KoyebServiceDefinitionHealthCheckHttp `pulumi:"http"`
+	Interval     *int                                   `pulumi:"interval"`
+	RestartLimit *int                                   `pulumi:"restartLimit"`
+	Tcp          *KoyebServiceDefinitionHealthCheckTcp  `pulumi:"tcp"`
+	Timeout      *int                                   `pulumi:"timeout"`
+}
+
+// KoyebServiceDefinitionHealthCheckInput is an input type that accepts KoyebServiceDefinitionHealthCheckArgs and KoyebServiceDefinitionHealthCheckOutput values.
+// You can construct a concrete instance of `KoyebServiceDefinitionHealthCheckInput` via:
+//
+//	KoyebServiceDefinitionHealthCheckArgs{...}
+type KoyebServiceDefinitionHealthCheckInput interface {
+	pulumi.Input
+
+	ToKoyebServiceDefinitionHealthCheckOutput() KoyebServiceDefinitionHealthCheckOutput
+	ToKoyebServiceDefinitionHealthCheckOutputWithContext(context.Context) KoyebServiceDefinitionHealthCheckOutput
+}
+
+type KoyebServiceDefinitionHealthCheckArgs struct {
+	GracePeriod  pulumi.IntPtrInput                            `pulumi:"gracePeriod"`
+	Http         KoyebServiceDefinitionHealthCheckHttpPtrInput `pulumi:"http"`
+	Interval     pulumi.IntPtrInput                            `pulumi:"interval"`
+	RestartLimit pulumi.IntPtrInput                            `pulumi:"restartLimit"`
+	Tcp          KoyebServiceDefinitionHealthCheckTcpPtrInput  `pulumi:"tcp"`
+	Timeout      pulumi.IntPtrInput                            `pulumi:"timeout"`
+}
+
+func (KoyebServiceDefinitionHealthCheckArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KoyebServiceDefinitionHealthCheck)(nil)).Elem()
+}
+
+func (i KoyebServiceDefinitionHealthCheckArgs) ToKoyebServiceDefinitionHealthCheckOutput() KoyebServiceDefinitionHealthCheckOutput {
+	return i.ToKoyebServiceDefinitionHealthCheckOutputWithContext(context.Background())
+}
+
+func (i KoyebServiceDefinitionHealthCheckArgs) ToKoyebServiceDefinitionHealthCheckOutputWithContext(ctx context.Context) KoyebServiceDefinitionHealthCheckOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KoyebServiceDefinitionHealthCheckOutput)
+}
+
+// KoyebServiceDefinitionHealthCheckArrayInput is an input type that accepts KoyebServiceDefinitionHealthCheckArray and KoyebServiceDefinitionHealthCheckArrayOutput values.
+// You can construct a concrete instance of `KoyebServiceDefinitionHealthCheckArrayInput` via:
+//
+//	KoyebServiceDefinitionHealthCheckArray{ KoyebServiceDefinitionHealthCheckArgs{...} }
+type KoyebServiceDefinitionHealthCheckArrayInput interface {
+	pulumi.Input
+
+	ToKoyebServiceDefinitionHealthCheckArrayOutput() KoyebServiceDefinitionHealthCheckArrayOutput
+	ToKoyebServiceDefinitionHealthCheckArrayOutputWithContext(context.Context) KoyebServiceDefinitionHealthCheckArrayOutput
+}
+
+type KoyebServiceDefinitionHealthCheckArray []KoyebServiceDefinitionHealthCheckInput
+
+func (KoyebServiceDefinitionHealthCheckArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KoyebServiceDefinitionHealthCheck)(nil)).Elem()
+}
+
+func (i KoyebServiceDefinitionHealthCheckArray) ToKoyebServiceDefinitionHealthCheckArrayOutput() KoyebServiceDefinitionHealthCheckArrayOutput {
+	return i.ToKoyebServiceDefinitionHealthCheckArrayOutputWithContext(context.Background())
+}
+
+func (i KoyebServiceDefinitionHealthCheckArray) ToKoyebServiceDefinitionHealthCheckArrayOutputWithContext(ctx context.Context) KoyebServiceDefinitionHealthCheckArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KoyebServiceDefinitionHealthCheckArrayOutput)
+}
+
+type KoyebServiceDefinitionHealthCheckOutput struct{ *pulumi.OutputState }
+
+func (KoyebServiceDefinitionHealthCheckOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KoyebServiceDefinitionHealthCheck)(nil)).Elem()
+}
+
+func (o KoyebServiceDefinitionHealthCheckOutput) ToKoyebServiceDefinitionHealthCheckOutput() KoyebServiceDefinitionHealthCheckOutput {
+	return o
+}
+
+func (o KoyebServiceDefinitionHealthCheckOutput) ToKoyebServiceDefinitionHealthCheckOutputWithContext(ctx context.Context) KoyebServiceDefinitionHealthCheckOutput {
+	return o
+}
+
+func (o KoyebServiceDefinitionHealthCheckOutput) GracePeriod() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KoyebServiceDefinitionHealthCheck) *int { return v.GracePeriod }).(pulumi.IntPtrOutput)
+}
+
+func (o KoyebServiceDefinitionHealthCheckOutput) Http() KoyebServiceDefinitionHealthCheckHttpPtrOutput {
+	return o.ApplyT(func(v KoyebServiceDefinitionHealthCheck) *KoyebServiceDefinitionHealthCheckHttp { return v.Http }).(KoyebServiceDefinitionHealthCheckHttpPtrOutput)
+}
+
+func (o KoyebServiceDefinitionHealthCheckOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KoyebServiceDefinitionHealthCheck) *int { return v.Interval }).(pulumi.IntPtrOutput)
+}
+
+func (o KoyebServiceDefinitionHealthCheckOutput) RestartLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KoyebServiceDefinitionHealthCheck) *int { return v.RestartLimit }).(pulumi.IntPtrOutput)
+}
+
+func (o KoyebServiceDefinitionHealthCheckOutput) Tcp() KoyebServiceDefinitionHealthCheckTcpPtrOutput {
+	return o.ApplyT(func(v KoyebServiceDefinitionHealthCheck) *KoyebServiceDefinitionHealthCheckTcp { return v.Tcp }).(KoyebServiceDefinitionHealthCheckTcpPtrOutput)
+}
+
+func (o KoyebServiceDefinitionHealthCheckOutput) Timeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KoyebServiceDefinitionHealthCheck) *int { return v.Timeout }).(pulumi.IntPtrOutput)
+}
+
+type KoyebServiceDefinitionHealthCheckArrayOutput struct{ *pulumi.OutputState }
+
+func (KoyebServiceDefinitionHealthCheckArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KoyebServiceDefinitionHealthCheck)(nil)).Elem()
+}
+
+func (o KoyebServiceDefinitionHealthCheckArrayOutput) ToKoyebServiceDefinitionHealthCheckArrayOutput() KoyebServiceDefinitionHealthCheckArrayOutput {
+	return o
+}
+
+func (o KoyebServiceDefinitionHealthCheckArrayOutput) ToKoyebServiceDefinitionHealthCheckArrayOutputWithContext(ctx context.Context) KoyebServiceDefinitionHealthCheckArrayOutput {
+	return o
+}
+
+func (o KoyebServiceDefinitionHealthCheckArrayOutput) Index(i pulumi.IntInput) KoyebServiceDefinitionHealthCheckOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KoyebServiceDefinitionHealthCheck {
+		return vs[0].([]KoyebServiceDefinitionHealthCheck)[vs[1].(int)]
+	}).(KoyebServiceDefinitionHealthCheckOutput)
+}
+
+type KoyebServiceDefinitionHealthCheckHttp struct {
+	Headers []KoyebServiceDefinitionHealthCheckHttpHeader `pulumi:"headers"`
+	Method  *string                                       `pulumi:"method"`
+	Path    string                                        `pulumi:"path"`
+	Port    int                                           `pulumi:"port"`
+}
+
+// KoyebServiceDefinitionHealthCheckHttpInput is an input type that accepts KoyebServiceDefinitionHealthCheckHttpArgs and KoyebServiceDefinitionHealthCheckHttpOutput values.
+// You can construct a concrete instance of `KoyebServiceDefinitionHealthCheckHttpInput` via:
+//
+//	KoyebServiceDefinitionHealthCheckHttpArgs{...}
+type KoyebServiceDefinitionHealthCheckHttpInput interface {
+	pulumi.Input
+
+	ToKoyebServiceDefinitionHealthCheckHttpOutput() KoyebServiceDefinitionHealthCheckHttpOutput
+	ToKoyebServiceDefinitionHealthCheckHttpOutputWithContext(context.Context) KoyebServiceDefinitionHealthCheckHttpOutput
+}
+
+type KoyebServiceDefinitionHealthCheckHttpArgs struct {
+	Headers KoyebServiceDefinitionHealthCheckHttpHeaderArrayInput `pulumi:"headers"`
+	Method  pulumi.StringPtrInput                                 `pulumi:"method"`
+	Path    pulumi.StringInput                                    `pulumi:"path"`
+	Port    pulumi.IntInput                                       `pulumi:"port"`
+}
+
+func (KoyebServiceDefinitionHealthCheckHttpArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KoyebServiceDefinitionHealthCheckHttp)(nil)).Elem()
+}
+
+func (i KoyebServiceDefinitionHealthCheckHttpArgs) ToKoyebServiceDefinitionHealthCheckHttpOutput() KoyebServiceDefinitionHealthCheckHttpOutput {
+	return i.ToKoyebServiceDefinitionHealthCheckHttpOutputWithContext(context.Background())
+}
+
+func (i KoyebServiceDefinitionHealthCheckHttpArgs) ToKoyebServiceDefinitionHealthCheckHttpOutputWithContext(ctx context.Context) KoyebServiceDefinitionHealthCheckHttpOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KoyebServiceDefinitionHealthCheckHttpOutput)
+}
+
+func (i KoyebServiceDefinitionHealthCheckHttpArgs) ToKoyebServiceDefinitionHealthCheckHttpPtrOutput() KoyebServiceDefinitionHealthCheckHttpPtrOutput {
+	return i.ToKoyebServiceDefinitionHealthCheckHttpPtrOutputWithContext(context.Background())
+}
+
+func (i KoyebServiceDefinitionHealthCheckHttpArgs) ToKoyebServiceDefinitionHealthCheckHttpPtrOutputWithContext(ctx context.Context) KoyebServiceDefinitionHealthCheckHttpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KoyebServiceDefinitionHealthCheckHttpOutput).ToKoyebServiceDefinitionHealthCheckHttpPtrOutputWithContext(ctx)
+}
+
+// KoyebServiceDefinitionHealthCheckHttpPtrInput is an input type that accepts KoyebServiceDefinitionHealthCheckHttpArgs, KoyebServiceDefinitionHealthCheckHttpPtr and KoyebServiceDefinitionHealthCheckHttpPtrOutput values.
+// You can construct a concrete instance of `KoyebServiceDefinitionHealthCheckHttpPtrInput` via:
+//
+//	        KoyebServiceDefinitionHealthCheckHttpArgs{...}
+//
+//	or:
+//
+//	        nil
+type KoyebServiceDefinitionHealthCheckHttpPtrInput interface {
+	pulumi.Input
+
+	ToKoyebServiceDefinitionHealthCheckHttpPtrOutput() KoyebServiceDefinitionHealthCheckHttpPtrOutput
+	ToKoyebServiceDefinitionHealthCheckHttpPtrOutputWithContext(context.Context) KoyebServiceDefinitionHealthCheckHttpPtrOutput
+}
+
+type koyebServiceDefinitionHealthCheckHttpPtrType KoyebServiceDefinitionHealthCheckHttpArgs
+
+func KoyebServiceDefinitionHealthCheckHttpPtr(v *KoyebServiceDefinitionHealthCheckHttpArgs) KoyebServiceDefinitionHealthCheckHttpPtrInput {
+	return (*koyebServiceDefinitionHealthCheckHttpPtrType)(v)
+}
+
+func (*koyebServiceDefinitionHealthCheckHttpPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KoyebServiceDefinitionHealthCheckHttp)(nil)).Elem()
+}
+
+func (i *koyebServiceDefinitionHealthCheckHttpPtrType) ToKoyebServiceDefinitionHealthCheckHttpPtrOutput() KoyebServiceDefinitionHealthCheckHttpPtrOutput {
+	return i.ToKoyebServiceDefinitionHealthCheckHttpPtrOutputWithContext(context.Background())
+}
+
+func (i *koyebServiceDefinitionHealthCheckHttpPtrType) ToKoyebServiceDefinitionHealthCheckHttpPtrOutputWithContext(ctx context.Context) KoyebServiceDefinitionHealthCheckHttpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KoyebServiceDefinitionHealthCheckHttpPtrOutput)
+}
+
+type KoyebServiceDefinitionHealthCheckHttpOutput struct{ *pulumi.OutputState }
+
+func (KoyebServiceDefinitionHealthCheckHttpOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KoyebServiceDefinitionHealthCheckHttp)(nil)).Elem()
+}
+
+func (o KoyebServiceDefinitionHealthCheckHttpOutput) ToKoyebServiceDefinitionHealthCheckHttpOutput() KoyebServiceDefinitionHealthCheckHttpOutput {
+	return o
+}
+
+func (o KoyebServiceDefinitionHealthCheckHttpOutput) ToKoyebServiceDefinitionHealthCheckHttpOutputWithContext(ctx context.Context) KoyebServiceDefinitionHealthCheckHttpOutput {
+	return o
+}
+
+func (o KoyebServiceDefinitionHealthCheckHttpOutput) ToKoyebServiceDefinitionHealthCheckHttpPtrOutput() KoyebServiceDefinitionHealthCheckHttpPtrOutput {
+	return o.ToKoyebServiceDefinitionHealthCheckHttpPtrOutputWithContext(context.Background())
+}
+
+func (o KoyebServiceDefinitionHealthCheckHttpOutput) ToKoyebServiceDefinitionHealthCheckHttpPtrOutputWithContext(ctx context.Context) KoyebServiceDefinitionHealthCheckHttpPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KoyebServiceDefinitionHealthCheckHttp) *KoyebServiceDefinitionHealthCheckHttp {
+		return &v
+	}).(KoyebServiceDefinitionHealthCheckHttpPtrOutput)
+}
+
+func (o KoyebServiceDefinitionHealthCheckHttpOutput) Headers() KoyebServiceDefinitionHealthCheckHttpHeaderArrayOutput {
+	return o.ApplyT(func(v KoyebServiceDefinitionHealthCheckHttp) []KoyebServiceDefinitionHealthCheckHttpHeader {
+		return v.Headers
+	}).(KoyebServiceDefinitionHealthCheckHttpHeaderArrayOutput)
+}
+
+func (o KoyebServiceDefinitionHealthCheckHttpOutput) Method() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KoyebServiceDefinitionHealthCheckHttp) *string { return v.Method }).(pulumi.StringPtrOutput)
+}
+
+func (o KoyebServiceDefinitionHealthCheckHttpOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v KoyebServiceDefinitionHealthCheckHttp) string { return v.Path }).(pulumi.StringOutput)
+}
+
+func (o KoyebServiceDefinitionHealthCheckHttpOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v KoyebServiceDefinitionHealthCheckHttp) int { return v.Port }).(pulumi.IntOutput)
+}
+
+type KoyebServiceDefinitionHealthCheckHttpPtrOutput struct{ *pulumi.OutputState }
+
+func (KoyebServiceDefinitionHealthCheckHttpPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KoyebServiceDefinitionHealthCheckHttp)(nil)).Elem()
+}
+
+func (o KoyebServiceDefinitionHealthCheckHttpPtrOutput) ToKoyebServiceDefinitionHealthCheckHttpPtrOutput() KoyebServiceDefinitionHealthCheckHttpPtrOutput {
+	return o
+}
+
+func (o KoyebServiceDefinitionHealthCheckHttpPtrOutput) ToKoyebServiceDefinitionHealthCheckHttpPtrOutputWithContext(ctx context.Context) KoyebServiceDefinitionHealthCheckHttpPtrOutput {
+	return o
+}
+
+func (o KoyebServiceDefinitionHealthCheckHttpPtrOutput) Elem() KoyebServiceDefinitionHealthCheckHttpOutput {
+	return o.ApplyT(func(v *KoyebServiceDefinitionHealthCheckHttp) KoyebServiceDefinitionHealthCheckHttp {
+		if v != nil {
+			return *v
+		}
+		var ret KoyebServiceDefinitionHealthCheckHttp
+		return ret
+	}).(KoyebServiceDefinitionHealthCheckHttpOutput)
+}
+
+func (o KoyebServiceDefinitionHealthCheckHttpPtrOutput) Headers() KoyebServiceDefinitionHealthCheckHttpHeaderArrayOutput {
+	return o.ApplyT(func(v *KoyebServiceDefinitionHealthCheckHttp) []KoyebServiceDefinitionHealthCheckHttpHeader {
+		if v == nil {
+			return nil
+		}
+		return v.Headers
+	}).(KoyebServiceDefinitionHealthCheckHttpHeaderArrayOutput)
+}
+
+func (o KoyebServiceDefinitionHealthCheckHttpPtrOutput) Method() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KoyebServiceDefinitionHealthCheckHttp) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Method
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o KoyebServiceDefinitionHealthCheckHttpPtrOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KoyebServiceDefinitionHealthCheckHttp) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Path
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o KoyebServiceDefinitionHealthCheckHttpPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KoyebServiceDefinitionHealthCheckHttp) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+type KoyebServiceDefinitionHealthCheckHttpHeader struct {
+	Key   string  `pulumi:"key"`
+	Value *string `pulumi:"value"`
+}
+
+// KoyebServiceDefinitionHealthCheckHttpHeaderInput is an input type that accepts KoyebServiceDefinitionHealthCheckHttpHeaderArgs and KoyebServiceDefinitionHealthCheckHttpHeaderOutput values.
+// You can construct a concrete instance of `KoyebServiceDefinitionHealthCheckHttpHeaderInput` via:
+//
+//	KoyebServiceDefinitionHealthCheckHttpHeaderArgs{...}
+type KoyebServiceDefinitionHealthCheckHttpHeaderInput interface {
+	pulumi.Input
+
+	ToKoyebServiceDefinitionHealthCheckHttpHeaderOutput() KoyebServiceDefinitionHealthCheckHttpHeaderOutput
+	ToKoyebServiceDefinitionHealthCheckHttpHeaderOutputWithContext(context.Context) KoyebServiceDefinitionHealthCheckHttpHeaderOutput
+}
+
+type KoyebServiceDefinitionHealthCheckHttpHeaderArgs struct {
+	Key   pulumi.StringInput    `pulumi:"key"`
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (KoyebServiceDefinitionHealthCheckHttpHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KoyebServiceDefinitionHealthCheckHttpHeader)(nil)).Elem()
+}
+
+func (i KoyebServiceDefinitionHealthCheckHttpHeaderArgs) ToKoyebServiceDefinitionHealthCheckHttpHeaderOutput() KoyebServiceDefinitionHealthCheckHttpHeaderOutput {
+	return i.ToKoyebServiceDefinitionHealthCheckHttpHeaderOutputWithContext(context.Background())
+}
+
+func (i KoyebServiceDefinitionHealthCheckHttpHeaderArgs) ToKoyebServiceDefinitionHealthCheckHttpHeaderOutputWithContext(ctx context.Context) KoyebServiceDefinitionHealthCheckHttpHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KoyebServiceDefinitionHealthCheckHttpHeaderOutput)
+}
+
+// KoyebServiceDefinitionHealthCheckHttpHeaderArrayInput is an input type that accepts KoyebServiceDefinitionHealthCheckHttpHeaderArray and KoyebServiceDefinitionHealthCheckHttpHeaderArrayOutput values.
+// You can construct a concrete instance of `KoyebServiceDefinitionHealthCheckHttpHeaderArrayInput` via:
+//
+//	KoyebServiceDefinitionHealthCheckHttpHeaderArray{ KoyebServiceDefinitionHealthCheckHttpHeaderArgs{...} }
+type KoyebServiceDefinitionHealthCheckHttpHeaderArrayInput interface {
+	pulumi.Input
+
+	ToKoyebServiceDefinitionHealthCheckHttpHeaderArrayOutput() KoyebServiceDefinitionHealthCheckHttpHeaderArrayOutput
+	ToKoyebServiceDefinitionHealthCheckHttpHeaderArrayOutputWithContext(context.Context) KoyebServiceDefinitionHealthCheckHttpHeaderArrayOutput
+}
+
+type KoyebServiceDefinitionHealthCheckHttpHeaderArray []KoyebServiceDefinitionHealthCheckHttpHeaderInput
+
+func (KoyebServiceDefinitionHealthCheckHttpHeaderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KoyebServiceDefinitionHealthCheckHttpHeader)(nil)).Elem()
+}
+
+func (i KoyebServiceDefinitionHealthCheckHttpHeaderArray) ToKoyebServiceDefinitionHealthCheckHttpHeaderArrayOutput() KoyebServiceDefinitionHealthCheckHttpHeaderArrayOutput {
+	return i.ToKoyebServiceDefinitionHealthCheckHttpHeaderArrayOutputWithContext(context.Background())
+}
+
+func (i KoyebServiceDefinitionHealthCheckHttpHeaderArray) ToKoyebServiceDefinitionHealthCheckHttpHeaderArrayOutputWithContext(ctx context.Context) KoyebServiceDefinitionHealthCheckHttpHeaderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KoyebServiceDefinitionHealthCheckHttpHeaderArrayOutput)
+}
+
+type KoyebServiceDefinitionHealthCheckHttpHeaderOutput struct{ *pulumi.OutputState }
+
+func (KoyebServiceDefinitionHealthCheckHttpHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KoyebServiceDefinitionHealthCheckHttpHeader)(nil)).Elem()
+}
+
+func (o KoyebServiceDefinitionHealthCheckHttpHeaderOutput) ToKoyebServiceDefinitionHealthCheckHttpHeaderOutput() KoyebServiceDefinitionHealthCheckHttpHeaderOutput {
+	return o
+}
+
+func (o KoyebServiceDefinitionHealthCheckHttpHeaderOutput) ToKoyebServiceDefinitionHealthCheckHttpHeaderOutputWithContext(ctx context.Context) KoyebServiceDefinitionHealthCheckHttpHeaderOutput {
+	return o
+}
+
+func (o KoyebServiceDefinitionHealthCheckHttpHeaderOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v KoyebServiceDefinitionHealthCheckHttpHeader) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o KoyebServiceDefinitionHealthCheckHttpHeaderOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KoyebServiceDefinitionHealthCheckHttpHeader) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type KoyebServiceDefinitionHealthCheckHttpHeaderArrayOutput struct{ *pulumi.OutputState }
+
+func (KoyebServiceDefinitionHealthCheckHttpHeaderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KoyebServiceDefinitionHealthCheckHttpHeader)(nil)).Elem()
+}
+
+func (o KoyebServiceDefinitionHealthCheckHttpHeaderArrayOutput) ToKoyebServiceDefinitionHealthCheckHttpHeaderArrayOutput() KoyebServiceDefinitionHealthCheckHttpHeaderArrayOutput {
+	return o
+}
+
+func (o KoyebServiceDefinitionHealthCheckHttpHeaderArrayOutput) ToKoyebServiceDefinitionHealthCheckHttpHeaderArrayOutputWithContext(ctx context.Context) KoyebServiceDefinitionHealthCheckHttpHeaderArrayOutput {
+	return o
+}
+
+func (o KoyebServiceDefinitionHealthCheckHttpHeaderArrayOutput) Index(i pulumi.IntInput) KoyebServiceDefinitionHealthCheckHttpHeaderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KoyebServiceDefinitionHealthCheckHttpHeader {
+		return vs[0].([]KoyebServiceDefinitionHealthCheckHttpHeader)[vs[1].(int)]
+	}).(KoyebServiceDefinitionHealthCheckHttpHeaderOutput)
+}
+
+type KoyebServiceDefinitionHealthCheckTcp struct {
+	Port int `pulumi:"port"`
+}
+
+// KoyebServiceDefinitionHealthCheckTcpInput is an input type that accepts KoyebServiceDefinitionHealthCheckTcpArgs and KoyebServiceDefinitionHealthCheckTcpOutput values.
+// You can construct a concrete instance of `KoyebServiceDefinitionHealthCheckTcpInput` via:
+//
+//	KoyebServiceDefinitionHealthCheckTcpArgs{...}
+type KoyebServiceDefinitionHealthCheckTcpInput interface {
+	pulumi.Input
+
+	ToKoyebServiceDefinitionHealthCheckTcpOutput() KoyebServiceDefinitionHealthCheckTcpOutput
+	ToKoyebServiceDefinitionHealthCheckTcpOutputWithContext(context.Context) KoyebServiceDefinitionHealthCheckTcpOutput
+}
+
+type KoyebServiceDefinitionHealthCheckTcpArgs struct {
+	Port pulumi.IntInput `pulumi:"port"`
+}
+
+func (KoyebServiceDefinitionHealthCheckTcpArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KoyebServiceDefinitionHealthCheckTcp)(nil)).Elem()
+}
+
+func (i KoyebServiceDefinitionHealthCheckTcpArgs) ToKoyebServiceDefinitionHealthCheckTcpOutput() KoyebServiceDefinitionHealthCheckTcpOutput {
+	return i.ToKoyebServiceDefinitionHealthCheckTcpOutputWithContext(context.Background())
+}
+
+func (i KoyebServiceDefinitionHealthCheckTcpArgs) ToKoyebServiceDefinitionHealthCheckTcpOutputWithContext(ctx context.Context) KoyebServiceDefinitionHealthCheckTcpOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KoyebServiceDefinitionHealthCheckTcpOutput)
+}
+
+func (i KoyebServiceDefinitionHealthCheckTcpArgs) ToKoyebServiceDefinitionHealthCheckTcpPtrOutput() KoyebServiceDefinitionHealthCheckTcpPtrOutput {
+	return i.ToKoyebServiceDefinitionHealthCheckTcpPtrOutputWithContext(context.Background())
+}
+
+func (i KoyebServiceDefinitionHealthCheckTcpArgs) ToKoyebServiceDefinitionHealthCheckTcpPtrOutputWithContext(ctx context.Context) KoyebServiceDefinitionHealthCheckTcpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KoyebServiceDefinitionHealthCheckTcpOutput).ToKoyebServiceDefinitionHealthCheckTcpPtrOutputWithContext(ctx)
+}
+
+// KoyebServiceDefinitionHealthCheckTcpPtrInput is an input type that accepts KoyebServiceDefinitionHealthCheckTcpArgs, KoyebServiceDefinitionHealthCheckTcpPtr and KoyebServiceDefinitionHealthCheckTcpPtrOutput values.
+// You can construct a concrete instance of `KoyebServiceDefinitionHealthCheckTcpPtrInput` via:
+//
+//	        KoyebServiceDefinitionHealthCheckTcpArgs{...}
+//
+//	or:
+//
+//	        nil
+type KoyebServiceDefinitionHealthCheckTcpPtrInput interface {
+	pulumi.Input
+
+	ToKoyebServiceDefinitionHealthCheckTcpPtrOutput() KoyebServiceDefinitionHealthCheckTcpPtrOutput
+	ToKoyebServiceDefinitionHealthCheckTcpPtrOutputWithContext(context.Context) KoyebServiceDefinitionHealthCheckTcpPtrOutput
+}
+
+type koyebServiceDefinitionHealthCheckTcpPtrType KoyebServiceDefinitionHealthCheckTcpArgs
+
+func KoyebServiceDefinitionHealthCheckTcpPtr(v *KoyebServiceDefinitionHealthCheckTcpArgs) KoyebServiceDefinitionHealthCheckTcpPtrInput {
+	return (*koyebServiceDefinitionHealthCheckTcpPtrType)(v)
+}
+
+func (*koyebServiceDefinitionHealthCheckTcpPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KoyebServiceDefinitionHealthCheckTcp)(nil)).Elem()
+}
+
+func (i *koyebServiceDefinitionHealthCheckTcpPtrType) ToKoyebServiceDefinitionHealthCheckTcpPtrOutput() KoyebServiceDefinitionHealthCheckTcpPtrOutput {
+	return i.ToKoyebServiceDefinitionHealthCheckTcpPtrOutputWithContext(context.Background())
+}
+
+func (i *koyebServiceDefinitionHealthCheckTcpPtrType) ToKoyebServiceDefinitionHealthCheckTcpPtrOutputWithContext(ctx context.Context) KoyebServiceDefinitionHealthCheckTcpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KoyebServiceDefinitionHealthCheckTcpPtrOutput)
+}
+
+type KoyebServiceDefinitionHealthCheckTcpOutput struct{ *pulumi.OutputState }
+
+func (KoyebServiceDefinitionHealthCheckTcpOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KoyebServiceDefinitionHealthCheckTcp)(nil)).Elem()
+}
+
+func (o KoyebServiceDefinitionHealthCheckTcpOutput) ToKoyebServiceDefinitionHealthCheckTcpOutput() KoyebServiceDefinitionHealthCheckTcpOutput {
+	return o
+}
+
+func (o KoyebServiceDefinitionHealthCheckTcpOutput) ToKoyebServiceDefinitionHealthCheckTcpOutputWithContext(ctx context.Context) KoyebServiceDefinitionHealthCheckTcpOutput {
+	return o
+}
+
+func (o KoyebServiceDefinitionHealthCheckTcpOutput) ToKoyebServiceDefinitionHealthCheckTcpPtrOutput() KoyebServiceDefinitionHealthCheckTcpPtrOutput {
+	return o.ToKoyebServiceDefinitionHealthCheckTcpPtrOutputWithContext(context.Background())
+}
+
+func (o KoyebServiceDefinitionHealthCheckTcpOutput) ToKoyebServiceDefinitionHealthCheckTcpPtrOutputWithContext(ctx context.Context) KoyebServiceDefinitionHealthCheckTcpPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KoyebServiceDefinitionHealthCheckTcp) *KoyebServiceDefinitionHealthCheckTcp {
+		return &v
+	}).(KoyebServiceDefinitionHealthCheckTcpPtrOutput)
+}
+
+func (o KoyebServiceDefinitionHealthCheckTcpOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v KoyebServiceDefinitionHealthCheckTcp) int { return v.Port }).(pulumi.IntOutput)
+}
+
+type KoyebServiceDefinitionHealthCheckTcpPtrOutput struct{ *pulumi.OutputState }
+
+func (KoyebServiceDefinitionHealthCheckTcpPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KoyebServiceDefinitionHealthCheckTcp)(nil)).Elem()
+}
+
+func (o KoyebServiceDefinitionHealthCheckTcpPtrOutput) ToKoyebServiceDefinitionHealthCheckTcpPtrOutput() KoyebServiceDefinitionHealthCheckTcpPtrOutput {
+	return o
+}
+
+func (o KoyebServiceDefinitionHealthCheckTcpPtrOutput) ToKoyebServiceDefinitionHealthCheckTcpPtrOutputWithContext(ctx context.Context) KoyebServiceDefinitionHealthCheckTcpPtrOutput {
+	return o
+}
+
+func (o KoyebServiceDefinitionHealthCheckTcpPtrOutput) Elem() KoyebServiceDefinitionHealthCheckTcpOutput {
+	return o.ApplyT(func(v *KoyebServiceDefinitionHealthCheckTcp) KoyebServiceDefinitionHealthCheckTcp {
+		if v != nil {
+			return *v
+		}
+		var ret KoyebServiceDefinitionHealthCheckTcp
+		return ret
+	}).(KoyebServiceDefinitionHealthCheckTcpOutput)
+}
+
+func (o KoyebServiceDefinitionHealthCheckTcpPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KoyebServiceDefinitionHealthCheckTcp) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+type KoyebServiceDefinitionInstanceType struct {
+	Scopes []string `pulumi:"scopes"`
+	Type   string   `pulumi:"type"`
+}
+
+// KoyebServiceDefinitionInstanceTypeInput is an input type that accepts KoyebServiceDefinitionInstanceTypeArgs and KoyebServiceDefinitionInstanceTypeOutput values.
+// You can construct a concrete instance of `KoyebServiceDefinitionInstanceTypeInput` via:
+//
+//	KoyebServiceDefinitionInstanceTypeArgs{...}
+type KoyebServiceDefinitionInstanceTypeInput interface {
+	pulumi.Input
+
+	ToKoyebServiceDefinitionInstanceTypeOutput() KoyebServiceDefinitionInstanceTypeOutput
+	ToKoyebServiceDefinitionInstanceTypeOutputWithContext(context.Context) KoyebServiceDefinitionInstanceTypeOutput
+}
+
+type KoyebServiceDefinitionInstanceTypeArgs struct {
+	Scopes pulumi.StringArrayInput `pulumi:"scopes"`
+	Type   pulumi.StringInput      `pulumi:"type"`
+}
+
+func (KoyebServiceDefinitionInstanceTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KoyebServiceDefinitionInstanceType)(nil)).Elem()
+}
+
+func (i KoyebServiceDefinitionInstanceTypeArgs) ToKoyebServiceDefinitionInstanceTypeOutput() KoyebServiceDefinitionInstanceTypeOutput {
+	return i.ToKoyebServiceDefinitionInstanceTypeOutputWithContext(context.Background())
+}
+
+func (i KoyebServiceDefinitionInstanceTypeArgs) ToKoyebServiceDefinitionInstanceTypeOutputWithContext(ctx context.Context) KoyebServiceDefinitionInstanceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KoyebServiceDefinitionInstanceTypeOutput)
+}
+
+// KoyebServiceDefinitionInstanceTypeArrayInput is an input type that accepts KoyebServiceDefinitionInstanceTypeArray and KoyebServiceDefinitionInstanceTypeArrayOutput values.
+// You can construct a concrete instance of `KoyebServiceDefinitionInstanceTypeArrayInput` via:
+//
+//	KoyebServiceDefinitionInstanceTypeArray{ KoyebServiceDefinitionInstanceTypeArgs{...} }
+type KoyebServiceDefinitionInstanceTypeArrayInput interface {
+	pulumi.Input
+
+	ToKoyebServiceDefinitionInstanceTypeArrayOutput() KoyebServiceDefinitionInstanceTypeArrayOutput
+	ToKoyebServiceDefinitionInstanceTypeArrayOutputWithContext(context.Context) KoyebServiceDefinitionInstanceTypeArrayOutput
+}
+
+type KoyebServiceDefinitionInstanceTypeArray []KoyebServiceDefinitionInstanceTypeInput
+
+func (KoyebServiceDefinitionInstanceTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KoyebServiceDefinitionInstanceType)(nil)).Elem()
+}
+
+func (i KoyebServiceDefinitionInstanceTypeArray) ToKoyebServiceDefinitionInstanceTypeArrayOutput() KoyebServiceDefinitionInstanceTypeArrayOutput {
+	return i.ToKoyebServiceDefinitionInstanceTypeArrayOutputWithContext(context.Background())
+}
+
+func (i KoyebServiceDefinitionInstanceTypeArray) ToKoyebServiceDefinitionInstanceTypeArrayOutputWithContext(ctx context.Context) KoyebServiceDefinitionInstanceTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KoyebServiceDefinitionInstanceTypeArrayOutput)
+}
+
+type KoyebServiceDefinitionInstanceTypeOutput struct{ *pulumi.OutputState }
+
+func (KoyebServiceDefinitionInstanceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KoyebServiceDefinitionInstanceType)(nil)).Elem()
+}
+
+func (o KoyebServiceDefinitionInstanceTypeOutput) ToKoyebServiceDefinitionInstanceTypeOutput() KoyebServiceDefinitionInstanceTypeOutput {
+	return o
+}
+
+func (o KoyebServiceDefinitionInstanceTypeOutput) ToKoyebServiceDefinitionInstanceTypeOutputWithContext(ctx context.Context) KoyebServiceDefinitionInstanceTypeOutput {
+	return o
+}
+
+func (o KoyebServiceDefinitionInstanceTypeOutput) Scopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v KoyebServiceDefinitionInstanceType) []string { return v.Scopes }).(pulumi.StringArrayOutput)
+}
+
+func (o KoyebServiceDefinitionInstanceTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v KoyebServiceDefinitionInstanceType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type KoyebServiceDefinitionInstanceTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (KoyebServiceDefinitionInstanceTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KoyebServiceDefinitionInstanceType)(nil)).Elem()
+}
+
+func (o KoyebServiceDefinitionInstanceTypeArrayOutput) ToKoyebServiceDefinitionInstanceTypeArrayOutput() KoyebServiceDefinitionInstanceTypeArrayOutput {
+	return o
+}
+
+func (o KoyebServiceDefinitionInstanceTypeArrayOutput) ToKoyebServiceDefinitionInstanceTypeArrayOutputWithContext(ctx context.Context) KoyebServiceDefinitionInstanceTypeArrayOutput {
+	return o
+}
+
+func (o KoyebServiceDefinitionInstanceTypeArrayOutput) Index(i pulumi.IntInput) KoyebServiceDefinitionInstanceTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KoyebServiceDefinitionInstanceType {
+		return vs[0].([]KoyebServiceDefinitionInstanceType)[vs[1].(int)]
+	}).(KoyebServiceDefinitionInstanceTypeOutput)
 }
 
 type KoyebServiceDefinitionPort struct {
@@ -2044,7 +3023,7 @@ type KoyebServiceDefinitionPort struct {
 // KoyebServiceDefinitionPortInput is an input type that accepts KoyebServiceDefinitionPortArgs and KoyebServiceDefinitionPortOutput values.
 // You can construct a concrete instance of `KoyebServiceDefinitionPortInput` via:
 //
-//          KoyebServiceDefinitionPortArgs{...}
+//	KoyebServiceDefinitionPortArgs{...}
 type KoyebServiceDefinitionPortInput interface {
 	pulumi.Input
 
@@ -2072,7 +3051,7 @@ func (i KoyebServiceDefinitionPortArgs) ToKoyebServiceDefinitionPortOutputWithCo
 // KoyebServiceDefinitionPortArrayInput is an input type that accepts KoyebServiceDefinitionPortArray and KoyebServiceDefinitionPortArrayOutput values.
 // You can construct a concrete instance of `KoyebServiceDefinitionPortArrayInput` via:
 //
-//          KoyebServiceDefinitionPortArray{ KoyebServiceDefinitionPortArgs{...} }
+//	KoyebServiceDefinitionPortArray{ KoyebServiceDefinitionPortArgs{...} }
 type KoyebServiceDefinitionPortArrayInput interface {
 	pulumi.Input
 
@@ -2144,7 +3123,7 @@ type KoyebServiceDefinitionRoute struct {
 // KoyebServiceDefinitionRouteInput is an input type that accepts KoyebServiceDefinitionRouteArgs and KoyebServiceDefinitionRouteOutput values.
 // You can construct a concrete instance of `KoyebServiceDefinitionRouteInput` via:
 //
-//          KoyebServiceDefinitionRouteArgs{...}
+//	KoyebServiceDefinitionRouteArgs{...}
 type KoyebServiceDefinitionRouteInput interface {
 	pulumi.Input
 
@@ -2172,7 +3151,7 @@ func (i KoyebServiceDefinitionRouteArgs) ToKoyebServiceDefinitionRouteOutputWith
 // KoyebServiceDefinitionRouteArrayInput is an input type that accepts KoyebServiceDefinitionRouteArray and KoyebServiceDefinitionRouteArrayOutput values.
 // You can construct a concrete instance of `KoyebServiceDefinitionRouteArrayInput` via:
 //
-//          KoyebServiceDefinitionRouteArray{ KoyebServiceDefinitionRouteArgs{...} }
+//	KoyebServiceDefinitionRouteArray{ KoyebServiceDefinitionRouteArgs{...} }
 type KoyebServiceDefinitionRouteArrayInput interface {
 	pulumi.Input
 
@@ -2236,152 +3215,510 @@ func (o KoyebServiceDefinitionRouteArrayOutput) Index(i pulumi.IntInput) KoyebSe
 	}).(KoyebServiceDefinitionRouteOutput)
 }
 
-type KoyebServiceDefinitionScalings struct {
-	Max *int `pulumi:"max"`
-	Min *int `pulumi:"min"`
+type KoyebServiceDefinitionScaling struct {
+	Max     *int                                  `pulumi:"max"`
+	Min     *int                                  `pulumi:"min"`
+	Scopes  []string                              `pulumi:"scopes"`
+	Targets []KoyebServiceDefinitionScalingTarget `pulumi:"targets"`
 }
 
-// KoyebServiceDefinitionScalingsInput is an input type that accepts KoyebServiceDefinitionScalingsArgs and KoyebServiceDefinitionScalingsOutput values.
-// You can construct a concrete instance of `KoyebServiceDefinitionScalingsInput` via:
+// KoyebServiceDefinitionScalingInput is an input type that accepts KoyebServiceDefinitionScalingArgs and KoyebServiceDefinitionScalingOutput values.
+// You can construct a concrete instance of `KoyebServiceDefinitionScalingInput` via:
 //
-//          KoyebServiceDefinitionScalingsArgs{...}
-type KoyebServiceDefinitionScalingsInput interface {
+//	KoyebServiceDefinitionScalingArgs{...}
+type KoyebServiceDefinitionScalingInput interface {
 	pulumi.Input
 
-	ToKoyebServiceDefinitionScalingsOutput() KoyebServiceDefinitionScalingsOutput
-	ToKoyebServiceDefinitionScalingsOutputWithContext(context.Context) KoyebServiceDefinitionScalingsOutput
+	ToKoyebServiceDefinitionScalingOutput() KoyebServiceDefinitionScalingOutput
+	ToKoyebServiceDefinitionScalingOutputWithContext(context.Context) KoyebServiceDefinitionScalingOutput
 }
 
-type KoyebServiceDefinitionScalingsArgs struct {
-	Max pulumi.IntPtrInput `pulumi:"max"`
-	Min pulumi.IntPtrInput `pulumi:"min"`
+type KoyebServiceDefinitionScalingArgs struct {
+	Max     pulumi.IntPtrInput                            `pulumi:"max"`
+	Min     pulumi.IntPtrInput                            `pulumi:"min"`
+	Scopes  pulumi.StringArrayInput                       `pulumi:"scopes"`
+	Targets KoyebServiceDefinitionScalingTargetArrayInput `pulumi:"targets"`
 }
 
-func (KoyebServiceDefinitionScalingsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*KoyebServiceDefinitionScalings)(nil)).Elem()
+func (KoyebServiceDefinitionScalingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KoyebServiceDefinitionScaling)(nil)).Elem()
 }
 
-func (i KoyebServiceDefinitionScalingsArgs) ToKoyebServiceDefinitionScalingsOutput() KoyebServiceDefinitionScalingsOutput {
-	return i.ToKoyebServiceDefinitionScalingsOutputWithContext(context.Background())
+func (i KoyebServiceDefinitionScalingArgs) ToKoyebServiceDefinitionScalingOutput() KoyebServiceDefinitionScalingOutput {
+	return i.ToKoyebServiceDefinitionScalingOutputWithContext(context.Background())
 }
 
-func (i KoyebServiceDefinitionScalingsArgs) ToKoyebServiceDefinitionScalingsOutputWithContext(ctx context.Context) KoyebServiceDefinitionScalingsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KoyebServiceDefinitionScalingsOutput)
+func (i KoyebServiceDefinitionScalingArgs) ToKoyebServiceDefinitionScalingOutputWithContext(ctx context.Context) KoyebServiceDefinitionScalingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KoyebServiceDefinitionScalingOutput)
 }
 
-func (i KoyebServiceDefinitionScalingsArgs) ToKoyebServiceDefinitionScalingsPtrOutput() KoyebServiceDefinitionScalingsPtrOutput {
-	return i.ToKoyebServiceDefinitionScalingsPtrOutputWithContext(context.Background())
-}
-
-func (i KoyebServiceDefinitionScalingsArgs) ToKoyebServiceDefinitionScalingsPtrOutputWithContext(ctx context.Context) KoyebServiceDefinitionScalingsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KoyebServiceDefinitionScalingsOutput).ToKoyebServiceDefinitionScalingsPtrOutputWithContext(ctx)
-}
-
-// KoyebServiceDefinitionScalingsPtrInput is an input type that accepts KoyebServiceDefinitionScalingsArgs, KoyebServiceDefinitionScalingsPtr and KoyebServiceDefinitionScalingsPtrOutput values.
-// You can construct a concrete instance of `KoyebServiceDefinitionScalingsPtrInput` via:
+// KoyebServiceDefinitionScalingArrayInput is an input type that accepts KoyebServiceDefinitionScalingArray and KoyebServiceDefinitionScalingArrayOutput values.
+// You can construct a concrete instance of `KoyebServiceDefinitionScalingArrayInput` via:
 //
-//          KoyebServiceDefinitionScalingsArgs{...}
-//
-//  or:
-//
-//          nil
-type KoyebServiceDefinitionScalingsPtrInput interface {
+//	KoyebServiceDefinitionScalingArray{ KoyebServiceDefinitionScalingArgs{...} }
+type KoyebServiceDefinitionScalingArrayInput interface {
 	pulumi.Input
 
-	ToKoyebServiceDefinitionScalingsPtrOutput() KoyebServiceDefinitionScalingsPtrOutput
-	ToKoyebServiceDefinitionScalingsPtrOutputWithContext(context.Context) KoyebServiceDefinitionScalingsPtrOutput
+	ToKoyebServiceDefinitionScalingArrayOutput() KoyebServiceDefinitionScalingArrayOutput
+	ToKoyebServiceDefinitionScalingArrayOutputWithContext(context.Context) KoyebServiceDefinitionScalingArrayOutput
 }
 
-type koyebServiceDefinitionScalingsPtrType KoyebServiceDefinitionScalingsArgs
+type KoyebServiceDefinitionScalingArray []KoyebServiceDefinitionScalingInput
 
-func KoyebServiceDefinitionScalingsPtr(v *KoyebServiceDefinitionScalingsArgs) KoyebServiceDefinitionScalingsPtrInput {
-	return (*koyebServiceDefinitionScalingsPtrType)(v)
+func (KoyebServiceDefinitionScalingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KoyebServiceDefinitionScaling)(nil)).Elem()
 }
 
-func (*koyebServiceDefinitionScalingsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**KoyebServiceDefinitionScalings)(nil)).Elem()
+func (i KoyebServiceDefinitionScalingArray) ToKoyebServiceDefinitionScalingArrayOutput() KoyebServiceDefinitionScalingArrayOutput {
+	return i.ToKoyebServiceDefinitionScalingArrayOutputWithContext(context.Background())
 }
 
-func (i *koyebServiceDefinitionScalingsPtrType) ToKoyebServiceDefinitionScalingsPtrOutput() KoyebServiceDefinitionScalingsPtrOutput {
-	return i.ToKoyebServiceDefinitionScalingsPtrOutputWithContext(context.Background())
+func (i KoyebServiceDefinitionScalingArray) ToKoyebServiceDefinitionScalingArrayOutputWithContext(ctx context.Context) KoyebServiceDefinitionScalingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KoyebServiceDefinitionScalingArrayOutput)
 }
 
-func (i *koyebServiceDefinitionScalingsPtrType) ToKoyebServiceDefinitionScalingsPtrOutputWithContext(ctx context.Context) KoyebServiceDefinitionScalingsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KoyebServiceDefinitionScalingsPtrOutput)
+type KoyebServiceDefinitionScalingOutput struct{ *pulumi.OutputState }
+
+func (KoyebServiceDefinitionScalingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KoyebServiceDefinitionScaling)(nil)).Elem()
 }
 
-type KoyebServiceDefinitionScalingsOutput struct{ *pulumi.OutputState }
-
-func (KoyebServiceDefinitionScalingsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KoyebServiceDefinitionScalings)(nil)).Elem()
-}
-
-func (o KoyebServiceDefinitionScalingsOutput) ToKoyebServiceDefinitionScalingsOutput() KoyebServiceDefinitionScalingsOutput {
+func (o KoyebServiceDefinitionScalingOutput) ToKoyebServiceDefinitionScalingOutput() KoyebServiceDefinitionScalingOutput {
 	return o
 }
 
-func (o KoyebServiceDefinitionScalingsOutput) ToKoyebServiceDefinitionScalingsOutputWithContext(ctx context.Context) KoyebServiceDefinitionScalingsOutput {
+func (o KoyebServiceDefinitionScalingOutput) ToKoyebServiceDefinitionScalingOutputWithContext(ctx context.Context) KoyebServiceDefinitionScalingOutput {
 	return o
 }
 
-func (o KoyebServiceDefinitionScalingsOutput) ToKoyebServiceDefinitionScalingsPtrOutput() KoyebServiceDefinitionScalingsPtrOutput {
-	return o.ToKoyebServiceDefinitionScalingsPtrOutputWithContext(context.Background())
+func (o KoyebServiceDefinitionScalingOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KoyebServiceDefinitionScaling) *int { return v.Max }).(pulumi.IntPtrOutput)
 }
 
-func (o KoyebServiceDefinitionScalingsOutput) ToKoyebServiceDefinitionScalingsPtrOutputWithContext(ctx context.Context) KoyebServiceDefinitionScalingsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KoyebServiceDefinitionScalings) *KoyebServiceDefinitionScalings {
-		return &v
-	}).(KoyebServiceDefinitionScalingsPtrOutput)
+func (o KoyebServiceDefinitionScalingOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KoyebServiceDefinitionScaling) *int { return v.Min }).(pulumi.IntPtrOutput)
 }
 
-func (o KoyebServiceDefinitionScalingsOutput) Max() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v KoyebServiceDefinitionScalings) *int { return v.Max }).(pulumi.IntPtrOutput)
+func (o KoyebServiceDefinitionScalingOutput) Scopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v KoyebServiceDefinitionScaling) []string { return v.Scopes }).(pulumi.StringArrayOutput)
 }
 
-func (o KoyebServiceDefinitionScalingsOutput) Min() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v KoyebServiceDefinitionScalings) *int { return v.Min }).(pulumi.IntPtrOutput)
+func (o KoyebServiceDefinitionScalingOutput) Targets() KoyebServiceDefinitionScalingTargetArrayOutput {
+	return o.ApplyT(func(v KoyebServiceDefinitionScaling) []KoyebServiceDefinitionScalingTarget { return v.Targets }).(KoyebServiceDefinitionScalingTargetArrayOutput)
 }
 
-type KoyebServiceDefinitionScalingsPtrOutput struct{ *pulumi.OutputState }
+type KoyebServiceDefinitionScalingArrayOutput struct{ *pulumi.OutputState }
 
-func (KoyebServiceDefinitionScalingsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**KoyebServiceDefinitionScalings)(nil)).Elem()
+func (KoyebServiceDefinitionScalingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KoyebServiceDefinitionScaling)(nil)).Elem()
 }
 
-func (o KoyebServiceDefinitionScalingsPtrOutput) ToKoyebServiceDefinitionScalingsPtrOutput() KoyebServiceDefinitionScalingsPtrOutput {
+func (o KoyebServiceDefinitionScalingArrayOutput) ToKoyebServiceDefinitionScalingArrayOutput() KoyebServiceDefinitionScalingArrayOutput {
 	return o
 }
 
-func (o KoyebServiceDefinitionScalingsPtrOutput) ToKoyebServiceDefinitionScalingsPtrOutputWithContext(ctx context.Context) KoyebServiceDefinitionScalingsPtrOutput {
+func (o KoyebServiceDefinitionScalingArrayOutput) ToKoyebServiceDefinitionScalingArrayOutputWithContext(ctx context.Context) KoyebServiceDefinitionScalingArrayOutput {
 	return o
 }
 
-func (o KoyebServiceDefinitionScalingsPtrOutput) Elem() KoyebServiceDefinitionScalingsOutput {
-	return o.ApplyT(func(v *KoyebServiceDefinitionScalings) KoyebServiceDefinitionScalings {
-		if v != nil {
-			return *v
-		}
-		var ret KoyebServiceDefinitionScalings
-		return ret
-	}).(KoyebServiceDefinitionScalingsOutput)
+func (o KoyebServiceDefinitionScalingArrayOutput) Index(i pulumi.IntInput) KoyebServiceDefinitionScalingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KoyebServiceDefinitionScaling {
+		return vs[0].([]KoyebServiceDefinitionScaling)[vs[1].(int)]
+	}).(KoyebServiceDefinitionScalingOutput)
 }
 
-func (o KoyebServiceDefinitionScalingsPtrOutput) Max() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *KoyebServiceDefinitionScalings) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Max
-	}).(pulumi.IntPtrOutput)
+type KoyebServiceDefinitionScalingTarget struct {
+	AverageCpus        []KoyebServiceDefinitionScalingTargetAverageCpus       `pulumi:"averageCpus"`
+	AverageMems        []KoyebServiceDefinitionScalingTargetAverageMem        `pulumi:"averageMems"`
+	RequestsPerSeconds []KoyebServiceDefinitionScalingTargetRequestsPerSecond `pulumi:"requestsPerSeconds"`
 }
 
-func (o KoyebServiceDefinitionScalingsPtrOutput) Min() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *KoyebServiceDefinitionScalings) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Min
-	}).(pulumi.IntPtrOutput)
+// KoyebServiceDefinitionScalingTargetInput is an input type that accepts KoyebServiceDefinitionScalingTargetArgs and KoyebServiceDefinitionScalingTargetOutput values.
+// You can construct a concrete instance of `KoyebServiceDefinitionScalingTargetInput` via:
+//
+//	KoyebServiceDefinitionScalingTargetArgs{...}
+type KoyebServiceDefinitionScalingTargetInput interface {
+	pulumi.Input
+
+	ToKoyebServiceDefinitionScalingTargetOutput() KoyebServiceDefinitionScalingTargetOutput
+	ToKoyebServiceDefinitionScalingTargetOutputWithContext(context.Context) KoyebServiceDefinitionScalingTargetOutput
+}
+
+type KoyebServiceDefinitionScalingTargetArgs struct {
+	AverageCpus        KoyebServiceDefinitionScalingTargetAverageCpusArrayInput       `pulumi:"averageCpus"`
+	AverageMems        KoyebServiceDefinitionScalingTargetAverageMemArrayInput        `pulumi:"averageMems"`
+	RequestsPerSeconds KoyebServiceDefinitionScalingTargetRequestsPerSecondArrayInput `pulumi:"requestsPerSeconds"`
+}
+
+func (KoyebServiceDefinitionScalingTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KoyebServiceDefinitionScalingTarget)(nil)).Elem()
+}
+
+func (i KoyebServiceDefinitionScalingTargetArgs) ToKoyebServiceDefinitionScalingTargetOutput() KoyebServiceDefinitionScalingTargetOutput {
+	return i.ToKoyebServiceDefinitionScalingTargetOutputWithContext(context.Background())
+}
+
+func (i KoyebServiceDefinitionScalingTargetArgs) ToKoyebServiceDefinitionScalingTargetOutputWithContext(ctx context.Context) KoyebServiceDefinitionScalingTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KoyebServiceDefinitionScalingTargetOutput)
+}
+
+// KoyebServiceDefinitionScalingTargetArrayInput is an input type that accepts KoyebServiceDefinitionScalingTargetArray and KoyebServiceDefinitionScalingTargetArrayOutput values.
+// You can construct a concrete instance of `KoyebServiceDefinitionScalingTargetArrayInput` via:
+//
+//	KoyebServiceDefinitionScalingTargetArray{ KoyebServiceDefinitionScalingTargetArgs{...} }
+type KoyebServiceDefinitionScalingTargetArrayInput interface {
+	pulumi.Input
+
+	ToKoyebServiceDefinitionScalingTargetArrayOutput() KoyebServiceDefinitionScalingTargetArrayOutput
+	ToKoyebServiceDefinitionScalingTargetArrayOutputWithContext(context.Context) KoyebServiceDefinitionScalingTargetArrayOutput
+}
+
+type KoyebServiceDefinitionScalingTargetArray []KoyebServiceDefinitionScalingTargetInput
+
+func (KoyebServiceDefinitionScalingTargetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KoyebServiceDefinitionScalingTarget)(nil)).Elem()
+}
+
+func (i KoyebServiceDefinitionScalingTargetArray) ToKoyebServiceDefinitionScalingTargetArrayOutput() KoyebServiceDefinitionScalingTargetArrayOutput {
+	return i.ToKoyebServiceDefinitionScalingTargetArrayOutputWithContext(context.Background())
+}
+
+func (i KoyebServiceDefinitionScalingTargetArray) ToKoyebServiceDefinitionScalingTargetArrayOutputWithContext(ctx context.Context) KoyebServiceDefinitionScalingTargetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KoyebServiceDefinitionScalingTargetArrayOutput)
+}
+
+type KoyebServiceDefinitionScalingTargetOutput struct{ *pulumi.OutputState }
+
+func (KoyebServiceDefinitionScalingTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KoyebServiceDefinitionScalingTarget)(nil)).Elem()
+}
+
+func (o KoyebServiceDefinitionScalingTargetOutput) ToKoyebServiceDefinitionScalingTargetOutput() KoyebServiceDefinitionScalingTargetOutput {
+	return o
+}
+
+func (o KoyebServiceDefinitionScalingTargetOutput) ToKoyebServiceDefinitionScalingTargetOutputWithContext(ctx context.Context) KoyebServiceDefinitionScalingTargetOutput {
+	return o
+}
+
+func (o KoyebServiceDefinitionScalingTargetOutput) AverageCpus() KoyebServiceDefinitionScalingTargetAverageCpusArrayOutput {
+	return o.ApplyT(func(v KoyebServiceDefinitionScalingTarget) []KoyebServiceDefinitionScalingTargetAverageCpus {
+		return v.AverageCpus
+	}).(KoyebServiceDefinitionScalingTargetAverageCpusArrayOutput)
+}
+
+func (o KoyebServiceDefinitionScalingTargetOutput) AverageMems() KoyebServiceDefinitionScalingTargetAverageMemArrayOutput {
+	return o.ApplyT(func(v KoyebServiceDefinitionScalingTarget) []KoyebServiceDefinitionScalingTargetAverageMem {
+		return v.AverageMems
+	}).(KoyebServiceDefinitionScalingTargetAverageMemArrayOutput)
+}
+
+func (o KoyebServiceDefinitionScalingTargetOutput) RequestsPerSeconds() KoyebServiceDefinitionScalingTargetRequestsPerSecondArrayOutput {
+	return o.ApplyT(func(v KoyebServiceDefinitionScalingTarget) []KoyebServiceDefinitionScalingTargetRequestsPerSecond {
+		return v.RequestsPerSeconds
+	}).(KoyebServiceDefinitionScalingTargetRequestsPerSecondArrayOutput)
+}
+
+type KoyebServiceDefinitionScalingTargetArrayOutput struct{ *pulumi.OutputState }
+
+func (KoyebServiceDefinitionScalingTargetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KoyebServiceDefinitionScalingTarget)(nil)).Elem()
+}
+
+func (o KoyebServiceDefinitionScalingTargetArrayOutput) ToKoyebServiceDefinitionScalingTargetArrayOutput() KoyebServiceDefinitionScalingTargetArrayOutput {
+	return o
+}
+
+func (o KoyebServiceDefinitionScalingTargetArrayOutput) ToKoyebServiceDefinitionScalingTargetArrayOutputWithContext(ctx context.Context) KoyebServiceDefinitionScalingTargetArrayOutput {
+	return o
+}
+
+func (o KoyebServiceDefinitionScalingTargetArrayOutput) Index(i pulumi.IntInput) KoyebServiceDefinitionScalingTargetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KoyebServiceDefinitionScalingTarget {
+		return vs[0].([]KoyebServiceDefinitionScalingTarget)[vs[1].(int)]
+	}).(KoyebServiceDefinitionScalingTargetOutput)
+}
+
+type KoyebServiceDefinitionScalingTargetAverageCpus struct {
+	Value int `pulumi:"value"`
+}
+
+// KoyebServiceDefinitionScalingTargetAverageCpusInput is an input type that accepts KoyebServiceDefinitionScalingTargetAverageCpusArgs and KoyebServiceDefinitionScalingTargetAverageCpusOutput values.
+// You can construct a concrete instance of `KoyebServiceDefinitionScalingTargetAverageCpusInput` via:
+//
+//	KoyebServiceDefinitionScalingTargetAverageCpusArgs{...}
+type KoyebServiceDefinitionScalingTargetAverageCpusInput interface {
+	pulumi.Input
+
+	ToKoyebServiceDefinitionScalingTargetAverageCpusOutput() KoyebServiceDefinitionScalingTargetAverageCpusOutput
+	ToKoyebServiceDefinitionScalingTargetAverageCpusOutputWithContext(context.Context) KoyebServiceDefinitionScalingTargetAverageCpusOutput
+}
+
+type KoyebServiceDefinitionScalingTargetAverageCpusArgs struct {
+	Value pulumi.IntInput `pulumi:"value"`
+}
+
+func (KoyebServiceDefinitionScalingTargetAverageCpusArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KoyebServiceDefinitionScalingTargetAverageCpus)(nil)).Elem()
+}
+
+func (i KoyebServiceDefinitionScalingTargetAverageCpusArgs) ToKoyebServiceDefinitionScalingTargetAverageCpusOutput() KoyebServiceDefinitionScalingTargetAverageCpusOutput {
+	return i.ToKoyebServiceDefinitionScalingTargetAverageCpusOutputWithContext(context.Background())
+}
+
+func (i KoyebServiceDefinitionScalingTargetAverageCpusArgs) ToKoyebServiceDefinitionScalingTargetAverageCpusOutputWithContext(ctx context.Context) KoyebServiceDefinitionScalingTargetAverageCpusOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KoyebServiceDefinitionScalingTargetAverageCpusOutput)
+}
+
+// KoyebServiceDefinitionScalingTargetAverageCpusArrayInput is an input type that accepts KoyebServiceDefinitionScalingTargetAverageCpusArray and KoyebServiceDefinitionScalingTargetAverageCpusArrayOutput values.
+// You can construct a concrete instance of `KoyebServiceDefinitionScalingTargetAverageCpusArrayInput` via:
+//
+//	KoyebServiceDefinitionScalingTargetAverageCpusArray{ KoyebServiceDefinitionScalingTargetAverageCpusArgs{...} }
+type KoyebServiceDefinitionScalingTargetAverageCpusArrayInput interface {
+	pulumi.Input
+
+	ToKoyebServiceDefinitionScalingTargetAverageCpusArrayOutput() KoyebServiceDefinitionScalingTargetAverageCpusArrayOutput
+	ToKoyebServiceDefinitionScalingTargetAverageCpusArrayOutputWithContext(context.Context) KoyebServiceDefinitionScalingTargetAverageCpusArrayOutput
+}
+
+type KoyebServiceDefinitionScalingTargetAverageCpusArray []KoyebServiceDefinitionScalingTargetAverageCpusInput
+
+func (KoyebServiceDefinitionScalingTargetAverageCpusArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KoyebServiceDefinitionScalingTargetAverageCpus)(nil)).Elem()
+}
+
+func (i KoyebServiceDefinitionScalingTargetAverageCpusArray) ToKoyebServiceDefinitionScalingTargetAverageCpusArrayOutput() KoyebServiceDefinitionScalingTargetAverageCpusArrayOutput {
+	return i.ToKoyebServiceDefinitionScalingTargetAverageCpusArrayOutputWithContext(context.Background())
+}
+
+func (i KoyebServiceDefinitionScalingTargetAverageCpusArray) ToKoyebServiceDefinitionScalingTargetAverageCpusArrayOutputWithContext(ctx context.Context) KoyebServiceDefinitionScalingTargetAverageCpusArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KoyebServiceDefinitionScalingTargetAverageCpusArrayOutput)
+}
+
+type KoyebServiceDefinitionScalingTargetAverageCpusOutput struct{ *pulumi.OutputState }
+
+func (KoyebServiceDefinitionScalingTargetAverageCpusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KoyebServiceDefinitionScalingTargetAverageCpus)(nil)).Elem()
+}
+
+func (o KoyebServiceDefinitionScalingTargetAverageCpusOutput) ToKoyebServiceDefinitionScalingTargetAverageCpusOutput() KoyebServiceDefinitionScalingTargetAverageCpusOutput {
+	return o
+}
+
+func (o KoyebServiceDefinitionScalingTargetAverageCpusOutput) ToKoyebServiceDefinitionScalingTargetAverageCpusOutputWithContext(ctx context.Context) KoyebServiceDefinitionScalingTargetAverageCpusOutput {
+	return o
+}
+
+func (o KoyebServiceDefinitionScalingTargetAverageCpusOutput) Value() pulumi.IntOutput {
+	return o.ApplyT(func(v KoyebServiceDefinitionScalingTargetAverageCpus) int { return v.Value }).(pulumi.IntOutput)
+}
+
+type KoyebServiceDefinitionScalingTargetAverageCpusArrayOutput struct{ *pulumi.OutputState }
+
+func (KoyebServiceDefinitionScalingTargetAverageCpusArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KoyebServiceDefinitionScalingTargetAverageCpus)(nil)).Elem()
+}
+
+func (o KoyebServiceDefinitionScalingTargetAverageCpusArrayOutput) ToKoyebServiceDefinitionScalingTargetAverageCpusArrayOutput() KoyebServiceDefinitionScalingTargetAverageCpusArrayOutput {
+	return o
+}
+
+func (o KoyebServiceDefinitionScalingTargetAverageCpusArrayOutput) ToKoyebServiceDefinitionScalingTargetAverageCpusArrayOutputWithContext(ctx context.Context) KoyebServiceDefinitionScalingTargetAverageCpusArrayOutput {
+	return o
+}
+
+func (o KoyebServiceDefinitionScalingTargetAverageCpusArrayOutput) Index(i pulumi.IntInput) KoyebServiceDefinitionScalingTargetAverageCpusOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KoyebServiceDefinitionScalingTargetAverageCpus {
+		return vs[0].([]KoyebServiceDefinitionScalingTargetAverageCpus)[vs[1].(int)]
+	}).(KoyebServiceDefinitionScalingTargetAverageCpusOutput)
+}
+
+type KoyebServiceDefinitionScalingTargetAverageMem struct {
+	Value int `pulumi:"value"`
+}
+
+// KoyebServiceDefinitionScalingTargetAverageMemInput is an input type that accepts KoyebServiceDefinitionScalingTargetAverageMemArgs and KoyebServiceDefinitionScalingTargetAverageMemOutput values.
+// You can construct a concrete instance of `KoyebServiceDefinitionScalingTargetAverageMemInput` via:
+//
+//	KoyebServiceDefinitionScalingTargetAverageMemArgs{...}
+type KoyebServiceDefinitionScalingTargetAverageMemInput interface {
+	pulumi.Input
+
+	ToKoyebServiceDefinitionScalingTargetAverageMemOutput() KoyebServiceDefinitionScalingTargetAverageMemOutput
+	ToKoyebServiceDefinitionScalingTargetAverageMemOutputWithContext(context.Context) KoyebServiceDefinitionScalingTargetAverageMemOutput
+}
+
+type KoyebServiceDefinitionScalingTargetAverageMemArgs struct {
+	Value pulumi.IntInput `pulumi:"value"`
+}
+
+func (KoyebServiceDefinitionScalingTargetAverageMemArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KoyebServiceDefinitionScalingTargetAverageMem)(nil)).Elem()
+}
+
+func (i KoyebServiceDefinitionScalingTargetAverageMemArgs) ToKoyebServiceDefinitionScalingTargetAverageMemOutput() KoyebServiceDefinitionScalingTargetAverageMemOutput {
+	return i.ToKoyebServiceDefinitionScalingTargetAverageMemOutputWithContext(context.Background())
+}
+
+func (i KoyebServiceDefinitionScalingTargetAverageMemArgs) ToKoyebServiceDefinitionScalingTargetAverageMemOutputWithContext(ctx context.Context) KoyebServiceDefinitionScalingTargetAverageMemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KoyebServiceDefinitionScalingTargetAverageMemOutput)
+}
+
+// KoyebServiceDefinitionScalingTargetAverageMemArrayInput is an input type that accepts KoyebServiceDefinitionScalingTargetAverageMemArray and KoyebServiceDefinitionScalingTargetAverageMemArrayOutput values.
+// You can construct a concrete instance of `KoyebServiceDefinitionScalingTargetAverageMemArrayInput` via:
+//
+//	KoyebServiceDefinitionScalingTargetAverageMemArray{ KoyebServiceDefinitionScalingTargetAverageMemArgs{...} }
+type KoyebServiceDefinitionScalingTargetAverageMemArrayInput interface {
+	pulumi.Input
+
+	ToKoyebServiceDefinitionScalingTargetAverageMemArrayOutput() KoyebServiceDefinitionScalingTargetAverageMemArrayOutput
+	ToKoyebServiceDefinitionScalingTargetAverageMemArrayOutputWithContext(context.Context) KoyebServiceDefinitionScalingTargetAverageMemArrayOutput
+}
+
+type KoyebServiceDefinitionScalingTargetAverageMemArray []KoyebServiceDefinitionScalingTargetAverageMemInput
+
+func (KoyebServiceDefinitionScalingTargetAverageMemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KoyebServiceDefinitionScalingTargetAverageMem)(nil)).Elem()
+}
+
+func (i KoyebServiceDefinitionScalingTargetAverageMemArray) ToKoyebServiceDefinitionScalingTargetAverageMemArrayOutput() KoyebServiceDefinitionScalingTargetAverageMemArrayOutput {
+	return i.ToKoyebServiceDefinitionScalingTargetAverageMemArrayOutputWithContext(context.Background())
+}
+
+func (i KoyebServiceDefinitionScalingTargetAverageMemArray) ToKoyebServiceDefinitionScalingTargetAverageMemArrayOutputWithContext(ctx context.Context) KoyebServiceDefinitionScalingTargetAverageMemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KoyebServiceDefinitionScalingTargetAverageMemArrayOutput)
+}
+
+type KoyebServiceDefinitionScalingTargetAverageMemOutput struct{ *pulumi.OutputState }
+
+func (KoyebServiceDefinitionScalingTargetAverageMemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KoyebServiceDefinitionScalingTargetAverageMem)(nil)).Elem()
+}
+
+func (o KoyebServiceDefinitionScalingTargetAverageMemOutput) ToKoyebServiceDefinitionScalingTargetAverageMemOutput() KoyebServiceDefinitionScalingTargetAverageMemOutput {
+	return o
+}
+
+func (o KoyebServiceDefinitionScalingTargetAverageMemOutput) ToKoyebServiceDefinitionScalingTargetAverageMemOutputWithContext(ctx context.Context) KoyebServiceDefinitionScalingTargetAverageMemOutput {
+	return o
+}
+
+func (o KoyebServiceDefinitionScalingTargetAverageMemOutput) Value() pulumi.IntOutput {
+	return o.ApplyT(func(v KoyebServiceDefinitionScalingTargetAverageMem) int { return v.Value }).(pulumi.IntOutput)
+}
+
+type KoyebServiceDefinitionScalingTargetAverageMemArrayOutput struct{ *pulumi.OutputState }
+
+func (KoyebServiceDefinitionScalingTargetAverageMemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KoyebServiceDefinitionScalingTargetAverageMem)(nil)).Elem()
+}
+
+func (o KoyebServiceDefinitionScalingTargetAverageMemArrayOutput) ToKoyebServiceDefinitionScalingTargetAverageMemArrayOutput() KoyebServiceDefinitionScalingTargetAverageMemArrayOutput {
+	return o
+}
+
+func (o KoyebServiceDefinitionScalingTargetAverageMemArrayOutput) ToKoyebServiceDefinitionScalingTargetAverageMemArrayOutputWithContext(ctx context.Context) KoyebServiceDefinitionScalingTargetAverageMemArrayOutput {
+	return o
+}
+
+func (o KoyebServiceDefinitionScalingTargetAverageMemArrayOutput) Index(i pulumi.IntInput) KoyebServiceDefinitionScalingTargetAverageMemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KoyebServiceDefinitionScalingTargetAverageMem {
+		return vs[0].([]KoyebServiceDefinitionScalingTargetAverageMem)[vs[1].(int)]
+	}).(KoyebServiceDefinitionScalingTargetAverageMemOutput)
+}
+
+type KoyebServiceDefinitionScalingTargetRequestsPerSecond struct {
+	Value int `pulumi:"value"`
+}
+
+// KoyebServiceDefinitionScalingTargetRequestsPerSecondInput is an input type that accepts KoyebServiceDefinitionScalingTargetRequestsPerSecondArgs and KoyebServiceDefinitionScalingTargetRequestsPerSecondOutput values.
+// You can construct a concrete instance of `KoyebServiceDefinitionScalingTargetRequestsPerSecondInput` via:
+//
+//	KoyebServiceDefinitionScalingTargetRequestsPerSecondArgs{...}
+type KoyebServiceDefinitionScalingTargetRequestsPerSecondInput interface {
+	pulumi.Input
+
+	ToKoyebServiceDefinitionScalingTargetRequestsPerSecondOutput() KoyebServiceDefinitionScalingTargetRequestsPerSecondOutput
+	ToKoyebServiceDefinitionScalingTargetRequestsPerSecondOutputWithContext(context.Context) KoyebServiceDefinitionScalingTargetRequestsPerSecondOutput
+}
+
+type KoyebServiceDefinitionScalingTargetRequestsPerSecondArgs struct {
+	Value pulumi.IntInput `pulumi:"value"`
+}
+
+func (KoyebServiceDefinitionScalingTargetRequestsPerSecondArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KoyebServiceDefinitionScalingTargetRequestsPerSecond)(nil)).Elem()
+}
+
+func (i KoyebServiceDefinitionScalingTargetRequestsPerSecondArgs) ToKoyebServiceDefinitionScalingTargetRequestsPerSecondOutput() KoyebServiceDefinitionScalingTargetRequestsPerSecondOutput {
+	return i.ToKoyebServiceDefinitionScalingTargetRequestsPerSecondOutputWithContext(context.Background())
+}
+
+func (i KoyebServiceDefinitionScalingTargetRequestsPerSecondArgs) ToKoyebServiceDefinitionScalingTargetRequestsPerSecondOutputWithContext(ctx context.Context) KoyebServiceDefinitionScalingTargetRequestsPerSecondOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KoyebServiceDefinitionScalingTargetRequestsPerSecondOutput)
+}
+
+// KoyebServiceDefinitionScalingTargetRequestsPerSecondArrayInput is an input type that accepts KoyebServiceDefinitionScalingTargetRequestsPerSecondArray and KoyebServiceDefinitionScalingTargetRequestsPerSecondArrayOutput values.
+// You can construct a concrete instance of `KoyebServiceDefinitionScalingTargetRequestsPerSecondArrayInput` via:
+//
+//	KoyebServiceDefinitionScalingTargetRequestsPerSecondArray{ KoyebServiceDefinitionScalingTargetRequestsPerSecondArgs{...} }
+type KoyebServiceDefinitionScalingTargetRequestsPerSecondArrayInput interface {
+	pulumi.Input
+
+	ToKoyebServiceDefinitionScalingTargetRequestsPerSecondArrayOutput() KoyebServiceDefinitionScalingTargetRequestsPerSecondArrayOutput
+	ToKoyebServiceDefinitionScalingTargetRequestsPerSecondArrayOutputWithContext(context.Context) KoyebServiceDefinitionScalingTargetRequestsPerSecondArrayOutput
+}
+
+type KoyebServiceDefinitionScalingTargetRequestsPerSecondArray []KoyebServiceDefinitionScalingTargetRequestsPerSecondInput
+
+func (KoyebServiceDefinitionScalingTargetRequestsPerSecondArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KoyebServiceDefinitionScalingTargetRequestsPerSecond)(nil)).Elem()
+}
+
+func (i KoyebServiceDefinitionScalingTargetRequestsPerSecondArray) ToKoyebServiceDefinitionScalingTargetRequestsPerSecondArrayOutput() KoyebServiceDefinitionScalingTargetRequestsPerSecondArrayOutput {
+	return i.ToKoyebServiceDefinitionScalingTargetRequestsPerSecondArrayOutputWithContext(context.Background())
+}
+
+func (i KoyebServiceDefinitionScalingTargetRequestsPerSecondArray) ToKoyebServiceDefinitionScalingTargetRequestsPerSecondArrayOutputWithContext(ctx context.Context) KoyebServiceDefinitionScalingTargetRequestsPerSecondArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KoyebServiceDefinitionScalingTargetRequestsPerSecondArrayOutput)
+}
+
+type KoyebServiceDefinitionScalingTargetRequestsPerSecondOutput struct{ *pulumi.OutputState }
+
+func (KoyebServiceDefinitionScalingTargetRequestsPerSecondOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KoyebServiceDefinitionScalingTargetRequestsPerSecond)(nil)).Elem()
+}
+
+func (o KoyebServiceDefinitionScalingTargetRequestsPerSecondOutput) ToKoyebServiceDefinitionScalingTargetRequestsPerSecondOutput() KoyebServiceDefinitionScalingTargetRequestsPerSecondOutput {
+	return o
+}
+
+func (o KoyebServiceDefinitionScalingTargetRequestsPerSecondOutput) ToKoyebServiceDefinitionScalingTargetRequestsPerSecondOutputWithContext(ctx context.Context) KoyebServiceDefinitionScalingTargetRequestsPerSecondOutput {
+	return o
+}
+
+func (o KoyebServiceDefinitionScalingTargetRequestsPerSecondOutput) Value() pulumi.IntOutput {
+	return o.ApplyT(func(v KoyebServiceDefinitionScalingTargetRequestsPerSecond) int { return v.Value }).(pulumi.IntOutput)
+}
+
+type KoyebServiceDefinitionScalingTargetRequestsPerSecondArrayOutput struct{ *pulumi.OutputState }
+
+func (KoyebServiceDefinitionScalingTargetRequestsPerSecondArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KoyebServiceDefinitionScalingTargetRequestsPerSecond)(nil)).Elem()
+}
+
+func (o KoyebServiceDefinitionScalingTargetRequestsPerSecondArrayOutput) ToKoyebServiceDefinitionScalingTargetRequestsPerSecondArrayOutput() KoyebServiceDefinitionScalingTargetRequestsPerSecondArrayOutput {
+	return o
+}
+
+func (o KoyebServiceDefinitionScalingTargetRequestsPerSecondArrayOutput) ToKoyebServiceDefinitionScalingTargetRequestsPerSecondArrayOutputWithContext(ctx context.Context) KoyebServiceDefinitionScalingTargetRequestsPerSecondArrayOutput {
+	return o
+}
+
+func (o KoyebServiceDefinitionScalingTargetRequestsPerSecondArrayOutput) Index(i pulumi.IntInput) KoyebServiceDefinitionScalingTargetRequestsPerSecondOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KoyebServiceDefinitionScalingTargetRequestsPerSecond {
+		return vs[0].([]KoyebServiceDefinitionScalingTargetRequestsPerSecond)[vs[1].(int)]
+	}).(KoyebServiceDefinitionScalingTargetRequestsPerSecondOutput)
 }
 
 type GetAppDomain struct {
@@ -2408,7 +3745,7 @@ type GetAppDomain struct {
 // GetAppDomainInput is an input type that accepts GetAppDomainArgs and GetAppDomainOutput values.
 // You can construct a concrete instance of `GetAppDomainInput` via:
 //
-//          GetAppDomainArgs{...}
+//	GetAppDomainArgs{...}
 type GetAppDomainInput interface {
 	pulumi.Input
 
@@ -2452,7 +3789,7 @@ func (i GetAppDomainArgs) ToGetAppDomainOutputWithContext(ctx context.Context) G
 // GetAppDomainArrayInput is an input type that accepts GetAppDomainArray and GetAppDomainArrayOutput values.
 // You can construct a concrete instance of `GetAppDomainArrayInput` via:
 //
-//          GetAppDomainArray{ GetAppDomainArgs{...} }
+//	GetAppDomainArray{ GetAppDomainArgs{...} }
 type GetAppDomainArrayInput interface {
 	pulumi.Input
 
@@ -2577,7 +3914,7 @@ type GetSecretAzureContainerRegistry struct {
 // GetSecretAzureContainerRegistryInput is an input type that accepts GetSecretAzureContainerRegistryArgs and GetSecretAzureContainerRegistryOutput values.
 // You can construct a concrete instance of `GetSecretAzureContainerRegistryInput` via:
 //
-//          GetSecretAzureContainerRegistryArgs{...}
+//	GetSecretAzureContainerRegistryArgs{...}
 type GetSecretAzureContainerRegistryInput interface {
 	pulumi.Input
 
@@ -2617,11 +3954,11 @@ func (i GetSecretAzureContainerRegistryArgs) ToGetSecretAzureContainerRegistryPt
 // GetSecretAzureContainerRegistryPtrInput is an input type that accepts GetSecretAzureContainerRegistryArgs, GetSecretAzureContainerRegistryPtr and GetSecretAzureContainerRegistryPtrOutput values.
 // You can construct a concrete instance of `GetSecretAzureContainerRegistryPtrInput` via:
 //
-//          GetSecretAzureContainerRegistryArgs{...}
+//	        GetSecretAzureContainerRegistryArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GetSecretAzureContainerRegistryPtrInput interface {
 	pulumi.Input
 
@@ -2750,7 +4087,7 @@ type GetSecretDigitalOceanContainerRegistry struct {
 // GetSecretDigitalOceanContainerRegistryInput is an input type that accepts GetSecretDigitalOceanContainerRegistryArgs and GetSecretDigitalOceanContainerRegistryOutput values.
 // You can construct a concrete instance of `GetSecretDigitalOceanContainerRegistryInput` via:
 //
-//          GetSecretDigitalOceanContainerRegistryArgs{...}
+//	GetSecretDigitalOceanContainerRegistryArgs{...}
 type GetSecretDigitalOceanContainerRegistryInput interface {
 	pulumi.Input
 
@@ -2788,11 +4125,11 @@ func (i GetSecretDigitalOceanContainerRegistryArgs) ToGetSecretDigitalOceanConta
 // GetSecretDigitalOceanContainerRegistryPtrInput is an input type that accepts GetSecretDigitalOceanContainerRegistryArgs, GetSecretDigitalOceanContainerRegistryPtr and GetSecretDigitalOceanContainerRegistryPtrOutput values.
 // You can construct a concrete instance of `GetSecretDigitalOceanContainerRegistryPtrInput` via:
 //
-//          GetSecretDigitalOceanContainerRegistryArgs{...}
+//	        GetSecretDigitalOceanContainerRegistryArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GetSecretDigitalOceanContainerRegistryPtrInput interface {
 	pulumi.Input
 
@@ -2906,7 +4243,7 @@ type GetSecretDockerHubRegistry struct {
 // GetSecretDockerHubRegistryInput is an input type that accepts GetSecretDockerHubRegistryArgs and GetSecretDockerHubRegistryOutput values.
 // You can construct a concrete instance of `GetSecretDockerHubRegistryInput` via:
 //
-//          GetSecretDockerHubRegistryArgs{...}
+//	GetSecretDockerHubRegistryArgs{...}
 type GetSecretDockerHubRegistryInput interface {
 	pulumi.Input
 
@@ -2944,11 +4281,11 @@ func (i GetSecretDockerHubRegistryArgs) ToGetSecretDockerHubRegistryPtrOutputWit
 // GetSecretDockerHubRegistryPtrInput is an input type that accepts GetSecretDockerHubRegistryArgs, GetSecretDockerHubRegistryPtr and GetSecretDockerHubRegistryPtrOutput values.
 // You can construct a concrete instance of `GetSecretDockerHubRegistryPtrInput` via:
 //
-//          GetSecretDockerHubRegistryArgs{...}
+//	        GetSecretDockerHubRegistryArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GetSecretDockerHubRegistryPtrInput interface {
 	pulumi.Input
 
@@ -3062,7 +4399,7 @@ type GetSecretGithubRegistry struct {
 // GetSecretGithubRegistryInput is an input type that accepts GetSecretGithubRegistryArgs and GetSecretGithubRegistryOutput values.
 // You can construct a concrete instance of `GetSecretGithubRegistryInput` via:
 //
-//          GetSecretGithubRegistryArgs{...}
+//	GetSecretGithubRegistryArgs{...}
 type GetSecretGithubRegistryInput interface {
 	pulumi.Input
 
@@ -3100,11 +4437,11 @@ func (i GetSecretGithubRegistryArgs) ToGetSecretGithubRegistryPtrOutputWithConte
 // GetSecretGithubRegistryPtrInput is an input type that accepts GetSecretGithubRegistryArgs, GetSecretGithubRegistryPtr and GetSecretGithubRegistryPtrOutput values.
 // You can construct a concrete instance of `GetSecretGithubRegistryPtrInput` via:
 //
-//          GetSecretGithubRegistryArgs{...}
+//	        GetSecretGithubRegistryArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GetSecretGithubRegistryPtrInput interface {
 	pulumi.Input
 
@@ -3218,7 +4555,7 @@ type GetSecretGitlabRegistry struct {
 // GetSecretGitlabRegistryInput is an input type that accepts GetSecretGitlabRegistryArgs and GetSecretGitlabRegistryOutput values.
 // You can construct a concrete instance of `GetSecretGitlabRegistryInput` via:
 //
-//          GetSecretGitlabRegistryArgs{...}
+//	GetSecretGitlabRegistryArgs{...}
 type GetSecretGitlabRegistryInput interface {
 	pulumi.Input
 
@@ -3256,11 +4593,11 @@ func (i GetSecretGitlabRegistryArgs) ToGetSecretGitlabRegistryPtrOutputWithConte
 // GetSecretGitlabRegistryPtrInput is an input type that accepts GetSecretGitlabRegistryArgs, GetSecretGitlabRegistryPtr and GetSecretGitlabRegistryPtrOutput values.
 // You can construct a concrete instance of `GetSecretGitlabRegistryPtrInput` via:
 //
-//          GetSecretGitlabRegistryArgs{...}
+//	        GetSecretGitlabRegistryArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GetSecretGitlabRegistryPtrInput interface {
 	pulumi.Input
 
@@ -3376,7 +4713,7 @@ type GetSecretPrivateRegistry struct {
 // GetSecretPrivateRegistryInput is an input type that accepts GetSecretPrivateRegistryArgs and GetSecretPrivateRegistryOutput values.
 // You can construct a concrete instance of `GetSecretPrivateRegistryInput` via:
 //
-//          GetSecretPrivateRegistryArgs{...}
+//	GetSecretPrivateRegistryArgs{...}
 type GetSecretPrivateRegistryInput interface {
 	pulumi.Input
 
@@ -3416,11 +4753,11 @@ func (i GetSecretPrivateRegistryArgs) ToGetSecretPrivateRegistryPtrOutputWithCon
 // GetSecretPrivateRegistryPtrInput is an input type that accepts GetSecretPrivateRegistryArgs, GetSecretPrivateRegistryPtr and GetSecretPrivateRegistryPtrOutput values.
 // You can construct a concrete instance of `GetSecretPrivateRegistryPtrInput` via:
 //
-//          GetSecretPrivateRegistryArgs{...}
+//	        GetSecretPrivateRegistryArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GetSecretPrivateRegistryPtrInput interface {
 	pulumi.Input
 
@@ -3562,14 +4899,34 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KoyebServiceDefinitionEnvArrayInput)(nil)).Elem(), KoyebServiceDefinitionEnvArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KoyebServiceDefinitionGitInput)(nil)).Elem(), KoyebServiceDefinitionGitArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KoyebServiceDefinitionGitPtrInput)(nil)).Elem(), KoyebServiceDefinitionGitArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*KoyebServiceDefinitionInstanceTypesInput)(nil)).Elem(), KoyebServiceDefinitionInstanceTypesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*KoyebServiceDefinitionInstanceTypesPtrInput)(nil)).Elem(), KoyebServiceDefinitionInstanceTypesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KoyebServiceDefinitionGitBuildpackInput)(nil)).Elem(), KoyebServiceDefinitionGitBuildpackArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KoyebServiceDefinitionGitBuildpackPtrInput)(nil)).Elem(), KoyebServiceDefinitionGitBuildpackArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KoyebServiceDefinitionGitDockerfileInput)(nil)).Elem(), KoyebServiceDefinitionGitDockerfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KoyebServiceDefinitionGitDockerfilePtrInput)(nil)).Elem(), KoyebServiceDefinitionGitDockerfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KoyebServiceDefinitionHealthCheckInput)(nil)).Elem(), KoyebServiceDefinitionHealthCheckArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KoyebServiceDefinitionHealthCheckArrayInput)(nil)).Elem(), KoyebServiceDefinitionHealthCheckArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KoyebServiceDefinitionHealthCheckHttpInput)(nil)).Elem(), KoyebServiceDefinitionHealthCheckHttpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KoyebServiceDefinitionHealthCheckHttpPtrInput)(nil)).Elem(), KoyebServiceDefinitionHealthCheckHttpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KoyebServiceDefinitionHealthCheckHttpHeaderInput)(nil)).Elem(), KoyebServiceDefinitionHealthCheckHttpHeaderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KoyebServiceDefinitionHealthCheckHttpHeaderArrayInput)(nil)).Elem(), KoyebServiceDefinitionHealthCheckHttpHeaderArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KoyebServiceDefinitionHealthCheckTcpInput)(nil)).Elem(), KoyebServiceDefinitionHealthCheckTcpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KoyebServiceDefinitionHealthCheckTcpPtrInput)(nil)).Elem(), KoyebServiceDefinitionHealthCheckTcpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KoyebServiceDefinitionInstanceTypeInput)(nil)).Elem(), KoyebServiceDefinitionInstanceTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KoyebServiceDefinitionInstanceTypeArrayInput)(nil)).Elem(), KoyebServiceDefinitionInstanceTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KoyebServiceDefinitionPortInput)(nil)).Elem(), KoyebServiceDefinitionPortArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KoyebServiceDefinitionPortArrayInput)(nil)).Elem(), KoyebServiceDefinitionPortArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KoyebServiceDefinitionRouteInput)(nil)).Elem(), KoyebServiceDefinitionRouteArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KoyebServiceDefinitionRouteArrayInput)(nil)).Elem(), KoyebServiceDefinitionRouteArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*KoyebServiceDefinitionScalingsInput)(nil)).Elem(), KoyebServiceDefinitionScalingsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*KoyebServiceDefinitionScalingsPtrInput)(nil)).Elem(), KoyebServiceDefinitionScalingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KoyebServiceDefinitionScalingInput)(nil)).Elem(), KoyebServiceDefinitionScalingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KoyebServiceDefinitionScalingArrayInput)(nil)).Elem(), KoyebServiceDefinitionScalingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KoyebServiceDefinitionScalingTargetInput)(nil)).Elem(), KoyebServiceDefinitionScalingTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KoyebServiceDefinitionScalingTargetArrayInput)(nil)).Elem(), KoyebServiceDefinitionScalingTargetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KoyebServiceDefinitionScalingTargetAverageCpusInput)(nil)).Elem(), KoyebServiceDefinitionScalingTargetAverageCpusArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KoyebServiceDefinitionScalingTargetAverageCpusArrayInput)(nil)).Elem(), KoyebServiceDefinitionScalingTargetAverageCpusArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KoyebServiceDefinitionScalingTargetAverageMemInput)(nil)).Elem(), KoyebServiceDefinitionScalingTargetAverageMemArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KoyebServiceDefinitionScalingTargetAverageMemArrayInput)(nil)).Elem(), KoyebServiceDefinitionScalingTargetAverageMemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KoyebServiceDefinitionScalingTargetRequestsPerSecondInput)(nil)).Elem(), KoyebServiceDefinitionScalingTargetRequestsPerSecondArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KoyebServiceDefinitionScalingTargetRequestsPerSecondArrayInput)(nil)).Elem(), KoyebServiceDefinitionScalingTargetRequestsPerSecondArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAppDomainInput)(nil)).Elem(), GetAppDomainArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAppDomainArrayInput)(nil)).Elem(), GetAppDomainArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecretAzureContainerRegistryInput)(nil)).Elem(), GetSecretAzureContainerRegistryArgs{})
@@ -3606,14 +4963,34 @@ func init() {
 	pulumi.RegisterOutputType(KoyebServiceDefinitionEnvArrayOutput{})
 	pulumi.RegisterOutputType(KoyebServiceDefinitionGitOutput{})
 	pulumi.RegisterOutputType(KoyebServiceDefinitionGitPtrOutput{})
-	pulumi.RegisterOutputType(KoyebServiceDefinitionInstanceTypesOutput{})
-	pulumi.RegisterOutputType(KoyebServiceDefinitionInstanceTypesPtrOutput{})
+	pulumi.RegisterOutputType(KoyebServiceDefinitionGitBuildpackOutput{})
+	pulumi.RegisterOutputType(KoyebServiceDefinitionGitBuildpackPtrOutput{})
+	pulumi.RegisterOutputType(KoyebServiceDefinitionGitDockerfileOutput{})
+	pulumi.RegisterOutputType(KoyebServiceDefinitionGitDockerfilePtrOutput{})
+	pulumi.RegisterOutputType(KoyebServiceDefinitionHealthCheckOutput{})
+	pulumi.RegisterOutputType(KoyebServiceDefinitionHealthCheckArrayOutput{})
+	pulumi.RegisterOutputType(KoyebServiceDefinitionHealthCheckHttpOutput{})
+	pulumi.RegisterOutputType(KoyebServiceDefinitionHealthCheckHttpPtrOutput{})
+	pulumi.RegisterOutputType(KoyebServiceDefinitionHealthCheckHttpHeaderOutput{})
+	pulumi.RegisterOutputType(KoyebServiceDefinitionHealthCheckHttpHeaderArrayOutput{})
+	pulumi.RegisterOutputType(KoyebServiceDefinitionHealthCheckTcpOutput{})
+	pulumi.RegisterOutputType(KoyebServiceDefinitionHealthCheckTcpPtrOutput{})
+	pulumi.RegisterOutputType(KoyebServiceDefinitionInstanceTypeOutput{})
+	pulumi.RegisterOutputType(KoyebServiceDefinitionInstanceTypeArrayOutput{})
 	pulumi.RegisterOutputType(KoyebServiceDefinitionPortOutput{})
 	pulumi.RegisterOutputType(KoyebServiceDefinitionPortArrayOutput{})
 	pulumi.RegisterOutputType(KoyebServiceDefinitionRouteOutput{})
 	pulumi.RegisterOutputType(KoyebServiceDefinitionRouteArrayOutput{})
-	pulumi.RegisterOutputType(KoyebServiceDefinitionScalingsOutput{})
-	pulumi.RegisterOutputType(KoyebServiceDefinitionScalingsPtrOutput{})
+	pulumi.RegisterOutputType(KoyebServiceDefinitionScalingOutput{})
+	pulumi.RegisterOutputType(KoyebServiceDefinitionScalingArrayOutput{})
+	pulumi.RegisterOutputType(KoyebServiceDefinitionScalingTargetOutput{})
+	pulumi.RegisterOutputType(KoyebServiceDefinitionScalingTargetArrayOutput{})
+	pulumi.RegisterOutputType(KoyebServiceDefinitionScalingTargetAverageCpusOutput{})
+	pulumi.RegisterOutputType(KoyebServiceDefinitionScalingTargetAverageCpusArrayOutput{})
+	pulumi.RegisterOutputType(KoyebServiceDefinitionScalingTargetAverageMemOutput{})
+	pulumi.RegisterOutputType(KoyebServiceDefinitionScalingTargetAverageMemArrayOutput{})
+	pulumi.RegisterOutputType(KoyebServiceDefinitionScalingTargetRequestsPerSecondOutput{})
+	pulumi.RegisterOutputType(KoyebServiceDefinitionScalingTargetRequestsPerSecondArrayOutput{})
 	pulumi.RegisterOutputType(GetAppDomainOutput{})
 	pulumi.RegisterOutputType(GetAppDomainArrayOutput{})
 	pulumi.RegisterOutputType(GetSecretAzureContainerRegistryOutput{})

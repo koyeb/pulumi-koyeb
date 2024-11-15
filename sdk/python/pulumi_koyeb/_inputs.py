@@ -21,10 +21,20 @@ __all__ = [
     'KoyebServiceDefinitionDockerArgs',
     'KoyebServiceDefinitionEnvArgs',
     'KoyebServiceDefinitionGitArgs',
-    'KoyebServiceDefinitionInstanceTypesArgs',
+    'KoyebServiceDefinitionGitBuildpackArgs',
+    'KoyebServiceDefinitionGitDockerfileArgs',
+    'KoyebServiceDefinitionHealthCheckArgs',
+    'KoyebServiceDefinitionHealthCheckHttpArgs',
+    'KoyebServiceDefinitionHealthCheckHttpHeaderArgs',
+    'KoyebServiceDefinitionHealthCheckTcpArgs',
+    'KoyebServiceDefinitionInstanceTypeArgs',
     'KoyebServiceDefinitionPortArgs',
     'KoyebServiceDefinitionRouteArgs',
-    'KoyebServiceDefinitionScalingsArgs',
+    'KoyebServiceDefinitionScalingArgs',
+    'KoyebServiceDefinitionScalingTargetArgs',
+    'KoyebServiceDefinitionScalingTargetAverageCpusArgs',
+    'KoyebServiceDefinitionScalingTargetAverageMemArgs',
+    'KoyebServiceDefinitionScalingTargetRequestsPerSecondArgs',
     'GetSecretAzureContainerRegistryArgs',
     'GetSecretDigitalOceanContainerRegistryArgs',
     'GetSecretDockerHubRegistryArgs',
@@ -470,18 +480,23 @@ class KoyebSecretPrivateRegistryArgs:
 @pulumi.input_type
 class KoyebServiceDefinitionArgs:
     def __init__(__self__, *,
-                 instance_types: pulumi.Input['KoyebServiceDefinitionInstanceTypesArgs'],
+                 instance_types: pulumi.Input[Sequence[pulumi.Input['KoyebServiceDefinitionInstanceTypeArgs']]],
                  name: pulumi.Input[str],
                  ports: pulumi.Input[Sequence[pulumi.Input['KoyebServiceDefinitionPortArgs']]],
                  regions: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 scalings: pulumi.Input['KoyebServiceDefinitionScalingsArgs'],
+                 scalings: pulumi.Input[Sequence[pulumi.Input['KoyebServiceDefinitionScalingArgs']]],
                  docker: Optional[pulumi.Input['KoyebServiceDefinitionDockerArgs']] = None,
                  envs: Optional[pulumi.Input[Sequence[pulumi.Input['KoyebServiceDefinitionEnvArgs']]]] = None,
                  git: Optional[pulumi.Input['KoyebServiceDefinitionGitArgs']] = None,
-                 routes: Optional[pulumi.Input[Sequence[pulumi.Input['KoyebServiceDefinitionRouteArgs']]]] = None):
+                 health_checks: Optional[pulumi.Input[Sequence[pulumi.Input['KoyebServiceDefinitionHealthCheckArgs']]]] = None,
+                 routes: Optional[pulumi.Input[Sequence[pulumi.Input['KoyebServiceDefinitionRouteArgs']]]] = None,
+                 skip_cache: Optional[pulumi.Input[bool]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] name: The service name
         :param pulumi.Input[Sequence[pulumi.Input[str]]] regions: The service deployment regions to deploy to
+        :param pulumi.Input[bool] skip_cache: If set to true, the service will be deployed without using the cache
+        :param pulumi.Input[str] type: The service type, either WEB or WORKER (default WEB)
         """
         pulumi.set(__self__, "instance_types", instance_types)
         pulumi.set(__self__, "name", name)
@@ -494,16 +509,22 @@ class KoyebServiceDefinitionArgs:
             pulumi.set(__self__, "envs", envs)
         if git is not None:
             pulumi.set(__self__, "git", git)
+        if health_checks is not None:
+            pulumi.set(__self__, "health_checks", health_checks)
         if routes is not None:
             pulumi.set(__self__, "routes", routes)
+        if skip_cache is not None:
+            pulumi.set(__self__, "skip_cache", skip_cache)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="instanceTypes")
-    def instance_types(self) -> pulumi.Input['KoyebServiceDefinitionInstanceTypesArgs']:
+    def instance_types(self) -> pulumi.Input[Sequence[pulumi.Input['KoyebServiceDefinitionInstanceTypeArgs']]]:
         return pulumi.get(self, "instance_types")
 
     @instance_types.setter
-    def instance_types(self, value: pulumi.Input['KoyebServiceDefinitionInstanceTypesArgs']):
+    def instance_types(self, value: pulumi.Input[Sequence[pulumi.Input['KoyebServiceDefinitionInstanceTypeArgs']]]):
         pulumi.set(self, "instance_types", value)
 
     @property
@@ -541,11 +562,11 @@ class KoyebServiceDefinitionArgs:
 
     @property
     @pulumi.getter
-    def scalings(self) -> pulumi.Input['KoyebServiceDefinitionScalingsArgs']:
+    def scalings(self) -> pulumi.Input[Sequence[pulumi.Input['KoyebServiceDefinitionScalingArgs']]]:
         return pulumi.get(self, "scalings")
 
     @scalings.setter
-    def scalings(self, value: pulumi.Input['KoyebServiceDefinitionScalingsArgs']):
+    def scalings(self, value: pulumi.Input[Sequence[pulumi.Input['KoyebServiceDefinitionScalingArgs']]]):
         pulumi.set(self, "scalings", value)
 
     @property
@@ -576,6 +597,15 @@ class KoyebServiceDefinitionArgs:
         pulumi.set(self, "git", value)
 
     @property
+    @pulumi.getter(name="healthChecks")
+    def health_checks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KoyebServiceDefinitionHealthCheckArgs']]]]:
+        return pulumi.get(self, "health_checks")
+
+    @health_checks.setter
+    def health_checks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KoyebServiceDefinitionHealthCheckArgs']]]]):
+        pulumi.set(self, "health_checks", value)
+
+    @property
     @pulumi.getter
     def routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KoyebServiceDefinitionRouteArgs']]]]:
         return pulumi.get(self, "routes")
@@ -584,6 +614,30 @@ class KoyebServiceDefinitionArgs:
     def routes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KoyebServiceDefinitionRouteArgs']]]]):
         pulumi.set(self, "routes", value)
 
+    @property
+    @pulumi.getter(name="skipCache")
+    def skip_cache(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If set to true, the service will be deployed without using the cache
+        """
+        return pulumi.get(self, "skip_cache")
+
+    @skip_cache.setter
+    def skip_cache(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "skip_cache", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The service type, either WEB or WORKER (default WEB)
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
 
 @pulumi.input_type
 class KoyebServiceDefinitionDockerArgs:
@@ -591,14 +645,20 @@ class KoyebServiceDefinitionDockerArgs:
                  image: pulumi.Input[str],
                  args: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  command: Optional[pulumi.Input[str]] = None,
-                 image_registy_secret: Optional[pulumi.Input[str]] = None):
+                 entrypoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 image_registry_secret: Optional[pulumi.Input[str]] = None,
+                 privileged: Optional[pulumi.Input[bool]] = None):
         pulumi.set(__self__, "image", image)
         if args is not None:
             pulumi.set(__self__, "args", args)
         if command is not None:
             pulumi.set(__self__, "command", command)
-        if image_registy_secret is not None:
-            pulumi.set(__self__, "image_registy_secret", image_registy_secret)
+        if entrypoints is not None:
+            pulumi.set(__self__, "entrypoints", entrypoints)
+        if image_registry_secret is not None:
+            pulumi.set(__self__, "image_registry_secret", image_registry_secret)
+        if privileged is not None:
+            pulumi.set(__self__, "privileged", privileged)
 
     @property
     @pulumi.getter
@@ -628,22 +688,43 @@ class KoyebServiceDefinitionDockerArgs:
         pulumi.set(self, "command", value)
 
     @property
-    @pulumi.getter(name="imageRegistySecret")
-    def image_registy_secret(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "image_registy_secret")
+    @pulumi.getter
+    def entrypoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "entrypoints")
 
-    @image_registy_secret.setter
-    def image_registy_secret(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "image_registy_secret", value)
+    @entrypoints.setter
+    def entrypoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "entrypoints", value)
+
+    @property
+    @pulumi.getter(name="imageRegistrySecret")
+    def image_registry_secret(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "image_registry_secret")
+
+    @image_registry_secret.setter
+    def image_registry_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "image_registry_secret", value)
+
+    @property
+    @pulumi.getter
+    def privileged(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "privileged")
+
+    @privileged.setter
+    def privileged(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "privileged", value)
 
 
 @pulumi.input_type
 class KoyebServiceDefinitionEnvArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
+                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  secret: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "key", key)
+        if scopes is not None:
+            pulumi.set(__self__, "scopes", scopes)
         if secret is not None:
             pulumi.set(__self__, "secret", secret)
         if value is not None:
@@ -657,6 +738,15 @@ class KoyebServiceDefinitionEnvArgs:
     @key.setter
     def key(self, value: pulumi.Input[str]):
         pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "scopes")
+
+    @scopes.setter
+    def scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "scopes", value)
 
     @property
     @pulumi.getter
@@ -682,17 +772,20 @@ class KoyebServiceDefinitionGitArgs:
     def __init__(__self__, *,
                  branch: pulumi.Input[str],
                  repository: pulumi.Input[str],
-                 build_command: Optional[pulumi.Input[str]] = None,
+                 buildpack: Optional[pulumi.Input['KoyebServiceDefinitionGitBuildpackArgs']] = None,
+                 dockerfile: Optional[pulumi.Input['KoyebServiceDefinitionGitDockerfileArgs']] = None,
                  no_deploy_on_push: Optional[pulumi.Input[bool]] = None,
-                 run_command: Optional[pulumi.Input[str]] = None):
+                 workdir: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "branch", branch)
         pulumi.set(__self__, "repository", repository)
-        if build_command is not None:
-            pulumi.set(__self__, "build_command", build_command)
+        if buildpack is not None:
+            pulumi.set(__self__, "buildpack", buildpack)
+        if dockerfile is not None:
+            pulumi.set(__self__, "dockerfile", dockerfile)
         if no_deploy_on_push is not None:
             pulumi.set(__self__, "no_deploy_on_push", no_deploy_on_push)
-        if run_command is not None:
-            pulumi.set(__self__, "run_command", run_command)
+        if workdir is not None:
+            pulumi.set(__self__, "workdir", workdir)
 
     @property
     @pulumi.getter
@@ -713,13 +806,22 @@ class KoyebServiceDefinitionGitArgs:
         pulumi.set(self, "repository", value)
 
     @property
-    @pulumi.getter(name="buildCommand")
-    def build_command(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "build_command")
+    @pulumi.getter
+    def buildpack(self) -> Optional[pulumi.Input['KoyebServiceDefinitionGitBuildpackArgs']]:
+        return pulumi.get(self, "buildpack")
 
-    @build_command.setter
-    def build_command(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "build_command", value)
+    @buildpack.setter
+    def buildpack(self, value: Optional[pulumi.Input['KoyebServiceDefinitionGitBuildpackArgs']]):
+        pulumi.set(self, "buildpack", value)
+
+    @property
+    @pulumi.getter
+    def dockerfile(self) -> Optional[pulumi.Input['KoyebServiceDefinitionGitDockerfileArgs']]:
+        return pulumi.get(self, "dockerfile")
+
+    @dockerfile.setter
+    def dockerfile(self, value: Optional[pulumi.Input['KoyebServiceDefinitionGitDockerfileArgs']]):
+        pulumi.set(self, "dockerfile", value)
 
     @property
     @pulumi.getter(name="noDeployOnPush")
@@ -729,6 +831,47 @@ class KoyebServiceDefinitionGitArgs:
     @no_deploy_on_push.setter
     def no_deploy_on_push(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "no_deploy_on_push", value)
+
+    @property
+    @pulumi.getter
+    def workdir(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "workdir")
+
+    @workdir.setter
+    def workdir(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "workdir", value)
+
+
+@pulumi.input_type
+class KoyebServiceDefinitionGitBuildpackArgs:
+    def __init__(__self__, *,
+                 build_command: Optional[pulumi.Input[str]] = None,
+                 privileged: Optional[pulumi.Input[bool]] = None,
+                 run_command: Optional[pulumi.Input[str]] = None):
+        if build_command is not None:
+            pulumi.set(__self__, "build_command", build_command)
+        if privileged is not None:
+            pulumi.set(__self__, "privileged", privileged)
+        if run_command is not None:
+            pulumi.set(__self__, "run_command", run_command)
+
+    @property
+    @pulumi.getter(name="buildCommand")
+    def build_command(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "build_command")
+
+    @build_command.setter
+    def build_command(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "build_command", value)
+
+    @property
+    @pulumi.getter
+    def privileged(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "privileged")
+
+    @privileged.setter
+    def privileged(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "privileged", value)
 
     @property
     @pulumi.getter(name="runCommand")
@@ -741,10 +884,262 @@ class KoyebServiceDefinitionGitArgs:
 
 
 @pulumi.input_type
-class KoyebServiceDefinitionInstanceTypesArgs:
+class KoyebServiceDefinitionGitDockerfileArgs:
     def __init__(__self__, *,
-                 type: pulumi.Input[str]):
+                 args: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 command: Optional[pulumi.Input[str]] = None,
+                 dockerfile: Optional[pulumi.Input[str]] = None,
+                 entrypoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 privileged: Optional[pulumi.Input[bool]] = None,
+                 target: Optional[pulumi.Input[str]] = None):
+        if args is not None:
+            pulumi.set(__self__, "args", args)
+        if command is not None:
+            pulumi.set(__self__, "command", command)
+        if dockerfile is not None:
+            pulumi.set(__self__, "dockerfile", dockerfile)
+        if entrypoints is not None:
+            pulumi.set(__self__, "entrypoints", entrypoints)
+        if privileged is not None:
+            pulumi.set(__self__, "privileged", privileged)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+
+    @property
+    @pulumi.getter
+    def args(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "args")
+
+    @args.setter
+    def args(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "args", value)
+
+    @property
+    @pulumi.getter
+    def command(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "command")
+
+    @command.setter
+    def command(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "command", value)
+
+    @property
+    @pulumi.getter
+    def dockerfile(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "dockerfile")
+
+    @dockerfile.setter
+    def dockerfile(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dockerfile", value)
+
+    @property
+    @pulumi.getter
+    def entrypoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "entrypoints")
+
+    @entrypoints.setter
+    def entrypoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "entrypoints", value)
+
+    @property
+    @pulumi.getter
+    def privileged(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "privileged")
+
+    @privileged.setter
+    def privileged(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "privileged", value)
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target", value)
+
+
+@pulumi.input_type
+class KoyebServiceDefinitionHealthCheckArgs:
+    def __init__(__self__, *,
+                 grace_period: Optional[pulumi.Input[int]] = None,
+                 http: Optional[pulumi.Input['KoyebServiceDefinitionHealthCheckHttpArgs']] = None,
+                 interval: Optional[pulumi.Input[int]] = None,
+                 restart_limit: Optional[pulumi.Input[int]] = None,
+                 tcp: Optional[pulumi.Input['KoyebServiceDefinitionHealthCheckTcpArgs']] = None,
+                 timeout: Optional[pulumi.Input[int]] = None):
+        if grace_period is not None:
+            pulumi.set(__self__, "grace_period", grace_period)
+        if http is not None:
+            pulumi.set(__self__, "http", http)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+        if restart_limit is not None:
+            pulumi.set(__self__, "restart_limit", restart_limit)
+        if tcp is not None:
+            pulumi.set(__self__, "tcp", tcp)
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
+
+    @property
+    @pulumi.getter(name="gracePeriod")
+    def grace_period(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "grace_period")
+
+    @grace_period.setter
+    def grace_period(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "grace_period", value)
+
+    @property
+    @pulumi.getter
+    def http(self) -> Optional[pulumi.Input['KoyebServiceDefinitionHealthCheckHttpArgs']]:
+        return pulumi.get(self, "http")
+
+    @http.setter
+    def http(self, value: Optional[pulumi.Input['KoyebServiceDefinitionHealthCheckHttpArgs']]):
+        pulumi.set(self, "http", value)
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "interval")
+
+    @interval.setter
+    def interval(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "interval", value)
+
+    @property
+    @pulumi.getter(name="restartLimit")
+    def restart_limit(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "restart_limit")
+
+    @restart_limit.setter
+    def restart_limit(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "restart_limit", value)
+
+    @property
+    @pulumi.getter
+    def tcp(self) -> Optional[pulumi.Input['KoyebServiceDefinitionHealthCheckTcpArgs']]:
+        return pulumi.get(self, "tcp")
+
+    @tcp.setter
+    def tcp(self, value: Optional[pulumi.Input['KoyebServiceDefinitionHealthCheckTcpArgs']]):
+        pulumi.set(self, "tcp", value)
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "timeout")
+
+    @timeout.setter
+    def timeout(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "timeout", value)
+
+
+@pulumi.input_type
+class KoyebServiceDefinitionHealthCheckHttpArgs:
+    def __init__(__self__, *,
+                 path: pulumi.Input[str],
+                 port: pulumi.Input[int],
+                 headers: Optional[pulumi.Input[Sequence[pulumi.Input['KoyebServiceDefinitionHealthCheckHttpHeaderArgs']]]] = None,
+                 method: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "path", path)
+        pulumi.set(__self__, "port", port)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if method is not None:
+            pulumi.set(__self__, "method", method)
+
+    @property
+    @pulumi.getter
+    def path(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KoyebServiceDefinitionHealthCheckHttpHeaderArgs']]]]:
+        return pulumi.get(self, "headers")
+
+    @headers.setter
+    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KoyebServiceDefinitionHealthCheckHttpHeaderArgs']]]]):
+        pulumi.set(self, "headers", value)
+
+    @property
+    @pulumi.getter
+    def method(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "method")
+
+    @method.setter
+    def method(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "method", value)
+
+
+@pulumi.input_type
+class KoyebServiceDefinitionHealthCheckHttpHeaderArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class KoyebServiceDefinitionHealthCheckTcpArgs:
+    def __init__(__self__, *,
+                 port: pulumi.Input[int]):
+        pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "port", value)
+
+
+@pulumi.input_type
+class KoyebServiceDefinitionInstanceTypeArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         pulumi.set(__self__, "type", type)
+        if scopes is not None:
+            pulumi.set(__self__, "scopes", scopes)
 
     @property
     @pulumi.getter
@@ -754,6 +1149,15 @@ class KoyebServiceDefinitionInstanceTypesArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "scopes")
+
+    @scopes.setter
+    def scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "scopes", value)
 
 
 @pulumi.input_type
@@ -811,14 +1215,20 @@ class KoyebServiceDefinitionRouteArgs:
 
 
 @pulumi.input_type
-class KoyebServiceDefinitionScalingsArgs:
+class KoyebServiceDefinitionScalingArgs:
     def __init__(__self__, *,
                  max: Optional[pulumi.Input[int]] = None,
-                 min: Optional[pulumi.Input[int]] = None):
+                 min: Optional[pulumi.Input[int]] = None,
+                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 targets: Optional[pulumi.Input[Sequence[pulumi.Input['KoyebServiceDefinitionScalingTargetArgs']]]] = None):
         if max is not None:
             pulumi.set(__self__, "max", max)
         if min is not None:
             pulumi.set(__self__, "min", min)
+        if scopes is not None:
+            pulumi.set(__self__, "scopes", scopes)
+        if targets is not None:
+            pulumi.set(__self__, "targets", targets)
 
     @property
     @pulumi.getter
@@ -837,6 +1247,113 @@ class KoyebServiceDefinitionScalingsArgs:
     @min.setter
     def min(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "min", value)
+
+    @property
+    @pulumi.getter
+    def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "scopes")
+
+    @scopes.setter
+    def scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "scopes", value)
+
+    @property
+    @pulumi.getter
+    def targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KoyebServiceDefinitionScalingTargetArgs']]]]:
+        return pulumi.get(self, "targets")
+
+    @targets.setter
+    def targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KoyebServiceDefinitionScalingTargetArgs']]]]):
+        pulumi.set(self, "targets", value)
+
+
+@pulumi.input_type
+class KoyebServiceDefinitionScalingTargetArgs:
+    def __init__(__self__, *,
+                 average_cpus: Optional[pulumi.Input[Sequence[pulumi.Input['KoyebServiceDefinitionScalingTargetAverageCpusArgs']]]] = None,
+                 average_mems: Optional[pulumi.Input[Sequence[pulumi.Input['KoyebServiceDefinitionScalingTargetAverageMemArgs']]]] = None,
+                 requests_per_seconds: Optional[pulumi.Input[Sequence[pulumi.Input['KoyebServiceDefinitionScalingTargetRequestsPerSecondArgs']]]] = None):
+        if average_cpus is not None:
+            pulumi.set(__self__, "average_cpus", average_cpus)
+        if average_mems is not None:
+            pulumi.set(__self__, "average_mems", average_mems)
+        if requests_per_seconds is not None:
+            pulumi.set(__self__, "requests_per_seconds", requests_per_seconds)
+
+    @property
+    @pulumi.getter(name="averageCpus")
+    def average_cpus(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KoyebServiceDefinitionScalingTargetAverageCpusArgs']]]]:
+        return pulumi.get(self, "average_cpus")
+
+    @average_cpus.setter
+    def average_cpus(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KoyebServiceDefinitionScalingTargetAverageCpusArgs']]]]):
+        pulumi.set(self, "average_cpus", value)
+
+    @property
+    @pulumi.getter(name="averageMems")
+    def average_mems(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KoyebServiceDefinitionScalingTargetAverageMemArgs']]]]:
+        return pulumi.get(self, "average_mems")
+
+    @average_mems.setter
+    def average_mems(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KoyebServiceDefinitionScalingTargetAverageMemArgs']]]]):
+        pulumi.set(self, "average_mems", value)
+
+    @property
+    @pulumi.getter(name="requestsPerSeconds")
+    def requests_per_seconds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KoyebServiceDefinitionScalingTargetRequestsPerSecondArgs']]]]:
+        return pulumi.get(self, "requests_per_seconds")
+
+    @requests_per_seconds.setter
+    def requests_per_seconds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KoyebServiceDefinitionScalingTargetRequestsPerSecondArgs']]]]):
+        pulumi.set(self, "requests_per_seconds", value)
+
+
+@pulumi.input_type
+class KoyebServiceDefinitionScalingTargetAverageCpusArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[int]):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[int]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class KoyebServiceDefinitionScalingTargetAverageMemArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[int]):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[int]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class KoyebServiceDefinitionScalingTargetRequestsPerSecondArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[int]):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[int]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type

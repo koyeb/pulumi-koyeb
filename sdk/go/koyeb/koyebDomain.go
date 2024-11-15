@@ -16,19 +16,22 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-koyeb/sdk/go/koyeb"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-koyeb/sdk/go/koyeb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := koyeb.NewKoyebDomain(ctx, "my-domain", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := koyeb.NewKoyebDomain(ctx, "my-domain", nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type KoyebDomain struct {
 	pulumi.CustomResourceState
@@ -203,7 +206,7 @@ func (i *KoyebDomain) ToKoyebDomainOutputWithContext(ctx context.Context) KoyebD
 // KoyebDomainArrayInput is an input type that accepts KoyebDomainArray and KoyebDomainArrayOutput values.
 // You can construct a concrete instance of `KoyebDomainArrayInput` via:
 //
-//          KoyebDomainArray{ KoyebDomainArgs{...} }
+//	KoyebDomainArray{ KoyebDomainArgs{...} }
 type KoyebDomainArrayInput interface {
 	pulumi.Input
 
@@ -228,7 +231,7 @@ func (i KoyebDomainArray) ToKoyebDomainArrayOutputWithContext(ctx context.Contex
 // KoyebDomainMapInput is an input type that accepts KoyebDomainMap and KoyebDomainMapOutput values.
 // You can construct a concrete instance of `KoyebDomainMapInput` via:
 //
-//          KoyebDomainMap{ "key": KoyebDomainArgs{...} }
+//	KoyebDomainMap{ "key": KoyebDomainArgs{...} }
 type KoyebDomainMapInput interface {
 	pulumi.Input
 
