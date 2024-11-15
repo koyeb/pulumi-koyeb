@@ -335,26 +335,32 @@ class KoyebService(pulumi.CustomResource):
             app_name=koyeb_app["my_app"]["name"],
             definition=koyeb.KoyebServiceDefinitionArgs(
                 name="my-service",
-                instance_types=koyeb.KoyebServiceDefinitionInstanceTypesArgs(
+                instance_types=[koyeb.KoyebServiceDefinitionInstanceTypeArgs(
                     type="micro",
-                ),
+                )],
                 ports=[koyeb.KoyebServiceDefinitionPortArgs(
                     port=3000,
                     protocol="http",
                 )],
-                scalings=koyeb.KoyebServiceDefinitionScalingsArgs(
+                scalings=[koyeb.KoyebServiceDefinitionScalingArgs(
                     min=1,
                     max=1,
-                ),
-                envs=[koyeb.KoyebServiceDefinitionEnvArgs(
-                    key="FOO",
-                    value="BAR",
                 )],
+                envs=[
+                    koyeb.KoyebServiceDefinitionEnvArgs(
+                        key="FOO",
+                        value="BAR",
+                    ),
+                    koyeb.KoyebServiceDefinitionEnvArgs(
+                        key="PORT",
+                        value="3000",
+                    ),
+                ],
                 routes=[koyeb.KoyebServiceDefinitionRouteArgs(
                     path="/",
                     port=3000,
                 )],
-                regions=["par"],
+                regions=["fra"],
                 docker=koyeb.KoyebServiceDefinitionDockerArgs(
                     image="koyeb/demo",
                 ),
@@ -385,26 +391,32 @@ class KoyebService(pulumi.CustomResource):
             app_name=koyeb_app["my_app"]["name"],
             definition=koyeb.KoyebServiceDefinitionArgs(
                 name="my-service",
-                instance_types=koyeb.KoyebServiceDefinitionInstanceTypesArgs(
+                instance_types=[koyeb.KoyebServiceDefinitionInstanceTypeArgs(
                     type="micro",
-                ),
+                )],
                 ports=[koyeb.KoyebServiceDefinitionPortArgs(
                     port=3000,
                     protocol="http",
                 )],
-                scalings=koyeb.KoyebServiceDefinitionScalingsArgs(
+                scalings=[koyeb.KoyebServiceDefinitionScalingArgs(
                     min=1,
                     max=1,
-                ),
-                envs=[koyeb.KoyebServiceDefinitionEnvArgs(
-                    key="FOO",
-                    value="BAR",
                 )],
+                envs=[
+                    koyeb.KoyebServiceDefinitionEnvArgs(
+                        key="FOO",
+                        value="BAR",
+                    ),
+                    koyeb.KoyebServiceDefinitionEnvArgs(
+                        key="PORT",
+                        value="3000",
+                    ),
+                ],
                 routes=[koyeb.KoyebServiceDefinitionRouteArgs(
                     path="/",
                     port=3000,
                 )],
-                regions=["par"],
+                regions=["fra"],
                 docker=koyeb.KoyebServiceDefinitionDockerArgs(
                     image="koyeb/demo",
                 ),

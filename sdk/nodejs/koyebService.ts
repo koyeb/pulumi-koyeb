@@ -16,26 +16,32 @@ import * as utilities from "./utilities";
  *     appName: koyeb_app.my_app.name,
  *     definition: {
  *         name: "my-service",
- *         instanceTypes: {
+ *         instanceTypes: [{
  *             type: "micro",
- *         },
+ *         }],
  *         ports: [{
  *             port: 3000,
  *             protocol: "http",
  *         }],
- *         scalings: {
+ *         scalings: [{
  *             min: 1,
  *             max: 1,
- *         },
- *         envs: [{
- *             key: "FOO",
- *             value: "BAR",
  *         }],
+ *         envs: [
+ *             {
+ *                 key: "FOO",
+ *                 value: "BAR",
+ *             },
+ *             {
+ *                 key: "PORT",
+ *                 value: "3000",
+ *             },
+ *         ],
  *         routes: [{
  *             path: "/",
  *             port: 3000,
  *         }],
- *         regions: ["par"],
+ *         regions: ["fra"],
  *         docker: {
  *             image: "koyeb/demo",
  *         },

@@ -218,7 +218,8 @@ export interface KoyebServiceDefinition {
     docker?: outputs.KoyebServiceDefinitionDocker;
     envs?: outputs.KoyebServiceDefinitionEnv[];
     git?: outputs.KoyebServiceDefinitionGit;
-    instanceTypes: outputs.KoyebServiceDefinitionInstanceTypes;
+    healthChecks?: outputs.KoyebServiceDefinitionHealthCheck[];
+    instanceTypes: outputs.KoyebServiceDefinitionInstanceType[];
     /**
      * The service name
      */
@@ -229,31 +230,84 @@ export interface KoyebServiceDefinition {
      */
     regions: string[];
     routes?: outputs.KoyebServiceDefinitionRoute[];
-    scalings: outputs.KoyebServiceDefinitionScalings;
+    scalings: outputs.KoyebServiceDefinitionScaling[];
+    /**
+     * If set to true, the service will be deployed without using the cache
+     */
+    skipCache?: boolean;
+    /**
+     * The service type, either WEB or WORKER (default WEB)
+     */
+    type?: string;
 }
 
 export interface KoyebServiceDefinitionDocker {
     args?: string[];
     command?: string;
+    entrypoints?: string[];
     image: string;
-    imageRegistySecret?: string;
+    imageRegistrySecret?: string;
+    privileged?: boolean;
 }
 
 export interface KoyebServiceDefinitionEnv {
     key: string;
+    scopes?: string[];
     secret?: string;
     value?: string;
 }
 
 export interface KoyebServiceDefinitionGit {
     branch: string;
-    buildCommand?: string;
+    buildpack?: outputs.KoyebServiceDefinitionGitBuildpack;
+    dockerfile?: outputs.KoyebServiceDefinitionGitDockerfile;
     noDeployOnPush?: boolean;
     repository: string;
+    workdir?: string;
+}
+
+export interface KoyebServiceDefinitionGitBuildpack {
+    buildCommand?: string;
+    privileged?: boolean;
     runCommand?: string;
 }
 
-export interface KoyebServiceDefinitionInstanceTypes {
+export interface KoyebServiceDefinitionGitDockerfile {
+    args?: string[];
+    command?: string;
+    dockerfile?: string;
+    entrypoints?: string[];
+    privileged?: boolean;
+    target?: string;
+}
+
+export interface KoyebServiceDefinitionHealthCheck {
+    gracePeriod?: number;
+    http?: outputs.KoyebServiceDefinitionHealthCheckHttp;
+    interval?: number;
+    restartLimit?: number;
+    tcp?: outputs.KoyebServiceDefinitionHealthCheckTcp;
+    timeout?: number;
+}
+
+export interface KoyebServiceDefinitionHealthCheckHttp {
+    headers?: outputs.KoyebServiceDefinitionHealthCheckHttpHeader[];
+    method?: string;
+    path: string;
+    port: number;
+}
+
+export interface KoyebServiceDefinitionHealthCheckHttpHeader {
+    key: string;
+    value?: string;
+}
+
+export interface KoyebServiceDefinitionHealthCheckTcp {
+    port: number;
+}
+
+export interface KoyebServiceDefinitionInstanceType {
+    scopes?: string[];
     type: string;
 }
 
@@ -267,8 +321,28 @@ export interface KoyebServiceDefinitionRoute {
     port: number;
 }
 
-export interface KoyebServiceDefinitionScalings {
+export interface KoyebServiceDefinitionScaling {
     max?: number;
     min?: number;
+    scopes?: string[];
+    targets?: outputs.KoyebServiceDefinitionScalingTarget[];
+}
+
+export interface KoyebServiceDefinitionScalingTarget {
+    averageCpus?: outputs.KoyebServiceDefinitionScalingTargetAverageCpus[];
+    averageMems?: outputs.KoyebServiceDefinitionScalingTargetAverageMem[];
+    requestsPerSeconds?: outputs.KoyebServiceDefinitionScalingTargetRequestsPerSecond[];
+}
+
+export interface KoyebServiceDefinitionScalingTargetAverageCpus {
+    value: number;
+}
+
+export interface KoyebServiceDefinitionScalingTargetAverageMem {
+    value: number;
+}
+
+export interface KoyebServiceDefinitionScalingTargetRequestsPerSecond {
+    value: number;
 }
 

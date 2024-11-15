@@ -1,3 +1,6 @@
+
+version: 2
+
 archives:
   - id: archive
     name_template: '{{ .Binary }}-{{ .Tag }}-{{ .Os }}-{{ .Arch }}'
@@ -20,8 +23,8 @@ builds:
       # The line below MUST align with the module in current provider/go.mod
       - -X github.com/koyeb/pulumi-koyeb/provider/pkg/version.Version={{.Tag }}
     main: ./cmd/pulumi-resource-koyeb/
-changelog:
-  skip: true
+# changelog:
+#   skip: true
 release:
   disable: false
   prerelease: auto

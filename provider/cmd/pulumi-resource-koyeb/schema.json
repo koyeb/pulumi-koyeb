@@ -1,6 +1,5 @@
 {
     "name": "koyeb",
-    "displayName": "Koyeb",
     "description": "A Pulumi package for creating and managing koyeb cloud resources.",
     "keywords": [
         "pulumi",
@@ -401,8 +400,22 @@
                         }
                     }
                 },
+                "healthChecks": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/koyeb:index/KoyebServiceDefinitionHealthCheck:KoyebServiceDefinitionHealthCheck"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "instanceTypes": {
-                    "$ref": "#/types/koyeb:index/KoyebServiceDefinitionInstanceTypes:KoyebServiceDefinitionInstanceTypes",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/koyeb:index/KoyebServiceDefinitionInstanceType:KoyebServiceDefinitionInstanceType"
+                    },
                     "language": {
                         "python": {
                             "mapCase": false
@@ -416,7 +429,8 @@
                         "python": {
                             "mapCase": false
                         }
-                    }
+                    },
+                    "willReplaceOnChanges": true
                 },
                 "ports": {
                     "type": "array",
@@ -453,7 +467,28 @@
                     }
                 },
                 "scalings": {
-                    "$ref": "#/types/koyeb:index/KoyebServiceDefinitionScalings:KoyebServiceDefinitionScalings",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/koyeb:index/KoyebServiceDefinitionScaling:KoyebServiceDefinitionScaling"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "skipCache": {
+                    "type": "boolean",
+                    "description": "If set to true, the service will be deployed without using the cache\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The service type, either WEB or WORKER (default WEB)\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -491,6 +526,17 @@
                         }
                     }
                 },
+                "entrypoints": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "image": {
                     "type": "string",
                     "language": {
@@ -499,8 +545,16 @@
                         }
                     }
                 },
-                "imageRegistySecret": {
+                "imageRegistrySecret": {
                     "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "privileged": {
+                    "type": "boolean",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -517,6 +571,17 @@
             "properties": {
                 "key": {
                     "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "scopes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
                     "language": {
                         "python": {
                             "mapCase": false
@@ -555,8 +620,16 @@
                         }
                     }
                 },
-                "buildCommand": {
-                    "type": "string",
+                "buildpack": {
+                    "$ref": "#/types/koyeb:index/KoyebServiceDefinitionGitBuildpack:KoyebServiceDefinitionGitBuildpack",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "dockerfile": {
+                    "$ref": "#/types/koyeb:index/KoyebServiceDefinitionGitDockerfile:KoyebServiceDefinitionGitDockerfile",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -579,7 +652,7 @@
                         }
                     }
                 },
-                "runCommand": {
+                "workdir": {
                     "type": "string",
                     "language": {
                         "python": {
@@ -594,8 +667,244 @@
                 "repository"
             ]
         },
-        "koyeb:index/KoyebServiceDefinitionInstanceTypes:KoyebServiceDefinitionInstanceTypes": {
+        "koyeb:index/KoyebServiceDefinitionGitBuildpack:KoyebServiceDefinitionGitBuildpack": {
             "properties": {
+                "buildCommand": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "privileged": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "runCommand": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "koyeb:index/KoyebServiceDefinitionGitDockerfile:KoyebServiceDefinitionGitDockerfile": {
+            "properties": {
+                "args": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "command": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "dockerfile": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "entrypoints": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "privileged": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "target": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "koyeb:index/KoyebServiceDefinitionHealthCheck:KoyebServiceDefinitionHealthCheck": {
+            "properties": {
+                "gracePeriod": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "http": {
+                    "$ref": "#/types/koyeb:index/KoyebServiceDefinitionHealthCheckHttp:KoyebServiceDefinitionHealthCheckHttp",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "interval": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "restartLimit": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "tcp": {
+                    "$ref": "#/types/koyeb:index/KoyebServiceDefinitionHealthCheckTcp:KoyebServiceDefinitionHealthCheckTcp",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "timeout": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "koyeb:index/KoyebServiceDefinitionHealthCheckHttp:KoyebServiceDefinitionHealthCheckHttp": {
+            "properties": {
+                "headers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/koyeb:index/KoyebServiceDefinitionHealthCheckHttpHeader:KoyebServiceDefinitionHealthCheckHttpHeader"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "method": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "path": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "port": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "path",
+                "port"
+            ]
+        },
+        "koyeb:index/KoyebServiceDefinitionHealthCheckHttpHeader:KoyebServiceDefinitionHealthCheckHttpHeader": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "value": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "key"
+            ]
+        },
+        "koyeb:index/KoyebServiceDefinitionHealthCheckTcp:KoyebServiceDefinitionHealthCheckTcp": {
+            "properties": {
+                "port": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "port"
+            ]
+        },
+        "koyeb:index/KoyebServiceDefinitionInstanceType:KoyebServiceDefinitionInstanceType": {
+            "properties": {
+                "scopes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "type": {
                     "type": "string",
                     "language": {
@@ -660,7 +969,7 @@
                 "port"
             ]
         },
-        "koyeb:index/KoyebServiceDefinitionScalings:KoyebServiceDefinitionScalings": {
+        "koyeb:index/KoyebServiceDefinitionScaling:KoyebServiceDefinitionScaling": {
             "properties": {
                 "max": {
                     "type": "integer",
@@ -677,9 +986,117 @@
                             "mapCase": false
                         }
                     }
+                },
+                "scopes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "targets": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/koyeb:index/KoyebServiceDefinitionScalingTarget:KoyebServiceDefinitionScalingTarget"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
                 }
             },
             "type": "object"
+        },
+        "koyeb:index/KoyebServiceDefinitionScalingTarget:KoyebServiceDefinitionScalingTarget": {
+            "properties": {
+                "averageCpus": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/koyeb:index/KoyebServiceDefinitionScalingTargetAverageCpus:KoyebServiceDefinitionScalingTargetAverageCpus"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "averageMems": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/koyeb:index/KoyebServiceDefinitionScalingTargetAverageMem:KoyebServiceDefinitionScalingTargetAverageMem"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "requestsPerSeconds": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/koyeb:index/KoyebServiceDefinitionScalingTargetRequestsPerSecond:KoyebServiceDefinitionScalingTargetRequestsPerSecond"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "koyeb:index/KoyebServiceDefinitionScalingTargetAverageCpus:KoyebServiceDefinitionScalingTargetAverageCpus": {
+            "properties": {
+                "value": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "value"
+            ]
+        },
+        "koyeb:index/KoyebServiceDefinitionScalingTargetAverageMem:KoyebServiceDefinitionScalingTargetAverageMem": {
+            "properties": {
+                "value": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "value"
+            ]
+        },
+        "koyeb:index/KoyebServiceDefinitionScalingTargetRequestsPerSecond:KoyebServiceDefinitionScalingTargetRequestsPerSecond": {
+            "properties": {
+                "value": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "value"
+            ]
         },
         "koyeb:index/getAppDomain:getAppDomain": {
             "properties": {
@@ -1377,7 +1794,7 @@
             }
         },
         "koyeb:index/koyebService:KoyebService": {
-            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pulumi_koyeb from \"@koyeb/pulumi-koyeb\";\n\nconst my_service = new koyeb.KoyebService(\"my-service\", {\n    appName: koyeb_app.my_app.name,\n    definition: {\n        name: \"my-service\",\n        instanceTypes: {\n            type: \"micro\",\n        },\n        ports: [{\n            port: 3000,\n            protocol: \"http\",\n        }],\n        scalings: {\n            min: 1,\n            max: 1,\n        },\n        envs: [{\n            key: \"FOO\",\n            value: \"BAR\",\n        }],\n        routes: [{\n            path: \"/\",\n            port: 3000,\n        }],\n        regions: [\"par\"],\n        docker: {\n            image: \"koyeb/demo\",\n        },\n    },\n}, {\n    dependsOn: [koyeb_app[\"my-app\"]],\n});\n```\n```python\nimport pulumi\nimport pulumi_koyeb as koyeb\n\nmy_service = koyeb.KoyebService(\"my-service\",\n    app_name=koyeb_app[\"my_app\"][\"name\"],\n    definition=koyeb.KoyebServiceDefinitionArgs(\n        name=\"my-service\",\n        instance_types=koyeb.KoyebServiceDefinitionInstanceTypesArgs(\n            type=\"micro\",\n        ),\n        ports=[koyeb.KoyebServiceDefinitionPortArgs(\n            port=3000,\n            protocol=\"http\",\n        )],\n        scalings=koyeb.KoyebServiceDefinitionScalingsArgs(\n            min=1,\n            max=1,\n        ),\n        envs=[koyeb.KoyebServiceDefinitionEnvArgs(\n            key=\"FOO\",\n            value=\"BAR\",\n        )],\n        routes=[koyeb.KoyebServiceDefinitionRouteArgs(\n            path=\"/\",\n            port=3000,\n        )],\n        regions=[\"par\"],\n        docker=koyeb.KoyebServiceDefinitionDockerArgs(\n            image=\"koyeb/demo\",\n        ),\n    ),\n    opts=pulumi.ResourceOptions(depends_on=[koyeb_app[\"my-app\"]]))\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Koyeb = Pulumi.Koyeb;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var my_service = new Koyeb.KoyebService(\"my-service\", new()\n    {\n        AppName = koyeb_app.My_app.Name,\n        Definition = new Koyeb.Inputs.KoyebServiceDefinitionArgs\n        {\n            Name = \"my-service\",\n            InstanceTypes = new Koyeb.Inputs.KoyebServiceDefinitionInstanceTypesArgs\n            {\n                Type = \"micro\",\n            },\n            Ports = new[]\n            {\n                new Koyeb.Inputs.KoyebServiceDefinitionPortArgs\n                {\n                    Port = 3000,\n                    Protocol = \"http\",\n                },\n            },\n            Scalings = new Koyeb.Inputs.KoyebServiceDefinitionScalingsArgs\n            {\n                Min = 1,\n                Max = 1,\n            },\n            Envs = new[]\n            {\n                new Koyeb.Inputs.KoyebServiceDefinitionEnvArgs\n                {\n                    Key = \"FOO\",\n                    Value = \"BAR\",\n                },\n            },\n            Routes = new[]\n            {\n                new Koyeb.Inputs.KoyebServiceDefinitionRouteArgs\n                {\n                    Path = \"/\",\n                    Port = 3000,\n                },\n            },\n            Regions = new[]\n            {\n                \"par\",\n            },\n            Docker = new Koyeb.Inputs.KoyebServiceDefinitionDockerArgs\n            {\n                Image = \"koyeb/demo\",\n            },\n        },\n    }, new CustomResourceOptions\n    {\n        DependsOn = new[]\n        {\n            koyeb_app.My_app,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-koyeb/sdk/go/koyeb\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := koyeb.NewKoyebService(ctx, \"my-service\", \u0026koyeb.KoyebServiceArgs{\n\t\t\tAppName: pulumi.Any(koyeb_app.My_app.Name),\n\t\t\tDefinition: \u0026KoyebServiceDefinitionArgs{\n\t\t\t\tName: pulumi.String(\"my-service\"),\n\t\t\t\tInstanceTypes: \u0026KoyebServiceDefinitionInstanceTypesArgs{\n\t\t\t\t\tType: pulumi.String(\"micro\"),\n\t\t\t\t},\n\t\t\t\tPorts: KoyebServiceDefinitionPortArray{\n\t\t\t\t\t\u0026KoyebServiceDefinitionPortArgs{\n\t\t\t\t\t\tPort:     pulumi.Int(3000),\n\t\t\t\t\t\tProtocol: pulumi.String(\"http\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\tScalings: \u0026KoyebServiceDefinitionScalingsArgs{\n\t\t\t\t\tMin: pulumi.Int(1),\n\t\t\t\t\tMax: pulumi.Int(1),\n\t\t\t\t},\n\t\t\t\tEnvs: KoyebServiceDefinitionEnvArray{\n\t\t\t\t\t\u0026KoyebServiceDefinitionEnvArgs{\n\t\t\t\t\t\tKey:   pulumi.String(\"FOO\"),\n\t\t\t\t\t\tValue: pulumi.String(\"BAR\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\tRoutes: KoyebServiceDefinitionRouteArray{\n\t\t\t\t\t\u0026KoyebServiceDefinitionRouteArgs{\n\t\t\t\t\t\tPath: pulumi.String(\"/\"),\n\t\t\t\t\t\tPort: pulumi.Int(3000),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\tRegions: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"par\"),\n\t\t\t\t},\n\t\t\t\tDocker: \u0026KoyebServiceDefinitionDockerArgs{\n\t\t\t\t\tImage: pulumi.String(\"koyeb/demo\"),\n\t\t\t\t},\n\t\t\t},\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\tkoyeb_app.My - app,\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.koyeb.KoyebService;\nimport com.pulumi.koyeb.KoyebServiceArgs;\nimport com.pulumi.koyeb.inputs.KoyebServiceDefinitionArgs;\nimport com.pulumi.koyeb.inputs.KoyebServiceDefinitionInstanceTypesArgs;\nimport com.pulumi.koyeb.inputs.KoyebServiceDefinitionScalingsArgs;\nimport com.pulumi.koyeb.inputs.KoyebServiceDefinitionDockerArgs;\nimport com.pulumi.resources.CustomResourceOptions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var my_service = new KoyebService(\"my-service\", KoyebServiceArgs.builder()        \n            .appName(koyeb_app.my_app().name())\n            .definition(KoyebServiceDefinitionArgs.builder()\n                .name(\"my-service\")\n                .instanceTypes(KoyebServiceDefinitionInstanceTypesArgs.builder()\n                    .type(\"micro\")\n                    .build())\n                .ports(KoyebServiceDefinitionPortArgs.builder()\n                    .port(3000)\n                    .protocol(\"http\")\n                    .build())\n                .scalings(KoyebServiceDefinitionScalingsArgs.builder()\n                    .min(1)\n                    .max(1)\n                    .build())\n                .envs(KoyebServiceDefinitionEnvArgs.builder()\n                    .key(\"FOO\")\n                    .value(\"BAR\")\n                    .build())\n                .routes(KoyebServiceDefinitionRouteArgs.builder()\n                    .path(\"/\")\n                    .port(3000)\n                    .build())\n                .regions(\"par\")\n                .docker(KoyebServiceDefinitionDockerArgs.builder()\n                    .image(\"koyeb/demo\")\n                    .build())\n                .build())\n            .build(), CustomResourceOptions.builder()\n                .dependsOn(koyeb_app.my-app())\n                .build());\n\n    }\n}\n```\n```yaml\nresources:\n  my-service:\n    type: koyeb:KoyebService\n    properties:\n      appName: ${koyeb_app.my_app.name}\n      definition:\n        name: my-service\n        instanceTypes:\n          type: micro\n        ports:\n          - port: 3000\n            protocol: http\n        scalings:\n          min: 1\n          max: 1\n        envs:\n          - key: FOO\n            value: BAR\n        routes:\n          - path: /\n            port: 3000\n        regions:\n          - par\n        docker:\n          image: koyeb/demo\n    options:\n      dependson:\n        - ${koyeb_app\"my-app\"[%!s(MISSING)]}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pulumi_koyeb from \"@koyeb/pulumi-koyeb\";\n\nconst my_service = new koyeb.KoyebService(\"my-service\", {\n    appName: koyeb_app.my_app.name,\n    definition: {\n        name: \"my-service\",\n        instanceTypes: [{\n            type: \"micro\",\n        }],\n        ports: [{\n            port: 3000,\n            protocol: \"http\",\n        }],\n        scalings: [{\n            min: 1,\n            max: 1,\n        }],\n        envs: [\n            {\n                key: \"FOO\",\n                value: \"BAR\",\n            },\n            {\n                key: \"PORT\",\n                value: \"3000\",\n            },\n        ],\n        routes: [{\n            path: \"/\",\n            port: 3000,\n        }],\n        regions: [\"fra\"],\n        docker: {\n            image: \"koyeb/demo\",\n        },\n    },\n}, {\n    dependsOn: [koyeb_app[\"my-app\"]],\n});\n```\n```python\nimport pulumi\nimport pulumi_koyeb as koyeb\n\nmy_service = koyeb.KoyebService(\"my-service\",\n    app_name=koyeb_app[\"my_app\"][\"name\"],\n    definition=koyeb.KoyebServiceDefinitionArgs(\n        name=\"my-service\",\n        instance_types=[koyeb.KoyebServiceDefinitionInstanceTypeArgs(\n            type=\"micro\",\n        )],\n        ports=[koyeb.KoyebServiceDefinitionPortArgs(\n            port=3000,\n            protocol=\"http\",\n        )],\n        scalings=[koyeb.KoyebServiceDefinitionScalingArgs(\n            min=1,\n            max=1,\n        )],\n        envs=[\n            koyeb.KoyebServiceDefinitionEnvArgs(\n                key=\"FOO\",\n                value=\"BAR\",\n            ),\n            koyeb.KoyebServiceDefinitionEnvArgs(\n                key=\"PORT\",\n                value=\"3000\",\n            ),\n        ],\n        routes=[koyeb.KoyebServiceDefinitionRouteArgs(\n            path=\"/\",\n            port=3000,\n        )],\n        regions=[\"fra\"],\n        docker=koyeb.KoyebServiceDefinitionDockerArgs(\n            image=\"koyeb/demo\",\n        ),\n    ),\n    opts=pulumi.ResourceOptions(depends_on=[koyeb_app[\"my-app\"]]))\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Koyeb = Pulumi.Koyeb;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var my_service = new Koyeb.KoyebService(\"my-service\", new()\n    {\n        AppName = koyeb_app.My_app.Name,\n        Definition = new Koyeb.Inputs.KoyebServiceDefinitionArgs\n        {\n            Name = \"my-service\",\n            InstanceTypes = new[]\n            {\n                new Koyeb.Inputs.KoyebServiceDefinitionInstanceTypeArgs\n                {\n                    Type = \"micro\",\n                },\n            },\n            Ports = new[]\n            {\n                new Koyeb.Inputs.KoyebServiceDefinitionPortArgs\n                {\n                    Port = 3000,\n                    Protocol = \"http\",\n                },\n            },\n            Scalings = new[]\n            {\n                new Koyeb.Inputs.KoyebServiceDefinitionScalingArgs\n                {\n                    Min = 1,\n                    Max = 1,\n                },\n            },\n            Envs = new[]\n            {\n                new Koyeb.Inputs.KoyebServiceDefinitionEnvArgs\n                {\n                    Key = \"FOO\",\n                    Value = \"BAR\",\n                },\n                new Koyeb.Inputs.KoyebServiceDefinitionEnvArgs\n                {\n                    Key = \"PORT\",\n                    Value = \"3000\",\n                },\n            },\n            Routes = new[]\n            {\n                new Koyeb.Inputs.KoyebServiceDefinitionRouteArgs\n                {\n                    Path = \"/\",\n                    Port = 3000,\n                },\n            },\n            Regions = new[]\n            {\n                \"fra\",\n            },\n            Docker = new Koyeb.Inputs.KoyebServiceDefinitionDockerArgs\n            {\n                Image = \"koyeb/demo\",\n            },\n        },\n    }, new CustomResourceOptions\n    {\n        DependsOn = new[]\n        {\n            koyeb_app.My_app,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-koyeb/sdk/go/koyeb\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := koyeb.NewKoyebService(ctx, \"my-service\", \u0026koyeb.KoyebServiceArgs{\n\t\t\tAppName: pulumi.Any(koyeb_app.My_app.Name),\n\t\t\tDefinition: \u0026KoyebServiceDefinitionArgs{\n\t\t\t\tName: pulumi.String(\"my-service\"),\n\t\t\t\tInstanceTypes: KoyebServiceDefinitionInstanceTypeArray{\n\t\t\t\t\t\u0026KoyebServiceDefinitionInstanceTypeArgs{\n\t\t\t\t\t\tType: pulumi.String(\"micro\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\tPorts: KoyebServiceDefinitionPortArray{\n\t\t\t\t\t\u0026KoyebServiceDefinitionPortArgs{\n\t\t\t\t\t\tPort:     pulumi.Int(3000),\n\t\t\t\t\t\tProtocol: pulumi.String(\"http\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\tScalings: KoyebServiceDefinitionScalingArray{\n\t\t\t\t\t\u0026KoyebServiceDefinitionScalingArgs{\n\t\t\t\t\t\tMin: pulumi.Int(1),\n\t\t\t\t\t\tMax: pulumi.Int(1),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\tEnvs: KoyebServiceDefinitionEnvArray{\n\t\t\t\t\t\u0026KoyebServiceDefinitionEnvArgs{\n\t\t\t\t\t\tKey:   pulumi.String(\"FOO\"),\n\t\t\t\t\t\tValue: pulumi.String(\"BAR\"),\n\t\t\t\t\t},\n\t\t\t\t\t\u0026KoyebServiceDefinitionEnvArgs{\n\t\t\t\t\t\tKey:   pulumi.String(\"PORT\"),\n\t\t\t\t\t\tValue: pulumi.String(\"3000\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\tRoutes: KoyebServiceDefinitionRouteArray{\n\t\t\t\t\t\u0026KoyebServiceDefinitionRouteArgs{\n\t\t\t\t\t\tPath: pulumi.String(\"/\"),\n\t\t\t\t\t\tPort: pulumi.Int(3000),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\tRegions: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"fra\"),\n\t\t\t\t},\n\t\t\t\tDocker: \u0026KoyebServiceDefinitionDockerArgs{\n\t\t\t\t\tImage: pulumi.String(\"koyeb/demo\"),\n\t\t\t\t},\n\t\t\t},\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\tkoyeb_app.My - app,\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.koyeb.KoyebService;\nimport com.pulumi.koyeb.KoyebServiceArgs;\nimport com.pulumi.koyeb.inputs.KoyebServiceDefinitionArgs;\nimport com.pulumi.koyeb.inputs.KoyebServiceDefinitionDockerArgs;\nimport com.pulumi.resources.CustomResourceOptions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var my_service = new KoyebService(\"my-service\", KoyebServiceArgs.builder()        \n            .appName(koyeb_app.my_app().name())\n            .definition(KoyebServiceDefinitionArgs.builder()\n                .name(\"my-service\")\n                .instanceTypes(KoyebServiceDefinitionInstanceTypeArgs.builder()\n                    .type(\"micro\")\n                    .build())\n                .ports(KoyebServiceDefinitionPortArgs.builder()\n                    .port(3000)\n                    .protocol(\"http\")\n                    .build())\n                .scalings(KoyebServiceDefinitionScalingArgs.builder()\n                    .min(1)\n                    .max(1)\n                    .build())\n                .envs(                \n                    KoyebServiceDefinitionEnvArgs.builder()\n                        .key(\"FOO\")\n                        .value(\"BAR\")\n                        .build(),\n                    KoyebServiceDefinitionEnvArgs.builder()\n                        .key(\"PORT\")\n                        .value(\"3000\")\n                        .build())\n                .routes(KoyebServiceDefinitionRouteArgs.builder()\n                    .path(\"/\")\n                    .port(3000)\n                    .build())\n                .regions(\"fra\")\n                .docker(KoyebServiceDefinitionDockerArgs.builder()\n                    .image(\"koyeb/demo\")\n                    .build())\n                .build())\n            .build(), CustomResourceOptions.builder()\n                .dependsOn(koyeb_app.my-app())\n                .build());\n\n    }\n}\n```\n```yaml\nresources:\n  my-service:\n    type: koyeb:KoyebService\n    properties:\n      appName: ${koyeb_app.my_app.name}\n      definition:\n        name: my-service\n        instanceTypes:\n          - type: micro\n        ports:\n          - port: 3000\n            protocol: http\n        scalings:\n          - min: 1\n            max: 1\n        envs:\n          - key: FOO\n            value: BAR\n          - key: PORT\n            value: 3000\n        routes:\n          - path: /\n            port: 3000\n        regions:\n          - fra\n        docker:\n          image: koyeb/demo\n    options:\n      dependson:\n        - ${koyeb_app\"my-app\"[%!s(MISSING)]}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
                 "activeDeployment": {
                     "type": "string",
