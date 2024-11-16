@@ -1,5 +1,5 @@
 {
-    "name": "@pulumi/koyeb",
+    "name": "@koyeb/pulumi-koyeb",
     "version": "1.0.0-alpha.0+dev",
     "description": "A Pulumi package for creating and managing koyeb cloud resources.",
     "keywords": [
