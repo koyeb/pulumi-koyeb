@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -12,17 +13,13 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as koyeb from "@pulumi/koyeb";
  *
- * const my_app = pulumi.output(koyeb.getApp({
+ * const my-app = koyeb.getApp({
  *     name: "my-app",
- * }));
+ * });
  * ```
  */
 export function getApp(args: GetAppArgs, opts?: pulumi.InvokeOptions): Promise<GetAppResult> {
-    if (!opts) {
-        opts = {}
-    }
-
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("koyeb:index/getApp:getApp", {
         "name": args.name,
     }, opts);
@@ -67,9 +64,23 @@ export interface GetAppResult {
      */
     readonly updatedAt: string;
 }
-
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as koyeb from "@pulumi/koyeb";
+ *
+ * const my-app = koyeb.getApp({
+ *     name: "my-app",
+ * });
+ * ```
+ */
 export function getAppOutput(args: GetAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppResult> {
-    return pulumi.output(args).apply(a => getApp(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("koyeb:index/getApp:getApp", {
+        "name": args.name,
+    }, opts);
 }
 
 /**

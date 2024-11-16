@@ -5,15 +5,15 @@
 from . import _utilities
 import typing
 # Export this package's modules as members:
+from .app import *
+from .domain import *
 from .get_app import *
 from .get_domain import *
 from .get_secret import *
 from .get_service import *
-from .koyeb_app import *
-from .koyeb_domain import *
-from .koyeb_secret import *
-from .koyeb_service import *
 from .provider import *
+from .secret import *
+from .service import *
 from ._inputs import *
 from . import outputs
 _utilities.register(
@@ -21,34 +21,34 @@ _utilities.register(
 [
  {
   "pkg": "koyeb",
-  "mod": "index/koyebApp",
+  "mod": "index/app",
   "fqn": "pulumi_koyeb",
   "classes": {
-   "koyeb:index/koyebApp:KoyebApp": "KoyebApp"
+   "koyeb:index/app:App": "App"
   }
  },
  {
   "pkg": "koyeb",
-  "mod": "index/koyebDomain",
+  "mod": "index/domain",
   "fqn": "pulumi_koyeb",
   "classes": {
-   "koyeb:index/koyebDomain:KoyebDomain": "KoyebDomain"
+   "koyeb:index/domain:Domain": "Domain"
   }
  },
  {
   "pkg": "koyeb",
-  "mod": "index/koyebSecret",
+  "mod": "index/secret",
   "fqn": "pulumi_koyeb",
   "classes": {
-   "koyeb:index/koyebSecret:KoyebSecret": "KoyebSecret"
+   "koyeb:index/secret:Secret": "Secret"
   }
  },
  {
   "pkg": "koyeb",
-  "mod": "index/koyebService",
+  "mod": "index/service",
   "fqn": "pulumi_koyeb",
   "classes": {
-   "koyeb:index/koyebService:KoyebService": "KoyebService"
+   "koyeb:index/service:Service": "Service"
   }
  }
 ]

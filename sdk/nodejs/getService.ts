@@ -11,17 +11,13 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as koyeb from "@pulumi/koyeb";
  *
- * const my_service = pulumi.output(koyeb.getService({
+ * const my-service = koyeb.getService({
  *     slug: "my-app/my-service",
- * }));
+ * });
  * ```
  */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
-    if (!opts) {
-        opts = {}
-    }
-
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("koyeb:index/getService:getService", {
         "messages": args.messages,
         "slug": args.slug,
@@ -107,9 +103,24 @@ export interface GetServiceResult {
      */
     readonly version: string;
 }
-
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as koyeb from "@pulumi/koyeb";
+ *
+ * const my-service = koyeb.getService({
+ *     slug: "my-app/my-service",
+ * });
+ * ```
+ */
 export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
-    return pulumi.output(args).apply(a => getService(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("koyeb:index/getService:getService", {
+        "messages": args.messages,
+        "slug": args.slug,
+    }, opts);
 }
 
 /**

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/koyeb/pulumi-koyeb/sdk/go/koyeb/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -17,14 +18,14 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-koyeb/sdk/go/koyeb"
+//	"github.com/koyeb/pulumi-koyeb/sdk/go/koyeb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := koyeb.GetDomain(ctx, &GetDomainArgs{
+//			_, err := koyeb.LookupDomain(ctx, &koyeb.LookupDomainArgs{
 //				Name: "www.exampled.tld",
 //			}, nil)
 //			if err != nil {
@@ -35,9 +36,9 @@ import (
 //	}
 //
 // ```
-func GetDomain(ctx *pulumi.Context, args *GetDomainArgs, opts ...pulumi.InvokeOption) (*GetDomainResult, error) {
-	opts = pkgInvokeDefaultOpts(opts)
-	var rv GetDomainResult
+func LookupDomain(ctx *pulumi.Context, args *LookupDomainArgs, opts ...pulumi.InvokeOption) (*LookupDomainResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
+	var rv LookupDomainResult
 	err := ctx.Invoke("koyeb:index/getDomain:getDomain", args, &rv, opts...)
 	if err != nil {
 		return nil, err
@@ -46,7 +47,7 @@ func GetDomain(ctx *pulumi.Context, args *GetDomainArgs, opts ...pulumi.InvokeOp
 }
 
 // A collection of arguments for invoking getDomain.
-type GetDomainArgs struct {
+type LookupDomainArgs struct {
 	// The app name the domain is assigned to
 	AppName *string `pulumi:"appName"`
 	// The deployment group assigned to the domain
@@ -62,7 +63,7 @@ type GetDomainArgs struct {
 }
 
 // A collection of values returned by getDomain.
-type GetDomainResult struct {
+type LookupDomainResult struct {
 	// The app name the domain is assigned to
 	AppName *string `pulumi:"appName"`
 	// The date and time of when the domain was created
@@ -91,21 +92,27 @@ type GetDomainResult struct {
 	Version string `pulumi:"version"`
 }
 
-func GetDomainOutput(ctx *pulumi.Context, args GetDomainOutputArgs, opts ...pulumi.InvokeOption) GetDomainResultOutput {
+func LookupDomainOutput(ctx *pulumi.Context, args LookupDomainOutputArgs, opts ...pulumi.InvokeOption) LookupDomainResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetDomainResult, error) {
-			args := v.(GetDomainArgs)
-			r, err := GetDomain(ctx, &args, opts...)
-			var s GetDomainResult
-			if r != nil {
-				s = *r
+		ApplyT(func(v interface{}) (LookupDomainResultOutput, error) {
+			args := v.(LookupDomainArgs)
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupDomainResult
+			secret, err := ctx.InvokePackageRaw("koyeb:index/getDomain:getDomain", args, &rv, "", opts...)
+			if err != nil {
+				return LookupDomainResultOutput{}, err
 			}
-			return s, err
-		}).(GetDomainResultOutput)
+
+			output := pulumi.ToOutput(rv).(LookupDomainResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupDomainResultOutput), nil
+			}
+			return output, nil
+		}).(LookupDomainResultOutput)
 }
 
 // A collection of arguments for invoking getDomain.
-type GetDomainOutputArgs struct {
+type LookupDomainOutputArgs struct {
 	// The app name the domain is assigned to
 	AppName pulumi.StringPtrInput `pulumi:"appName"`
 	// The deployment group assigned to the domain
@@ -120,90 +127,90 @@ type GetDomainOutputArgs struct {
 	VerifiedAt pulumi.StringPtrInput `pulumi:"verifiedAt"`
 }
 
-func (GetDomainOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDomainArgs)(nil)).Elem()
+func (LookupDomainOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDomainArgs)(nil)).Elem()
 }
 
 // A collection of values returned by getDomain.
-type GetDomainResultOutput struct{ *pulumi.OutputState }
+type LookupDomainResultOutput struct{ *pulumi.OutputState }
 
-func (GetDomainResultOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDomainResult)(nil)).Elem()
+func (LookupDomainResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDomainResult)(nil)).Elem()
 }
 
-func (o GetDomainResultOutput) ToGetDomainResultOutput() GetDomainResultOutput {
+func (o LookupDomainResultOutput) ToLookupDomainResultOutput() LookupDomainResultOutput {
 	return o
 }
 
-func (o GetDomainResultOutput) ToGetDomainResultOutputWithContext(ctx context.Context) GetDomainResultOutput {
+func (o LookupDomainResultOutput) ToLookupDomainResultOutputWithContext(ctx context.Context) LookupDomainResultOutput {
 	return o
 }
 
 // The app name the domain is assigned to
-func (o GetDomainResultOutput) AppName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetDomainResult) *string { return v.AppName }).(pulumi.StringPtrOutput)
+func (o LookupDomainResultOutput) AppName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDomainResult) *string { return v.AppName }).(pulumi.StringPtrOutput)
 }
 
 // The date and time of when the domain was created
-func (o GetDomainResultOutput) CreatedAt() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDomainResult) string { return v.CreatedAt }).(pulumi.StringOutput)
+func (o LookupDomainResultOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainResult) string { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
 // The deployment group assigned to the domain
-func (o GetDomainResultOutput) DeploymentGroup() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDomainResult) string { return v.DeploymentGroup }).(pulumi.StringOutput)
+func (o LookupDomainResultOutput) DeploymentGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainResult) string { return v.DeploymentGroup }).(pulumi.StringOutput)
 }
 
 // The domain ID
-func (o GetDomainResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDomainResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupDomainResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // The CNAME record to point the domain to
-func (o GetDomainResultOutput) IntendedCname() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDomainResult) string { return v.IntendedCname }).(pulumi.StringOutput)
+func (o LookupDomainResultOutput) IntendedCname() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainResult) string { return v.IntendedCname }).(pulumi.StringOutput)
 }
 
 // The status messages of the domain
-func (o GetDomainResultOutput) Messages() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDomainResult) string { return v.Messages }).(pulumi.StringOutput)
+func (o LookupDomainResultOutput) Messages() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainResult) string { return v.Messages }).(pulumi.StringOutput)
 }
 
 // The domain name
-func (o GetDomainResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDomainResult) string { return v.Name }).(pulumi.StringOutput)
+func (o LookupDomainResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The organization ID owning the domain
-func (o GetDomainResultOutput) OrganizationId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDomainResult) string { return v.OrganizationId }).(pulumi.StringOutput)
+func (o LookupDomainResultOutput) OrganizationId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainResult) string { return v.OrganizationId }).(pulumi.StringOutput)
 }
 
 // The status of the domain
-func (o GetDomainResultOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDomainResult) string { return v.Status }).(pulumi.StringOutput)
+func (o LookupDomainResultOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
 // The domain type
-func (o GetDomainResultOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDomainResult) string { return v.Type }).(pulumi.StringOutput)
+func (o LookupDomainResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainResult) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The date and time of when the domain was last updated
-func (o GetDomainResultOutput) UpdatedAt() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDomainResult) string { return v.UpdatedAt }).(pulumi.StringOutput)
+func (o LookupDomainResultOutput) UpdatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainResult) string { return v.UpdatedAt }).(pulumi.StringOutput)
 }
 
 // The date and time of when the domain was last verified
-func (o GetDomainResultOutput) VerifiedAt() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDomainResult) string { return v.VerifiedAt }).(pulumi.StringOutput)
+func (o LookupDomainResultOutput) VerifiedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainResult) string { return v.VerifiedAt }).(pulumi.StringOutput)
 }
 
 // The version of the domain
-func (o GetDomainResultOutput) Version() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDomainResult) string { return v.Version }).(pulumi.StringOutput)
+func (o LookupDomainResultOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainResult) string { return v.Version }).(pulumi.StringOutput)
 }
 
 func init() {
-	pulumi.RegisterOutputType(GetDomainResultOutput{})
+	pulumi.RegisterOutputType(LookupDomainResultOutput{})
 }

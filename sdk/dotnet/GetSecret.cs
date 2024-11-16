@@ -12,12 +12,11 @@ namespace Pulumi.Koyeb
     public static class GetSecret
     {
         /// <summary>
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
+        /// using System.Linq;
         /// using Pulumi;
         /// using Koyeb = Pulumi.Koyeb;
         /// 
@@ -30,19 +29,16 @@ namespace Pulumi.Koyeb
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetSecretResult> InvokeAsync(GetSecretArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSecretResult>("koyeb:index/getSecret:getSecret", args ?? new GetSecretArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecretResult>("koyeb:index/getSecret:getSecret", args ?? new GetSecretArgs(), options.WithDefaults());
 
         /// <summary>
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
+        /// using System.Linq;
         /// using Pulumi;
         /// using Koyeb = Pulumi.Koyeb;
         /// 
@@ -55,11 +51,9 @@ namespace Pulumi.Koyeb
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetSecretResult> Invoke(GetSecretInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSecretResult>("koyeb:index/getSecret:getSecret", args ?? new GetSecretInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSecretResult>("koyeb:index/getSecret:getSecret", args ?? new GetSecretInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -113,11 +107,17 @@ namespace Pulumi.Koyeb
         [Input("type")]
         public string? Type { get; set; }
 
+        [Input("value")]
+        private string? _value;
+
         /// <summary>
         /// The secret value
         /// </summary>
-        [Input("value")]
-        public string? Value { get; set; }
+        public string? Value
+        {
+            get => _value;
+            set => _value = value;
+        }
 
         public GetSecretArgs()
         {
@@ -175,11 +175,21 @@ namespace Pulumi.Koyeb
         [Input("type")]
         public Input<string>? Type { get; set; }
 
+        [Input("value")]
+        private Input<string>? _value;
+
         /// <summary>
         /// The secret value
         /// </summary>
-        [Input("value")]
-        public Input<string>? Value { get; set; }
+        public Input<string>? Value
+        {
+            get => _value;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _value = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public GetSecretInvokeArgs()
         {

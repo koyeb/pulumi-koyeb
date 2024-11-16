@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -190,13 +195,13 @@ class AwaitableGetSecretResult(GetSecretResult):
             value=self.value)
 
 
-def get_secret(azure_container_registry: Optional[pulumi.InputType['GetSecretAzureContainerRegistryArgs']] = None,
-               digital_ocean_container_registry: Optional[pulumi.InputType['GetSecretDigitalOceanContainerRegistryArgs']] = None,
-               docker_hub_registry: Optional[pulumi.InputType['GetSecretDockerHubRegistryArgs']] = None,
-               github_registry: Optional[pulumi.InputType['GetSecretGithubRegistryArgs']] = None,
-               gitlab_registry: Optional[pulumi.InputType['GetSecretGitlabRegistryArgs']] = None,
+def get_secret(azure_container_registry: Optional[Union['GetSecretAzureContainerRegistryArgs', 'GetSecretAzureContainerRegistryArgsDict']] = None,
+               digital_ocean_container_registry: Optional[Union['GetSecretDigitalOceanContainerRegistryArgs', 'GetSecretDigitalOceanContainerRegistryArgsDict']] = None,
+               docker_hub_registry: Optional[Union['GetSecretDockerHubRegistryArgs', 'GetSecretDockerHubRegistryArgsDict']] = None,
+               github_registry: Optional[Union['GetSecretGithubRegistryArgs', 'GetSecretGithubRegistryArgsDict']] = None,
+               gitlab_registry: Optional[Union['GetSecretGitlabRegistryArgs', 'GetSecretGitlabRegistryArgsDict']] = None,
                name: Optional[str] = None,
-               private_registry: Optional[pulumi.InputType['GetSecretPrivateRegistryArgs']] = None,
+               private_registry: Optional[Union['GetSecretPrivateRegistryArgs', 'GetSecretPrivateRegistryArgsDict']] = None,
                type: Optional[str] = None,
                value: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecretResult:
@@ -211,13 +216,13 @@ def get_secret(azure_container_registry: Optional[pulumi.InputType['GetSecretAzu
     ```
 
 
-    :param pulumi.InputType['GetSecretAzureContainerRegistryArgs'] azure_container_registry: The Azure registry configuration to use
-    :param pulumi.InputType['GetSecretDigitalOceanContainerRegistryArgs'] digital_ocean_container_registry: The DigitalOcean registry configuration to use
-    :param pulumi.InputType['GetSecretDockerHubRegistryArgs'] docker_hub_registry: The DockerHub registry configuration to use
-    :param pulumi.InputType['GetSecretGithubRegistryArgs'] github_registry: The GitHub registry configuration to use
-    :param pulumi.InputType['GetSecretGitlabRegistryArgs'] gitlab_registry: The GitLab registry configuration to use
+    :param Union['GetSecretAzureContainerRegistryArgs', 'GetSecretAzureContainerRegistryArgsDict'] azure_container_registry: The Azure registry configuration to use
+    :param Union['GetSecretDigitalOceanContainerRegistryArgs', 'GetSecretDigitalOceanContainerRegistryArgsDict'] digital_ocean_container_registry: The DigitalOcean registry configuration to use
+    :param Union['GetSecretDockerHubRegistryArgs', 'GetSecretDockerHubRegistryArgsDict'] docker_hub_registry: The DockerHub registry configuration to use
+    :param Union['GetSecretGithubRegistryArgs', 'GetSecretGithubRegistryArgsDict'] github_registry: The GitHub registry configuration to use
+    :param Union['GetSecretGitlabRegistryArgs', 'GetSecretGitlabRegistryArgsDict'] gitlab_registry: The GitLab registry configuration to use
     :param str name: The secret name
-    :param pulumi.InputType['GetSecretPrivateRegistryArgs'] private_registry: The DigitalOcean registry configuration to use
+    :param Union['GetSecretPrivateRegistryArgs', 'GetSecretPrivateRegistryArgsDict'] private_registry: The DigitalOcean registry configuration to use
     :param str type: The secret type
     :param str value: The secret value
     """
@@ -235,29 +240,26 @@ def get_secret(azure_container_registry: Optional[pulumi.InputType['GetSecretAzu
     __ret__ = pulumi.runtime.invoke('koyeb:index/getSecret:getSecret', __args__, opts=opts, typ=GetSecretResult).value
 
     return AwaitableGetSecretResult(
-        azure_container_registry=__ret__.azure_container_registry,
-        created_at=__ret__.created_at,
-        digital_ocean_container_registry=__ret__.digital_ocean_container_registry,
-        docker_hub_registry=__ret__.docker_hub_registry,
-        github_registry=__ret__.github_registry,
-        gitlab_registry=__ret__.gitlab_registry,
-        id=__ret__.id,
-        name=__ret__.name,
-        organization_id=__ret__.organization_id,
-        private_registry=__ret__.private_registry,
-        type=__ret__.type,
-        updated_at=__ret__.updated_at,
-        value=__ret__.value)
-
-
-@_utilities.lift_output_func(get_secret)
-def get_secret_output(azure_container_registry: Optional[pulumi.Input[Optional[pulumi.InputType['GetSecretAzureContainerRegistryArgs']]]] = None,
-                      digital_ocean_container_registry: Optional[pulumi.Input[Optional[pulumi.InputType['GetSecretDigitalOceanContainerRegistryArgs']]]] = None,
-                      docker_hub_registry: Optional[pulumi.Input[Optional[pulumi.InputType['GetSecretDockerHubRegistryArgs']]]] = None,
-                      github_registry: Optional[pulumi.Input[Optional[pulumi.InputType['GetSecretGithubRegistryArgs']]]] = None,
-                      gitlab_registry: Optional[pulumi.Input[Optional[pulumi.InputType['GetSecretGitlabRegistryArgs']]]] = None,
+        azure_container_registry=pulumi.get(__ret__, 'azure_container_registry'),
+        created_at=pulumi.get(__ret__, 'created_at'),
+        digital_ocean_container_registry=pulumi.get(__ret__, 'digital_ocean_container_registry'),
+        docker_hub_registry=pulumi.get(__ret__, 'docker_hub_registry'),
+        github_registry=pulumi.get(__ret__, 'github_registry'),
+        gitlab_registry=pulumi.get(__ret__, 'gitlab_registry'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        organization_id=pulumi.get(__ret__, 'organization_id'),
+        private_registry=pulumi.get(__ret__, 'private_registry'),
+        type=pulumi.get(__ret__, 'type'),
+        updated_at=pulumi.get(__ret__, 'updated_at'),
+        value=pulumi.get(__ret__, 'value'))
+def get_secret_output(azure_container_registry: Optional[pulumi.Input[Optional[Union['GetSecretAzureContainerRegistryArgs', 'GetSecretAzureContainerRegistryArgsDict']]]] = None,
+                      digital_ocean_container_registry: Optional[pulumi.Input[Optional[Union['GetSecretDigitalOceanContainerRegistryArgs', 'GetSecretDigitalOceanContainerRegistryArgsDict']]]] = None,
+                      docker_hub_registry: Optional[pulumi.Input[Optional[Union['GetSecretDockerHubRegistryArgs', 'GetSecretDockerHubRegistryArgsDict']]]] = None,
+                      github_registry: Optional[pulumi.Input[Optional[Union['GetSecretGithubRegistryArgs', 'GetSecretGithubRegistryArgsDict']]]] = None,
+                      gitlab_registry: Optional[pulumi.Input[Optional[Union['GetSecretGitlabRegistryArgs', 'GetSecretGitlabRegistryArgsDict']]]] = None,
                       name: Optional[pulumi.Input[str]] = None,
-                      private_registry: Optional[pulumi.Input[Optional[pulumi.InputType['GetSecretPrivateRegistryArgs']]]] = None,
+                      private_registry: Optional[pulumi.Input[Optional[Union['GetSecretPrivateRegistryArgs', 'GetSecretPrivateRegistryArgsDict']]]] = None,
                       type: Optional[pulumi.Input[Optional[str]]] = None,
                       value: Optional[pulumi.Input[Optional[str]]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecretResult]:
@@ -272,14 +274,39 @@ def get_secret_output(azure_container_registry: Optional[pulumi.Input[Optional[p
     ```
 
 
-    :param pulumi.InputType['GetSecretAzureContainerRegistryArgs'] azure_container_registry: The Azure registry configuration to use
-    :param pulumi.InputType['GetSecretDigitalOceanContainerRegistryArgs'] digital_ocean_container_registry: The DigitalOcean registry configuration to use
-    :param pulumi.InputType['GetSecretDockerHubRegistryArgs'] docker_hub_registry: The DockerHub registry configuration to use
-    :param pulumi.InputType['GetSecretGithubRegistryArgs'] github_registry: The GitHub registry configuration to use
-    :param pulumi.InputType['GetSecretGitlabRegistryArgs'] gitlab_registry: The GitLab registry configuration to use
+    :param Union['GetSecretAzureContainerRegistryArgs', 'GetSecretAzureContainerRegistryArgsDict'] azure_container_registry: The Azure registry configuration to use
+    :param Union['GetSecretDigitalOceanContainerRegistryArgs', 'GetSecretDigitalOceanContainerRegistryArgsDict'] digital_ocean_container_registry: The DigitalOcean registry configuration to use
+    :param Union['GetSecretDockerHubRegistryArgs', 'GetSecretDockerHubRegistryArgsDict'] docker_hub_registry: The DockerHub registry configuration to use
+    :param Union['GetSecretGithubRegistryArgs', 'GetSecretGithubRegistryArgsDict'] github_registry: The GitHub registry configuration to use
+    :param Union['GetSecretGitlabRegistryArgs', 'GetSecretGitlabRegistryArgsDict'] gitlab_registry: The GitLab registry configuration to use
     :param str name: The secret name
-    :param pulumi.InputType['GetSecretPrivateRegistryArgs'] private_registry: The DigitalOcean registry configuration to use
+    :param Union['GetSecretPrivateRegistryArgs', 'GetSecretPrivateRegistryArgsDict'] private_registry: The DigitalOcean registry configuration to use
     :param str type: The secret type
     :param str value: The secret value
     """
-    ...
+    __args__ = dict()
+    __args__['azureContainerRegistry'] = azure_container_registry
+    __args__['digitalOceanContainerRegistry'] = digital_ocean_container_registry
+    __args__['dockerHubRegistry'] = docker_hub_registry
+    __args__['githubRegistry'] = github_registry
+    __args__['gitlabRegistry'] = gitlab_registry
+    __args__['name'] = name
+    __args__['privateRegistry'] = private_registry
+    __args__['type'] = type
+    __args__['value'] = value
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('koyeb:index/getSecret:getSecret', __args__, opts=opts, typ=GetSecretResult)
+    return __ret__.apply(lambda __response__: GetSecretResult(
+        azure_container_registry=pulumi.get(__response__, 'azure_container_registry'),
+        created_at=pulumi.get(__response__, 'created_at'),
+        digital_ocean_container_registry=pulumi.get(__response__, 'digital_ocean_container_registry'),
+        docker_hub_registry=pulumi.get(__response__, 'docker_hub_registry'),
+        github_registry=pulumi.get(__response__, 'github_registry'),
+        gitlab_registry=pulumi.get(__response__, 'gitlab_registry'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        organization_id=pulumi.get(__response__, 'organization_id'),
+        private_registry=pulumi.get(__response__, 'private_registry'),
+        type=pulumi.get(__response__, 'type'),
+        updated_at=pulumi.get(__response__, 'updated_at'),
+        value=pulumi.get(__response__, 'value')))

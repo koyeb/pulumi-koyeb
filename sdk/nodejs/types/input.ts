@@ -2,7 +2,63 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+
+export interface AppDomain {
+    /**
+     * The app name the domain is assigned to
+     */
+    appName?: pulumi.Input<string>;
+    /**
+     * The date and time of when the domain was created
+     */
+    createdAt?: pulumi.Input<string>;
+    /**
+     * The deployment group assigned to the domain
+     */
+    deploymentGroup?: pulumi.Input<string>;
+    /**
+     * The domain ID
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * The CNAME record to point the domain to
+     */
+    intendedCname?: pulumi.Input<string>;
+    /**
+     * The status messages of the domain
+     */
+    messages?: pulumi.Input<string>;
+    /**
+     * The domain name
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The organization ID owning the domain
+     */
+    organizationId?: pulumi.Input<string>;
+    /**
+     * The status of the domain
+     */
+    status?: pulumi.Input<string>;
+    /**
+     * The domain type
+     */
+    type?: pulumi.Input<string>;
+    /**
+     * The date and time of when the domain was last updated
+     */
+    updatedAt?: pulumi.Input<string>;
+    /**
+     * The date and time of when the domain was last verified
+     */
+    verifiedAt?: pulumi.Input<string>;
+    /**
+     * The version of the domain
+     */
+    version?: pulumi.Input<string>;
+}
 
 export interface GetSecretAzureContainerRegistry {
     /**
@@ -78,17 +134,6 @@ export interface GetSecretDockerHubRegistryArgs {
     username: pulumi.Input<string>;
 }
 
-export interface GetSecretGithubRegistryArgs {
-    /**
-     * The registry password
-     */
-    password: pulumi.Input<string>;
-    /**
-     * The registry username
-     */
-    username: pulumi.Input<string>;
-}
-
 export interface GetSecretGithubRegistry {
     /**
      * The registry password
@@ -100,7 +145,7 @@ export interface GetSecretGithubRegistry {
     username: string;
 }
 
-export interface GetSecretGitlabRegistryArgs {
+export interface GetSecretGithubRegistryArgs {
     /**
      * The registry password
      */
@@ -122,15 +167,11 @@ export interface GetSecretGitlabRegistry {
     username: string;
 }
 
-export interface GetSecretPrivateRegistryArgs {
+export interface GetSecretGitlabRegistryArgs {
     /**
      * The registry password
      */
     password: pulumi.Input<string>;
-    /**
-     * The registry url
-     */
-    url: pulumi.Input<string>;
     /**
      * The registry username
      */
@@ -152,97 +193,7 @@ export interface GetSecretPrivateRegistry {
     username: string;
 }
 
-export interface KoyebAppDomain {
-    appName?: pulumi.Input<string>;
-    /**
-     * The date and time of when the app was created
-     */
-    createdAt?: pulumi.Input<string>;
-    deploymentGroup?: pulumi.Input<string>;
-    /**
-     * The app ID
-     */
-    id?: pulumi.Input<string>;
-    intendedCname?: pulumi.Input<string>;
-    messages?: pulumi.Input<string>;
-    /**
-     * The app name
-     */
-    name: pulumi.Input<string>;
-    /**
-     * The organization ID owning the app
-     */
-    organizationId?: pulumi.Input<string>;
-    status?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    /**
-     * The date and time of when the app was last updated
-     */
-    updatedAt?: pulumi.Input<string>;
-    verifiedAt?: pulumi.Input<string>;
-    version?: pulumi.Input<string>;
-}
-
-export interface KoyebSecretAzureContainerRegistry {
-    /**
-     * The registry password
-     */
-    password: pulumi.Input<string>;
-    /**
-     * The registry name
-     */
-    registryName: pulumi.Input<string>;
-    /**
-     * The registry username
-     */
-    username: pulumi.Input<string>;
-}
-
-export interface KoyebSecretDigitalOceanContainerRegistry {
-    /**
-     * The registry password
-     */
-    password: pulumi.Input<string>;
-    /**
-     * The registry username
-     */
-    username: pulumi.Input<string>;
-}
-
-export interface KoyebSecretDockerHubRegistry {
-    /**
-     * The registry password
-     */
-    password: pulumi.Input<string>;
-    /**
-     * The registry username
-     */
-    username: pulumi.Input<string>;
-}
-
-export interface KoyebSecretGithubRegistry {
-    /**
-     * The registry password
-     */
-    password: pulumi.Input<string>;
-    /**
-     * The registry username
-     */
-    username: pulumi.Input<string>;
-}
-
-export interface KoyebSecretGitlabRegistry {
-    /**
-     * The registry password
-     */
-    password: pulumi.Input<string>;
-    /**
-     * The registry username
-     */
-    username: pulumi.Input<string>;
-}
-
-export interface KoyebSecretPrivateRegistry {
+export interface GetSecretPrivateRegistryArgs {
     /**
      * The registry password
      */
@@ -257,23 +208,97 @@ export interface KoyebSecretPrivateRegistry {
     username: pulumi.Input<string>;
 }
 
-export interface KoyebServiceDefinition {
-    docker?: pulumi.Input<inputs.KoyebServiceDefinitionDocker>;
-    envs?: pulumi.Input<pulumi.Input<inputs.KoyebServiceDefinitionEnv>[]>;
-    git?: pulumi.Input<inputs.KoyebServiceDefinitionGit>;
-    healthChecks?: pulumi.Input<pulumi.Input<inputs.KoyebServiceDefinitionHealthCheck>[]>;
-    instanceTypes: pulumi.Input<pulumi.Input<inputs.KoyebServiceDefinitionInstanceType>[]>;
+export interface SecretAzureContainerRegistry {
+    /**
+     * The registry password
+     */
+    password: pulumi.Input<string>;
+    /**
+     * The registry name
+     */
+    registryName: pulumi.Input<string>;
+    /**
+     * The registry username
+     */
+    username: pulumi.Input<string>;
+}
+
+export interface SecretDigitalOceanContainerRegistry {
+    /**
+     * The registry password
+     */
+    password: pulumi.Input<string>;
+    /**
+     * The registry username
+     */
+    username: pulumi.Input<string>;
+}
+
+export interface SecretDockerHubRegistry {
+    /**
+     * The registry password
+     */
+    password: pulumi.Input<string>;
+    /**
+     * The registry username
+     */
+    username: pulumi.Input<string>;
+}
+
+export interface SecretGithubRegistry {
+    /**
+     * The registry password
+     */
+    password: pulumi.Input<string>;
+    /**
+     * The registry username
+     */
+    username: pulumi.Input<string>;
+}
+
+export interface SecretGitlabRegistry {
+    /**
+     * The registry password
+     */
+    password: pulumi.Input<string>;
+    /**
+     * The registry username
+     */
+    username: pulumi.Input<string>;
+}
+
+export interface SecretPrivateRegistry {
+    /**
+     * The registry password
+     */
+    password: pulumi.Input<string>;
+    /**
+     * The registry url
+     */
+    url: pulumi.Input<string>;
+    /**
+     * The registry username
+     */
+    username: pulumi.Input<string>;
+}
+
+export interface ServiceDefinition {
+    docker?: pulumi.Input<inputs.ServiceDefinitionDocker>;
+    envs?: pulumi.Input<pulumi.Input<inputs.ServiceDefinitionEnv>[]>;
+    git?: pulumi.Input<inputs.ServiceDefinitionGit>;
+    healthChecks?: pulumi.Input<pulumi.Input<inputs.ServiceDefinitionHealthCheck>[]>;
+    instanceTypes: pulumi.Input<pulumi.Input<inputs.ServiceDefinitionInstanceType>[]>;
     /**
      * The service name
      */
     name: pulumi.Input<string>;
-    ports: pulumi.Input<pulumi.Input<inputs.KoyebServiceDefinitionPort>[]>;
+    ports: pulumi.Input<pulumi.Input<inputs.ServiceDefinitionPort>[]>;
     /**
      * The service deployment regions to deploy to
      */
     regions: pulumi.Input<pulumi.Input<string>[]>;
-    routes?: pulumi.Input<pulumi.Input<inputs.KoyebServiceDefinitionRoute>[]>;
-    scalings: pulumi.Input<pulumi.Input<inputs.KoyebServiceDefinitionScaling>[]>;
+    routes?: pulumi.Input<pulumi.Input<inputs.ServiceDefinitionRoute>[]>;
+    scalings: pulumi.Input<pulumi.Input<inputs.ServiceDefinitionScaling>[]>;
     /**
      * If set to true, the service will be deployed without using the cache
      */
@@ -284,107 +309,251 @@ export interface KoyebServiceDefinition {
     type?: pulumi.Input<string>;
 }
 
-export interface KoyebServiceDefinitionDocker {
+export interface ServiceDefinitionDocker {
+    /**
+     * The Docker args to use
+     */
     args?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The Docker command to use
+     */
     command?: pulumi.Input<string>;
+    /**
+     * The Docker entrypoint to use
+     */
     entrypoints?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The Docker image to use to support your service
+     */
     image: pulumi.Input<string>;
+    /**
+     * The Koyeb secret containing the container registry credentials
+     */
     imageRegistrySecret?: pulumi.Input<string>;
+    /**
+     * When enabled, the service container will run in privileged mode. This advanced feature is useful to get advanced system privileges.
+     */
     privileged?: pulumi.Input<boolean>;
 }
 
-export interface KoyebServiceDefinitionEnv {
+export interface ServiceDefinitionEnv {
+    /**
+     * The name of the environment variable
+     */
     key: pulumi.Input<string>;
+    /**
+     * The regions the environment variable needs to be exposed
+     */
     scopes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The secret name to use as the value of the environment variable
+     */
     secret?: pulumi.Input<string>;
+    /**
+     * The value of the environment variable
+     */
     value?: pulumi.Input<string>;
 }
 
-export interface KoyebServiceDefinitionGit {
+export interface ServiceDefinitionGit {
+    /**
+     * The GitHub branch to deploy
+     */
     branch: pulumi.Input<string>;
-    buildpack?: pulumi.Input<inputs.KoyebServiceDefinitionGitBuildpack>;
-    dockerfile?: pulumi.Input<inputs.KoyebServiceDefinitionGitDockerfile>;
+    buildpack?: pulumi.Input<inputs.ServiceDefinitionGitBuildpack>;
+    dockerfile?: pulumi.Input<inputs.ServiceDefinitionGitDockerfile>;
+    /**
+     * If set to true, no Koyeb deployments will be triggered when changes are pushed to the GitHub repository branch
+     */
     noDeployOnPush?: pulumi.Input<boolean>;
+    /**
+     * The GitHub repository to deploy
+     */
     repository: pulumi.Input<string>;
+    /**
+     * The directory where your source code is located. If not set, the work directory defaults to the root of the repository.
+     */
     workdir?: pulumi.Input<string>;
 }
 
-export interface KoyebServiceDefinitionGitBuildpack {
+export interface ServiceDefinitionGitBuildpack {
+    /**
+     * The command to build your application during the build phase. If your application does not require a build command, leave this field empty
+     */
     buildCommand?: pulumi.Input<string>;
+    /**
+     * When enabled, the service container will run in privileged mode. This advanced feature is useful to get advanced system privileges.
+     */
     privileged?: pulumi.Input<boolean>;
+    /**
+     * The command to run your application once the built is completed
+     */
     runCommand?: pulumi.Input<string>;
 }
 
-export interface KoyebServiceDefinitionGitDockerfile {
+export interface ServiceDefinitionGitDockerfile {
+    /**
+     * The arguments to pass to the Docker command
+     */
     args?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Override the command to execute on the container
+     */
     command?: pulumi.Input<string>;
+    /**
+     * The location of your Dockerfile relative to the work directory. If not set, the work directory defaults to the root of the repository.
+     */
     dockerfile?: pulumi.Input<string>;
+    /**
+     * Override the default entrypoint to execute on the container
+     */
     entrypoints?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * When enabled, the service container will run in privileged mode. This advanced feature is useful to get advanced system privileges.
+     */
     privileged?: pulumi.Input<boolean>;
+    /**
+     * Target build stage: If your Dockerfile contains multi-stage builds, you can choose the target stage to build and deploy by entering its name
+     */
     target?: pulumi.Input<string>;
 }
 
-export interface KoyebServiceDefinitionHealthCheck {
+export interface ServiceDefinitionHealthCheck {
+    /**
+     * The period in seconds to wait for the instance to become healthy, default is 5s
+     */
     gracePeriod?: pulumi.Input<number>;
-    http?: pulumi.Input<inputs.KoyebServiceDefinitionHealthCheckHttp>;
+    http?: pulumi.Input<inputs.ServiceDefinitionHealthCheckHttp>;
+    /**
+     * The period in seconds between two health checks, default is 60s
+     */
     interval?: pulumi.Input<number>;
+    /**
+     * The number of consecutive failures before attempting to restart the service, default is 3
+     */
     restartLimit?: pulumi.Input<number>;
-    tcp?: pulumi.Input<inputs.KoyebServiceDefinitionHealthCheckTcp>;
+    tcp?: pulumi.Input<inputs.ServiceDefinitionHealthCheckTcp>;
+    /**
+     * The maximum time to wait in seconds before considering the check as a failure, default is 5s
+     */
     timeout?: pulumi.Input<number>;
 }
 
-export interface KoyebServiceDefinitionHealthCheckHttp {
-    headers?: pulumi.Input<pulumi.Input<inputs.KoyebServiceDefinitionHealthCheckHttpHeader>[]>;
+export interface ServiceDefinitionHealthCheckHttp {
+    headers?: pulumi.Input<pulumi.Input<inputs.ServiceDefinitionHealthCheckHttpHeader>[]>;
+    /**
+     * An optional HTTP method to use to perform the health check, default is GET
+     */
     method?: pulumi.Input<string>;
+    /**
+     * The path to use to perform the HTTP health check
+     */
     path: pulumi.Input<string>;
+    /**
+     * The port to use to perform the health check
+     */
     port: pulumi.Input<number>;
 }
 
-export interface KoyebServiceDefinitionHealthCheckHttpHeader {
+export interface ServiceDefinitionHealthCheckHttpHeader {
+    /**
+     * The name of the header
+     */
     key: pulumi.Input<string>;
+    /**
+     * The value of the header
+     */
     value?: pulumi.Input<string>;
 }
 
-export interface KoyebServiceDefinitionHealthCheckTcp {
+export interface ServiceDefinitionHealthCheckTcp {
+    /**
+     * The port to use to perform the health check
+     */
     port: pulumi.Input<number>;
 }
 
-export interface KoyebServiceDefinitionInstanceType {
+export interface ServiceDefinitionInstanceType {
+    /**
+     * The regions to use the instance type
+     */
     scopes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The instance type to use to support your service
+     */
     type: pulumi.Input<string>;
 }
 
-export interface KoyebServiceDefinitionPort {
+export interface ServiceDefinitionPort {
+    /**
+     * The internal port on which this service's run command will listen
+     */
     port: pulumi.Input<number>;
+    /**
+     * The protocol used by your service
+     */
     protocol: pulumi.Input<string>;
 }
 
-export interface KoyebServiceDefinitionRoute {
+export interface ServiceDefinitionRoute {
+    /**
+     * Path specifies a route by HTTP path prefix. Paths must start with / and must be unique within the app
+     */
     path: pulumi.Input<string>;
+    /**
+     * The internal port on which this service's run command will listen
+     */
     port: pulumi.Input<number>;
 }
 
-export interface KoyebServiceDefinitionScaling {
+export interface ServiceDefinitionScaling {
+    /**
+     * The maximum number of instance to use to support your service
+     */
     max?: pulumi.Input<number>;
+    /**
+     * The minimal number of instances to use to support your service
+     */
     min?: pulumi.Input<number>;
+    /**
+     * The regions to apply the scaling configuration
+     */
     scopes?: pulumi.Input<pulumi.Input<string>[]>;
-    targets?: pulumi.Input<pulumi.Input<inputs.KoyebServiceDefinitionScalingTarget>[]>;
+    targets?: pulumi.Input<pulumi.Input<inputs.ServiceDefinitionScalingTarget>[]>;
 }
 
-export interface KoyebServiceDefinitionScalingTarget {
-    averageCpus?: pulumi.Input<pulumi.Input<inputs.KoyebServiceDefinitionScalingTargetAverageCpus>[]>;
-    averageMems?: pulumi.Input<pulumi.Input<inputs.KoyebServiceDefinitionScalingTargetAverageMem>[]>;
-    requestsPerSeconds?: pulumi.Input<pulumi.Input<inputs.KoyebServiceDefinitionScalingTargetRequestsPerSecond>[]>;
+export interface ServiceDefinitionScalingTarget {
+    /**
+     * The CPU usage (expressed as a percentage) across all Instances of your Service within a region
+     */
+    averageCpus?: pulumi.Input<pulumi.Input<inputs.ServiceDefinitionScalingTargetAverageCpus>[]>;
+    /**
+     * The memory usage (expressed as a percentage) across all Instances of your Service within a region
+     */
+    averageMems?: pulumi.Input<pulumi.Input<inputs.ServiceDefinitionScalingTargetAverageMem>[]>;
+    /**
+     * The number of concurrent requests per second across all Instances of your Service within a region
+     */
+    requestsPerSeconds?: pulumi.Input<pulumi.Input<inputs.ServiceDefinitionScalingTargetRequestsPerSecond>[]>;
 }
 
-export interface KoyebServiceDefinitionScalingTargetAverageCpus {
+export interface ServiceDefinitionScalingTargetAverageCpus {
+    /**
+     * The target value of the autoscaling target
+     */
     value: pulumi.Input<number>;
 }
 
-export interface KoyebServiceDefinitionScalingTargetAverageMem {
+export interface ServiceDefinitionScalingTargetAverageMem {
+    /**
+     * The target value of the autoscaling target
+     */
     value: pulumi.Input<number>;
 }
 
-export interface KoyebServiceDefinitionScalingTargetRequestsPerSecond {
+export interface ServiceDefinitionScalingTargetRequestsPerSecond {
+    /**
+     * The target value of the autoscaling target
+     */
     value: pulumi.Input<number>;
 }

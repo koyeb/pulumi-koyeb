@@ -11,17 +11,13 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as koyeb from "@pulumi/koyeb";
  *
- * const my_domain = pulumi.output(koyeb.getDomain({
+ * const my-domain = koyeb.getDomain({
  *     name: "www.exampled.tld",
- * }));
+ * });
  * ```
  */
 export function getDomain(args: GetDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainResult> {
-    if (!opts) {
-        opts = {}
-    }
-
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("koyeb:index/getDomain:getDomain", {
         "appName": args.appName,
         "deploymentGroup": args.deploymentGroup,
@@ -119,9 +115,28 @@ export interface GetDomainResult {
      */
     readonly version: string;
 }
-
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as koyeb from "@pulumi/koyeb";
+ *
+ * const my-domain = koyeb.getDomain({
+ *     name: "www.exampled.tld",
+ * });
+ * ```
+ */
 export function getDomainOutput(args: GetDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainResult> {
-    return pulumi.output(args).apply(a => getDomain(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("koyeb:index/getDomain:getDomain", {
+        "appName": args.appName,
+        "deploymentGroup": args.deploymentGroup,
+        "intendedCname": args.intendedCname,
+        "messages": args.messages,
+        "name": args.name,
+        "verifiedAt": args.verifiedAt,
+    }, opts);
 }
 
 /**

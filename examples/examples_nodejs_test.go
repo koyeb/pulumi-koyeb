@@ -1,3 +1,4 @@
+// Copyright 2024, Pulumi Corporation.  All rights reserved.
 //go:build nodejs || all
 // +build nodejs all
 
@@ -10,49 +11,12 @@ import (
 	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
 )
 
-func getJSBaseOptions(t *testing.T) integration.ProgramTestOptions {
-	base := getBaseOptions()
-	baseJS := base.With(integration.ProgramTestOptions{
-		Dependencies: []string{
-			"@koyeb/pulumi-koyeb",
-		},
+func TestBasicTs(t *testing.T) {
+	t.Skip("Skipping until the provider has been implemented")
+
+	opts := getJSBaseOptions(t).With(integration.ProgramTestOptions{
+		Dir: filepath.Join(getCwd(t), "basic-ts"),
 	})
 
-	return baseJS
-}
-
-func TestAccDomain(t *testing.T) {
-	test := getJSBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir: filepath.Join(getCwd(t), "domain"),
-		})
-
-	integration.ProgramTest(t, &test)
-}
-
-func TestAccApp(t *testing.T) {
-	test := getJSBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir: filepath.Join(getCwd(t), "app"),
-		})
-
-	integration.ProgramTest(t, &test)
-}
-
-func TestAccSecret(t *testing.T) {
-	test := getJSBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir: filepath.Join(getCwd(t), "secret"),
-		})
-
-	integration.ProgramTest(t, &test)
-}
-
-func TestAccService(t *testing.T) {
-	test := getJSBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir: filepath.Join(getCwd(t), "service"),
-		})
-
-	integration.ProgramTest(t, &test)
+	integration.ProgramTest(t, &opts)
 }

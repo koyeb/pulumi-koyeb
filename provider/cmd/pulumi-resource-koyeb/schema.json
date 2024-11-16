@@ -1,8 +1,8 @@
 {
     "name": "koyeb",
+    "displayName": "Koyeb",
     "description": "A Pulumi package for creating and managing koyeb cloud resources.",
     "keywords": [
-        "pulumi",
         "koyeb",
         "category/cloud"
     ],
@@ -10,160 +10,96 @@
     "license": "Apache-2.0",
     "attribution": "This Pulumi package is based on the [`koyeb` Terraform Provider](https://github.com/koyeb/terraform-provider-koyeb).",
     "repository": "https://github.com/koyeb/pulumi-koyeb",
-    "pluginDownloadURL": "https://github.com/koyeb/pulumi-koyeb/releases/download/v${VERSION}",
     "publisher": "Koyeb",
     "meta": {
         "moduleFormat": "(.*)(?:/[^/]*)"
     },
     "language": {
         "csharp": {
-            "compatibility": "tfbridge20",
-            "namespaces": null,
             "packageReferences": {
                 "Pulumi": "3.*"
-            }
+            },
+            "compatibility": "tfbridge20",
+            "respectSchemaVersion": true
         },
         "go": {
-            "generateExtraInputTypes": true,
+            "importBasePath": "github.com/koyeb/pulumi-koyeb/sdk/go/koyeb",
             "generateResourceContainerTypes": true,
-            "importBasePath": "github.com/pulumi/pulumi-koyeb/sdk/go/koyeb"
+            "generateExtraInputTypes": true,
+            "respectSchemaVersion": true
         },
         "nodejs": {
-            "compatibility": "tfbridge20",
-            "dependencies": {
-                "@pulumi/pulumi": "^3.0.0"
-            },
-            "devDependencies": {
-                "@types/mime": "^2.0.0",
-                "@types/node": "^10.0.0"
-            },
-            "disableUnionOutputTypes": true,
             "packageDescription": "A Pulumi package for creating and managing koyeb cloud resources.",
-            "packageName": "@koyeb/pulumi-koyeb",
             "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/koyeb/terraform-provider-koyeb)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-koyeb` repo](https://github.com/koyeb/pulumi-koyeb/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-koyeb` repo](https://github.com/koyeb/terraform-provider-koyeb/issues).",
-            "typescriptVersion": ""
+            "compatibility": "tfbridge20",
+            "disableUnionOutputTypes": true,
+            "respectSchemaVersion": true
         },
         "python": {
-            "compatibility": "tfbridge20",
             "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/koyeb/terraform-provider-koyeb)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-koyeb` repo](https://github.com/koyeb/pulumi-koyeb/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-koyeb` repo](https://github.com/koyeb/terraform-provider-koyeb/issues).",
-            "requires": {
-                "pulumi": "\u003e=3.0.0,\u003c4.0.0"
+            "compatibility": "tfbridge20",
+            "respectSchemaVersion": true,
+            "pyproject": {
+                "enabled": true
             }
         }
     },
     "config": {},
     "types": {
-        "koyeb:index/KoyebAppDomain:KoyebAppDomain": {
+        "koyeb:index/AppDomain:AppDomain": {
             "properties": {
                 "appName": {
                     "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The app name the domain is assigned to\n"
                 },
                 "createdAt": {
                     "type": "string",
-                    "description": "The date and time of when the app was created\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The date and time of when the domain was created\n"
                 },
                 "deploymentGroup": {
                     "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The deployment group assigned to the domain\n"
                 },
                 "id": {
                     "type": "string",
-                    "description": "The app ID\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The domain ID\n"
                 },
                 "intendedCname": {
                     "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The CNAME record to point the domain to\n"
                 },
                 "messages": {
                     "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The status messages of the domain\n"
                 },
                 "name": {
                     "type": "string",
-                    "description": "The app name\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
+                    "description": "The domain name\n",
                     "willReplaceOnChanges": true
                 },
                 "organizationId": {
                     "type": "string",
-                    "description": "The organization ID owning the app\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The organization ID owning the domain\n"
                 },
                 "status": {
                     "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The status of the domain\n"
                 },
                 "type": {
                     "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The domain type\n"
                 },
                 "updatedAt": {
                     "type": "string",
-                    "description": "The date and time of when the app was last updated\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The date and time of when the domain was last updated\n"
                 },
                 "verifiedAt": {
                     "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The date and time of when the domain was last verified\n"
                 },
                 "version": {
                     "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The version of the domain\n"
                 }
             },
             "type": "object",
@@ -189,34 +125,20 @@
                 }
             }
         },
-        "koyeb:index/KoyebSecretAzureContainerRegistry:KoyebSecretAzureContainerRegistry": {
+        "koyeb:index/SecretAzureContainerRegistry:SecretAzureContainerRegistry": {
             "properties": {
                 "password": {
                     "type": "string",
                     "description": "The registry password\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "secret": true
                 },
                 "registryName": {
                     "type": "string",
-                    "description": "The registry name\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The registry name\n"
                 },
                 "username": {
                     "type": "string",
-                    "description": "The registry username\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The registry username\n"
                 }
             },
             "type": "object",
@@ -226,25 +148,16 @@
                 "username"
             ]
         },
-        "koyeb:index/KoyebSecretDigitalOceanContainerRegistry:KoyebSecretDigitalOceanContainerRegistry": {
+        "koyeb:index/SecretDigitalOceanContainerRegistry:SecretDigitalOceanContainerRegistry": {
             "properties": {
                 "password": {
                     "type": "string",
                     "description": "The registry password\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "secret": true
                 },
                 "username": {
                     "type": "string",
-                    "description": "The registry username\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The registry username\n"
                 }
             },
             "type": "object",
@@ -253,25 +166,16 @@
                 "username"
             ]
         },
-        "koyeb:index/KoyebSecretDockerHubRegistry:KoyebSecretDockerHubRegistry": {
+        "koyeb:index/SecretDockerHubRegistry:SecretDockerHubRegistry": {
             "properties": {
                 "password": {
                     "type": "string",
                     "description": "The registry password\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "secret": true
                 },
                 "username": {
                     "type": "string",
-                    "description": "The registry username\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The registry username\n"
                 }
             },
             "type": "object",
@@ -280,25 +184,16 @@
                 "username"
             ]
         },
-        "koyeb:index/KoyebSecretGithubRegistry:KoyebSecretGithubRegistry": {
+        "koyeb:index/SecretGithubRegistry:SecretGithubRegistry": {
             "properties": {
                 "password": {
                     "type": "string",
                     "description": "The registry password\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "secret": true
                 },
                 "username": {
                     "type": "string",
-                    "description": "The registry username\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The registry username\n"
                 }
             },
             "type": "object",
@@ -307,25 +202,16 @@
                 "username"
             ]
         },
-        "koyeb:index/KoyebSecretGitlabRegistry:KoyebSecretGitlabRegistry": {
+        "koyeb:index/SecretGitlabRegistry:SecretGitlabRegistry": {
             "properties": {
                 "password": {
                     "type": "string",
                     "description": "The registry password\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "secret": true
                 },
                 "username": {
                     "type": "string",
-                    "description": "The registry username\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The registry username\n"
                 }
             },
             "type": "object",
@@ -334,34 +220,20 @@
                 "username"
             ]
         },
-        "koyeb:index/KoyebSecretPrivateRegistry:KoyebSecretPrivateRegistry": {
+        "koyeb:index/SecretPrivateRegistry:SecretPrivateRegistry": {
             "properties": {
                 "password": {
                     "type": "string",
                     "description": "The registry password\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "secret": true
                 },
                 "url": {
                     "type": "string",
-                    "description": "The registry url\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The registry url\n"
                 },
                 "username": {
                     "type": "string",
-                    "description": "The registry username\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The registry username\n"
                 }
             },
             "type": "object",
@@ -371,76 +243,41 @@
                 "username"
             ]
         },
-        "koyeb:index/KoyebServiceDefinition:KoyebServiceDefinition": {
+        "koyeb:index/ServiceDefinition:ServiceDefinition": {
             "properties": {
                 "docker": {
-                    "$ref": "#/types/koyeb:index/KoyebServiceDefinitionDocker:KoyebServiceDefinitionDocker",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "$ref": "#/types/koyeb:index/ServiceDefinitionDocker:ServiceDefinitionDocker"
                 },
                 "envs": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/koyeb:index/KoyebServiceDefinitionEnv:KoyebServiceDefinitionEnv"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
+                        "$ref": "#/types/koyeb:index/ServiceDefinitionEnv:ServiceDefinitionEnv"
                     }
                 },
                 "git": {
-                    "$ref": "#/types/koyeb:index/KoyebServiceDefinitionGit:KoyebServiceDefinitionGit",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "$ref": "#/types/koyeb:index/ServiceDefinitionGit:ServiceDefinitionGit"
                 },
                 "healthChecks": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/koyeb:index/KoyebServiceDefinitionHealthCheck:KoyebServiceDefinitionHealthCheck"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
+                        "$ref": "#/types/koyeb:index/ServiceDefinitionHealthCheck:ServiceDefinitionHealthCheck"
                     }
                 },
                 "instanceTypes": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/koyeb:index/KoyebServiceDefinitionInstanceType:KoyebServiceDefinitionInstanceType"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
+                        "$ref": "#/types/koyeb:index/ServiceDefinitionInstanceType:ServiceDefinitionInstanceType"
                     }
                 },
                 "name": {
                     "type": "string",
                     "description": "The service name\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "willReplaceOnChanges": true
                 },
                 "ports": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/koyeb:index/KoyebServiceDefinitionPort:KoyebServiceDefinitionPort"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
+                        "$ref": "#/types/koyeb:index/ServiceDefinitionPort:ServiceDefinitionPort"
                     }
                 },
                 "regions": {
@@ -448,52 +285,27 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "The service deployment regions to deploy to\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The service deployment regions to deploy to\n"
                 },
                 "routes": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/koyeb:index/KoyebServiceDefinitionRoute:KoyebServiceDefinitionRoute"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
+                        "$ref": "#/types/koyeb:index/ServiceDefinitionRoute:ServiceDefinitionRoute"
                     }
                 },
                 "scalings": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/koyeb:index/KoyebServiceDefinitionScaling:KoyebServiceDefinitionScaling"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
+                        "$ref": "#/types/koyeb:index/ServiceDefinitionScaling:ServiceDefinitionScaling"
                     }
                 },
                 "skipCache": {
                     "type": "boolean",
-                    "description": "If set to true, the service will be deployed without using the cache\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "If set to true, the service will be deployed without using the cache\n"
                 },
                 "type": {
                     "type": "string",
-                    "description": "The service type, either WEB or WORKER (default WEB)\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The service type, either WEB or WORKER (default WEB)\n"
                 }
             },
             "type": "object",
@@ -505,61 +317,37 @@
                 "scalings"
             ]
         },
-        "koyeb:index/KoyebServiceDefinitionDocker:KoyebServiceDefinitionDocker": {
+        "koyeb:index/ServiceDefinitionDocker:ServiceDefinitionDocker": {
             "properties": {
                 "args": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The Docker args to use\n"
                 },
                 "command": {
                     "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The Docker command to use\n"
                 },
                 "entrypoints": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The Docker entrypoint to use\n"
                 },
                 "image": {
                     "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The Docker image to use to support your service\n"
                 },
                 "imageRegistrySecret": {
                     "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The Koyeb secret containing the container registry credentials\n"
                 },
                 "privileged": {
                     "type": "boolean",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "When enabled, the service container will run in privileged mode. This advanced feature is useful to get advanced system privileges.\n"
                 }
             },
             "type": "object",
@@ -567,42 +355,27 @@
                 "image"
             ]
         },
-        "koyeb:index/KoyebServiceDefinitionEnv:KoyebServiceDefinitionEnv": {
+        "koyeb:index/ServiceDefinitionEnv:ServiceDefinitionEnv": {
             "properties": {
                 "key": {
                     "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The name of the environment variable\n"
                 },
                 "scopes": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The regions the environment variable needs to be exposed\n"
                 },
                 "secret": {
                     "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The secret name to use as the value of the environment variable\n",
+                    "secret": true
                 },
                 "value": {
                     "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The value of the environment variable\n"
                 }
             },
             "type": "object",
@@ -610,55 +383,29 @@
                 "key"
             ]
         },
-        "koyeb:index/KoyebServiceDefinitionGit:KoyebServiceDefinitionGit": {
+        "koyeb:index/ServiceDefinitionGit:ServiceDefinitionGit": {
             "properties": {
                 "branch": {
                     "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The GitHub branch to deploy\n"
                 },
                 "buildpack": {
-                    "$ref": "#/types/koyeb:index/KoyebServiceDefinitionGitBuildpack:KoyebServiceDefinitionGitBuildpack",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "$ref": "#/types/koyeb:index/ServiceDefinitionGitBuildpack:ServiceDefinitionGitBuildpack"
                 },
                 "dockerfile": {
-                    "$ref": "#/types/koyeb:index/KoyebServiceDefinitionGitDockerfile:KoyebServiceDefinitionGitDockerfile",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "$ref": "#/types/koyeb:index/ServiceDefinitionGitDockerfile:ServiceDefinitionGitDockerfile"
                 },
                 "noDeployOnPush": {
                     "type": "boolean",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "If set to true, no Koyeb deployments will be triggered when changes are pushed to the GitHub repository branch\n"
                 },
                 "repository": {
                     "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The GitHub repository to deploy\n"
                 },
                 "workdir": {
                     "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The directory where your source code is located. If not set, the work directory defaults to the root of the repository.\n"
                 }
             },
             "type": "object",
@@ -667,183 +414,104 @@
                 "repository"
             ]
         },
-        "koyeb:index/KoyebServiceDefinitionGitBuildpack:KoyebServiceDefinitionGitBuildpack": {
+        "koyeb:index/ServiceDefinitionGitBuildpack:ServiceDefinitionGitBuildpack": {
             "properties": {
                 "buildCommand": {
                     "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The command to build your application during the build phase. If your application does not require a build command, leave this field empty\n"
                 },
                 "privileged": {
                     "type": "boolean",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "When enabled, the service container will run in privileged mode. This advanced feature is useful to get advanced system privileges.\n"
                 },
                 "runCommand": {
                     "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The command to run your application once the built is completed\n"
                 }
             },
             "type": "object"
         },
-        "koyeb:index/KoyebServiceDefinitionGitDockerfile:KoyebServiceDefinitionGitDockerfile": {
+        "koyeb:index/ServiceDefinitionGitDockerfile:ServiceDefinitionGitDockerfile": {
             "properties": {
                 "args": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The arguments to pass to the Docker command\n"
                 },
                 "command": {
                     "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Override the command to execute on the container\n"
                 },
                 "dockerfile": {
                     "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The location of your Dockerfile relative to the work directory. If not set, the work directory defaults to the root of the repository.\n"
                 },
                 "entrypoints": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Override the default entrypoint to execute on the container\n"
                 },
                 "privileged": {
                     "type": "boolean",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "When enabled, the service container will run in privileged mode. This advanced feature is useful to get advanced system privileges.\n"
                 },
                 "target": {
                     "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Target build stage: If your Dockerfile contains multi-stage builds, you can choose the target stage to build and deploy by entering its name\n"
                 }
             },
             "type": "object"
         },
-        "koyeb:index/KoyebServiceDefinitionHealthCheck:KoyebServiceDefinitionHealthCheck": {
+        "koyeb:index/ServiceDefinitionHealthCheck:ServiceDefinitionHealthCheck": {
             "properties": {
                 "gracePeriod": {
                     "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The period in seconds to wait for the instance to become healthy, default is 5s\n"
                 },
                 "http": {
-                    "$ref": "#/types/koyeb:index/KoyebServiceDefinitionHealthCheckHttp:KoyebServiceDefinitionHealthCheckHttp",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "$ref": "#/types/koyeb:index/ServiceDefinitionHealthCheckHttp:ServiceDefinitionHealthCheckHttp"
                 },
                 "interval": {
                     "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The period in seconds between two health checks, default is 60s\n"
                 },
                 "restartLimit": {
                     "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The number of consecutive failures before attempting to restart the service, default is 3\n"
                 },
                 "tcp": {
-                    "$ref": "#/types/koyeb:index/KoyebServiceDefinitionHealthCheckTcp:KoyebServiceDefinitionHealthCheckTcp",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "$ref": "#/types/koyeb:index/ServiceDefinitionHealthCheckTcp:ServiceDefinitionHealthCheckTcp"
                 },
                 "timeout": {
                     "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The maximum time to wait in seconds before considering the check as a failure, default is 5s\n"
                 }
             },
             "type": "object"
         },
-        "koyeb:index/KoyebServiceDefinitionHealthCheckHttp:KoyebServiceDefinitionHealthCheckHttp": {
+        "koyeb:index/ServiceDefinitionHealthCheckHttp:ServiceDefinitionHealthCheckHttp": {
             "properties": {
                 "headers": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/koyeb:index/KoyebServiceDefinitionHealthCheckHttpHeader:KoyebServiceDefinitionHealthCheckHttpHeader"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
+                        "$ref": "#/types/koyeb:index/ServiceDefinitionHealthCheckHttpHeader:ServiceDefinitionHealthCheckHttpHeader"
                     }
                 },
                 "method": {
                     "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "An optional HTTP method to use to perform the health check, default is GET\n"
                 },
                 "path": {
                     "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The path to use to perform the HTTP health check\n"
                 },
                 "port": {
                     "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The port to use to perform the health check\n"
                 }
             },
             "type": "object",
@@ -852,23 +520,15 @@
                 "port"
             ]
         },
-        "koyeb:index/KoyebServiceDefinitionHealthCheckHttpHeader:KoyebServiceDefinitionHealthCheckHttpHeader": {
+        "koyeb:index/ServiceDefinitionHealthCheckHttpHeader:ServiceDefinitionHealthCheckHttpHeader": {
             "properties": {
                 "key": {
                     "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The name of the header\n"
                 },
                 "value": {
                     "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The value of the header\n"
                 }
             },
             "type": "object",
@@ -876,15 +536,11 @@
                 "key"
             ]
         },
-        "koyeb:index/KoyebServiceDefinitionHealthCheckTcp:KoyebServiceDefinitionHealthCheckTcp": {
+        "koyeb:index/ServiceDefinitionHealthCheckTcp:ServiceDefinitionHealthCheckTcp": {
             "properties": {
                 "port": {
                     "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The port to use to perform the health check\n"
                 }
             },
             "type": "object",
@@ -892,26 +548,18 @@
                 "port"
             ]
         },
-        "koyeb:index/KoyebServiceDefinitionInstanceType:KoyebServiceDefinitionInstanceType": {
+        "koyeb:index/ServiceDefinitionInstanceType:ServiceDefinitionInstanceType": {
             "properties": {
                 "scopes": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The regions to use the instance type\n"
                 },
                 "type": {
                     "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The instance type to use to support your service\n"
                 }
             },
             "type": "object",
@@ -919,23 +567,15 @@
                 "type"
             ]
         },
-        "koyeb:index/KoyebServiceDefinitionPort:KoyebServiceDefinitionPort": {
+        "koyeb:index/ServiceDefinitionPort:ServiceDefinitionPort": {
             "properties": {
                 "port": {
                     "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The internal port on which this service's run command will listen\n"
                 },
                 "protocol": {
                     "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The protocol used by your service\n"
                 }
             },
             "type": "object",
@@ -944,23 +584,15 @@
                 "protocol"
             ]
         },
-        "koyeb:index/KoyebServiceDefinitionRoute:KoyebServiceDefinitionRoute": {
+        "koyeb:index/ServiceDefinitionRoute:ServiceDefinitionRoute": {
             "properties": {
                 "path": {
                     "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Path specifies a route by HTTP path prefix. Paths must start with / and must be unique within the app\n"
                 },
                 "port": {
                     "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The internal port on which this service's run command will listen\n"
                 }
             },
             "type": "object",
@@ -969,96 +601,63 @@
                 "port"
             ]
         },
-        "koyeb:index/KoyebServiceDefinitionScaling:KoyebServiceDefinitionScaling": {
+        "koyeb:index/ServiceDefinitionScaling:ServiceDefinitionScaling": {
             "properties": {
                 "max": {
                     "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The maximum number of instance to use to support your service\n"
                 },
                 "min": {
                     "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The minimal number of instances to use to support your service\n"
                 },
                 "scopes": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The regions to apply the scaling configuration\n"
                 },
                 "targets": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/koyeb:index/KoyebServiceDefinitionScalingTarget:KoyebServiceDefinitionScalingTarget"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
+                        "$ref": "#/types/koyeb:index/ServiceDefinitionScalingTarget:ServiceDefinitionScalingTarget"
                     }
                 }
             },
             "type": "object"
         },
-        "koyeb:index/KoyebServiceDefinitionScalingTarget:KoyebServiceDefinitionScalingTarget": {
+        "koyeb:index/ServiceDefinitionScalingTarget:ServiceDefinitionScalingTarget": {
             "properties": {
                 "averageCpus": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/koyeb:index/KoyebServiceDefinitionScalingTargetAverageCpus:KoyebServiceDefinitionScalingTargetAverageCpus"
+                        "$ref": "#/types/koyeb:index/ServiceDefinitionScalingTargetAverageCpus:ServiceDefinitionScalingTargetAverageCpus"
                     },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The CPU usage (expressed as a percentage) across all Instances of your Service within a region\n"
                 },
                 "averageMems": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/koyeb:index/KoyebServiceDefinitionScalingTargetAverageMem:KoyebServiceDefinitionScalingTargetAverageMem"
+                        "$ref": "#/types/koyeb:index/ServiceDefinitionScalingTargetAverageMem:ServiceDefinitionScalingTargetAverageMem"
                     },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The memory usage (expressed as a percentage) across all Instances of your Service within a region\n"
                 },
                 "requestsPerSeconds": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/koyeb:index/KoyebServiceDefinitionScalingTargetRequestsPerSecond:KoyebServiceDefinitionScalingTargetRequestsPerSecond"
+                        "$ref": "#/types/koyeb:index/ServiceDefinitionScalingTargetRequestsPerSecond:ServiceDefinitionScalingTargetRequestsPerSecond"
                     },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The number of concurrent requests per second across all Instances of your Service within a region\n"
                 }
             },
             "type": "object"
         },
-        "koyeb:index/KoyebServiceDefinitionScalingTargetAverageCpus:KoyebServiceDefinitionScalingTargetAverageCpus": {
+        "koyeb:index/ServiceDefinitionScalingTargetAverageCpus:ServiceDefinitionScalingTargetAverageCpus": {
             "properties": {
                 "value": {
                     "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The target value of the autoscaling target\n"
                 }
             },
             "type": "object",
@@ -1066,15 +665,11 @@
                 "value"
             ]
         },
-        "koyeb:index/KoyebServiceDefinitionScalingTargetAverageMem:KoyebServiceDefinitionScalingTargetAverageMem": {
+        "koyeb:index/ServiceDefinitionScalingTargetAverageMem:ServiceDefinitionScalingTargetAverageMem": {
             "properties": {
                 "value": {
                     "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The target value of the autoscaling target\n"
                 }
             },
             "type": "object",
@@ -1082,15 +677,11 @@
                 "value"
             ]
         },
-        "koyeb:index/KoyebServiceDefinitionScalingTargetRequestsPerSecond:KoyebServiceDefinitionScalingTargetRequestsPerSecond": {
+        "koyeb:index/ServiceDefinitionScalingTargetRequestsPerSecond:ServiceDefinitionScalingTargetRequestsPerSecond": {
             "properties": {
                 "value": {
                     "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The target value of the autoscaling target\n"
                 }
             },
             "type": "object",
@@ -1102,112 +693,55 @@
             "properties": {
                 "appName": {
                     "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The app name the domain is assigned to\n"
                 },
                 "createdAt": {
                     "type": "string",
-                    "description": "The date and time of when the app was created\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The date and time of when the domain was created\n"
                 },
                 "deploymentGroup": {
                     "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The deployment group assigned to the domain\n"
                 },
                 "id": {
                     "type": "string",
-                    "description": "The app ID\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The domain ID\n"
                 },
                 "intendedCname": {
                     "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The CNAME record to point the domain to\n"
                 },
                 "messages": {
                     "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The status messages of the domain\n"
                 },
                 "name": {
                     "type": "string",
-                    "description": "The app name\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The domain name\n"
                 },
                 "organizationId": {
                     "type": "string",
-                    "description": "The organization ID owning the app\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The organization ID owning the domain\n"
                 },
                 "status": {
                     "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The status of the domain\n"
                 },
                 "type": {
                     "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The domain type\n"
                 },
                 "updatedAt": {
                     "type": "string",
-                    "description": "The date and time of when the app was last updated\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The date and time of when the domain was last updated\n"
                 },
                 "verifiedAt": {
                     "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The date and time of when the domain was last verified\n"
                 },
                 "version": {
                     "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The version of the domain\n"
                 }
             },
             "type": "object",
@@ -1236,29 +770,15 @@
                 "password": {
                     "type": "string",
                     "description": "The registry password\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "secret": true
                 },
                 "registryName": {
                     "type": "string",
-                    "description": "The registry name\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The registry name\n"
                 },
                 "username": {
                     "type": "string",
-                    "description": "The registry username\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The registry username\n"
                 }
             },
             "type": "object",
@@ -1273,20 +793,11 @@
                 "password": {
                     "type": "string",
                     "description": "The registry password\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "secret": true
                 },
                 "username": {
                     "type": "string",
-                    "description": "The registry username\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The registry username\n"
                 }
             },
             "type": "object",
@@ -1300,20 +811,11 @@
                 "password": {
                     "type": "string",
                     "description": "The registry password\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "secret": true
                 },
                 "username": {
                     "type": "string",
-                    "description": "The registry username\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The registry username\n"
                 }
             },
             "type": "object",
@@ -1327,20 +829,11 @@
                 "password": {
                     "type": "string",
                     "description": "The registry password\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "secret": true
                 },
                 "username": {
                     "type": "string",
-                    "description": "The registry username\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The registry username\n"
                 }
             },
             "type": "object",
@@ -1354,20 +847,11 @@
                 "password": {
                     "type": "string",
                     "description": "The registry password\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "secret": true
                 },
                 "username": {
                     "type": "string",
-                    "description": "The registry username\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The registry username\n"
                 }
             },
             "type": "object",
@@ -1381,29 +865,15 @@
                 "password": {
                     "type": "string",
                     "description": "The registry password\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "secret": true
                 },
                 "url": {
                     "type": "string",
-                    "description": "The registry url\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The registry url\n"
                 },
                 "username": {
                     "type": "string",
-                    "description": "The registry username\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The registry username\n"
                 }
             },
             "type": "object",
@@ -1418,8 +888,8 @@
         "description": "The provider type for the koyeb package. By default, resources use package-wide configuration\nsettings, however an explicit `Provider` instance may be created and passed during resource\nconstruction to achieve fine-grained programmatic control over provider settings. See the\n[documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.\n"
     },
     "resources": {
-        "koyeb:index/koyebApp:KoyebApp": {
-            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as koyeb from \"@pulumi/koyeb\";\n\nconst my_app = new koyeb.KoyebApp(\"my-app\", {});\n```\n```python\nimport pulumi\nimport pulumi_koyeb as koyeb\n\nmy_app = koyeb.KoyebApp(\"my-app\")\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Koyeb = Pulumi.Koyeb;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var my_app = new Koyeb.KoyebApp(\"my-app\");\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-koyeb/sdk/go/koyeb\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := koyeb.NewKoyebApp(ctx, \"my-app\", nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.koyeb.KoyebApp;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var my_app = new KoyebApp(\"my-app\");\n\n    }\n}\n```\n```yaml\nresources:\n  my-app:\n    type: koyeb:KoyebApp\n```\n{{% /example %}}\n{{% /examples %}}",
+        "koyeb:index/app:App": {
+            "description": "## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as koyeb from \"@pulumi/koyeb\";\n\nconst my_app = new koyeb.App(\"my-app\", {name: \"my-app\"});\n```\n```python\nimport pulumi\nimport pulumi_koyeb as koyeb\n\nmy_app = koyeb.App(\"my-app\", name=\"my-app\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Koyeb = Pulumi.Koyeb;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var my_app = new Koyeb.App(\"my-app\", new()\n    {\n        Name = \"my-app\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/koyeb/pulumi-koyeb/sdk/go/koyeb\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := koyeb.NewApp(ctx, \"my-app\", \u0026koyeb.AppArgs{\n\t\t\tName: pulumi.String(\"my-app\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.koyeb.App;\nimport com.pulumi.koyeb.AppArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var my_app = new App(\"my-app\", AppArgs.builder()\n            .name(\"my-app\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  my-app:\n    type: koyeb:App\n    properties:\n      name: my-app\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
             "properties": {
                 "createdAt": {
                     "type": "string",
@@ -1428,7 +898,7 @@
                 "domains": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/koyeb:index/KoyebAppDomain:KoyebAppDomain"
+                        "$ref": "#/types/koyeb:index/AppDomain:AppDomain"
                     },
                     "description": "The app domains\n"
                 },
@@ -1460,7 +930,7 @@
                 }
             },
             "stateInputs": {
-                "description": "Input properties used for looking up and filtering KoyebApp resources.\n",
+                "description": "Input properties used for looking up and filtering App resources.\n",
                 "properties": {
                     "createdAt": {
                         "type": "string",
@@ -1469,7 +939,7 @@
                     "domains": {
                         "type": "array",
                         "items": {
-                            "$ref": "#/types/koyeb:index/KoyebAppDomain:KoyebAppDomain"
+                            "$ref": "#/types/koyeb:index/AppDomain:AppDomain"
                         },
                         "description": "The app domains\n"
                     },
@@ -1490,8 +960,8 @@
                 "type": "object"
             }
         },
-        "koyeb:index/koyebDomain:KoyebDomain": {
-            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as koyeb from \"@pulumi/koyeb\";\n\nconst my_domain = new koyeb.KoyebDomain(\"my-domain\", {});\n```\n```python\nimport pulumi\nimport pulumi_koyeb as koyeb\n\nmy_domain = koyeb.KoyebDomain(\"my-domain\")\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Koyeb = Pulumi.Koyeb;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var my_domain = new Koyeb.KoyebDomain(\"my-domain\");\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-koyeb/sdk/go/koyeb\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := koyeb.NewKoyebDomain(ctx, \"my-domain\", nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.koyeb.KoyebDomain;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var my_domain = new KoyebDomain(\"my-domain\");\n\n    }\n}\n```\n```yaml\nresources:\n  my-domain:\n    type: koyeb:KoyebDomain\n```\n{{% /example %}}\n{{% /examples %}}",
+        "koyeb:index/domain:Domain": {
+            "description": "## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as koyeb from \"@pulumi/koyeb\";\n\nconst my_domain = new koyeb.Domain(\"my-domain\", {name: \"www.example.tld\"});\n```\n```python\nimport pulumi\nimport pulumi_koyeb as koyeb\n\nmy_domain = koyeb.Domain(\"my-domain\", name=\"www.example.tld\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Koyeb = Pulumi.Koyeb;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var my_domain = new Koyeb.Domain(\"my-domain\", new()\n    {\n        Name = \"www.example.tld\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/koyeb/pulumi-koyeb/sdk/go/koyeb\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := koyeb.NewDomain(ctx, \"my-domain\", \u0026koyeb.DomainArgs{\n\t\t\tName: pulumi.String(\"www.example.tld\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.koyeb.Domain;\nimport com.pulumi.koyeb.DomainArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var my_domain = new Domain(\"my-domain\", DomainArgs.builder()\n            .name(\"www.example.tld\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  my-domain:\n    type: koyeb:Domain\n    properties:\n      name: www.example.tld\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
             "properties": {
                 "appName": {
                     "type": "string",
@@ -1583,7 +1053,7 @@
                 }
             },
             "stateInputs": {
-                "description": "Input properties used for looking up and filtering KoyebDomain resources.\n",
+                "description": "Input properties used for looking up and filtering Domain resources.\n",
                 "properties": {
                     "appName": {
                         "type": "string",
@@ -1638,11 +1108,11 @@
                 "type": "object"
             }
         },
-        "koyeb:index/koyebSecret:KoyebSecret": {
-            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as koyeb from \"@pulumi/koyeb\";\n\nconst simple_secret = new koyeb.KoyebSecret(\"simple-secret\", {\n    value: \"secret-value\",\n});\n```\n```python\nimport pulumi\nimport pulumi_koyeb as koyeb\n\nsimple_secret = koyeb.KoyebSecret(\"simple-secret\", value=\"secret-value\")\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Koyeb = Pulumi.Koyeb;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var simple_secret = new Koyeb.KoyebSecret(\"simple-secret\", new()\n    {\n        Value = \"secret-value\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-koyeb/sdk/go/koyeb\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := koyeb.NewKoyebSecret(ctx, \"simple-secret\", \u0026koyeb.KoyebSecretArgs{\n\t\t\tValue: pulumi.String(\"secret-value\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.koyeb.KoyebSecret;\nimport com.pulumi.koyeb.KoyebSecretArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var simple_secret = new KoyebSecret(\"simple-secret\", KoyebSecretArgs.builder()        \n            .value(\"secret-value\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  simple-secret:\n    type: koyeb:KoyebSecret\n    properties:\n      value: secret-value\n```\n{{% /example %}}\n{{% /examples %}}",
+        "koyeb:index/secret:Secret": {
+            "description": "## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as koyeb from \"@pulumi/koyeb\";\n\nconst simple_secret = new koyeb.Secret(\"simple-secret\", {\n    name: \"secret-name\",\n    value: \"secret-value\",\n});\n```\n```python\nimport pulumi\nimport pulumi_koyeb as koyeb\n\nsimple_secret = koyeb.Secret(\"simple-secret\",\n    name=\"secret-name\",\n    value=\"secret-value\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Koyeb = Pulumi.Koyeb;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var simple_secret = new Koyeb.Secret(\"simple-secret\", new()\n    {\n        Name = \"secret-name\",\n        Value = \"secret-value\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/koyeb/pulumi-koyeb/sdk/go/koyeb\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := koyeb.NewSecret(ctx, \"simple-secret\", \u0026koyeb.SecretArgs{\n\t\t\tName:  pulumi.String(\"secret-name\"),\n\t\t\tValue: pulumi.String(\"secret-value\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.koyeb.Secret;\nimport com.pulumi.koyeb.SecretArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var simple_secret = new Secret(\"simple-secret\", SecretArgs.builder()\n            .name(\"secret-name\")\n            .value(\"secret-value\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  simple-secret:\n    type: koyeb:Secret\n    properties:\n      name: secret-name\n      value: secret-value\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
             "properties": {
                 "azureContainerRegistry": {
-                    "$ref": "#/types/koyeb:index/KoyebSecretAzureContainerRegistry:KoyebSecretAzureContainerRegistry",
+                    "$ref": "#/types/koyeb:index/SecretAzureContainerRegistry:SecretAzureContainerRegistry",
                     "description": "The Azure registry configuration to use\n"
                 },
                 "createdAt": {
@@ -1650,19 +1120,19 @@
                     "description": "The date and time of when the secret was created\n"
                 },
                 "digitalOceanContainerRegistry": {
-                    "$ref": "#/types/koyeb:index/KoyebSecretDigitalOceanContainerRegistry:KoyebSecretDigitalOceanContainerRegistry",
+                    "$ref": "#/types/koyeb:index/SecretDigitalOceanContainerRegistry:SecretDigitalOceanContainerRegistry",
                     "description": "The DigitalOcean registry configuration to use\n"
                 },
                 "dockerHubRegistry": {
-                    "$ref": "#/types/koyeb:index/KoyebSecretDockerHubRegistry:KoyebSecretDockerHubRegistry",
+                    "$ref": "#/types/koyeb:index/SecretDockerHubRegistry:SecretDockerHubRegistry",
                     "description": "The DockerHub registry configuration to use\n"
                 },
                 "githubRegistry": {
-                    "$ref": "#/types/koyeb:index/KoyebSecretGithubRegistry:KoyebSecretGithubRegistry",
+                    "$ref": "#/types/koyeb:index/SecretGithubRegistry:SecretGithubRegistry",
                     "description": "The GitHub registry configuration to use\n"
                 },
                 "gitlabRegistry": {
-                    "$ref": "#/types/koyeb:index/KoyebSecretGitlabRegistry:KoyebSecretGitlabRegistry",
+                    "$ref": "#/types/koyeb:index/SecretGitlabRegistry:SecretGitlabRegistry",
                     "description": "The GitLab registry configuration to use\n"
                 },
                 "name": {
@@ -1674,7 +1144,7 @@
                     "description": "The organization ID owning the secret\n"
                 },
                 "privateRegistry": {
-                    "$ref": "#/types/koyeb:index/KoyebSecretPrivateRegistry:KoyebSecretPrivateRegistry",
+                    "$ref": "#/types/koyeb:index/SecretPrivateRegistry:SecretPrivateRegistry",
                     "description": "The DigitalOcean registry configuration to use\n"
                 },
                 "type": {
@@ -1687,7 +1157,8 @@
                 },
                 "value": {
                     "type": "string",
-                    "description": "The secret value\n"
+                    "description": "The secret value\n",
+                    "secret": true
                 }
             },
             "required": [
@@ -1698,23 +1169,23 @@
             ],
             "inputProperties": {
                 "azureContainerRegistry": {
-                    "$ref": "#/types/koyeb:index/KoyebSecretAzureContainerRegistry:KoyebSecretAzureContainerRegistry",
+                    "$ref": "#/types/koyeb:index/SecretAzureContainerRegistry:SecretAzureContainerRegistry",
                     "description": "The Azure registry configuration to use\n"
                 },
                 "digitalOceanContainerRegistry": {
-                    "$ref": "#/types/koyeb:index/KoyebSecretDigitalOceanContainerRegistry:KoyebSecretDigitalOceanContainerRegistry",
+                    "$ref": "#/types/koyeb:index/SecretDigitalOceanContainerRegistry:SecretDigitalOceanContainerRegistry",
                     "description": "The DigitalOcean registry configuration to use\n"
                 },
                 "dockerHubRegistry": {
-                    "$ref": "#/types/koyeb:index/KoyebSecretDockerHubRegistry:KoyebSecretDockerHubRegistry",
+                    "$ref": "#/types/koyeb:index/SecretDockerHubRegistry:SecretDockerHubRegistry",
                     "description": "The DockerHub registry configuration to use\n"
                 },
                 "githubRegistry": {
-                    "$ref": "#/types/koyeb:index/KoyebSecretGithubRegistry:KoyebSecretGithubRegistry",
+                    "$ref": "#/types/koyeb:index/SecretGithubRegistry:SecretGithubRegistry",
                     "description": "The GitHub registry configuration to use\n"
                 },
                 "gitlabRegistry": {
-                    "$ref": "#/types/koyeb:index/KoyebSecretGitlabRegistry:KoyebSecretGitlabRegistry",
+                    "$ref": "#/types/koyeb:index/SecretGitlabRegistry:SecretGitlabRegistry",
                     "description": "The GitLab registry configuration to use\n"
                 },
                 "name": {
@@ -1723,7 +1194,7 @@
                     "willReplaceOnChanges": true
                 },
                 "privateRegistry": {
-                    "$ref": "#/types/koyeb:index/KoyebSecretPrivateRegistry:KoyebSecretPrivateRegistry",
+                    "$ref": "#/types/koyeb:index/SecretPrivateRegistry:SecretPrivateRegistry",
                     "description": "The DigitalOcean registry configuration to use\n"
                 },
                 "type": {
@@ -1733,14 +1204,15 @@
                 },
                 "value": {
                     "type": "string",
-                    "description": "The secret value\n"
+                    "description": "The secret value\n",
+                    "secret": true
                 }
             },
             "stateInputs": {
-                "description": "Input properties used for looking up and filtering KoyebSecret resources.\n",
+                "description": "Input properties used for looking up and filtering Secret resources.\n",
                 "properties": {
                     "azureContainerRegistry": {
-                        "$ref": "#/types/koyeb:index/KoyebSecretAzureContainerRegistry:KoyebSecretAzureContainerRegistry",
+                        "$ref": "#/types/koyeb:index/SecretAzureContainerRegistry:SecretAzureContainerRegistry",
                         "description": "The Azure registry configuration to use\n"
                     },
                     "createdAt": {
@@ -1748,19 +1220,19 @@
                         "description": "The date and time of when the secret was created\n"
                     },
                     "digitalOceanContainerRegistry": {
-                        "$ref": "#/types/koyeb:index/KoyebSecretDigitalOceanContainerRegistry:KoyebSecretDigitalOceanContainerRegistry",
+                        "$ref": "#/types/koyeb:index/SecretDigitalOceanContainerRegistry:SecretDigitalOceanContainerRegistry",
                         "description": "The DigitalOcean registry configuration to use\n"
                     },
                     "dockerHubRegistry": {
-                        "$ref": "#/types/koyeb:index/KoyebSecretDockerHubRegistry:KoyebSecretDockerHubRegistry",
+                        "$ref": "#/types/koyeb:index/SecretDockerHubRegistry:SecretDockerHubRegistry",
                         "description": "The DockerHub registry configuration to use\n"
                     },
                     "githubRegistry": {
-                        "$ref": "#/types/koyeb:index/KoyebSecretGithubRegistry:KoyebSecretGithubRegistry",
+                        "$ref": "#/types/koyeb:index/SecretGithubRegistry:SecretGithubRegistry",
                         "description": "The GitHub registry configuration to use\n"
                     },
                     "gitlabRegistry": {
-                        "$ref": "#/types/koyeb:index/KoyebSecretGitlabRegistry:KoyebSecretGitlabRegistry",
+                        "$ref": "#/types/koyeb:index/SecretGitlabRegistry:SecretGitlabRegistry",
                         "description": "The GitLab registry configuration to use\n"
                     },
                     "name": {
@@ -1773,7 +1245,7 @@
                         "description": "The organization ID owning the secret\n"
                     },
                     "privateRegistry": {
-                        "$ref": "#/types/koyeb:index/KoyebSecretPrivateRegistry:KoyebSecretPrivateRegistry",
+                        "$ref": "#/types/koyeb:index/SecretPrivateRegistry:SecretPrivateRegistry",
                         "description": "The DigitalOcean registry configuration to use\n"
                     },
                     "type": {
@@ -1787,14 +1259,15 @@
                     },
                     "value": {
                         "type": "string",
-                        "description": "The secret value\n"
+                        "description": "The secret value\n",
+                        "secret": true
                     }
                 },
                 "type": "object"
             }
         },
-        "koyeb:index/koyebService:KoyebService": {
-            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pulumi_koyeb from \"@koyeb/pulumi-koyeb\";\n\nconst my_service = new koyeb.KoyebService(\"my-service\", {\n    appName: koyeb_app.my_app.name,\n    definition: {\n        name: \"my-service\",\n        instanceTypes: [{\n            type: \"micro\",\n        }],\n        ports: [{\n            port: 3000,\n            protocol: \"http\",\n        }],\n        scalings: [{\n            min: 1,\n            max: 1,\n        }],\n        envs: [\n            {\n                key: \"FOO\",\n                value: \"BAR\",\n            },\n            {\n                key: \"PORT\",\n                value: \"3000\",\n            },\n        ],\n        routes: [{\n            path: \"/\",\n            port: 3000,\n        }],\n        regions: [\"fra\"],\n        docker: {\n            image: \"koyeb/demo\",\n        },\n    },\n}, {\n    dependsOn: [koyeb_app[\"my-app\"]],\n});\n```\n```python\nimport pulumi\nimport pulumi_koyeb as koyeb\n\nmy_service = koyeb.KoyebService(\"my-service\",\n    app_name=koyeb_app[\"my_app\"][\"name\"],\n    definition=koyeb.KoyebServiceDefinitionArgs(\n        name=\"my-service\",\n        instance_types=[koyeb.KoyebServiceDefinitionInstanceTypeArgs(\n            type=\"micro\",\n        )],\n        ports=[koyeb.KoyebServiceDefinitionPortArgs(\n            port=3000,\n            protocol=\"http\",\n        )],\n        scalings=[koyeb.KoyebServiceDefinitionScalingArgs(\n            min=1,\n            max=1,\n        )],\n        envs=[\n            koyeb.KoyebServiceDefinitionEnvArgs(\n                key=\"FOO\",\n                value=\"BAR\",\n            ),\n            koyeb.KoyebServiceDefinitionEnvArgs(\n                key=\"PORT\",\n                value=\"3000\",\n            ),\n        ],\n        routes=[koyeb.KoyebServiceDefinitionRouteArgs(\n            path=\"/\",\n            port=3000,\n        )],\n        regions=[\"fra\"],\n        docker=koyeb.KoyebServiceDefinitionDockerArgs(\n            image=\"koyeb/demo\",\n        ),\n    ),\n    opts=pulumi.ResourceOptions(depends_on=[koyeb_app[\"my-app\"]]))\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Koyeb = Pulumi.Koyeb;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var my_service = new Koyeb.KoyebService(\"my-service\", new()\n    {\n        AppName = koyeb_app.My_app.Name,\n        Definition = new Koyeb.Inputs.KoyebServiceDefinitionArgs\n        {\n            Name = \"my-service\",\n            InstanceTypes = new[]\n            {\n                new Koyeb.Inputs.KoyebServiceDefinitionInstanceTypeArgs\n                {\n                    Type = \"micro\",\n                },\n            },\n            Ports = new[]\n            {\n                new Koyeb.Inputs.KoyebServiceDefinitionPortArgs\n                {\n                    Port = 3000,\n                    Protocol = \"http\",\n                },\n            },\n            Scalings = new[]\n            {\n                new Koyeb.Inputs.KoyebServiceDefinitionScalingArgs\n                {\n                    Min = 1,\n                    Max = 1,\n                },\n            },\n            Envs = new[]\n            {\n                new Koyeb.Inputs.KoyebServiceDefinitionEnvArgs\n                {\n                    Key = \"FOO\",\n                    Value = \"BAR\",\n                },\n                new Koyeb.Inputs.KoyebServiceDefinitionEnvArgs\n                {\n                    Key = \"PORT\",\n                    Value = \"3000\",\n                },\n            },\n            Routes = new[]\n            {\n                new Koyeb.Inputs.KoyebServiceDefinitionRouteArgs\n                {\n                    Path = \"/\",\n                    Port = 3000,\n                },\n            },\n            Regions = new[]\n            {\n                \"fra\",\n            },\n            Docker = new Koyeb.Inputs.KoyebServiceDefinitionDockerArgs\n            {\n                Image = \"koyeb/demo\",\n            },\n        },\n    }, new CustomResourceOptions\n    {\n        DependsOn = new[]\n        {\n            koyeb_app.My_app,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-koyeb/sdk/go/koyeb\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := koyeb.NewKoyebService(ctx, \"my-service\", \u0026koyeb.KoyebServiceArgs{\n\t\t\tAppName: pulumi.Any(koyeb_app.My_app.Name),\n\t\t\tDefinition: \u0026KoyebServiceDefinitionArgs{\n\t\t\t\tName: pulumi.String(\"my-service\"),\n\t\t\t\tInstanceTypes: KoyebServiceDefinitionInstanceTypeArray{\n\t\t\t\t\t\u0026KoyebServiceDefinitionInstanceTypeArgs{\n\t\t\t\t\t\tType: pulumi.String(\"micro\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\tPorts: KoyebServiceDefinitionPortArray{\n\t\t\t\t\t\u0026KoyebServiceDefinitionPortArgs{\n\t\t\t\t\t\tPort:     pulumi.Int(3000),\n\t\t\t\t\t\tProtocol: pulumi.String(\"http\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\tScalings: KoyebServiceDefinitionScalingArray{\n\t\t\t\t\t\u0026KoyebServiceDefinitionScalingArgs{\n\t\t\t\t\t\tMin: pulumi.Int(1),\n\t\t\t\t\t\tMax: pulumi.Int(1),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\tEnvs: KoyebServiceDefinitionEnvArray{\n\t\t\t\t\t\u0026KoyebServiceDefinitionEnvArgs{\n\t\t\t\t\t\tKey:   pulumi.String(\"FOO\"),\n\t\t\t\t\t\tValue: pulumi.String(\"BAR\"),\n\t\t\t\t\t},\n\t\t\t\t\t\u0026KoyebServiceDefinitionEnvArgs{\n\t\t\t\t\t\tKey:   pulumi.String(\"PORT\"),\n\t\t\t\t\t\tValue: pulumi.String(\"3000\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\tRoutes: KoyebServiceDefinitionRouteArray{\n\t\t\t\t\t\u0026KoyebServiceDefinitionRouteArgs{\n\t\t\t\t\t\tPath: pulumi.String(\"/\"),\n\t\t\t\t\t\tPort: pulumi.Int(3000),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\tRegions: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"fra\"),\n\t\t\t\t},\n\t\t\t\tDocker: \u0026KoyebServiceDefinitionDockerArgs{\n\t\t\t\t\tImage: pulumi.String(\"koyeb/demo\"),\n\t\t\t\t},\n\t\t\t},\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\tkoyeb_app.My - app,\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.koyeb.KoyebService;\nimport com.pulumi.koyeb.KoyebServiceArgs;\nimport com.pulumi.koyeb.inputs.KoyebServiceDefinitionArgs;\nimport com.pulumi.koyeb.inputs.KoyebServiceDefinitionDockerArgs;\nimport com.pulumi.resources.CustomResourceOptions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var my_service = new KoyebService(\"my-service\", KoyebServiceArgs.builder()        \n            .appName(koyeb_app.my_app().name())\n            .definition(KoyebServiceDefinitionArgs.builder()\n                .name(\"my-service\")\n                .instanceTypes(KoyebServiceDefinitionInstanceTypeArgs.builder()\n                    .type(\"micro\")\n                    .build())\n                .ports(KoyebServiceDefinitionPortArgs.builder()\n                    .port(3000)\n                    .protocol(\"http\")\n                    .build())\n                .scalings(KoyebServiceDefinitionScalingArgs.builder()\n                    .min(1)\n                    .max(1)\n                    .build())\n                .envs(                \n                    KoyebServiceDefinitionEnvArgs.builder()\n                        .key(\"FOO\")\n                        .value(\"BAR\")\n                        .build(),\n                    KoyebServiceDefinitionEnvArgs.builder()\n                        .key(\"PORT\")\n                        .value(\"3000\")\n                        .build())\n                .routes(KoyebServiceDefinitionRouteArgs.builder()\n                    .path(\"/\")\n                    .port(3000)\n                    .build())\n                .regions(\"fra\")\n                .docker(KoyebServiceDefinitionDockerArgs.builder()\n                    .image(\"koyeb/demo\")\n                    .build())\n                .build())\n            .build(), CustomResourceOptions.builder()\n                .dependsOn(koyeb_app.my-app())\n                .build());\n\n    }\n}\n```\n```yaml\nresources:\n  my-service:\n    type: koyeb:KoyebService\n    properties:\n      appName: ${koyeb_app.my_app.name}\n      definition:\n        name: my-service\n        instanceTypes:\n          - type: micro\n        ports:\n          - port: 3000\n            protocol: http\n        scalings:\n          - min: 1\n            max: 1\n        envs:\n          - key: FOO\n            value: BAR\n          - key: PORT\n            value: 3000\n        routes:\n          - path: /\n            port: 3000\n        regions:\n          - fra\n        docker:\n          image: koyeb/demo\n    options:\n      dependson:\n        - ${koyeb_app\"my-app\"[%!s(MISSING)]}\n```\n{{% /example %}}\n{{% /examples %}}",
+        "koyeb:index/service:Service": {
+            "description": "## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as koyeb from \"@pulumi/koyeb\";\n\nconst my_service = new koyeb.Service(\"my-service\", {\n    appName: myApp.name,\n    definition: {\n        name: \"my-service\",\n        instanceTypes: [{\n            type: \"micro\",\n        }],\n        ports: [{\n            port: 3000,\n            protocol: \"http\",\n        }],\n        scalings: [{\n            min: 1,\n            max: 1,\n        }],\n        envs: [\n            {\n                key: \"FOO\",\n                value: \"BAR\",\n            },\n            {\n                key: \"PORT\",\n                value: \"3000\",\n            },\n        ],\n        routes: [{\n            path: \"/\",\n            port: 3000,\n        }],\n        regions: [\"fra\"],\n        docker: {\n            image: \"koyeb/demo\",\n        },\n    },\n}, {\n    dependsOn: [my_app],\n});\n```\n```python\nimport pulumi\nimport pulumi_koyeb as koyeb\n\nmy_service = koyeb.Service(\"my-service\",\n    app_name=my_app[\"name\"],\n    definition={\n        \"name\": \"my-service\",\n        \"instance_types\": [{\n            \"type\": \"micro\",\n        }],\n        \"ports\": [{\n            \"port\": 3000,\n            \"protocol\": \"http\",\n        }],\n        \"scalings\": [{\n            \"min\": 1,\n            \"max\": 1,\n        }],\n        \"envs\": [\n            {\n                \"key\": \"FOO\",\n                \"value\": \"BAR\",\n            },\n            {\n                \"key\": \"PORT\",\n                \"value\": \"3000\",\n            },\n        ],\n        \"routes\": [{\n            \"path\": \"/\",\n            \"port\": 3000,\n        }],\n        \"regions\": [\"fra\"],\n        \"docker\": {\n            \"image\": \"koyeb/demo\",\n        },\n    },\n    opts = pulumi.ResourceOptions(depends_on=[my_app]))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Koyeb = Pulumi.Koyeb;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var my_service = new Koyeb.Service(\"my-service\", new()\n    {\n        AppName = myApp.Name,\n        Definition = new Koyeb.Inputs.ServiceDefinitionArgs\n        {\n            Name = \"my-service\",\n            InstanceTypes = new[]\n            {\n                new Koyeb.Inputs.ServiceDefinitionInstanceTypeArgs\n                {\n                    Type = \"micro\",\n                },\n            },\n            Ports = new[]\n            {\n                new Koyeb.Inputs.ServiceDefinitionPortArgs\n                {\n                    Port = 3000,\n                    Protocol = \"http\",\n                },\n            },\n            Scalings = new[]\n            {\n                new Koyeb.Inputs.ServiceDefinitionScalingArgs\n                {\n                    Min = 1,\n                    Max = 1,\n                },\n            },\n            Envs = new[]\n            {\n                new Koyeb.Inputs.ServiceDefinitionEnvArgs\n                {\n                    Key = \"FOO\",\n                    Value = \"BAR\",\n                },\n                new Koyeb.Inputs.ServiceDefinitionEnvArgs\n                {\n                    Key = \"PORT\",\n                    Value = \"3000\",\n                },\n            },\n            Routes = new[]\n            {\n                new Koyeb.Inputs.ServiceDefinitionRouteArgs\n                {\n                    Path = \"/\",\n                    Port = 3000,\n                },\n            },\n            Regions = new[]\n            {\n                \"fra\",\n            },\n            Docker = new Koyeb.Inputs.ServiceDefinitionDockerArgs\n            {\n                Image = \"koyeb/demo\",\n            },\n        },\n    }, new CustomResourceOptions\n    {\n        DependsOn =\n        {\n            my_app,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/koyeb/pulumi-koyeb/sdk/go/koyeb\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := koyeb.NewService(ctx, \"my-service\", \u0026koyeb.ServiceArgs{\n\t\t\tAppName: pulumi.Any(myApp.Name),\n\t\t\tDefinition: \u0026koyeb.ServiceDefinitionArgs{\n\t\t\t\tName: pulumi.String(\"my-service\"),\n\t\t\t\tInstanceTypes: koyeb.ServiceDefinitionInstanceTypeArray{\n\t\t\t\t\t\u0026koyeb.ServiceDefinitionInstanceTypeArgs{\n\t\t\t\t\t\tType: pulumi.String(\"micro\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\tPorts: koyeb.ServiceDefinitionPortArray{\n\t\t\t\t\t\u0026koyeb.ServiceDefinitionPortArgs{\n\t\t\t\t\t\tPort:     pulumi.Int(3000),\n\t\t\t\t\t\tProtocol: pulumi.String(\"http\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\tScalings: koyeb.ServiceDefinitionScalingArray{\n\t\t\t\t\t\u0026koyeb.ServiceDefinitionScalingArgs{\n\t\t\t\t\t\tMin: pulumi.Int(1),\n\t\t\t\t\t\tMax: pulumi.Int(1),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\tEnvs: koyeb.ServiceDefinitionEnvArray{\n\t\t\t\t\t\u0026koyeb.ServiceDefinitionEnvArgs{\n\t\t\t\t\t\tKey:   pulumi.String(\"FOO\"),\n\t\t\t\t\t\tValue: pulumi.String(\"BAR\"),\n\t\t\t\t\t},\n\t\t\t\t\t\u0026koyeb.ServiceDefinitionEnvArgs{\n\t\t\t\t\t\tKey:   pulumi.String(\"PORT\"),\n\t\t\t\t\t\tValue: pulumi.String(\"3000\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\tRoutes: koyeb.ServiceDefinitionRouteArray{\n\t\t\t\t\t\u0026koyeb.ServiceDefinitionRouteArgs{\n\t\t\t\t\t\tPath: pulumi.String(\"/\"),\n\t\t\t\t\t\tPort: pulumi.Int(3000),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\tRegions: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"fra\"),\n\t\t\t\t},\n\t\t\t\tDocker: \u0026koyeb.ServiceDefinitionDockerArgs{\n\t\t\t\t\tImage: pulumi.String(\"koyeb/demo\"),\n\t\t\t\t},\n\t\t\t},\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\tmy_app,\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.koyeb.Service;\nimport com.pulumi.koyeb.ServiceArgs;\nimport com.pulumi.koyeb.inputs.ServiceDefinitionArgs;\nimport com.pulumi.koyeb.inputs.ServiceDefinitionDockerArgs;\nimport com.pulumi.resources.CustomResourceOptions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var my_service = new Service(\"my-service\", ServiceArgs.builder()\n            .appName(myApp.name())\n            .definition(ServiceDefinitionArgs.builder()\n                .name(\"my-service\")\n                .instanceTypes(ServiceDefinitionInstanceTypeArgs.builder()\n                    .type(\"micro\")\n                    .build())\n                .ports(ServiceDefinitionPortArgs.builder()\n                    .port(3000)\n                    .protocol(\"http\")\n                    .build())\n                .scalings(ServiceDefinitionScalingArgs.builder()\n                    .min(1)\n                    .max(1)\n                    .build())\n                .envs(                \n                    ServiceDefinitionEnvArgs.builder()\n                        .key(\"FOO\")\n                        .value(\"BAR\")\n                        .build(),\n                    ServiceDefinitionEnvArgs.builder()\n                        .key(\"PORT\")\n                        .value(\"3000\")\n                        .build())\n                .routes(ServiceDefinitionRouteArgs.builder()\n                    .path(\"/\")\n                    .port(3000)\n                    .build())\n                .regions(\"fra\")\n                .docker(ServiceDefinitionDockerArgs.builder()\n                    .image(\"koyeb/demo\")\n                    .build())\n                .build())\n            .build(), CustomResourceOptions.builder()\n                .dependsOn(my_app)\n                .build());\n\n    }\n}\n```\n```yaml\nresources:\n  my-service:\n    type: koyeb:Service\n    properties:\n      appName: ${myApp.name}\n      definition:\n        name: my-service\n        instanceTypes:\n          - type: micro\n        ports:\n          - port: 3000\n            protocol: http\n        scalings:\n          - min: 1\n            max: 1\n        envs:\n          - key: FOO\n            value: BAR\n          - key: PORT\n            value: '3000'\n        routes:\n          - path: /\n            port: 3000\n        regions:\n          - fra\n        docker:\n          image: koyeb/demo\n    options:\n      dependson:\n        - ${[\"my-app\"]}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
             "properties": {
                 "activeDeployment": {
                     "type": "string",
@@ -1813,7 +1286,7 @@
                     "description": "The date and time of when the service was created\n"
                 },
                 "definition": {
-                    "$ref": "#/types/koyeb:index/KoyebServiceDefinition:KoyebServiceDefinition",
+                    "$ref": "#/types/koyeb:index/ServiceDefinition:ServiceDefinition",
                     "description": "The service deployment definition\n"
                 },
                 "latestDeployment": {
@@ -1881,7 +1354,7 @@
                     "willReplaceOnChanges": true
                 },
                 "definition": {
-                    "$ref": "#/types/koyeb:index/KoyebServiceDefinition:KoyebServiceDefinition",
+                    "$ref": "#/types/koyeb:index/ServiceDefinition:ServiceDefinition",
                     "description": "The service deployment definition\n"
                 },
                 "messages": {
@@ -1894,7 +1367,7 @@
                 "definition"
             ],
             "stateInputs": {
-                "description": "Input properties used for looking up and filtering KoyebService resources.\n",
+                "description": "Input properties used for looking up and filtering Service resources.\n",
                 "properties": {
                     "activeDeployment": {
                         "type": "string",
@@ -1914,7 +1387,7 @@
                         "description": "The date and time of when the service was created\n"
                     },
                     "definition": {
-                        "$ref": "#/types/koyeb:index/KoyebServiceDefinition:KoyebServiceDefinition",
+                        "$ref": "#/types/koyeb:index/ServiceDefinition:ServiceDefinition",
                         "description": "The service deployment definition\n"
                     },
                     "latestDeployment": {
@@ -1964,7 +1437,7 @@
     },
     "functions": {
         "koyeb:index/getApp:getApp": {
-            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as koyeb from \"@pulumi/koyeb\";\n\nconst my_app = pulumi.output(koyeb.getApp({\n    name: \"my-app\",\n}));\n```\n```python\nimport pulumi\nimport pulumi_koyeb as koyeb\n\nmy_app = koyeb.get_app(name=\"my-app\")\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Koyeb = Pulumi.Koyeb;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var my_app = Koyeb.GetApp.Invoke(new()\n    {\n        Name = \"my-app\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-koyeb/sdk/go/koyeb\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := koyeb.GetApp(ctx, \u0026GetAppArgs{\n\t\t\tName: \"my-app\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.koyeb.KoyebFunctions;\nimport com.pulumi.koyeb.inputs.GetAppArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var my-app = KoyebFunctions.getApp(GetAppArgs.builder()\n            .name(\"my-app\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  my-app:\n    Fn::Invoke:\n      Function: koyeb:getApp\n      Arguments:\n        name: my-app\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as koyeb from \"@pulumi/koyeb\";\n\nconst my-app = koyeb.getApp({\n    name: \"my-app\",\n});\n```\n```python\nimport pulumi\nimport pulumi_koyeb as koyeb\n\nmy_app = koyeb.get_app(name=\"my-app\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Koyeb = Pulumi.Koyeb;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var my_app = Koyeb.GetApp.Invoke(new()\n    {\n        Name = \"my-app\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/koyeb/pulumi-koyeb/sdk/go/koyeb\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := koyeb.LookupApp(ctx, \u0026koyeb.LookupAppArgs{\n\t\t\tName: \"my-app\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.koyeb.KoyebFunctions;\nimport com.pulumi.koyeb.inputs.GetAppArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var my-app = KoyebFunctions.getApp(GetAppArgs.builder()\n            .name(\"my-app\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  my-app:\n    fn::invoke:\n      Function: koyeb:getApp\n      Arguments:\n        name: my-app\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
             "inputs": {
                 "description": "A collection of arguments for invoking getApp.\n",
                 "properties": {
@@ -1983,34 +1456,33 @@
                 "description": "A collection of values returned by getApp.\n",
                 "properties": {
                     "createdAt": {
-                        "type": "string",
-                        "description": "The date and time of when the app was created\n"
+                        "description": "The date and time of when the app was created\n",
+                        "type": "string"
                     },
                     "domains": {
-                        "type": "array",
+                        "description": "The app domains\n",
                         "items": {
                             "$ref": "#/types/koyeb:index/getAppDomain:getAppDomain"
                         },
-                        "description": "The app domains\n"
+                        "type": "array"
                     },
                     "id": {
-                        "type": "string",
-                        "description": "The app ID\n"
+                        "description": "The app ID\n",
+                        "type": "string"
                     },
                     "name": {
-                        "type": "string",
-                        "description": "The app name\n"
+                        "description": "The app name\n",
+                        "type": "string"
                     },
                     "organizationId": {
-                        "type": "string",
-                        "description": "The organization ID owning the app\n"
+                        "description": "The organization ID owning the app\n",
+                        "type": "string"
                     },
                     "updatedAt": {
-                        "type": "string",
-                        "description": "The date and time of when the app was last updated\n"
+                        "description": "The date and time of when the app was last updated\n",
+                        "type": "string"
                     }
                 },
-                "type": "object",
                 "required": [
                     "createdAt",
                     "domains",
@@ -2018,11 +1490,12 @@
                     "name",
                     "organizationId",
                     "updatedAt"
-                ]
+                ],
+                "type": "object"
             }
         },
         "koyeb:index/getDomain:getDomain": {
-            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as koyeb from \"@pulumi/koyeb\";\n\nconst my_domain = pulumi.output(koyeb.getDomain({\n    name: \"www.exampled.tld\",\n}));\n```\n```python\nimport pulumi\nimport pulumi_koyeb as koyeb\n\nmy_domain = koyeb.get_domain(name=\"www.exampled.tld\")\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Koyeb = Pulumi.Koyeb;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var my_domain = Koyeb.GetDomain.Invoke(new()\n    {\n        Name = \"www.exampled.tld\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-koyeb/sdk/go/koyeb\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := koyeb.GetDomain(ctx, \u0026GetDomainArgs{\n\t\t\tName: \"www.exampled.tld\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.koyeb.KoyebFunctions;\nimport com.pulumi.koyeb.inputs.GetDomainArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var my-domain = KoyebFunctions.getDomain(GetDomainArgs.builder()\n            .name(\"www.exampled.tld\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  my-domain:\n    Fn::Invoke:\n      Function: koyeb:getDomain\n      Arguments:\n        name: www.exampled.tld\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as koyeb from \"@pulumi/koyeb\";\n\nconst my-domain = koyeb.getDomain({\n    name: \"www.exampled.tld\",\n});\n```\n```python\nimport pulumi\nimport pulumi_koyeb as koyeb\n\nmy_domain = koyeb.get_domain(name=\"www.exampled.tld\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Koyeb = Pulumi.Koyeb;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var my_domain = Koyeb.GetDomain.Invoke(new()\n    {\n        Name = \"www.exampled.tld\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/koyeb/pulumi-koyeb/sdk/go/koyeb\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := koyeb.LookupDomain(ctx, \u0026koyeb.LookupDomainArgs{\n\t\t\tName: \"www.exampled.tld\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.koyeb.KoyebFunctions;\nimport com.pulumi.koyeb.inputs.GetDomainArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var my-domain = KoyebFunctions.getDomain(GetDomainArgs.builder()\n            .name(\"www.exampled.tld\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  my-domain:\n    fn::invoke:\n      Function: koyeb:getDomain\n      Arguments:\n        name: www.exampled.tld\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
             "inputs": {
                 "description": "A collection of arguments for invoking getDomain.\n",
                 "properties": {
@@ -2061,59 +1534,58 @@
                 "description": "A collection of values returned by getDomain.\n",
                 "properties": {
                     "appName": {
-                        "type": "string",
-                        "description": "The app name the domain is assigned to\n"
+                        "description": "The app name the domain is assigned to\n",
+                        "type": "string"
                     },
                     "createdAt": {
-                        "type": "string",
-                        "description": "The date and time of when the domain was created\n"
+                        "description": "The date and time of when the domain was created\n",
+                        "type": "string"
                     },
                     "deploymentGroup": {
-                        "type": "string",
-                        "description": "The deployment group assigned to the domain\n"
+                        "description": "The deployment group assigned to the domain\n",
+                        "type": "string"
                     },
                     "id": {
-                        "type": "string",
-                        "description": "The domain ID\n"
+                        "description": "The domain ID\n",
+                        "type": "string"
                     },
                     "intendedCname": {
-                        "type": "string",
-                        "description": "The CNAME record to point the domain to\n"
+                        "description": "The CNAME record to point the domain to\n",
+                        "type": "string"
                     },
                     "messages": {
-                        "type": "string",
-                        "description": "The status messages of the domain\n"
+                        "description": "The status messages of the domain\n",
+                        "type": "string"
                     },
                     "name": {
-                        "type": "string",
-                        "description": "The domain name\n"
+                        "description": "The domain name\n",
+                        "type": "string"
                     },
                     "organizationId": {
-                        "type": "string",
-                        "description": "The organization ID owning the domain\n"
+                        "description": "The organization ID owning the domain\n",
+                        "type": "string"
                     },
                     "status": {
-                        "type": "string",
-                        "description": "The status of the domain\n"
+                        "description": "The status of the domain\n",
+                        "type": "string"
                     },
                     "type": {
-                        "type": "string",
-                        "description": "The domain type\n"
+                        "description": "The domain type\n",
+                        "type": "string"
                     },
                     "updatedAt": {
-                        "type": "string",
-                        "description": "The date and time of when the domain was last updated\n"
+                        "description": "The date and time of when the domain was last updated\n",
+                        "type": "string"
                     },
                     "verifiedAt": {
-                        "type": "string",
-                        "description": "The date and time of when the domain was last verified\n"
+                        "description": "The date and time of when the domain was last verified\n",
+                        "type": "string"
                     },
                     "version": {
-                        "type": "string",
-                        "description": "The version of the domain\n"
+                        "description": "The version of the domain\n",
+                        "type": "string"
                     }
                 },
-                "type": "object",
                 "required": [
                     "createdAt",
                     "deploymentGroup",
@@ -2127,11 +1599,12 @@
                     "updatedAt",
                     "verifiedAt",
                     "version"
-                ]
+                ],
+                "type": "object"
             }
         },
         "koyeb:index/getSecret:getSecret": {
-            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as koyeb from \"@pulumi/koyeb\";\n\nconst my_secret = pulumi.output(koyeb.getSecret({\n    name: \"my-secret\",\n}));\n```\n```python\nimport pulumi\nimport pulumi_koyeb as koyeb\n\nmy_secret = koyeb.get_secret(name=\"my-secret\")\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Koyeb = Pulumi.Koyeb;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var my_secret = Koyeb.GetSecret.Invoke(new()\n    {\n        Name = \"my-secret\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-koyeb/sdk/go/koyeb\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := koyeb.GetSecret(ctx, \u0026GetSecretArgs{\n\t\t\tName: \"my-secret\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.koyeb.KoyebFunctions;\nimport com.pulumi.koyeb.inputs.GetSecretArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var my-secret = KoyebFunctions.getSecret(GetSecretArgs.builder()\n            .name(\"my-secret\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  my-secret:\n    Fn::Invoke:\n      Function: koyeb:getSecret\n      Arguments:\n        name: my-secret\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as koyeb from \"@pulumi/koyeb\";\n\nconst my-secret = koyeb.getSecret({\n    name: \"my-secret\",\n});\n```\n```python\nimport pulumi\nimport pulumi_koyeb as koyeb\n\nmy_secret = koyeb.get_secret(name=\"my-secret\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Koyeb = Pulumi.Koyeb;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var my_secret = Koyeb.GetSecret.Invoke(new()\n    {\n        Name = \"my-secret\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/koyeb/pulumi-koyeb/sdk/go/koyeb\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := koyeb.LookupSecret(ctx, \u0026koyeb.LookupSecretArgs{\n\t\t\tName: \"my-secret\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.koyeb.KoyebFunctions;\nimport com.pulumi.koyeb.inputs.GetSecretArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var my-secret = KoyebFunctions.getSecret(GetSecretArgs.builder()\n            .name(\"my-secret\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  my-secret:\n    fn::invoke:\n      Function: koyeb:getSecret\n      Arguments:\n        name: my-secret\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
             "inputs": {
                 "description": "A collection of arguments for invoking getSecret.\n",
                 "properties": {
@@ -2171,7 +1644,8 @@
                     },
                     "value": {
                         "type": "string",
-                        "description": "The secret value\n"
+                        "description": "The secret value\n",
+                        "secret": true
                     }
                 },
                 "type": "object",
@@ -2187,8 +1661,8 @@
                         "description": "The Azure registry configuration to use\n"
                     },
                     "createdAt": {
-                        "type": "string",
-                        "description": "The date and time of when the secret was created\n"
+                        "description": "The date and time of when the secret was created\n",
+                        "type": "string"
                     },
                     "digitalOceanContainerRegistry": {
                         "$ref": "#/types/koyeb:index/getSecretDigitalOceanContainerRegistry:getSecretDigitalOceanContainerRegistry",
@@ -2207,46 +1681,47 @@
                         "description": "The GitLab registry configuration to use\n"
                     },
                     "id": {
-                        "type": "string",
-                        "description": "The secret ID\n"
+                        "description": "The secret ID\n",
+                        "type": "string"
                     },
                     "name": {
-                        "type": "string",
-                        "description": "The secret name\n"
+                        "description": "The secret name\n",
+                        "type": "string"
                     },
                     "organizationId": {
-                        "type": "string",
-                        "description": "The organization ID owning the secret\n"
+                        "description": "The organization ID owning the secret\n",
+                        "type": "string"
                     },
                     "privateRegistry": {
                         "$ref": "#/types/koyeb:index/getSecretPrivateRegistry:getSecretPrivateRegistry",
                         "description": "The DigitalOcean registry configuration to use\n"
                     },
                     "type": {
-                        "type": "string",
-                        "description": "The secret type\n"
+                        "description": "The secret type\n",
+                        "type": "string"
                     },
                     "updatedAt": {
-                        "type": "string",
-                        "description": "The date and time of when the secret was last updated\n"
+                        "description": "The date and time of when the secret was last updated\n",
+                        "type": "string"
                     },
                     "value": {
-                        "type": "string",
-                        "description": "The secret value\n"
+                        "description": "The secret value\n",
+                        "secret": true,
+                        "type": "string"
                     }
                 },
-                "type": "object",
                 "required": [
                     "createdAt",
                     "id",
                     "name",
                     "organizationId",
                     "updatedAt"
-                ]
+                ],
+                "type": "object"
             }
         },
         "koyeb:index/getService:getService": {
-            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as koyeb from \"@pulumi/koyeb\";\n\nconst my_service = pulumi.output(koyeb.getService({\n    slug: \"my-app/my-service\",\n}));\n```\n```python\nimport pulumi\nimport pulumi_koyeb as koyeb\n\nmy_service = koyeb.get_service(slug=\"my-app/my-service\")\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Koyeb = Pulumi.Koyeb;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var my_service = Koyeb.GetService.Invoke(new()\n    {\n        Slug = \"my-app/my-service\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-koyeb/sdk/go/koyeb\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := koyeb.GetService(ctx, \u0026GetServiceArgs{\n\t\t\tSlug: \"my-app/my-service\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.koyeb.KoyebFunctions;\nimport com.pulumi.koyeb.inputs.GetServiceArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var my-service = KoyebFunctions.getService(GetServiceArgs.builder()\n            .slug(\"my-app/my-service\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  my-service:\n    Fn::Invoke:\n      Function: koyeb:getService\n      Arguments:\n        slug: my-app/my-service\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as koyeb from \"@pulumi/koyeb\";\n\nconst my-service = koyeb.getService({\n    slug: \"my-app/my-service\",\n});\n```\n```python\nimport pulumi\nimport pulumi_koyeb as koyeb\n\nmy_service = koyeb.get_service(slug=\"my-app/my-service\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Koyeb = Pulumi.Koyeb;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var my_service = Koyeb.GetService.Invoke(new()\n    {\n        Slug = \"my-app/my-service\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/koyeb/pulumi-koyeb/sdk/go/koyeb\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := koyeb.LookupService(ctx, \u0026koyeb.LookupServiceArgs{\n\t\t\tSlug: \"my-app/my-service\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.koyeb.KoyebFunctions;\nimport com.pulumi.koyeb.inputs.GetServiceArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var my-service = KoyebFunctions.getService(GetServiceArgs.builder()\n            .slug(\"my-app/my-service\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  my-service:\n    fn::invoke:\n      Function: koyeb:getService\n      Arguments:\n        slug: my-app/my-service\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
             "inputs": {
                 "description": "A collection of arguments for invoking getService.\n",
                 "properties": {
@@ -2268,67 +1743,66 @@
                 "description": "A collection of values returned by getService.\n",
                 "properties": {
                     "activeDeployment": {
-                        "type": "string",
-                        "description": "The service active deployment id\n"
+                        "description": "The service active deployment id\n",
+                        "type": "string"
                     },
                     "appId": {
-                        "type": "string",
-                        "description": "The app id the service is assigned\n"
+                        "description": "The app id the service is assigned\n",
+                        "type": "string"
                     },
                     "createdAt": {
-                        "type": "string",
-                        "description": "The date and time of when the service was created\n"
+                        "description": "The date and time of when the service was created\n",
+                        "type": "string"
                     },
                     "id": {
-                        "type": "string",
-                        "description": "The id of the service\n"
+                        "description": "The id of the service\n",
+                        "type": "string"
                     },
                     "latestDeployment": {
-                        "type": "string",
-                        "description": "The service latest deployment id\n"
+                        "description": "The service latest deployment id\n",
+                        "type": "string"
                     },
                     "messages": {
-                        "type": "string",
-                        "description": "The status messages of the service\n"
+                        "description": "The status messages of the service\n",
+                        "type": "string"
                     },
                     "name": {
-                        "type": "string",
-                        "description": "The name of the service\n"
+                        "description": "The name of the service\n",
+                        "type": "string"
                     },
                     "organizationId": {
-                        "type": "string",
-                        "description": "The organization id owning the service\n"
+                        "description": "The organization id owning the service\n",
+                        "type": "string"
                     },
                     "pausedAt": {
-                        "type": "string",
-                        "description": "The date and time of when the service was last updated\n"
+                        "description": "The date and time of when the service was last updated\n",
+                        "type": "string"
                     },
                     "resumedAt": {
-                        "type": "string",
-                        "description": "The date and time of when the service was last updated\n"
+                        "description": "The date and time of when the service was last updated\n",
+                        "type": "string"
                     },
                     "slug": {
-                        "type": "string",
-                        "description": "The service slug composed of the app and service name, for instance my-app/my-service\n"
+                        "description": "The service slug composed of the app and service name, for instance my-app/my-service\n",
+                        "type": "string"
                     },
                     "status": {
-                        "type": "string",
-                        "description": "The status of the service\n"
+                        "description": "The status of the service\n",
+                        "type": "string"
                     },
                     "terminatedAt": {
-                        "type": "string",
-                        "description": "The date and time of when the service was last updated\n"
+                        "description": "The date and time of when the service was last updated\n",
+                        "type": "string"
                     },
                     "updatedAt": {
-                        "type": "string",
-                        "description": "The date and time of when the service was last updated\n"
+                        "description": "The date and time of when the service was last updated\n",
+                        "type": "string"
                     },
                     "version": {
-                        "type": "string",
-                        "description": "The version of the service\n"
+                        "description": "The version of the service\n",
+                        "type": "string"
                     }
                 },
-                "type": "object",
                 "required": [
                     "activeDeployment",
                     "appId",
@@ -2345,7 +1819,8 @@
                     "terminatedAt",
                     "updatedAt",
                     "version"
-                ]
+                ],
+                "type": "object"
             }
         }
     }

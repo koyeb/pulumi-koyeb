@@ -12,11 +12,17 @@ namespace Pulumi.Koyeb.Inputs
 
     public sealed class GetSecretDigitalOceanContainerRegistryArgs : global::Pulumi.InvokeArgs
     {
+        [Input("password", required: true)]
+        private string? _password;
+
         /// <summary>
         /// The registry password
         /// </summary>
-        [Input("password", required: true)]
-        public string Password { get; set; } = null!;
+        public string? Password
+        {
+            get => _password;
+            set => _password = value;
+        }
 
         /// <summary>
         /// The registry username

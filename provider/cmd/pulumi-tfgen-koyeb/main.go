@@ -15,9 +15,10 @@
 package main
 
 import (
+	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfgen"
+
 	koyeb "github.com/koyeb/pulumi-koyeb/provider"
 	"github.com/koyeb/pulumi-koyeb/provider/pkg/version"
-	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfgen"
 )
 
 func main() {

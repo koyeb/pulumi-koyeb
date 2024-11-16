@@ -12,12 +12,11 @@ namespace Pulumi.Koyeb
     public static class GetApp
     {
         /// <summary>
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
+        /// using System.Linq;
         /// using Pulumi;
         /// using Koyeb = Pulumi.Koyeb;
         /// 
@@ -30,19 +29,16 @@ namespace Pulumi.Koyeb
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetAppResult> InvokeAsync(GetAppArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAppResult>("koyeb:index/getApp:getApp", args ?? new GetAppArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAppResult>("koyeb:index/getApp:getApp", args ?? new GetAppArgs(), options.WithDefaults());
 
         /// <summary>
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
+        /// using System.Linq;
         /// using Pulumi;
         /// using Koyeb = Pulumi.Koyeb;
         /// 
@@ -55,11 +51,9 @@ namespace Pulumi.Koyeb
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetAppResult> Invoke(GetAppInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAppResult>("koyeb:index/getApp:getApp", args ?? new GetAppInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAppResult>("koyeb:index/getApp:getApp", args ?? new GetAppInvokeArgs(), options.WithDefaults());
     }
 
 

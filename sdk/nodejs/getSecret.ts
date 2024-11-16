@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -12,17 +13,13 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as koyeb from "@pulumi/koyeb";
  *
- * const my_secret = pulumi.output(koyeb.getSecret({
+ * const my-secret = koyeb.getSecret({
  *     name: "my-secret",
- * }));
+ * });
  * ```
  */
 export function getSecret(args: GetSecretArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretResult> {
-    if (!opts) {
-        opts = {}
-    }
-
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("koyeb:index/getSecret:getSecret", {
         "azureContainerRegistry": args.azureContainerRegistry,
         "digitalOceanContainerRegistry": args.digitalOceanContainerRegistry,
@@ -135,9 +132,31 @@ export interface GetSecretResult {
      */
     readonly value?: string;
 }
-
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as koyeb from "@pulumi/koyeb";
+ *
+ * const my-secret = koyeb.getSecret({
+ *     name: "my-secret",
+ * });
+ * ```
+ */
 export function getSecretOutput(args: GetSecretOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecretResult> {
-    return pulumi.output(args).apply(a => getSecret(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("koyeb:index/getSecret:getSecret", {
+        "azureContainerRegistry": args.azureContainerRegistry,
+        "digitalOceanContainerRegistry": args.digitalOceanContainerRegistry,
+        "dockerHubRegistry": args.dockerHubRegistry,
+        "githubRegistry": args.githubRegistry,
+        "gitlabRegistry": args.gitlabRegistry,
+        "name": args.name,
+        "privateRegistry": args.privateRegistry,
+        "type": args.type,
+        "value": args.value,
+    }, opts);
 }
 
 /**

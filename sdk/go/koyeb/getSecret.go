@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/koyeb/pulumi-koyeb/sdk/go/koyeb/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -17,14 +18,14 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-koyeb/sdk/go/koyeb"
+//	"github.com/koyeb/pulumi-koyeb/sdk/go/koyeb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := koyeb.GetSecret(ctx, &GetSecretArgs{
+//			_, err := koyeb.LookupSecret(ctx, &koyeb.LookupSecretArgs{
 //				Name: "my-secret",
 //			}, nil)
 //			if err != nil {
@@ -35,9 +36,9 @@ import (
 //	}
 //
 // ```
-func GetSecret(ctx *pulumi.Context, args *GetSecretArgs, opts ...pulumi.InvokeOption) (*GetSecretResult, error) {
-	opts = pkgInvokeDefaultOpts(opts)
-	var rv GetSecretResult
+func LookupSecret(ctx *pulumi.Context, args *LookupSecretArgs, opts ...pulumi.InvokeOption) (*LookupSecretResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
+	var rv LookupSecretResult
 	err := ctx.Invoke("koyeb:index/getSecret:getSecret", args, &rv, opts...)
 	if err != nil {
 		return nil, err
@@ -46,7 +47,7 @@ func GetSecret(ctx *pulumi.Context, args *GetSecretArgs, opts ...pulumi.InvokeOp
 }
 
 // A collection of arguments for invoking getSecret.
-type GetSecretArgs struct {
+type LookupSecretArgs struct {
 	// The Azure registry configuration to use
 	AzureContainerRegistry *GetSecretAzureContainerRegistry `pulumi:"azureContainerRegistry"`
 	// The DigitalOcean registry configuration to use
@@ -68,7 +69,7 @@ type GetSecretArgs struct {
 }
 
 // A collection of values returned by getSecret.
-type GetSecretResult struct {
+type LookupSecretResult struct {
 	// The Azure registry configuration to use
 	AzureContainerRegistry *GetSecretAzureContainerRegistry `pulumi:"azureContainerRegistry"`
 	// The date and time of when the secret was created
@@ -97,21 +98,27 @@ type GetSecretResult struct {
 	Value *string `pulumi:"value"`
 }
 
-func GetSecretOutput(ctx *pulumi.Context, args GetSecretOutputArgs, opts ...pulumi.InvokeOption) GetSecretResultOutput {
+func LookupSecretOutput(ctx *pulumi.Context, args LookupSecretOutputArgs, opts ...pulumi.InvokeOption) LookupSecretResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetSecretResult, error) {
-			args := v.(GetSecretArgs)
-			r, err := GetSecret(ctx, &args, opts...)
-			var s GetSecretResult
-			if r != nil {
-				s = *r
+		ApplyT(func(v interface{}) (LookupSecretResultOutput, error) {
+			args := v.(LookupSecretArgs)
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupSecretResult
+			secret, err := ctx.InvokePackageRaw("koyeb:index/getSecret:getSecret", args, &rv, "", opts...)
+			if err != nil {
+				return LookupSecretResultOutput{}, err
 			}
-			return s, err
-		}).(GetSecretResultOutput)
+
+			output := pulumi.ToOutput(rv).(LookupSecretResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupSecretResultOutput), nil
+			}
+			return output, nil
+		}).(LookupSecretResultOutput)
 }
 
 // A collection of arguments for invoking getSecret.
-type GetSecretOutputArgs struct {
+type LookupSecretOutputArgs struct {
 	// The Azure registry configuration to use
 	AzureContainerRegistry GetSecretAzureContainerRegistryPtrInput `pulumi:"azureContainerRegistry"`
 	// The DigitalOcean registry configuration to use
@@ -132,92 +139,92 @@ type GetSecretOutputArgs struct {
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
-func (GetSecretOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetSecretArgs)(nil)).Elem()
+func (LookupSecretOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSecretArgs)(nil)).Elem()
 }
 
 // A collection of values returned by getSecret.
-type GetSecretResultOutput struct{ *pulumi.OutputState }
+type LookupSecretResultOutput struct{ *pulumi.OutputState }
 
-func (GetSecretResultOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetSecretResult)(nil)).Elem()
+func (LookupSecretResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSecretResult)(nil)).Elem()
 }
 
-func (o GetSecretResultOutput) ToGetSecretResultOutput() GetSecretResultOutput {
+func (o LookupSecretResultOutput) ToLookupSecretResultOutput() LookupSecretResultOutput {
 	return o
 }
 
-func (o GetSecretResultOutput) ToGetSecretResultOutputWithContext(ctx context.Context) GetSecretResultOutput {
+func (o LookupSecretResultOutput) ToLookupSecretResultOutputWithContext(ctx context.Context) LookupSecretResultOutput {
 	return o
 }
 
 // The Azure registry configuration to use
-func (o GetSecretResultOutput) AzureContainerRegistry() GetSecretAzureContainerRegistryPtrOutput {
-	return o.ApplyT(func(v GetSecretResult) *GetSecretAzureContainerRegistry { return v.AzureContainerRegistry }).(GetSecretAzureContainerRegistryPtrOutput)
+func (o LookupSecretResultOutput) AzureContainerRegistry() GetSecretAzureContainerRegistryPtrOutput {
+	return o.ApplyT(func(v LookupSecretResult) *GetSecretAzureContainerRegistry { return v.AzureContainerRegistry }).(GetSecretAzureContainerRegistryPtrOutput)
 }
 
 // The date and time of when the secret was created
-func (o GetSecretResultOutput) CreatedAt() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSecretResult) string { return v.CreatedAt }).(pulumi.StringOutput)
+func (o LookupSecretResultOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecretResult) string { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
 // The DigitalOcean registry configuration to use
-func (o GetSecretResultOutput) DigitalOceanContainerRegistry() GetSecretDigitalOceanContainerRegistryPtrOutput {
-	return o.ApplyT(func(v GetSecretResult) *GetSecretDigitalOceanContainerRegistry {
+func (o LookupSecretResultOutput) DigitalOceanContainerRegistry() GetSecretDigitalOceanContainerRegistryPtrOutput {
+	return o.ApplyT(func(v LookupSecretResult) *GetSecretDigitalOceanContainerRegistry {
 		return v.DigitalOceanContainerRegistry
 	}).(GetSecretDigitalOceanContainerRegistryPtrOutput)
 }
 
 // The DockerHub registry configuration to use
-func (o GetSecretResultOutput) DockerHubRegistry() GetSecretDockerHubRegistryPtrOutput {
-	return o.ApplyT(func(v GetSecretResult) *GetSecretDockerHubRegistry { return v.DockerHubRegistry }).(GetSecretDockerHubRegistryPtrOutput)
+func (o LookupSecretResultOutput) DockerHubRegistry() GetSecretDockerHubRegistryPtrOutput {
+	return o.ApplyT(func(v LookupSecretResult) *GetSecretDockerHubRegistry { return v.DockerHubRegistry }).(GetSecretDockerHubRegistryPtrOutput)
 }
 
 // The GitHub registry configuration to use
-func (o GetSecretResultOutput) GithubRegistry() GetSecretGithubRegistryPtrOutput {
-	return o.ApplyT(func(v GetSecretResult) *GetSecretGithubRegistry { return v.GithubRegistry }).(GetSecretGithubRegistryPtrOutput)
+func (o LookupSecretResultOutput) GithubRegistry() GetSecretGithubRegistryPtrOutput {
+	return o.ApplyT(func(v LookupSecretResult) *GetSecretGithubRegistry { return v.GithubRegistry }).(GetSecretGithubRegistryPtrOutput)
 }
 
 // The GitLab registry configuration to use
-func (o GetSecretResultOutput) GitlabRegistry() GetSecretGitlabRegistryPtrOutput {
-	return o.ApplyT(func(v GetSecretResult) *GetSecretGitlabRegistry { return v.GitlabRegistry }).(GetSecretGitlabRegistryPtrOutput)
+func (o LookupSecretResultOutput) GitlabRegistry() GetSecretGitlabRegistryPtrOutput {
+	return o.ApplyT(func(v LookupSecretResult) *GetSecretGitlabRegistry { return v.GitlabRegistry }).(GetSecretGitlabRegistryPtrOutput)
 }
 
 // The secret ID
-func (o GetSecretResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSecretResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupSecretResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecretResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // The secret name
-func (o GetSecretResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSecretResult) string { return v.Name }).(pulumi.StringOutput)
+func (o LookupSecretResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecretResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The organization ID owning the secret
-func (o GetSecretResultOutput) OrganizationId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSecretResult) string { return v.OrganizationId }).(pulumi.StringOutput)
+func (o LookupSecretResultOutput) OrganizationId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecretResult) string { return v.OrganizationId }).(pulumi.StringOutput)
 }
 
 // The DigitalOcean registry configuration to use
-func (o GetSecretResultOutput) PrivateRegistry() GetSecretPrivateRegistryPtrOutput {
-	return o.ApplyT(func(v GetSecretResult) *GetSecretPrivateRegistry { return v.PrivateRegistry }).(GetSecretPrivateRegistryPtrOutput)
+func (o LookupSecretResultOutput) PrivateRegistry() GetSecretPrivateRegistryPtrOutput {
+	return o.ApplyT(func(v LookupSecretResult) *GetSecretPrivateRegistry { return v.PrivateRegistry }).(GetSecretPrivateRegistryPtrOutput)
 }
 
 // The secret type
-func (o GetSecretResultOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetSecretResult) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o LookupSecretResultOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSecretResult) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 // The date and time of when the secret was last updated
-func (o GetSecretResultOutput) UpdatedAt() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSecretResult) string { return v.UpdatedAt }).(pulumi.StringOutput)
+func (o LookupSecretResultOutput) UpdatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecretResult) string { return v.UpdatedAt }).(pulumi.StringOutput)
 }
 
 // The secret value
-func (o GetSecretResultOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetSecretResult) *string { return v.Value }).(pulumi.StringPtrOutput)
+func (o LookupSecretResultOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSecretResult) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
 func init() {
-	pulumi.RegisterOutputType(GetSecretResultOutput{})
+	pulumi.RegisterOutputType(LookupSecretResultOutput{})
 }
