@@ -13,6 +13,6 @@
 # limitations under the License.
 
 import pulumi
-import pulumi_xyz
+import pulumi_koyeb
 
-resource = pulumi_xyz.Resource("Resource", sample_attribute = "attr")
+app = pulumi_koyeb.App("App", name="app")
