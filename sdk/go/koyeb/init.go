@@ -7,6 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
+	"github.com/koyeb/pulumi-koyeb/sdk/go/koyeb/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,14 +21,14 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "koyeb:index/koyebApp:KoyebApp":
-		r = &KoyebApp{}
-	case "koyeb:index/koyebDomain:KoyebDomain":
-		r = &KoyebDomain{}
-	case "koyeb:index/koyebSecret:KoyebSecret":
-		r = &KoyebSecret{}
-	case "koyeb:index/koyebService:KoyebService":
-		r = &KoyebService{}
+	case "koyeb:index/app:App":
+		r = &App{}
+	case "koyeb:index/domain:Domain":
+		r = &Domain{}
+	case "koyeb:index/secret:Secret":
+		r = &Secret{}
+	case "koyeb:index/service:Service":
+		r = &Service{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -55,25 +56,28 @@ func (p *pkg) ConstructProvider(ctx *pulumi.Context, name, typ, urn string) (pul
 }
 
 func init() {
-	version, _ := PkgVersion()
+	version, err := internal.PkgVersion()
+	if err != nil {
+		version = semver.Version{Major: 1}
+	}
 	pulumi.RegisterResourceModule(
 		"koyeb",
-		"index/koyebApp",
+		"index/app",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
 		"koyeb",
-		"index/koyebDomain",
+		"index/domain",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
 		"koyeb",
-		"index/koyebSecret",
+		"index/secret",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
 		"koyeb",
-		"index/koyebService",
+		"index/service",
 		&module{version},
 	)
 	pulumi.RegisterResourcePackage(

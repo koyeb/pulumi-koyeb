@@ -4,38 +4,43 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 
 __all__ = [
-    'KoyebAppDomain',
-    'KoyebSecretAzureContainerRegistry',
-    'KoyebSecretDigitalOceanContainerRegistry',
-    'KoyebSecretDockerHubRegistry',
-    'KoyebSecretGithubRegistry',
-    'KoyebSecretGitlabRegistry',
-    'KoyebSecretPrivateRegistry',
-    'KoyebServiceDefinition',
-    'KoyebServiceDefinitionDocker',
-    'KoyebServiceDefinitionEnv',
-    'KoyebServiceDefinitionGit',
-    'KoyebServiceDefinitionGitBuildpack',
-    'KoyebServiceDefinitionGitDockerfile',
-    'KoyebServiceDefinitionHealthCheck',
-    'KoyebServiceDefinitionHealthCheckHttp',
-    'KoyebServiceDefinitionHealthCheckHttpHeader',
-    'KoyebServiceDefinitionHealthCheckTcp',
-    'KoyebServiceDefinitionInstanceType',
-    'KoyebServiceDefinitionPort',
-    'KoyebServiceDefinitionRoute',
-    'KoyebServiceDefinitionScaling',
-    'KoyebServiceDefinitionScalingTarget',
-    'KoyebServiceDefinitionScalingTargetAverageCpus',
-    'KoyebServiceDefinitionScalingTargetAverageMem',
-    'KoyebServiceDefinitionScalingTargetRequestsPerSecond',
+    'AppDomain',
+    'SecretAzureContainerRegistry',
+    'SecretDigitalOceanContainerRegistry',
+    'SecretDockerHubRegistry',
+    'SecretGithubRegistry',
+    'SecretGitlabRegistry',
+    'SecretPrivateRegistry',
+    'ServiceDefinition',
+    'ServiceDefinitionDocker',
+    'ServiceDefinitionEnv',
+    'ServiceDefinitionGit',
+    'ServiceDefinitionGitBuildpack',
+    'ServiceDefinitionGitDockerfile',
+    'ServiceDefinitionHealthCheck',
+    'ServiceDefinitionHealthCheckHttp',
+    'ServiceDefinitionHealthCheckHttpHeader',
+    'ServiceDefinitionHealthCheckTcp',
+    'ServiceDefinitionInstanceType',
+    'ServiceDefinitionPort',
+    'ServiceDefinitionRoute',
+    'ServiceDefinitionScaling',
+    'ServiceDefinitionScalingTarget',
+    'ServiceDefinitionScalingTargetAverageCpus',
+    'ServiceDefinitionScalingTargetAverageMem',
+    'ServiceDefinitionScalingTargetRequestsPerSecond',
     'GetAppDomainResult',
     'GetSecretAzureContainerRegistryResult',
     'GetSecretDigitalOceanContainerRegistryResult',
@@ -46,7 +51,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class KoyebAppDomain(dict):
+class AppDomain(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -66,14 +71,14 @@ class KoyebAppDomain(dict):
             suggest = "verified_at"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in KoyebAppDomain. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in AppDomain. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        KoyebAppDomain.__key_warning(key)
+        AppDomain.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        KoyebAppDomain.__key_warning(key)
+        AppDomain.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -91,11 +96,19 @@ class KoyebAppDomain(dict):
                  verified_at: Optional[str] = None,
                  version: Optional[str] = None):
         """
-        :param str name: The app name
-        :param str created_at: The date and time of when the app was created
-        :param str id: The app ID
-        :param str organization_id: The organization ID owning the app
-        :param str updated_at: The date and time of when the app was last updated
+        :param str name: The domain name
+        :param str app_name: The app name the domain is assigned to
+        :param str created_at: The date and time of when the domain was created
+        :param str deployment_group: The deployment group assigned to the domain
+        :param str id: The domain ID
+        :param str intended_cname: The CNAME record to point the domain to
+        :param str messages: The status messages of the domain
+        :param str organization_id: The organization ID owning the domain
+        :param str status: The status of the domain
+        :param str type: The domain type
+        :param str updated_at: The date and time of when the domain was last updated
+        :param str verified_at: The date and time of when the domain was last verified
+        :param str version: The version of the domain
         """
         pulumi.set(__self__, "name", name)
         if app_name is not None:
@@ -127,85 +140,109 @@ class KoyebAppDomain(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The app name
+        The domain name
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="appName")
     def app_name(self) -> Optional[str]:
+        """
+        The app name the domain is assigned to
+        """
         return pulumi.get(self, "app_name")
 
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[str]:
         """
-        The date and time of when the app was created
+        The date and time of when the domain was created
         """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter(name="deploymentGroup")
     def deployment_group(self) -> Optional[str]:
+        """
+        The deployment group assigned to the domain
+        """
         return pulumi.get(self, "deployment_group")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
         """
-        The app ID
+        The domain ID
         """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="intendedCname")
     def intended_cname(self) -> Optional[str]:
+        """
+        The CNAME record to point the domain to
+        """
         return pulumi.get(self, "intended_cname")
 
     @property
     @pulumi.getter
     def messages(self) -> Optional[str]:
+        """
+        The status messages of the domain
+        """
         return pulumi.get(self, "messages")
 
     @property
     @pulumi.getter(name="organizationId")
     def organization_id(self) -> Optional[str]:
         """
-        The organization ID owning the app
+        The organization ID owning the domain
         """
         return pulumi.get(self, "organization_id")
 
     @property
     @pulumi.getter
     def status(self) -> Optional[str]:
+        """
+        The status of the domain
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
     def type(self) -> Optional[str]:
+        """
+        The domain type
+        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> Optional[str]:
         """
-        The date and time of when the app was last updated
+        The date and time of when the domain was last updated
         """
         return pulumi.get(self, "updated_at")
 
     @property
     @pulumi.getter(name="verifiedAt")
     def verified_at(self) -> Optional[str]:
+        """
+        The date and time of when the domain was last verified
+        """
         return pulumi.get(self, "verified_at")
 
     @property
     @pulumi.getter
     def version(self) -> Optional[str]:
+        """
+        The version of the domain
+        """
         return pulumi.get(self, "version")
 
 
 @pulumi.output_type
-class KoyebSecretAzureContainerRegistry(dict):
+class SecretAzureContainerRegistry(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -213,14 +250,14 @@ class KoyebSecretAzureContainerRegistry(dict):
             suggest = "registry_name"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in KoyebSecretAzureContainerRegistry. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in SecretAzureContainerRegistry. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        KoyebSecretAzureContainerRegistry.__key_warning(key)
+        SecretAzureContainerRegistry.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        KoyebSecretAzureContainerRegistry.__key_warning(key)
+        SecretAzureContainerRegistry.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -262,7 +299,7 @@ class KoyebSecretAzureContainerRegistry(dict):
 
 
 @pulumi.output_type
-class KoyebSecretDigitalOceanContainerRegistry(dict):
+class SecretDigitalOceanContainerRegistry(dict):
     def __init__(__self__, *,
                  password: str,
                  username: str):
@@ -291,7 +328,7 @@ class KoyebSecretDigitalOceanContainerRegistry(dict):
 
 
 @pulumi.output_type
-class KoyebSecretDockerHubRegistry(dict):
+class SecretDockerHubRegistry(dict):
     def __init__(__self__, *,
                  password: str,
                  username: str):
@@ -320,7 +357,7 @@ class KoyebSecretDockerHubRegistry(dict):
 
 
 @pulumi.output_type
-class KoyebSecretGithubRegistry(dict):
+class SecretGithubRegistry(dict):
     def __init__(__self__, *,
                  password: str,
                  username: str):
@@ -349,7 +386,7 @@ class KoyebSecretGithubRegistry(dict):
 
 
 @pulumi.output_type
-class KoyebSecretGitlabRegistry(dict):
+class SecretGitlabRegistry(dict):
     def __init__(__self__, *,
                  password: str,
                  username: str):
@@ -378,7 +415,7 @@ class KoyebSecretGitlabRegistry(dict):
 
 
 @pulumi.output_type
-class KoyebSecretPrivateRegistry(dict):
+class SecretPrivateRegistry(dict):
     def __init__(__self__, *,
                  password: str,
                  url: str,
@@ -418,7 +455,7 @@ class KoyebSecretPrivateRegistry(dict):
 
 
 @pulumi.output_type
-class KoyebServiceDefinition(dict):
+class ServiceDefinition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -430,27 +467,27 @@ class KoyebServiceDefinition(dict):
             suggest = "skip_cache"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in KoyebServiceDefinition. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ServiceDefinition. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        KoyebServiceDefinition.__key_warning(key)
+        ServiceDefinition.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        KoyebServiceDefinition.__key_warning(key)
+        ServiceDefinition.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 instance_types: Sequence['outputs.KoyebServiceDefinitionInstanceType'],
+                 instance_types: Sequence['outputs.ServiceDefinitionInstanceType'],
                  name: str,
-                 ports: Sequence['outputs.KoyebServiceDefinitionPort'],
+                 ports: Sequence['outputs.ServiceDefinitionPort'],
                  regions: Sequence[str],
-                 scalings: Sequence['outputs.KoyebServiceDefinitionScaling'],
-                 docker: Optional['outputs.KoyebServiceDefinitionDocker'] = None,
-                 envs: Optional[Sequence['outputs.KoyebServiceDefinitionEnv']] = None,
-                 git: Optional['outputs.KoyebServiceDefinitionGit'] = None,
-                 health_checks: Optional[Sequence['outputs.KoyebServiceDefinitionHealthCheck']] = None,
-                 routes: Optional[Sequence['outputs.KoyebServiceDefinitionRoute']] = None,
+                 scalings: Sequence['outputs.ServiceDefinitionScaling'],
+                 docker: Optional['outputs.ServiceDefinitionDocker'] = None,
+                 envs: Optional[Sequence['outputs.ServiceDefinitionEnv']] = None,
+                 git: Optional['outputs.ServiceDefinitionGit'] = None,
+                 health_checks: Optional[Sequence['outputs.ServiceDefinitionHealthCheck']] = None,
+                 routes: Optional[Sequence['outputs.ServiceDefinitionRoute']] = None,
                  skip_cache: Optional[bool] = None,
                  type: Optional[str] = None):
         """
@@ -481,7 +518,7 @@ class KoyebServiceDefinition(dict):
 
     @property
     @pulumi.getter(name="instanceTypes")
-    def instance_types(self) -> Sequence['outputs.KoyebServiceDefinitionInstanceType']:
+    def instance_types(self) -> Sequence['outputs.ServiceDefinitionInstanceType']:
         return pulumi.get(self, "instance_types")
 
     @property
@@ -494,7 +531,7 @@ class KoyebServiceDefinition(dict):
 
     @property
     @pulumi.getter
-    def ports(self) -> Sequence['outputs.KoyebServiceDefinitionPort']:
+    def ports(self) -> Sequence['outputs.ServiceDefinitionPort']:
         return pulumi.get(self, "ports")
 
     @property
@@ -507,32 +544,32 @@ class KoyebServiceDefinition(dict):
 
     @property
     @pulumi.getter
-    def scalings(self) -> Sequence['outputs.KoyebServiceDefinitionScaling']:
+    def scalings(self) -> Sequence['outputs.ServiceDefinitionScaling']:
         return pulumi.get(self, "scalings")
 
     @property
     @pulumi.getter
-    def docker(self) -> Optional['outputs.KoyebServiceDefinitionDocker']:
+    def docker(self) -> Optional['outputs.ServiceDefinitionDocker']:
         return pulumi.get(self, "docker")
 
     @property
     @pulumi.getter
-    def envs(self) -> Optional[Sequence['outputs.KoyebServiceDefinitionEnv']]:
+    def envs(self) -> Optional[Sequence['outputs.ServiceDefinitionEnv']]:
         return pulumi.get(self, "envs")
 
     @property
     @pulumi.getter
-    def git(self) -> Optional['outputs.KoyebServiceDefinitionGit']:
+    def git(self) -> Optional['outputs.ServiceDefinitionGit']:
         return pulumi.get(self, "git")
 
     @property
     @pulumi.getter(name="healthChecks")
-    def health_checks(self) -> Optional[Sequence['outputs.KoyebServiceDefinitionHealthCheck']]:
+    def health_checks(self) -> Optional[Sequence['outputs.ServiceDefinitionHealthCheck']]:
         return pulumi.get(self, "health_checks")
 
     @property
     @pulumi.getter
-    def routes(self) -> Optional[Sequence['outputs.KoyebServiceDefinitionRoute']]:
+    def routes(self) -> Optional[Sequence['outputs.ServiceDefinitionRoute']]:
         return pulumi.get(self, "routes")
 
     @property
@@ -553,7 +590,7 @@ class KoyebServiceDefinition(dict):
 
 
 @pulumi.output_type
-class KoyebServiceDefinitionDocker(dict):
+class ServiceDefinitionDocker(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -561,14 +598,14 @@ class KoyebServiceDefinitionDocker(dict):
             suggest = "image_registry_secret"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in KoyebServiceDefinitionDocker. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ServiceDefinitionDocker. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        KoyebServiceDefinitionDocker.__key_warning(key)
+        ServiceDefinitionDocker.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        KoyebServiceDefinitionDocker.__key_warning(key)
+        ServiceDefinitionDocker.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -578,6 +615,14 @@ class KoyebServiceDefinitionDocker(dict):
                  entrypoints: Optional[Sequence[str]] = None,
                  image_registry_secret: Optional[str] = None,
                  privileged: Optional[bool] = None):
+        """
+        :param str image: The Docker image to use to support your service
+        :param Sequence[str] args: The Docker args to use
+        :param str command: The Docker command to use
+        :param Sequence[str] entrypoints: The Docker entrypoint to use
+        :param str image_registry_secret: The Koyeb secret containing the container registry credentials
+        :param bool privileged: When enabled, the service container will run in privileged mode. This advanced feature is useful to get advanced system privileges.
+        """
         pulumi.set(__self__, "image", image)
         if args is not None:
             pulumi.set(__self__, "args", args)
@@ -593,41 +638,65 @@ class KoyebServiceDefinitionDocker(dict):
     @property
     @pulumi.getter
     def image(self) -> str:
+        """
+        The Docker image to use to support your service
+        """
         return pulumi.get(self, "image")
 
     @property
     @pulumi.getter
     def args(self) -> Optional[Sequence[str]]:
+        """
+        The Docker args to use
+        """
         return pulumi.get(self, "args")
 
     @property
     @pulumi.getter
     def command(self) -> Optional[str]:
+        """
+        The Docker command to use
+        """
         return pulumi.get(self, "command")
 
     @property
     @pulumi.getter
     def entrypoints(self) -> Optional[Sequence[str]]:
+        """
+        The Docker entrypoint to use
+        """
         return pulumi.get(self, "entrypoints")
 
     @property
     @pulumi.getter(name="imageRegistrySecret")
     def image_registry_secret(self) -> Optional[str]:
+        """
+        The Koyeb secret containing the container registry credentials
+        """
         return pulumi.get(self, "image_registry_secret")
 
     @property
     @pulumi.getter
     def privileged(self) -> Optional[bool]:
+        """
+        When enabled, the service container will run in privileged mode. This advanced feature is useful to get advanced system privileges.
+        """
         return pulumi.get(self, "privileged")
 
 
 @pulumi.output_type
-class KoyebServiceDefinitionEnv(dict):
+class ServiceDefinitionEnv(dict):
     def __init__(__self__, *,
                  key: str,
                  scopes: Optional[Sequence[str]] = None,
                  secret: Optional[str] = None,
                  value: Optional[str] = None):
+        """
+        :param str key: The name of the environment variable
+        :param Sequence[str] scopes: The regions the environment variable needs to be exposed
+        :param str secret: The secret name to use as the value of the environment variable
+        :param str value: The value of the environment variable
+        """
         pulumi.set(__self__, "key", key)
         if scopes is not None:
             pulumi.set(__self__, "scopes", scopes)
@@ -639,26 +708,38 @@ class KoyebServiceDefinitionEnv(dict):
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        The name of the environment variable
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def scopes(self) -> Optional[Sequence[str]]:
+        """
+        The regions the environment variable needs to be exposed
+        """
         return pulumi.get(self, "scopes")
 
     @property
     @pulumi.getter
     def secret(self) -> Optional[str]:
+        """
+        The secret name to use as the value of the environment variable
+        """
         return pulumi.get(self, "secret")
 
     @property
     @pulumi.getter
     def value(self) -> Optional[str]:
+        """
+        The value of the environment variable
+        """
         return pulumi.get(self, "value")
 
 
 @pulumi.output_type
-class KoyebServiceDefinitionGit(dict):
+class ServiceDefinitionGit(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -666,23 +747,29 @@ class KoyebServiceDefinitionGit(dict):
             suggest = "no_deploy_on_push"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in KoyebServiceDefinitionGit. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ServiceDefinitionGit. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        KoyebServiceDefinitionGit.__key_warning(key)
+        ServiceDefinitionGit.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        KoyebServiceDefinitionGit.__key_warning(key)
+        ServiceDefinitionGit.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
                  branch: str,
                  repository: str,
-                 buildpack: Optional['outputs.KoyebServiceDefinitionGitBuildpack'] = None,
-                 dockerfile: Optional['outputs.KoyebServiceDefinitionGitDockerfile'] = None,
+                 buildpack: Optional['outputs.ServiceDefinitionGitBuildpack'] = None,
+                 dockerfile: Optional['outputs.ServiceDefinitionGitDockerfile'] = None,
                  no_deploy_on_push: Optional[bool] = None,
                  workdir: Optional[str] = None):
+        """
+        :param str branch: The GitHub branch to deploy
+        :param str repository: The GitHub repository to deploy
+        :param bool no_deploy_on_push: If set to true, no Koyeb deployments will be triggered when changes are pushed to the GitHub repository branch
+        :param str workdir: The directory where your source code is located. If not set, the work directory defaults to the root of the repository.
+        """
         pulumi.set(__self__, "branch", branch)
         pulumi.set(__self__, "repository", repository)
         if buildpack is not None:
@@ -697,36 +784,48 @@ class KoyebServiceDefinitionGit(dict):
     @property
     @pulumi.getter
     def branch(self) -> str:
+        """
+        The GitHub branch to deploy
+        """
         return pulumi.get(self, "branch")
 
     @property
     @pulumi.getter
     def repository(self) -> str:
+        """
+        The GitHub repository to deploy
+        """
         return pulumi.get(self, "repository")
 
     @property
     @pulumi.getter
-    def buildpack(self) -> Optional['outputs.KoyebServiceDefinitionGitBuildpack']:
+    def buildpack(self) -> Optional['outputs.ServiceDefinitionGitBuildpack']:
         return pulumi.get(self, "buildpack")
 
     @property
     @pulumi.getter
-    def dockerfile(self) -> Optional['outputs.KoyebServiceDefinitionGitDockerfile']:
+    def dockerfile(self) -> Optional['outputs.ServiceDefinitionGitDockerfile']:
         return pulumi.get(self, "dockerfile")
 
     @property
     @pulumi.getter(name="noDeployOnPush")
     def no_deploy_on_push(self) -> Optional[bool]:
+        """
+        If set to true, no Koyeb deployments will be triggered when changes are pushed to the GitHub repository branch
+        """
         return pulumi.get(self, "no_deploy_on_push")
 
     @property
     @pulumi.getter
     def workdir(self) -> Optional[str]:
+        """
+        The directory where your source code is located. If not set, the work directory defaults to the root of the repository.
+        """
         return pulumi.get(self, "workdir")
 
 
 @pulumi.output_type
-class KoyebServiceDefinitionGitBuildpack(dict):
+class ServiceDefinitionGitBuildpack(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -736,20 +835,25 @@ class KoyebServiceDefinitionGitBuildpack(dict):
             suggest = "run_command"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in KoyebServiceDefinitionGitBuildpack. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ServiceDefinitionGitBuildpack. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        KoyebServiceDefinitionGitBuildpack.__key_warning(key)
+        ServiceDefinitionGitBuildpack.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        KoyebServiceDefinitionGitBuildpack.__key_warning(key)
+        ServiceDefinitionGitBuildpack.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
                  build_command: Optional[str] = None,
                  privileged: Optional[bool] = None,
                  run_command: Optional[str] = None):
+        """
+        :param str build_command: The command to build your application during the build phase. If your application does not require a build command, leave this field empty
+        :param bool privileged: When enabled, the service container will run in privileged mode. This advanced feature is useful to get advanced system privileges.
+        :param str run_command: The command to run your application once the built is completed
+        """
         if build_command is not None:
             pulumi.set(__self__, "build_command", build_command)
         if privileged is not None:
@@ -760,21 +864,30 @@ class KoyebServiceDefinitionGitBuildpack(dict):
     @property
     @pulumi.getter(name="buildCommand")
     def build_command(self) -> Optional[str]:
+        """
+        The command to build your application during the build phase. If your application does not require a build command, leave this field empty
+        """
         return pulumi.get(self, "build_command")
 
     @property
     @pulumi.getter
     def privileged(self) -> Optional[bool]:
+        """
+        When enabled, the service container will run in privileged mode. This advanced feature is useful to get advanced system privileges.
+        """
         return pulumi.get(self, "privileged")
 
     @property
     @pulumi.getter(name="runCommand")
     def run_command(self) -> Optional[str]:
+        """
+        The command to run your application once the built is completed
+        """
         return pulumi.get(self, "run_command")
 
 
 @pulumi.output_type
-class KoyebServiceDefinitionGitDockerfile(dict):
+class ServiceDefinitionGitDockerfile(dict):
     def __init__(__self__, *,
                  args: Optional[Sequence[str]] = None,
                  command: Optional[str] = None,
@@ -782,6 +895,14 @@ class KoyebServiceDefinitionGitDockerfile(dict):
                  entrypoints: Optional[Sequence[str]] = None,
                  privileged: Optional[bool] = None,
                  target: Optional[str] = None):
+        """
+        :param Sequence[str] args: The arguments to pass to the Docker command
+        :param str command: Override the command to execute on the container
+        :param str dockerfile: The location of your Dockerfile relative to the work directory. If not set, the work directory defaults to the root of the repository.
+        :param Sequence[str] entrypoints: Override the default entrypoint to execute on the container
+        :param bool privileged: When enabled, the service container will run in privileged mode. This advanced feature is useful to get advanced system privileges.
+        :param str target: Target build stage: If your Dockerfile contains multi-stage builds, you can choose the target stage to build and deploy by entering its name
+        """
         if args is not None:
             pulumi.set(__self__, "args", args)
         if command is not None:
@@ -798,36 +919,54 @@ class KoyebServiceDefinitionGitDockerfile(dict):
     @property
     @pulumi.getter
     def args(self) -> Optional[Sequence[str]]:
+        """
+        The arguments to pass to the Docker command
+        """
         return pulumi.get(self, "args")
 
     @property
     @pulumi.getter
     def command(self) -> Optional[str]:
+        """
+        Override the command to execute on the container
+        """
         return pulumi.get(self, "command")
 
     @property
     @pulumi.getter
     def dockerfile(self) -> Optional[str]:
+        """
+        The location of your Dockerfile relative to the work directory. If not set, the work directory defaults to the root of the repository.
+        """
         return pulumi.get(self, "dockerfile")
 
     @property
     @pulumi.getter
     def entrypoints(self) -> Optional[Sequence[str]]:
+        """
+        Override the default entrypoint to execute on the container
+        """
         return pulumi.get(self, "entrypoints")
 
     @property
     @pulumi.getter
     def privileged(self) -> Optional[bool]:
+        """
+        When enabled, the service container will run in privileged mode. This advanced feature is useful to get advanced system privileges.
+        """
         return pulumi.get(self, "privileged")
 
     @property
     @pulumi.getter
     def target(self) -> Optional[str]:
+        """
+        Target build stage: If your Dockerfile contains multi-stage builds, you can choose the target stage to build and deploy by entering its name
+        """
         return pulumi.get(self, "target")
 
 
 @pulumi.output_type
-class KoyebServiceDefinitionHealthCheck(dict):
+class ServiceDefinitionHealthCheck(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -837,23 +976,29 @@ class KoyebServiceDefinitionHealthCheck(dict):
             suggest = "restart_limit"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in KoyebServiceDefinitionHealthCheck. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ServiceDefinitionHealthCheck. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        KoyebServiceDefinitionHealthCheck.__key_warning(key)
+        ServiceDefinitionHealthCheck.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        KoyebServiceDefinitionHealthCheck.__key_warning(key)
+        ServiceDefinitionHealthCheck.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
                  grace_period: Optional[int] = None,
-                 http: Optional['outputs.KoyebServiceDefinitionHealthCheckHttp'] = None,
+                 http: Optional['outputs.ServiceDefinitionHealthCheckHttp'] = None,
                  interval: Optional[int] = None,
                  restart_limit: Optional[int] = None,
-                 tcp: Optional['outputs.KoyebServiceDefinitionHealthCheckTcp'] = None,
+                 tcp: Optional['outputs.ServiceDefinitionHealthCheckTcp'] = None,
                  timeout: Optional[int] = None):
+        """
+        :param int grace_period: The period in seconds to wait for the instance to become healthy, default is 5s
+        :param int interval: The period in seconds between two health checks, default is 60s
+        :param int restart_limit: The number of consecutive failures before attempting to restart the service, default is 3
+        :param int timeout: The maximum time to wait in seconds before considering the check as a failure, default is 5s
+        """
         if grace_period is not None:
             pulumi.set(__self__, "grace_period", grace_period)
         if http is not None:
@@ -870,41 +1015,58 @@ class KoyebServiceDefinitionHealthCheck(dict):
     @property
     @pulumi.getter(name="gracePeriod")
     def grace_period(self) -> Optional[int]:
+        """
+        The period in seconds to wait for the instance to become healthy, default is 5s
+        """
         return pulumi.get(self, "grace_period")
 
     @property
     @pulumi.getter
-    def http(self) -> Optional['outputs.KoyebServiceDefinitionHealthCheckHttp']:
+    def http(self) -> Optional['outputs.ServiceDefinitionHealthCheckHttp']:
         return pulumi.get(self, "http")
 
     @property
     @pulumi.getter
     def interval(self) -> Optional[int]:
+        """
+        The period in seconds between two health checks, default is 60s
+        """
         return pulumi.get(self, "interval")
 
     @property
     @pulumi.getter(name="restartLimit")
     def restart_limit(self) -> Optional[int]:
+        """
+        The number of consecutive failures before attempting to restart the service, default is 3
+        """
         return pulumi.get(self, "restart_limit")
 
     @property
     @pulumi.getter
-    def tcp(self) -> Optional['outputs.KoyebServiceDefinitionHealthCheckTcp']:
+    def tcp(self) -> Optional['outputs.ServiceDefinitionHealthCheckTcp']:
         return pulumi.get(self, "tcp")
 
     @property
     @pulumi.getter
     def timeout(self) -> Optional[int]:
+        """
+        The maximum time to wait in seconds before considering the check as a failure, default is 5s
+        """
         return pulumi.get(self, "timeout")
 
 
 @pulumi.output_type
-class KoyebServiceDefinitionHealthCheckHttp(dict):
+class ServiceDefinitionHealthCheckHttp(dict):
     def __init__(__self__, *,
                  path: str,
                  port: int,
-                 headers: Optional[Sequence['outputs.KoyebServiceDefinitionHealthCheckHttpHeader']] = None,
+                 headers: Optional[Sequence['outputs.ServiceDefinitionHealthCheckHttpHeader']] = None,
                  method: Optional[str] = None):
+        """
+        :param str path: The path to use to perform the HTTP health check
+        :param int port: The port to use to perform the health check
+        :param str method: An optional HTTP method to use to perform the health check, default is GET
+        """
         pulumi.set(__self__, "path", path)
         pulumi.set(__self__, "port", port)
         if headers is not None:
@@ -915,29 +1077,42 @@ class KoyebServiceDefinitionHealthCheckHttp(dict):
     @property
     @pulumi.getter
     def path(self) -> str:
+        """
+        The path to use to perform the HTTP health check
+        """
         return pulumi.get(self, "path")
 
     @property
     @pulumi.getter
     def port(self) -> int:
+        """
+        The port to use to perform the health check
+        """
         return pulumi.get(self, "port")
 
     @property
     @pulumi.getter
-    def headers(self) -> Optional[Sequence['outputs.KoyebServiceDefinitionHealthCheckHttpHeader']]:
+    def headers(self) -> Optional[Sequence['outputs.ServiceDefinitionHealthCheckHttpHeader']]:
         return pulumi.get(self, "headers")
 
     @property
     @pulumi.getter
     def method(self) -> Optional[str]:
+        """
+        An optional HTTP method to use to perform the health check, default is GET
+        """
         return pulumi.get(self, "method")
 
 
 @pulumi.output_type
-class KoyebServiceDefinitionHealthCheckHttpHeader(dict):
+class ServiceDefinitionHealthCheckHttpHeader(dict):
     def __init__(__self__, *,
                  key: str,
                  value: Optional[str] = None):
+        """
+        :param str key: The name of the header
+        :param str value: The value of the header
+        """
         pulumi.set(__self__, "key", key)
         if value is not None:
             pulumi.set(__self__, "value", value)
@@ -945,31 +1120,47 @@ class KoyebServiceDefinitionHealthCheckHttpHeader(dict):
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        The name of the header
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def value(self) -> Optional[str]:
+        """
+        The value of the header
+        """
         return pulumi.get(self, "value")
 
 
 @pulumi.output_type
-class KoyebServiceDefinitionHealthCheckTcp(dict):
+class ServiceDefinitionHealthCheckTcp(dict):
     def __init__(__self__, *,
                  port: int):
+        """
+        :param int port: The port to use to perform the health check
+        """
         pulumi.set(__self__, "port", port)
 
     @property
     @pulumi.getter
     def port(self) -> int:
+        """
+        The port to use to perform the health check
+        """
         return pulumi.get(self, "port")
 
 
 @pulumi.output_type
-class KoyebServiceDefinitionInstanceType(dict):
+class ServiceDefinitionInstanceType(dict):
     def __init__(__self__, *,
                  type: str,
                  scopes: Optional[Sequence[str]] = None):
+        """
+        :param str type: The instance type to use to support your service
+        :param Sequence[str] scopes: The regions to use the instance type
+        """
         pulumi.set(__self__, "type", type)
         if scopes is not None:
             pulumi.set(__self__, "scopes", scopes)
@@ -977,59 +1168,90 @@ class KoyebServiceDefinitionInstanceType(dict):
     @property
     @pulumi.getter
     def type(self) -> str:
+        """
+        The instance type to use to support your service
+        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter
     def scopes(self) -> Optional[Sequence[str]]:
+        """
+        The regions to use the instance type
+        """
         return pulumi.get(self, "scopes")
 
 
 @pulumi.output_type
-class KoyebServiceDefinitionPort(dict):
+class ServiceDefinitionPort(dict):
     def __init__(__self__, *,
                  port: int,
                  protocol: str):
+        """
+        :param int port: The internal port on which this service's run command will listen
+        :param str protocol: The protocol used by your service
+        """
         pulumi.set(__self__, "port", port)
         pulumi.set(__self__, "protocol", protocol)
 
     @property
     @pulumi.getter
     def port(self) -> int:
+        """
+        The internal port on which this service's run command will listen
+        """
         return pulumi.get(self, "port")
 
     @property
     @pulumi.getter
     def protocol(self) -> str:
+        """
+        The protocol used by your service
+        """
         return pulumi.get(self, "protocol")
 
 
 @pulumi.output_type
-class KoyebServiceDefinitionRoute(dict):
+class ServiceDefinitionRoute(dict):
     def __init__(__self__, *,
                  path: str,
                  port: int):
+        """
+        :param str path: Path specifies a route by HTTP path prefix. Paths must start with / and must be unique within the app
+        :param int port: The internal port on which this service's run command will listen
+        """
         pulumi.set(__self__, "path", path)
         pulumi.set(__self__, "port", port)
 
     @property
     @pulumi.getter
     def path(self) -> str:
+        """
+        Path specifies a route by HTTP path prefix. Paths must start with / and must be unique within the app
+        """
         return pulumi.get(self, "path")
 
     @property
     @pulumi.getter
     def port(self) -> int:
+        """
+        The internal port on which this service's run command will listen
+        """
         return pulumi.get(self, "port")
 
 
 @pulumi.output_type
-class KoyebServiceDefinitionScaling(dict):
+class ServiceDefinitionScaling(dict):
     def __init__(__self__, *,
                  max: Optional[int] = None,
                  min: Optional[int] = None,
                  scopes: Optional[Sequence[str]] = None,
-                 targets: Optional[Sequence['outputs.KoyebServiceDefinitionScalingTarget']] = None):
+                 targets: Optional[Sequence['outputs.ServiceDefinitionScalingTarget']] = None):
+        """
+        :param int max: The maximum number of instance to use to support your service
+        :param int min: The minimal number of instances to use to support your service
+        :param Sequence[str] scopes: The regions to apply the scaling configuration
+        """
         if max is not None:
             pulumi.set(__self__, "max", max)
         if min is not None:
@@ -1042,26 +1264,35 @@ class KoyebServiceDefinitionScaling(dict):
     @property
     @pulumi.getter
     def max(self) -> Optional[int]:
+        """
+        The maximum number of instance to use to support your service
+        """
         return pulumi.get(self, "max")
 
     @property
     @pulumi.getter
     def min(self) -> Optional[int]:
+        """
+        The minimal number of instances to use to support your service
+        """
         return pulumi.get(self, "min")
 
     @property
     @pulumi.getter
     def scopes(self) -> Optional[Sequence[str]]:
+        """
+        The regions to apply the scaling configuration
+        """
         return pulumi.get(self, "scopes")
 
     @property
     @pulumi.getter
-    def targets(self) -> Optional[Sequence['outputs.KoyebServiceDefinitionScalingTarget']]:
+    def targets(self) -> Optional[Sequence['outputs.ServiceDefinitionScalingTarget']]:
         return pulumi.get(self, "targets")
 
 
 @pulumi.output_type
-class KoyebServiceDefinitionScalingTarget(dict):
+class ServiceDefinitionScalingTarget(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1073,20 +1304,25 @@ class KoyebServiceDefinitionScalingTarget(dict):
             suggest = "requests_per_seconds"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in KoyebServiceDefinitionScalingTarget. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ServiceDefinitionScalingTarget. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        KoyebServiceDefinitionScalingTarget.__key_warning(key)
+        ServiceDefinitionScalingTarget.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        KoyebServiceDefinitionScalingTarget.__key_warning(key)
+        ServiceDefinitionScalingTarget.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 average_cpus: Optional[Sequence['outputs.KoyebServiceDefinitionScalingTargetAverageCpus']] = None,
-                 average_mems: Optional[Sequence['outputs.KoyebServiceDefinitionScalingTargetAverageMem']] = None,
-                 requests_per_seconds: Optional[Sequence['outputs.KoyebServiceDefinitionScalingTargetRequestsPerSecond']] = None):
+                 average_cpus: Optional[Sequence['outputs.ServiceDefinitionScalingTargetAverageCpus']] = None,
+                 average_mems: Optional[Sequence['outputs.ServiceDefinitionScalingTargetAverageMem']] = None,
+                 requests_per_seconds: Optional[Sequence['outputs.ServiceDefinitionScalingTargetRequestsPerSecond']] = None):
+        """
+        :param Sequence['ServiceDefinitionScalingTargetAverageCpusArgs'] average_cpus: The CPU usage (expressed as a percentage) across all Instances of your Service within a region
+        :param Sequence['ServiceDefinitionScalingTargetAverageMemArgs'] average_mems: The memory usage (expressed as a percentage) across all Instances of your Service within a region
+        :param Sequence['ServiceDefinitionScalingTargetRequestsPerSecondArgs'] requests_per_seconds: The number of concurrent requests per second across all Instances of your Service within a region
+        """
         if average_cpus is not None:
             pulumi.set(__self__, "average_cpus", average_cpus)
         if average_mems is not None:
@@ -1096,53 +1332,80 @@ class KoyebServiceDefinitionScalingTarget(dict):
 
     @property
     @pulumi.getter(name="averageCpus")
-    def average_cpus(self) -> Optional[Sequence['outputs.KoyebServiceDefinitionScalingTargetAverageCpus']]:
+    def average_cpus(self) -> Optional[Sequence['outputs.ServiceDefinitionScalingTargetAverageCpus']]:
+        """
+        The CPU usage (expressed as a percentage) across all Instances of your Service within a region
+        """
         return pulumi.get(self, "average_cpus")
 
     @property
     @pulumi.getter(name="averageMems")
-    def average_mems(self) -> Optional[Sequence['outputs.KoyebServiceDefinitionScalingTargetAverageMem']]:
+    def average_mems(self) -> Optional[Sequence['outputs.ServiceDefinitionScalingTargetAverageMem']]:
+        """
+        The memory usage (expressed as a percentage) across all Instances of your Service within a region
+        """
         return pulumi.get(self, "average_mems")
 
     @property
     @pulumi.getter(name="requestsPerSeconds")
-    def requests_per_seconds(self) -> Optional[Sequence['outputs.KoyebServiceDefinitionScalingTargetRequestsPerSecond']]:
+    def requests_per_seconds(self) -> Optional[Sequence['outputs.ServiceDefinitionScalingTargetRequestsPerSecond']]:
+        """
+        The number of concurrent requests per second across all Instances of your Service within a region
+        """
         return pulumi.get(self, "requests_per_seconds")
 
 
 @pulumi.output_type
-class KoyebServiceDefinitionScalingTargetAverageCpus(dict):
+class ServiceDefinitionScalingTargetAverageCpus(dict):
     def __init__(__self__, *,
                  value: int):
+        """
+        :param int value: The target value of the autoscaling target
+        """
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def value(self) -> int:
+        """
+        The target value of the autoscaling target
+        """
         return pulumi.get(self, "value")
 
 
 @pulumi.output_type
-class KoyebServiceDefinitionScalingTargetAverageMem(dict):
+class ServiceDefinitionScalingTargetAverageMem(dict):
     def __init__(__self__, *,
                  value: int):
+        """
+        :param int value: The target value of the autoscaling target
+        """
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def value(self) -> int:
+        """
+        The target value of the autoscaling target
+        """
         return pulumi.get(self, "value")
 
 
 @pulumi.output_type
-class KoyebServiceDefinitionScalingTargetRequestsPerSecond(dict):
+class ServiceDefinitionScalingTargetRequestsPerSecond(dict):
     def __init__(__self__, *,
                  value: int):
+        """
+        :param int value: The target value of the autoscaling target
+        """
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def value(self) -> int:
+        """
+        The target value of the autoscaling target
+        """
         return pulumi.get(self, "value")
 
 
@@ -1163,11 +1426,19 @@ class GetAppDomainResult(dict):
                  version: str,
                  app_name: Optional[str] = None):
         """
-        :param str created_at: The date and time of when the app was created
-        :param str id: The app ID
-        :param str name: The app name
-        :param str organization_id: The organization ID owning the app
-        :param str updated_at: The date and time of when the app was last updated
+        :param str created_at: The date and time of when the domain was created
+        :param str deployment_group: The deployment group assigned to the domain
+        :param str id: The domain ID
+        :param str intended_cname: The CNAME record to point the domain to
+        :param str messages: The status messages of the domain
+        :param str name: The domain name
+        :param str organization_id: The organization ID owning the domain
+        :param str status: The status of the domain
+        :param str type: The domain type
+        :param str updated_at: The date and time of when the domain was last updated
+        :param str verified_at: The date and time of when the domain was last verified
+        :param str version: The version of the domain
+        :param str app_name: The app name the domain is assigned to
         """
         pulumi.set(__self__, "created_at", created_at)
         pulumi.set(__self__, "deployment_group", deployment_group)
@@ -1188,38 +1459,47 @@ class GetAppDomainResult(dict):
     @pulumi.getter(name="createdAt")
     def created_at(self) -> str:
         """
-        The date and time of when the app was created
+        The date and time of when the domain was created
         """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter(name="deploymentGroup")
     def deployment_group(self) -> str:
+        """
+        The deployment group assigned to the domain
+        """
         return pulumi.get(self, "deployment_group")
 
     @property
     @pulumi.getter
     def id(self) -> str:
         """
-        The app ID
+        The domain ID
         """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="intendedCname")
     def intended_cname(self) -> str:
+        """
+        The CNAME record to point the domain to
+        """
         return pulumi.get(self, "intended_cname")
 
     @property
     @pulumi.getter
     def messages(self) -> str:
+        """
+        The status messages of the domain
+        """
         return pulumi.get(self, "messages")
 
     @property
     @pulumi.getter
     def name(self) -> str:
         """
-        The app name
+        The domain name
         """
         return pulumi.get(self, "name")
 
@@ -1227,41 +1507,56 @@ class GetAppDomainResult(dict):
     @pulumi.getter(name="organizationId")
     def organization_id(self) -> str:
         """
-        The organization ID owning the app
+        The organization ID owning the domain
         """
         return pulumi.get(self, "organization_id")
 
     @property
     @pulumi.getter
     def status(self) -> str:
+        """
+        The status of the domain
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
     def type(self) -> str:
+        """
+        The domain type
+        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> str:
         """
-        The date and time of when the app was last updated
+        The date and time of when the domain was last updated
         """
         return pulumi.get(self, "updated_at")
 
     @property
     @pulumi.getter(name="verifiedAt")
     def verified_at(self) -> str:
+        """
+        The date and time of when the domain was last verified
+        """
         return pulumi.get(self, "verified_at")
 
     @property
     @pulumi.getter
     def version(self) -> str:
+        """
+        The version of the domain
+        """
         return pulumi.get(self, "version")
 
     @property
     @pulumi.getter(name="appName")
     def app_name(self) -> Optional[str]:
+        """
+        The app name the domain is assigned to
+        """
         return pulumi.get(self, "app_name")
 
 

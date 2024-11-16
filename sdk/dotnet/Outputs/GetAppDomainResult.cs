@@ -13,33 +13,57 @@ namespace Pulumi.Koyeb.Outputs
     [OutputType]
     public sealed class GetAppDomainResult
     {
+        /// <summary>
+        /// The app name the domain is assigned to
+        /// </summary>
         public readonly string? AppName;
         /// <summary>
-        /// The date and time of when the app was created
+        /// The date and time of when the domain was created
         /// </summary>
         public readonly string CreatedAt;
+        /// <summary>
+        /// The deployment group assigned to the domain
+        /// </summary>
         public readonly string DeploymentGroup;
         /// <summary>
-        /// The app ID
+        /// The domain ID
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The CNAME record to point the domain to
+        /// </summary>
         public readonly string IntendedCname;
+        /// <summary>
+        /// The status messages of the domain
+        /// </summary>
         public readonly string Messages;
         /// <summary>
-        /// The app name
+        /// The domain name
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The organization ID owning the app
+        /// The organization ID owning the domain
         /// </summary>
         public readonly string OrganizationId;
+        /// <summary>
+        /// The status of the domain
+        /// </summary>
         public readonly string Status;
+        /// <summary>
+        /// The domain type
+        /// </summary>
         public readonly string Type;
         /// <summary>
-        /// The date and time of when the app was last updated
+        /// The date and time of when the domain was last updated
         /// </summary>
         public readonly string UpdatedAt;
+        /// <summary>
+        /// The date and time of when the domain was last verified
+        /// </summary>
         public readonly string VerifiedAt;
+        /// <summary>
+        /// The version of the domain
+        /// </summary>
         public readonly string Version;
 
         [OutputConstructor]

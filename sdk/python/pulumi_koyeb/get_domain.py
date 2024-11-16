@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -224,22 +229,19 @@ def get_domain(app_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('koyeb:index/getDomain:getDomain', __args__, opts=opts, typ=GetDomainResult).value
 
     return AwaitableGetDomainResult(
-        app_name=__ret__.app_name,
-        created_at=__ret__.created_at,
-        deployment_group=__ret__.deployment_group,
-        id=__ret__.id,
-        intended_cname=__ret__.intended_cname,
-        messages=__ret__.messages,
-        name=__ret__.name,
-        organization_id=__ret__.organization_id,
-        status=__ret__.status,
-        type=__ret__.type,
-        updated_at=__ret__.updated_at,
-        verified_at=__ret__.verified_at,
-        version=__ret__.version)
-
-
-@_utilities.lift_output_func(get_domain)
+        app_name=pulumi.get(__ret__, 'app_name'),
+        created_at=pulumi.get(__ret__, 'created_at'),
+        deployment_group=pulumi.get(__ret__, 'deployment_group'),
+        id=pulumi.get(__ret__, 'id'),
+        intended_cname=pulumi.get(__ret__, 'intended_cname'),
+        messages=pulumi.get(__ret__, 'messages'),
+        name=pulumi.get(__ret__, 'name'),
+        organization_id=pulumi.get(__ret__, 'organization_id'),
+        status=pulumi.get(__ret__, 'status'),
+        type=pulumi.get(__ret__, 'type'),
+        updated_at=pulumi.get(__ret__, 'updated_at'),
+        verified_at=pulumi.get(__ret__, 'verified_at'),
+        version=pulumi.get(__ret__, 'version'))
 def get_domain_output(app_name: Optional[pulumi.Input[Optional[str]]] = None,
                       deployment_group: Optional[pulumi.Input[Optional[str]]] = None,
                       intended_cname: Optional[pulumi.Input[Optional[str]]] = None,
@@ -265,4 +267,26 @@ def get_domain_output(app_name: Optional[pulumi.Input[Optional[str]]] = None,
     :param str name: The domain name
     :param str verified_at: The date and time of when the domain was last verified
     """
-    ...
+    __args__ = dict()
+    __args__['appName'] = app_name
+    __args__['deploymentGroup'] = deployment_group
+    __args__['intendedCname'] = intended_cname
+    __args__['messages'] = messages
+    __args__['name'] = name
+    __args__['verifiedAt'] = verified_at
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('koyeb:index/getDomain:getDomain', __args__, opts=opts, typ=GetDomainResult)
+    return __ret__.apply(lambda __response__: GetDomainResult(
+        app_name=pulumi.get(__response__, 'app_name'),
+        created_at=pulumi.get(__response__, 'created_at'),
+        deployment_group=pulumi.get(__response__, 'deployment_group'),
+        id=pulumi.get(__response__, 'id'),
+        intended_cname=pulumi.get(__response__, 'intended_cname'),
+        messages=pulumi.get(__response__, 'messages'),
+        name=pulumi.get(__response__, 'name'),
+        organization_id=pulumi.get(__response__, 'organization_id'),
+        status=pulumi.get(__response__, 'status'),
+        type=pulumi.get(__response__, 'type'),
+        updated_at=pulumi.get(__response__, 'updated_at'),
+        verified_at=pulumi.get(__response__, 'verified_at'),
+        version=pulumi.get(__response__, 'version')))

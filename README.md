@@ -1,6 +1,6 @@
-# Koyeb Provider
+# Koyeb Resource Provider
 
-The [Koyeb](https://www.koyeb.com) resource provider for Pulumi lets you use Koyeb resources in your cloud programs. To use this package, please install the Pulumi CLI first.
+The [Koyeb](https://www.koyeb.com) Resource Provider for Pulumi lets you use Koyeb resources in your cloud programs. To use this package, please install the Pulumi CLI first.
 
 ## Installing
 
