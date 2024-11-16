@@ -1,6 +1,6 @@
 # Koyeb Resource Provider
 
-The Koyeb Resource Provider lets you manage [Koyeb](http://example.com) resources.
+The [Koyeb](https://www.koyeb.com) Resource Provider for Pulumi lets you use Koyeb resources in your cloud programs. To use this package, please install the Pulumi CLI first.
 
 ## Installing
 
@@ -11,13 +11,13 @@ This package is available for several languages/platforms:
 To use from JavaScript or TypeScript in Node.js, install using either `npm`:
 
 ```bash
-npm install @pulumi/koyeb
+npm install @koyeb/pulumi-koyeb
 ```
 
 or `yarn`:
 
 ```bash
-yarn add @pulumi/koyeb
+yarn add @koyeb/pulum-koyeb
 ```
 
 ### Python
@@ -33,7 +33,7 @@ pip install pulumi_koyeb
 To use from Go, use `go get` to grab the latest version of the library:
 
 ```bash
-go get github.com/pulumi/pulumi-koyeb/sdk/go/...
+go get github.com/koyeb/pulumi-koyeb/sdk/go/...
 ```
 
 ### .NET
@@ -48,7 +48,8 @@ dotnet add package Pulumi.Koyeb
 
 The following configuration points are available for the `koyeb` provider:
 
-- `koyeb:region` (environment: `KOYEB_REGION`) - the region in which to deploy resources
+- `koyeb:token` - (Required) This is the Koyeb API token. This must be specified using the environment
+  variable: `KOYEB_TOKEN`.
 
 ## Reference
 
