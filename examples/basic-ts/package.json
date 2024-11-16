@@ -5,6 +5,7 @@
         "@types/node": "^18"
     },
     "dependencies": {
+        "@koyeb/pulumi-koyeb": "^0.1.8",
         "@pulumi/pulumi": "^3.0.0"
     }
 }

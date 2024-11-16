@@ -1,6 +1,6 @@
 import * as pulumi from "@pulumi/pulumi";
-import * as xyz from "@pulumi/xyz";
+import * as koyeb from "@koyeb/pulumi-koyeb";
 
-const resource = new xyz.Resource("Resource", { sampleAttribute: "attr" });
+const app = new koyeb.App("my-app", { name: "my-app" });
 
-export const sampleAttribute = resource.sampleAttribute;
+export const sampleAttribute = app.name;
