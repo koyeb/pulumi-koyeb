@@ -14,6 +14,7 @@ from .get_service import *
 from .provider import *
 from .secret import *
 from .service import *
+from .volume import *
 from ._inputs import *
 from . import outputs
 _utilities.register(
@@ -49,6 +50,14 @@ _utilities.register(
   "fqn": "pulumi_koyeb",
   "classes": {
    "koyeb:index/service:Service": "Service"
+  }
+ },
+ {
+  "pkg": "koyeb",
+  "mod": "index/volume",
+  "fqn": "pulumi_koyeb",
+  "classes": {
+   "koyeb:index/volume:Volume": "Volume"
   }
  }
 ]

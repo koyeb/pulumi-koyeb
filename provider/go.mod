@@ -7,7 +7,7 @@ toolchain go1.23.0
 replace github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20240520223432-0c0bf0d65f10
 
 require (
-	github.com/koyeb/terraform-provider-koyeb v0.1.7
+	github.com/koyeb/terraform-provider-koyeb v0.1.8
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.95.0
 	github.com/pulumi/pulumi/pkg/v3 v3.137.0
 )
@@ -92,7 +92,7 @@ require (
 	github.com/json-iterator/go v1.1.12 // indirect
 	github.com/kevinburke/ssh_config v1.2.0 // indirect
 	github.com/klauspost/compress v1.15.11 // indirect
-	github.com/koyeb/koyeb-api-client-go v0.0.0-20240110103113-73fa7445f3bd // indirect
+	github.com/koyeb/koyeb-api-client-go v0.0.0-20240926125000-631dff710c71 // indirect
 	github.com/koyeb/koyeb-cli v1.2.1-0.20220624130942-9d3654586774 // indirect
 	github.com/lucasb-eyer/go-colorful v1.2.0 // indirect
 	github.com/mattn/go-colorable v0.1.13 // indirect

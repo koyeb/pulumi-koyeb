@@ -50,6 +50,11 @@ export type Service = import("./service").Service;
 export const Service: typeof import("./service").Service = null as any;
 utilities.lazyLoad(exports, ["Service"], () => require("./service"));
 
+export { VolumeArgs, VolumeState } from "./volume";
+export type Volume = import("./volume").Volume;
+export const Volume: typeof import("./volume").Volume = null as any;
+utilities.lazyLoad(exports, ["Volume"], () => require("./volume"));
+
 
 // Export sub-modules:
 import * as types from "./types";
@@ -70,6 +75,8 @@ const _module = {
                 return new Secret(name, <any>undefined, { urn })
             case "koyeb:index/service:Service":
                 return new Service(name, <any>undefined, { urn })
+            case "koyeb:index/volume:Volume":
+                return new Volume(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -79,6 +86,7 @@ pulumi.runtime.registerResourceModule("koyeb", "index/app", _module)
 pulumi.runtime.registerResourceModule("koyeb", "index/domain", _module)
 pulumi.runtime.registerResourceModule("koyeb", "index/secret", _module)
 pulumi.runtime.registerResourceModule("koyeb", "index/service", _module)
+pulumi.runtime.registerResourceModule("koyeb", "index/volume", _module)
 pulumi.runtime.registerResourcePackage("koyeb", {
     version: utilities.getVersion(),
     constructProvider: (name: string, type: string, urn: string): pulumi.ProviderResource => {

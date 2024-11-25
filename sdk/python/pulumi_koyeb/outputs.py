@@ -41,6 +41,7 @@ __all__ = [
     'ServiceDefinitionScalingTargetAverageCpus',
     'ServiceDefinitionScalingTargetAverageMem',
     'ServiceDefinitionScalingTargetRequestsPerSecond',
+    'ServiceDefinitionVolume',
     'GetAppDomainResult',
     'GetSecretAzureContainerRegistryResult',
     'GetSecretDigitalOceanContainerRegistryResult',
@@ -489,12 +490,14 @@ class ServiceDefinition(dict):
                  health_checks: Optional[Sequence['outputs.ServiceDefinitionHealthCheck']] = None,
                  routes: Optional[Sequence['outputs.ServiceDefinitionRoute']] = None,
                  skip_cache: Optional[bool] = None,
-                 type: Optional[str] = None):
+                 type: Optional[str] = None,
+                 volumes: Optional[Sequence['outputs.ServiceDefinitionVolume']] = None):
         """
         :param str name: The service name
         :param Sequence[str] regions: The service deployment regions to deploy to
         :param bool skip_cache: If set to true, the service will be deployed without using the cache
         :param str type: The service type, either WEB or WORKER (default WEB)
+        :param Sequence['ServiceDefinitionVolumeArgs'] volumes: The volumes to attach and mount to the service
         """
         pulumi.set(__self__, "instance_types", instance_types)
         pulumi.set(__self__, "name", name)
@@ -515,6 +518,8 @@ class ServiceDefinition(dict):
             pulumi.set(__self__, "skip_cache", skip_cache)
         if type is not None:
             pulumi.set(__self__, "type", type)
+        if volumes is not None:
+            pulumi.set(__self__, "volumes", volumes)
 
     @property
     @pulumi.getter(name="instanceTypes")
@@ -587,6 +592,14 @@ class ServiceDefinition(dict):
         The service type, either WEB or WORKER (default WEB)
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def volumes(self) -> Optional[Sequence['outputs.ServiceDefinitionVolume']]:
+        """
+        The volumes to attach and mount to the service
+        """
+        return pulumi.get(self, "volumes")
 
 
 @pulumi.output_type
@@ -1407,6 +1420,76 @@ class ServiceDefinitionScalingTargetRequestsPerSecond(dict):
         The target value of the autoscaling target
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ServiceDefinitionVolume(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "replicaIndex":
+            suggest = "replica_index"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceDefinitionVolume. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceDefinitionVolume.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceDefinitionVolume.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: str,
+                 path: str,
+                 replica_index: Optional[int] = None,
+                 scopes: Optional[Sequence[str]] = None):
+        """
+        :param str id: The volume ID to mount to the service
+        :param str path: The path where to mount the volume
+        :param int replica_index: Explicitly specify the replica index to mount the volume to
+        :param Sequence[str] scopes: The regions to apply the scaling configuration
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "path", path)
+        if replica_index is not None:
+            pulumi.set(__self__, "replica_index", replica_index)
+        if scopes is not None:
+            pulumi.set(__self__, "scopes", scopes)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The volume ID to mount to the service
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def path(self) -> str:
+        """
+        The path where to mount the volume
+        """
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter(name="replicaIndex")
+    def replica_index(self) -> Optional[int]:
+        """
+        Explicitly specify the replica index to mount the volume to
+        """
+        return pulumi.get(self, "replica_index")
+
+    @property
+    @pulumi.getter
+    def scopes(self) -> Optional[Sequence[str]]:
+        """
+        The regions to apply the scaling configuration
+        """
+        return pulumi.get(self, "scopes")
 
 
 @pulumi.output_type

@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Secret{}
 	case "koyeb:index/service:Service":
 		r = &Service{}
+	case "koyeb:index/volume:Volume":
+		r = &Volume{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -78,6 +80,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"koyeb",
 		"index/service",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"koyeb",
+		"index/volume",
 		&module{version},
 	)
 	pulumi.RegisterResourcePackage(

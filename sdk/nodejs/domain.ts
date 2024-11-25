@@ -9,7 +9,7 @@ import * as utilities from "./utilities";
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
- * import * as koyeb from "@pulumi/koyeb";
+ * import * as koyeb from "@koyeb/pulumi-koyeb";
  *
  * const my_domain = new koyeb.Domain("my-domain", {name: "www.example.tld"});
  * ```

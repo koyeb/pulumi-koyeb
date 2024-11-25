@@ -96,6 +96,18 @@ namespace Pulumi.Koyeb.Inputs
         [Input("type")]
         public Input<string>? Type { get; set; }
 
+        [Input("volumes")]
+        private InputList<Inputs.ServiceDefinitionVolumeArgs>? _volumes;
+
+        /// <summary>
+        /// The volumes to attach and mount to the service
+        /// </summary>
+        public InputList<Inputs.ServiceDefinitionVolumeArgs> Volumes
+        {
+            get => _volumes ?? (_volumes = new InputList<Inputs.ServiceDefinitionVolumeArgs>());
+            set => _volumes = value;
+        }
+
         public ServiceDefinitionArgs()
         {
         }

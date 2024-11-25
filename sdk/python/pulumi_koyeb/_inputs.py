@@ -65,6 +65,8 @@ __all__ = [
     'ServiceDefinitionScalingTargetAverageMemArgsDict',
     'ServiceDefinitionScalingTargetRequestsPerSecondArgs',
     'ServiceDefinitionScalingTargetRequestsPerSecondArgsDict',
+    'ServiceDefinitionVolumeArgs',
+    'ServiceDefinitionVolumeArgsDict',
     'GetSecretAzureContainerRegistryArgs',
     'GetSecretAzureContainerRegistryArgsDict',
     'GetSecretDigitalOceanContainerRegistryArgs',
@@ -716,6 +718,10 @@ if not MYPY:
         """
         The service type, either WEB or WORKER (default WEB)
         """
+        volumes: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceDefinitionVolumeArgsDict']]]]
+        """
+        The volumes to attach and mount to the service
+        """
 elif False:
     ServiceDefinitionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -733,12 +739,14 @@ class ServiceDefinitionArgs:
                  health_checks: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceDefinitionHealthCheckArgs']]]] = None,
                  routes: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceDefinitionRouteArgs']]]] = None,
                  skip_cache: Optional[pulumi.Input[bool]] = None,
-                 type: Optional[pulumi.Input[str]] = None):
+                 type: Optional[pulumi.Input[str]] = None,
+                 volumes: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceDefinitionVolumeArgs']]]] = None):
         """
         :param pulumi.Input[str] name: The service name
         :param pulumi.Input[Sequence[pulumi.Input[str]]] regions: The service deployment regions to deploy to
         :param pulumi.Input[bool] skip_cache: If set to true, the service will be deployed without using the cache
         :param pulumi.Input[str] type: The service type, either WEB or WORKER (default WEB)
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceDefinitionVolumeArgs']]] volumes: The volumes to attach and mount to the service
         """
         pulumi.set(__self__, "instance_types", instance_types)
         pulumi.set(__self__, "name", name)
@@ -759,6 +767,8 @@ class ServiceDefinitionArgs:
             pulumi.set(__self__, "skip_cache", skip_cache)
         if type is not None:
             pulumi.set(__self__, "type", type)
+        if volumes is not None:
+            pulumi.set(__self__, "volumes", volumes)
 
     @property
     @pulumi.getter(name="instanceTypes")
@@ -879,6 +889,18 @@ class ServiceDefinitionArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def volumes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceDefinitionVolumeArgs']]]]:
+        """
+        The volumes to attach and mount to the service
+        """
+        return pulumi.get(self, "volumes")
+
+    @volumes.setter
+    def volumes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceDefinitionVolumeArgs']]]]):
+        pulumi.set(self, "volumes", value)
 
 
 if not MYPY:
@@ -2105,6 +2127,96 @@ class ServiceDefinitionScalingTargetRequestsPerSecondArgs:
     @value.setter
     def value(self, value: pulumi.Input[int]):
         pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class ServiceDefinitionVolumeArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The volume ID to mount to the service
+        """
+        path: pulumi.Input[str]
+        """
+        The path where to mount the volume
+        """
+        replica_index: NotRequired[pulumi.Input[int]]
+        """
+        Explicitly specify the replica index to mount the volume to
+        """
+        scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The regions to apply the scaling configuration
+        """
+elif False:
+    ServiceDefinitionVolumeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ServiceDefinitionVolumeArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str],
+                 path: pulumi.Input[str],
+                 replica_index: Optional[pulumi.Input[int]] = None,
+                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] id: The volume ID to mount to the service
+        :param pulumi.Input[str] path: The path where to mount the volume
+        :param pulumi.Input[int] replica_index: Explicitly specify the replica index to mount the volume to
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: The regions to apply the scaling configuration
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "path", path)
+        if replica_index is not None:
+            pulumi.set(__self__, "replica_index", replica_index)
+        if scopes is not None:
+            pulumi.set(__self__, "scopes", scopes)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        The volume ID to mount to the service
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> pulumi.Input[str]:
+        """
+        The path where to mount the volume
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter(name="replicaIndex")
+    def replica_index(self) -> Optional[pulumi.Input[int]]:
+        """
+        Explicitly specify the replica index to mount the volume to
+        """
+        return pulumi.get(self, "replica_index")
+
+    @replica_index.setter
+    def replica_index(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "replica_index", value)
+
+    @property
+    @pulumi.getter
+    def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The regions to apply the scaling configuration
+        """
+        return pulumi.get(self, "scopes")
+
+    @scopes.setter
+    def scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "scopes", value)
 
 
 if not MYPY:

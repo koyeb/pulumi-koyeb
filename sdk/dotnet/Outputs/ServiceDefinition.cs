@@ -37,6 +37,10 @@ namespace Pulumi.Koyeb.Outputs
         /// The service type, either WEB or WORKER (default WEB)
         /// </summary>
         public readonly string? Type;
+        /// <summary>
+        /// The volumes to attach and mount to the service
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ServiceDefinitionVolume> Volumes;
 
         [OutputConstructor]
         private ServiceDefinition(
@@ -62,7 +66,9 @@ namespace Pulumi.Koyeb.Outputs
 
             bool? skipCache,
 
-            string? type)
+            string? type,
+
+            ImmutableArray<Outputs.ServiceDefinitionVolume> volumes)
         {
             Docker = docker;
             Envs = envs;
@@ -76,6 +82,7 @@ namespace Pulumi.Koyeb.Outputs
             Scalings = scalings;
             SkipCache = skipCache;
             Type = type;
+            Volumes = volumes;
         }
     }
 }
