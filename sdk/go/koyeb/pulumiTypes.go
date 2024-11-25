@@ -1209,6 +1209,8 @@ type ServiceDefinition struct {
 	SkipCache *bool `pulumi:"skipCache"`
 	// The service type, either WEB or WORKER (default WEB)
 	Type *string `pulumi:"type"`
+	// The volumes to attach and mount to the service
+	Volumes []ServiceDefinitionVolume `pulumi:"volumes"`
 }
 
 // ServiceDefinitionInput is an input type that accepts ServiceDefinitionArgs and ServiceDefinitionOutput values.
@@ -1239,6 +1241,8 @@ type ServiceDefinitionArgs struct {
 	SkipCache pulumi.BoolPtrInput `pulumi:"skipCache"`
 	// The service type, either WEB or WORKER (default WEB)
 	Type pulumi.StringPtrInput `pulumi:"type"`
+	// The volumes to attach and mount to the service
+	Volumes ServiceDefinitionVolumeArrayInput `pulumi:"volumes"`
 }
 
 func (ServiceDefinitionArgs) ElementType() reflect.Type {
@@ -1368,6 +1372,11 @@ func (o ServiceDefinitionOutput) SkipCache() pulumi.BoolPtrOutput {
 // The service type, either WEB or WORKER (default WEB)
 func (o ServiceDefinitionOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceDefinition) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// The volumes to attach and mount to the service
+func (o ServiceDefinitionOutput) Volumes() ServiceDefinitionVolumeArrayOutput {
+	return o.ApplyT(func(v ServiceDefinition) []ServiceDefinitionVolume { return v.Volumes }).(ServiceDefinitionVolumeArrayOutput)
 }
 
 type ServiceDefinitionPtrOutput struct{ *pulumi.OutputState }
@@ -1504,6 +1513,16 @@ func (o ServiceDefinitionPtrOutput) Type() pulumi.StringPtrOutput {
 		}
 		return v.Type
 	}).(pulumi.StringPtrOutput)
+}
+
+// The volumes to attach and mount to the service
+func (o ServiceDefinitionPtrOutput) Volumes() ServiceDefinitionVolumeArrayOutput {
+	return o.ApplyT(func(v *ServiceDefinition) []ServiceDefinitionVolume {
+		if v == nil {
+			return nil
+		}
+		return v.Volumes
+	}).(ServiceDefinitionVolumeArrayOutput)
 }
 
 type ServiceDefinitionDocker struct {
@@ -3913,6 +3932,130 @@ func (o ServiceDefinitionScalingTargetRequestsPerSecondArrayOutput) Index(i pulu
 	}).(ServiceDefinitionScalingTargetRequestsPerSecondOutput)
 }
 
+type ServiceDefinitionVolume struct {
+	// The volume ID to mount to the service
+	Id string `pulumi:"id"`
+	// The path where to mount the volume
+	Path string `pulumi:"path"`
+	// Explicitly specify the replica index to mount the volume to
+	ReplicaIndex *int `pulumi:"replicaIndex"`
+	// The regions to apply the scaling configuration
+	Scopes []string `pulumi:"scopes"`
+}
+
+// ServiceDefinitionVolumeInput is an input type that accepts ServiceDefinitionVolumeArgs and ServiceDefinitionVolumeOutput values.
+// You can construct a concrete instance of `ServiceDefinitionVolumeInput` via:
+//
+//	ServiceDefinitionVolumeArgs{...}
+type ServiceDefinitionVolumeInput interface {
+	pulumi.Input
+
+	ToServiceDefinitionVolumeOutput() ServiceDefinitionVolumeOutput
+	ToServiceDefinitionVolumeOutputWithContext(context.Context) ServiceDefinitionVolumeOutput
+}
+
+type ServiceDefinitionVolumeArgs struct {
+	// The volume ID to mount to the service
+	Id pulumi.StringInput `pulumi:"id"`
+	// The path where to mount the volume
+	Path pulumi.StringInput `pulumi:"path"`
+	// Explicitly specify the replica index to mount the volume to
+	ReplicaIndex pulumi.IntPtrInput `pulumi:"replicaIndex"`
+	// The regions to apply the scaling configuration
+	Scopes pulumi.StringArrayInput `pulumi:"scopes"`
+}
+
+func (ServiceDefinitionVolumeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceDefinitionVolume)(nil)).Elem()
+}
+
+func (i ServiceDefinitionVolumeArgs) ToServiceDefinitionVolumeOutput() ServiceDefinitionVolumeOutput {
+	return i.ToServiceDefinitionVolumeOutputWithContext(context.Background())
+}
+
+func (i ServiceDefinitionVolumeArgs) ToServiceDefinitionVolumeOutputWithContext(ctx context.Context) ServiceDefinitionVolumeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceDefinitionVolumeOutput)
+}
+
+// ServiceDefinitionVolumeArrayInput is an input type that accepts ServiceDefinitionVolumeArray and ServiceDefinitionVolumeArrayOutput values.
+// You can construct a concrete instance of `ServiceDefinitionVolumeArrayInput` via:
+//
+//	ServiceDefinitionVolumeArray{ ServiceDefinitionVolumeArgs{...} }
+type ServiceDefinitionVolumeArrayInput interface {
+	pulumi.Input
+
+	ToServiceDefinitionVolumeArrayOutput() ServiceDefinitionVolumeArrayOutput
+	ToServiceDefinitionVolumeArrayOutputWithContext(context.Context) ServiceDefinitionVolumeArrayOutput
+}
+
+type ServiceDefinitionVolumeArray []ServiceDefinitionVolumeInput
+
+func (ServiceDefinitionVolumeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceDefinitionVolume)(nil)).Elem()
+}
+
+func (i ServiceDefinitionVolumeArray) ToServiceDefinitionVolumeArrayOutput() ServiceDefinitionVolumeArrayOutput {
+	return i.ToServiceDefinitionVolumeArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceDefinitionVolumeArray) ToServiceDefinitionVolumeArrayOutputWithContext(ctx context.Context) ServiceDefinitionVolumeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceDefinitionVolumeArrayOutput)
+}
+
+type ServiceDefinitionVolumeOutput struct{ *pulumi.OutputState }
+
+func (ServiceDefinitionVolumeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceDefinitionVolume)(nil)).Elem()
+}
+
+func (o ServiceDefinitionVolumeOutput) ToServiceDefinitionVolumeOutput() ServiceDefinitionVolumeOutput {
+	return o
+}
+
+func (o ServiceDefinitionVolumeOutput) ToServiceDefinitionVolumeOutputWithContext(ctx context.Context) ServiceDefinitionVolumeOutput {
+	return o
+}
+
+// The volume ID to mount to the service
+func (o ServiceDefinitionVolumeOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceDefinitionVolume) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The path where to mount the volume
+func (o ServiceDefinitionVolumeOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceDefinitionVolume) string { return v.Path }).(pulumi.StringOutput)
+}
+
+// Explicitly specify the replica index to mount the volume to
+func (o ServiceDefinitionVolumeOutput) ReplicaIndex() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceDefinitionVolume) *int { return v.ReplicaIndex }).(pulumi.IntPtrOutput)
+}
+
+// The regions to apply the scaling configuration
+func (o ServiceDefinitionVolumeOutput) Scopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ServiceDefinitionVolume) []string { return v.Scopes }).(pulumi.StringArrayOutput)
+}
+
+type ServiceDefinitionVolumeArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceDefinitionVolumeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceDefinitionVolume)(nil)).Elem()
+}
+
+func (o ServiceDefinitionVolumeArrayOutput) ToServiceDefinitionVolumeArrayOutput() ServiceDefinitionVolumeArrayOutput {
+	return o
+}
+
+func (o ServiceDefinitionVolumeArrayOutput) ToServiceDefinitionVolumeArrayOutputWithContext(ctx context.Context) ServiceDefinitionVolumeArrayOutput {
+	return o
+}
+
+func (o ServiceDefinitionVolumeArrayOutput) Index(i pulumi.IntInput) ServiceDefinitionVolumeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceDefinitionVolume {
+		return vs[0].([]ServiceDefinitionVolume)[vs[1].(int)]
+	}).(ServiceDefinitionVolumeOutput)
+}
+
 type GetAppDomain struct {
 	// The app name the domain is assigned to
 	AppName *string `pulumi:"appName"`
@@ -5143,6 +5286,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDefinitionScalingTargetAverageMemArrayInput)(nil)).Elem(), ServiceDefinitionScalingTargetAverageMemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDefinitionScalingTargetRequestsPerSecondInput)(nil)).Elem(), ServiceDefinitionScalingTargetRequestsPerSecondArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDefinitionScalingTargetRequestsPerSecondArrayInput)(nil)).Elem(), ServiceDefinitionScalingTargetRequestsPerSecondArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDefinitionVolumeInput)(nil)).Elem(), ServiceDefinitionVolumeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDefinitionVolumeArrayInput)(nil)).Elem(), ServiceDefinitionVolumeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAppDomainInput)(nil)).Elem(), GetAppDomainArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAppDomainArrayInput)(nil)).Elem(), GetAppDomainArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecretAzureContainerRegistryInput)(nil)).Elem(), GetSecretAzureContainerRegistryArgs{})
@@ -5207,6 +5352,8 @@ func init() {
 	pulumi.RegisterOutputType(ServiceDefinitionScalingTargetAverageMemArrayOutput{})
 	pulumi.RegisterOutputType(ServiceDefinitionScalingTargetRequestsPerSecondOutput{})
 	pulumi.RegisterOutputType(ServiceDefinitionScalingTargetRequestsPerSecondArrayOutput{})
+	pulumi.RegisterOutputType(ServiceDefinitionVolumeOutput{})
+	pulumi.RegisterOutputType(ServiceDefinitionVolumeArrayOutput{})
 	pulumi.RegisterOutputType(GetAppDomainOutput{})
 	pulumi.RegisterOutputType(GetAppDomainArrayOutput{})
 	pulumi.RegisterOutputType(GetSecretAzureContainerRegistryOutput{})

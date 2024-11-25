@@ -307,6 +307,13 @@
                 "type": {
                     "type": "string",
                     "description": "The service type, either WEB or WORKER (default WEB)\n"
+                },
+                "volumes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/koyeb:index/ServiceDefinitionVolume:ServiceDefinitionVolume"
+                    },
+                    "description": "The volumes to attach and mount to the service\n"
                 }
             },
             "type": "object",
@@ -690,6 +697,34 @@
                 "value"
             ]
         },
+        "koyeb:index/ServiceDefinitionVolume:ServiceDefinitionVolume": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The volume ID to mount to the service\n"
+                },
+                "path": {
+                    "type": "string",
+                    "description": "The path where to mount the volume\n"
+                },
+                "replicaIndex": {
+                    "type": "integer",
+                    "description": "Explicitly specify the replica index to mount the volume to\n"
+                },
+                "scopes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The regions to apply the scaling configuration\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id",
+                "path"
+            ]
+        },
         "koyeb:index/getAppDomain:getAppDomain": {
             "properties": {
                 "appName": {
@@ -890,7 +925,7 @@
     },
     "resources": {
         "koyeb:index/app:App": {
-            "description": "## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as koyeb from \"@pulumi/koyeb\";\n\nconst my_app = new koyeb.App(\"my-app\", {name: \"my-app\"});\n```\n```python\nimport pulumi\nimport pulumi_koyeb as koyeb\n\nmy_app = koyeb.App(\"my-app\", name=\"my-app\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Koyeb = Pulumi.Koyeb;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var my_app = new Koyeb.App(\"my-app\", new()\n    {\n        Name = \"my-app\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/koyeb/pulumi-koyeb/sdk/go/koyeb\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := koyeb.NewApp(ctx, \"my-app\", \u0026koyeb.AppArgs{\n\t\t\tName: pulumi.String(\"my-app\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.koyeb.App;\nimport com.pulumi.koyeb.AppArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var my_app = new App(\"my-app\", AppArgs.builder()\n            .name(\"my-app\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  my-app:\n    type: koyeb:App\n    properties:\n      name: my-app\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "description": "## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as koyeb from \"@koyeb/pulumi-koyeb\";\n\nconst my_app = new koyeb.App(\"my-app\", {name: \"my-app\"});\n```\n```python\nimport pulumi\nimport pulumi_koyeb as koyeb\n\nmy_app = koyeb.App(\"my-app\", name=\"my-app\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Koyeb = Pulumi.Koyeb;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var my_app = new Koyeb.App(\"my-app\", new()\n    {\n        Name = \"my-app\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/koyeb/pulumi-koyeb/sdk/go/koyeb\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := koyeb.NewApp(ctx, \"my-app\", \u0026koyeb.AppArgs{\n\t\t\tName: pulumi.String(\"my-app\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.koyeb.App;\nimport com.pulumi.koyeb.AppArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var my_app = new App(\"my-app\", AppArgs.builder()\n            .name(\"my-app\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  my-app:\n    type: koyeb:App\n    properties:\n      name: my-app\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
             "properties": {
                 "createdAt": {
                     "type": "string",
@@ -962,7 +997,7 @@
             }
         },
         "koyeb:index/domain:Domain": {
-            "description": "## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as koyeb from \"@pulumi/koyeb\";\n\nconst my_domain = new koyeb.Domain(\"my-domain\", {name: \"www.example.tld\"});\n```\n```python\nimport pulumi\nimport pulumi_koyeb as koyeb\n\nmy_domain = koyeb.Domain(\"my-domain\", name=\"www.example.tld\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Koyeb = Pulumi.Koyeb;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var my_domain = new Koyeb.Domain(\"my-domain\", new()\n    {\n        Name = \"www.example.tld\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/koyeb/pulumi-koyeb/sdk/go/koyeb\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := koyeb.NewDomain(ctx, \"my-domain\", \u0026koyeb.DomainArgs{\n\t\t\tName: pulumi.String(\"www.example.tld\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.koyeb.Domain;\nimport com.pulumi.koyeb.DomainArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var my_domain = new Domain(\"my-domain\", DomainArgs.builder()\n            .name(\"www.example.tld\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  my-domain:\n    type: koyeb:Domain\n    properties:\n      name: www.example.tld\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "description": "## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as koyeb from \"@koyeb/pulumi-koyeb\";\n\nconst my_domain = new koyeb.Domain(\"my-domain\", {name: \"www.example.tld\"});\n```\n```python\nimport pulumi\nimport pulumi_koyeb as koyeb\n\nmy_domain = koyeb.Domain(\"my-domain\", name=\"www.example.tld\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Koyeb = Pulumi.Koyeb;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var my_domain = new Koyeb.Domain(\"my-domain\", new()\n    {\n        Name = \"www.example.tld\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/koyeb/pulumi-koyeb/sdk/go/koyeb\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := koyeb.NewDomain(ctx, \"my-domain\", \u0026koyeb.DomainArgs{\n\t\t\tName: pulumi.String(\"www.example.tld\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.koyeb.Domain;\nimport com.pulumi.koyeb.DomainArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var my_domain = new Domain(\"my-domain\", DomainArgs.builder()\n            .name(\"www.example.tld\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  my-domain:\n    type: koyeb:Domain\n    properties:\n      name: www.example.tld\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
             "properties": {
                 "appName": {
                     "type": "string",
@@ -1110,7 +1145,7 @@
             }
         },
         "koyeb:index/secret:Secret": {
-            "description": "## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as koyeb from \"@pulumi/koyeb\";\n\nconst simple_secret = new koyeb.Secret(\"simple-secret\", {\n    name: \"secret-name\",\n    value: \"secret-value\",\n});\n```\n```python\nimport pulumi\nimport pulumi_koyeb as koyeb\n\nsimple_secret = koyeb.Secret(\"simple-secret\",\n    name=\"secret-name\",\n    value=\"secret-value\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Koyeb = Pulumi.Koyeb;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var simple_secret = new Koyeb.Secret(\"simple-secret\", new()\n    {\n        Name = \"secret-name\",\n        Value = \"secret-value\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/koyeb/pulumi-koyeb/sdk/go/koyeb\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := koyeb.NewSecret(ctx, \"simple-secret\", \u0026koyeb.SecretArgs{\n\t\t\tName:  pulumi.String(\"secret-name\"),\n\t\t\tValue: pulumi.String(\"secret-value\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.koyeb.Secret;\nimport com.pulumi.koyeb.SecretArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var simple_secret = new Secret(\"simple-secret\", SecretArgs.builder()\n            .name(\"secret-name\")\n            .value(\"secret-value\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  simple-secret:\n    type: koyeb:Secret\n    properties:\n      name: secret-name\n      value: secret-value\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "description": "## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as koyeb from \"@koyeb/pulumi-koyeb\";\n\nconst simple_secret = new koyeb.Secret(\"simple-secret\", {\n    name: \"secret-name\",\n    value: \"secret-value\",\n});\n```\n```python\nimport pulumi\nimport pulumi_koyeb as koyeb\n\nsimple_secret = koyeb.Secret(\"simple-secret\",\n    name=\"secret-name\",\n    value=\"secret-value\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Koyeb = Pulumi.Koyeb;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var simple_secret = new Koyeb.Secret(\"simple-secret\", new()\n    {\n        Name = \"secret-name\",\n        Value = \"secret-value\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/koyeb/pulumi-koyeb/sdk/go/koyeb\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := koyeb.NewSecret(ctx, \"simple-secret\", \u0026koyeb.SecretArgs{\n\t\t\tName:  pulumi.String(\"secret-name\"),\n\t\t\tValue: pulumi.String(\"secret-value\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.koyeb.Secret;\nimport com.pulumi.koyeb.SecretArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var simple_secret = new Secret(\"simple-secret\", SecretArgs.builder()\n            .name(\"secret-name\")\n            .value(\"secret-value\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  simple-secret:\n    type: koyeb:Secret\n    properties:\n      name: secret-name\n      value: secret-value\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
             "properties": {
                 "azureContainerRegistry": {
                     "$ref": "#/types/koyeb:index/SecretAzureContainerRegistry:SecretAzureContainerRegistry",
@@ -1268,7 +1303,7 @@
             }
         },
         "koyeb:index/service:Service": {
-            "description": "## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as koyeb from \"@pulumi/koyeb\";\n\nconst my_service = new koyeb.Service(\"my-service\", {\n    appName: myApp.name,\n    definition: {\n        name: \"my-service\",\n        instanceTypes: [{\n            type: \"micro\",\n        }],\n        ports: [{\n            port: 3000,\n            protocol: \"http\",\n        }],\n        scalings: [{\n            min: 1,\n            max: 1,\n        }],\n        envs: [\n            {\n                key: \"FOO\",\n                value: \"BAR\",\n            },\n            {\n                key: \"PORT\",\n                value: \"3000\",\n            },\n        ],\n        routes: [{\n            path: \"/\",\n            port: 3000,\n        }],\n        regions: [\"fra\"],\n        docker: {\n            image: \"koyeb/demo\",\n        },\n    },\n}, {\n    dependsOn: [my_app],\n});\n```\n```python\nimport pulumi\nimport pulumi_koyeb as koyeb\n\nmy_service = koyeb.Service(\"my-service\",\n    app_name=my_app[\"name\"],\n    definition={\n        \"name\": \"my-service\",\n        \"instance_types\": [{\n            \"type\": \"micro\",\n        }],\n        \"ports\": [{\n            \"port\": 3000,\n            \"protocol\": \"http\",\n        }],\n        \"scalings\": [{\n            \"min\": 1,\n            \"max\": 1,\n        }],\n        \"envs\": [\n            {\n                \"key\": \"FOO\",\n                \"value\": \"BAR\",\n            },\n            {\n                \"key\": \"PORT\",\n                \"value\": \"3000\",\n            },\n        ],\n        \"routes\": [{\n            \"path\": \"/\",\n            \"port\": 3000,\n        }],\n        \"regions\": [\"fra\"],\n        \"docker\": {\n            \"image\": \"koyeb/demo\",\n        },\n    },\n    opts = pulumi.ResourceOptions(depends_on=[my_app]))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Koyeb = Pulumi.Koyeb;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var my_service = new Koyeb.Service(\"my-service\", new()\n    {\n        AppName = myApp.Name,\n        Definition = new Koyeb.Inputs.ServiceDefinitionArgs\n        {\n            Name = \"my-service\",\n            InstanceTypes = new[]\n            {\n                new Koyeb.Inputs.ServiceDefinitionInstanceTypeArgs\n                {\n                    Type = \"micro\",\n                },\n            },\n            Ports = new[]\n            {\n                new Koyeb.Inputs.ServiceDefinitionPortArgs\n                {\n                    Port = 3000,\n                    Protocol = \"http\",\n                },\n            },\n            Scalings = new[]\n            {\n                new Koyeb.Inputs.ServiceDefinitionScalingArgs\n                {\n                    Min = 1,\n                    Max = 1,\n                },\n            },\n            Envs = new[]\n            {\n                new Koyeb.Inputs.ServiceDefinitionEnvArgs\n                {\n                    Key = \"FOO\",\n                    Value = \"BAR\",\n                },\n                new Koyeb.Inputs.ServiceDefinitionEnvArgs\n                {\n                    Key = \"PORT\",\n                    Value = \"3000\",\n                },\n            },\n            Routes = new[]\n            {\n                new Koyeb.Inputs.ServiceDefinitionRouteArgs\n                {\n                    Path = \"/\",\n                    Port = 3000,\n                },\n            },\n            Regions = new[]\n            {\n                \"fra\",\n            },\n            Docker = new Koyeb.Inputs.ServiceDefinitionDockerArgs\n            {\n                Image = \"koyeb/demo\",\n            },\n        },\n    }, new CustomResourceOptions\n    {\n        DependsOn =\n        {\n            my_app,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/koyeb/pulumi-koyeb/sdk/go/koyeb\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := koyeb.NewService(ctx, \"my-service\", \u0026koyeb.ServiceArgs{\n\t\t\tAppName: pulumi.Any(myApp.Name),\n\t\t\tDefinition: \u0026koyeb.ServiceDefinitionArgs{\n\t\t\t\tName: pulumi.String(\"my-service\"),\n\t\t\t\tInstanceTypes: koyeb.ServiceDefinitionInstanceTypeArray{\n\t\t\t\t\t\u0026koyeb.ServiceDefinitionInstanceTypeArgs{\n\t\t\t\t\t\tType: pulumi.String(\"micro\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\tPorts: koyeb.ServiceDefinitionPortArray{\n\t\t\t\t\t\u0026koyeb.ServiceDefinitionPortArgs{\n\t\t\t\t\t\tPort:     pulumi.Int(3000),\n\t\t\t\t\t\tProtocol: pulumi.String(\"http\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\tScalings: koyeb.ServiceDefinitionScalingArray{\n\t\t\t\t\t\u0026koyeb.ServiceDefinitionScalingArgs{\n\t\t\t\t\t\tMin: pulumi.Int(1),\n\t\t\t\t\t\tMax: pulumi.Int(1),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\tEnvs: koyeb.ServiceDefinitionEnvArray{\n\t\t\t\t\t\u0026koyeb.ServiceDefinitionEnvArgs{\n\t\t\t\t\t\tKey:   pulumi.String(\"FOO\"),\n\t\t\t\t\t\tValue: pulumi.String(\"BAR\"),\n\t\t\t\t\t},\n\t\t\t\t\t\u0026koyeb.ServiceDefinitionEnvArgs{\n\t\t\t\t\t\tKey:   pulumi.String(\"PORT\"),\n\t\t\t\t\t\tValue: pulumi.String(\"3000\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\tRoutes: koyeb.ServiceDefinitionRouteArray{\n\t\t\t\t\t\u0026koyeb.ServiceDefinitionRouteArgs{\n\t\t\t\t\t\tPath: pulumi.String(\"/\"),\n\t\t\t\t\t\tPort: pulumi.Int(3000),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\tRegions: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"fra\"),\n\t\t\t\t},\n\t\t\t\tDocker: \u0026koyeb.ServiceDefinitionDockerArgs{\n\t\t\t\t\tImage: pulumi.String(\"koyeb/demo\"),\n\t\t\t\t},\n\t\t\t},\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\tmy_app,\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.koyeb.Service;\nimport com.pulumi.koyeb.ServiceArgs;\nimport com.pulumi.koyeb.inputs.ServiceDefinitionArgs;\nimport com.pulumi.koyeb.inputs.ServiceDefinitionDockerArgs;\nimport com.pulumi.resources.CustomResourceOptions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var my_service = new Service(\"my-service\", ServiceArgs.builder()\n            .appName(myApp.name())\n            .definition(ServiceDefinitionArgs.builder()\n                .name(\"my-service\")\n                .instanceTypes(ServiceDefinitionInstanceTypeArgs.builder()\n                    .type(\"micro\")\n                    .build())\n                .ports(ServiceDefinitionPortArgs.builder()\n                    .port(3000)\n                    .protocol(\"http\")\n                    .build())\n                .scalings(ServiceDefinitionScalingArgs.builder()\n                    .min(1)\n                    .max(1)\n                    .build())\n                .envs(                \n                    ServiceDefinitionEnvArgs.builder()\n                        .key(\"FOO\")\n                        .value(\"BAR\")\n                        .build(),\n                    ServiceDefinitionEnvArgs.builder()\n                        .key(\"PORT\")\n                        .value(\"3000\")\n                        .build())\n                .routes(ServiceDefinitionRouteArgs.builder()\n                    .path(\"/\")\n                    .port(3000)\n                    .build())\n                .regions(\"fra\")\n                .docker(ServiceDefinitionDockerArgs.builder()\n                    .image(\"koyeb/demo\")\n                    .build())\n                .build())\n            .build(), CustomResourceOptions.builder()\n                .dependsOn(my_app)\n                .build());\n\n    }\n}\n```\n```yaml\nresources:\n  my-service:\n    type: koyeb:Service\n    properties:\n      appName: ${myApp.name}\n      definition:\n        name: my-service\n        instanceTypes:\n          - type: micro\n        ports:\n          - port: 3000\n            protocol: http\n        scalings:\n          - min: 1\n            max: 1\n        envs:\n          - key: FOO\n            value: BAR\n          - key: PORT\n            value: '3000'\n        routes:\n          - path: /\n            port: 3000\n        regions:\n          - fra\n        docker:\n          image: koyeb/demo\n    options:\n      dependson:\n        - ${[\"my-app\"]}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "description": "## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as koyeb from \"@koyeb/pulumi-koyeb\";\n\nconst my_service = new koyeb.Service(\"my-service\", {\n    appName: myApp.name,\n    definition: {\n        name: \"my-service\",\n        instanceTypes: [{\n            type: \"micro\",\n        }],\n        ports: [{\n            port: 3000,\n            protocol: \"http\",\n        }],\n        scalings: [{\n            min: 1,\n            max: 1,\n        }],\n        envs: [\n            {\n                key: \"FOO\",\n                value: \"BAR\",\n            },\n            {\n                key: \"PORT\",\n                value: \"3000\",\n            },\n        ],\n        routes: [{\n            path: \"/\",\n            port: 3000,\n        }],\n        regions: [\"fra\"],\n        docker: {\n            image: \"koyeb/demo\",\n        },\n    },\n}, {\n    dependsOn: [my_app],\n});\n```\n```python\nimport pulumi\nimport pulumi_koyeb as koyeb\n\nmy_service = koyeb.Service(\"my-service\",\n    app_name=my_app[\"name\"],\n    definition={\n        \"name\": \"my-service\",\n        \"instance_types\": [{\n            \"type\": \"micro\",\n        }],\n        \"ports\": [{\n            \"port\": 3000,\n            \"protocol\": \"http\",\n        }],\n        \"scalings\": [{\n            \"min\": 1,\n            \"max\": 1,\n        }],\n        \"envs\": [\n            {\n                \"key\": \"FOO\",\n                \"value\": \"BAR\",\n            },\n            {\n                \"key\": \"PORT\",\n                \"value\": \"3000\",\n            },\n        ],\n        \"routes\": [{\n            \"path\": \"/\",\n            \"port\": 3000,\n        }],\n        \"regions\": [\"fra\"],\n        \"docker\": {\n            \"image\": \"koyeb/demo\",\n        },\n    },\n    opts = pulumi.ResourceOptions(depends_on=[my_app]))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Koyeb = Pulumi.Koyeb;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var my_service = new Koyeb.Service(\"my-service\", new()\n    {\n        AppName = myApp.Name,\n        Definition = new Koyeb.Inputs.ServiceDefinitionArgs\n        {\n            Name = \"my-service\",\n            InstanceTypes = new[]\n            {\n                new Koyeb.Inputs.ServiceDefinitionInstanceTypeArgs\n                {\n                    Type = \"micro\",\n                },\n            },\n            Ports = new[]\n            {\n                new Koyeb.Inputs.ServiceDefinitionPortArgs\n                {\n                    Port = 3000,\n                    Protocol = \"http\",\n                },\n            },\n            Scalings = new[]\n            {\n                new Koyeb.Inputs.ServiceDefinitionScalingArgs\n                {\n                    Min = 1,\n                    Max = 1,\n                },\n            },\n            Envs = new[]\n            {\n                new Koyeb.Inputs.ServiceDefinitionEnvArgs\n                {\n                    Key = \"FOO\",\n                    Value = \"BAR\",\n                },\n                new Koyeb.Inputs.ServiceDefinitionEnvArgs\n                {\n                    Key = \"PORT\",\n                    Value = \"3000\",\n                },\n            },\n            Routes = new[]\n            {\n                new Koyeb.Inputs.ServiceDefinitionRouteArgs\n                {\n                    Path = \"/\",\n                    Port = 3000,\n                },\n            },\n            Regions = new[]\n            {\n                \"fra\",\n            },\n            Docker = new Koyeb.Inputs.ServiceDefinitionDockerArgs\n            {\n                Image = \"koyeb/demo\",\n            },\n        },\n    }, new CustomResourceOptions\n    {\n        DependsOn =\n        {\n            my_app,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/koyeb/pulumi-koyeb/sdk/go/koyeb\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := koyeb.NewService(ctx, \"my-service\", \u0026koyeb.ServiceArgs{\n\t\t\tAppName: pulumi.Any(myApp.Name),\n\t\t\tDefinition: \u0026koyeb.ServiceDefinitionArgs{\n\t\t\t\tName: pulumi.String(\"my-service\"),\n\t\t\t\tInstanceTypes: koyeb.ServiceDefinitionInstanceTypeArray{\n\t\t\t\t\t\u0026koyeb.ServiceDefinitionInstanceTypeArgs{\n\t\t\t\t\t\tType: pulumi.String(\"micro\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\tPorts: koyeb.ServiceDefinitionPortArray{\n\t\t\t\t\t\u0026koyeb.ServiceDefinitionPortArgs{\n\t\t\t\t\t\tPort:     pulumi.Int(3000),\n\t\t\t\t\t\tProtocol: pulumi.String(\"http\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\tScalings: koyeb.ServiceDefinitionScalingArray{\n\t\t\t\t\t\u0026koyeb.ServiceDefinitionScalingArgs{\n\t\t\t\t\t\tMin: pulumi.Int(1),\n\t\t\t\t\t\tMax: pulumi.Int(1),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\tEnvs: koyeb.ServiceDefinitionEnvArray{\n\t\t\t\t\t\u0026koyeb.ServiceDefinitionEnvArgs{\n\t\t\t\t\t\tKey:   pulumi.String(\"FOO\"),\n\t\t\t\t\t\tValue: pulumi.String(\"BAR\"),\n\t\t\t\t\t},\n\t\t\t\t\t\u0026koyeb.ServiceDefinitionEnvArgs{\n\t\t\t\t\t\tKey:   pulumi.String(\"PORT\"),\n\t\t\t\t\t\tValue: pulumi.String(\"3000\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\tRoutes: koyeb.ServiceDefinitionRouteArray{\n\t\t\t\t\t\u0026koyeb.ServiceDefinitionRouteArgs{\n\t\t\t\t\t\tPath: pulumi.String(\"/\"),\n\t\t\t\t\t\tPort: pulumi.Int(3000),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\tRegions: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"fra\"),\n\t\t\t\t},\n\t\t\t\tDocker: \u0026koyeb.ServiceDefinitionDockerArgs{\n\t\t\t\t\tImage: pulumi.String(\"koyeb/demo\"),\n\t\t\t\t},\n\t\t\t},\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\tmy_app,\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.koyeb.Service;\nimport com.pulumi.koyeb.ServiceArgs;\nimport com.pulumi.koyeb.inputs.ServiceDefinitionArgs;\nimport com.pulumi.koyeb.inputs.ServiceDefinitionDockerArgs;\nimport com.pulumi.resources.CustomResourceOptions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var my_service = new Service(\"my-service\", ServiceArgs.builder()\n            .appName(myApp.name())\n            .definition(ServiceDefinitionArgs.builder()\n                .name(\"my-service\")\n                .instanceTypes(ServiceDefinitionInstanceTypeArgs.builder()\n                    .type(\"micro\")\n                    .build())\n                .ports(ServiceDefinitionPortArgs.builder()\n                    .port(3000)\n                    .protocol(\"http\")\n                    .build())\n                .scalings(ServiceDefinitionScalingArgs.builder()\n                    .min(1)\n                    .max(1)\n                    .build())\n                .envs(                \n                    ServiceDefinitionEnvArgs.builder()\n                        .key(\"FOO\")\n                        .value(\"BAR\")\n                        .build(),\n                    ServiceDefinitionEnvArgs.builder()\n                        .key(\"PORT\")\n                        .value(\"3000\")\n                        .build())\n                .routes(ServiceDefinitionRouteArgs.builder()\n                    .path(\"/\")\n                    .port(3000)\n                    .build())\n                .regions(\"fra\")\n                .docker(ServiceDefinitionDockerArgs.builder()\n                    .image(\"koyeb/demo\")\n                    .build())\n                .build())\n            .build(), CustomResourceOptions.builder()\n                .dependsOn(my_app)\n                .build());\n\n    }\n}\n```\n```yaml\nresources:\n  my-service:\n    type: koyeb:Service\n    properties:\n      appName: ${myApp.name}\n      definition:\n        name: my-service\n        instanceTypes:\n          - type: micro\n        ports:\n          - port: 3000\n            protocol: http\n        scalings:\n          - min: 1\n            max: 1\n        envs:\n          - key: FOO\n            value: BAR\n          - key: PORT\n            value: '3000'\n        routes:\n          - path: /\n            port: 3000\n        regions:\n          - fra\n        docker:\n          image: koyeb/demo\n    options:\n      dependson:\n        - ${[\"my-app\"]}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
             "properties": {
                 "activeDeployment": {
                     "type": "string",
@@ -1430,6 +1465,165 @@
                     "version": {
                         "type": "string",
                         "description": "The version of the service\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "koyeb:index/volume:Volume": {
+            "properties": {
+                "backingStore": {
+                    "type": "string",
+                    "description": "The backing store of the volume\n"
+                },
+                "createdAt": {
+                    "type": "string",
+                    "description": "The date and time of when the volume was created\n"
+                },
+                "curSize": {
+                    "type": "integer",
+                    "description": "The current size of the volume in GB\n"
+                },
+                "maxSize": {
+                    "type": "integer",
+                    "description": "The maximum size of the volume in GB\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The volume name\n"
+                },
+                "organizationId": {
+                    "type": "string",
+                    "description": "The organization ID owning the volume\n"
+                },
+                "readOnly": {
+                    "type": "boolean",
+                    "description": "If set to true, the volume will be mounted in read-only\n"
+                },
+                "region": {
+                    "type": "string",
+                    "description": "The region where the volume is located\n"
+                },
+                "serviceId": {
+                    "type": "string",
+                    "description": "The service ID the volume is attached to\n"
+                },
+                "snapshotId": {
+                    "type": "string",
+                    "description": "The snapshot ID the volume was created from\n"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "The status of the volume\n"
+                },
+                "updatedAt": {
+                    "type": "string",
+                    "description": "The date and time of when the volume was last updated\n"
+                },
+                "volumeType": {
+                    "type": "string",
+                    "description": "The volume type\n"
+                }
+            },
+            "required": [
+                "backingStore",
+                "createdAt",
+                "curSize",
+                "maxSize",
+                "name",
+                "organizationId",
+                "region",
+                "serviceId",
+                "snapshotId",
+                "status",
+                "updatedAt"
+            ],
+            "inputProperties": {
+                "maxSize": {
+                    "type": "integer",
+                    "description": "The maximum size of the volume in GB\n",
+                    "willReplaceOnChanges": true
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The volume name\n"
+                },
+                "readOnly": {
+                    "type": "boolean",
+                    "description": "If set to true, the volume will be mounted in read-only\n"
+                },
+                "region": {
+                    "type": "string",
+                    "description": "The region where the volume is located\n",
+                    "willReplaceOnChanges": true
+                },
+                "volumeType": {
+                    "type": "string",
+                    "description": "The volume type\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "maxSize",
+                "region"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Volume resources.\n",
+                "properties": {
+                    "backingStore": {
+                        "type": "string",
+                        "description": "The backing store of the volume\n"
+                    },
+                    "createdAt": {
+                        "type": "string",
+                        "description": "The date and time of when the volume was created\n"
+                    },
+                    "curSize": {
+                        "type": "integer",
+                        "description": "The current size of the volume in GB\n"
+                    },
+                    "maxSize": {
+                        "type": "integer",
+                        "description": "The maximum size of the volume in GB\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The volume name\n"
+                    },
+                    "organizationId": {
+                        "type": "string",
+                        "description": "The organization ID owning the volume\n"
+                    },
+                    "readOnly": {
+                        "type": "boolean",
+                        "description": "If set to true, the volume will be mounted in read-only\n"
+                    },
+                    "region": {
+                        "type": "string",
+                        "description": "The region where the volume is located\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "serviceId": {
+                        "type": "string",
+                        "description": "The service ID the volume is attached to\n"
+                    },
+                    "snapshotId": {
+                        "type": "string",
+                        "description": "The snapshot ID the volume was created from\n"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "The status of the volume\n"
+                    },
+                    "updatedAt": {
+                        "type": "string",
+                        "description": "The date and time of when the volume was last updated\n"
+                    },
+                    "volumeType": {
+                        "type": "string",
+                        "description": "The volume type\n",
+                        "willReplaceOnChanges": true
                     }
                 },
                 "type": "object"

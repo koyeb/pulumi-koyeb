@@ -288,6 +288,10 @@ export interface ServiceDefinition {
      * The service type, either WEB or WORKER (default WEB)
      */
     type?: string;
+    /**
+     * The volumes to attach and mount to the service
+     */
+    volumes?: outputs.ServiceDefinitionVolume[];
 }
 
 export interface ServiceDefinitionDocker {
@@ -537,5 +541,24 @@ export interface ServiceDefinitionScalingTargetRequestsPerSecond {
      * The target value of the autoscaling target
      */
     value: number;
+}
+
+export interface ServiceDefinitionVolume {
+    /**
+     * The volume ID to mount to the service
+     */
+    id: string;
+    /**
+     * The path where to mount the volume
+     */
+    path: string;
+    /**
+     * Explicitly specify the replica index to mount the volume to
+     */
+    replicaIndex?: number;
+    /**
+     * The regions to apply the scaling configuration
+     */
+    scopes?: string[];
 }
 

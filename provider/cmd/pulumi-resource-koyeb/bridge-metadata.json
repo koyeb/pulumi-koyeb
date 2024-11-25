@@ -156,11 +156,25 @@
                                             }
                                         }
                                     }
+                                },
+                                "volumes": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "scope": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }
                     }
                 }
+            },
+            "koyeb_volume": {
+                "current": "koyeb:index/volume:Volume",
+                "majorVersion": 1
             }
         },
         "datasources": {

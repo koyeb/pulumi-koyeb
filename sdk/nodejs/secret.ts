@@ -11,7 +11,7 @@ import * as utilities from "./utilities";
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
- * import * as koyeb from "@pulumi/koyeb";
+ * import * as koyeb from "@koyeb/pulumi-koyeb";
  *
  * const simple_secret = new koyeb.Secret("simple-secret", {
  *     name: "secret-name",
