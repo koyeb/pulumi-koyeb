@@ -60,31 +60,31 @@ namespace Pulumi.Koyeb
     public sealed class GetSecretArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The Azure registry configuration to use
+        /// The azure*container*registry configuration to use
         /// </summary>
         [Input("azureContainerRegistry")]
         public Inputs.GetSecretAzureContainerRegistryArgs? AzureContainerRegistry { get; set; }
 
         /// <summary>
-        /// The DigitalOcean registry configuration to use
+        /// The digital*ocean*container*registry configuration to use
         /// </summary>
         [Input("digitalOceanContainerRegistry")]
         public Inputs.GetSecretDigitalOceanContainerRegistryArgs? DigitalOceanContainerRegistry { get; set; }
 
         /// <summary>
-        /// The DockerHub registry configuration to use
+        /// The docker*hub*registry configuration to use
         /// </summary>
         [Input("dockerHubRegistry")]
         public Inputs.GetSecretDockerHubRegistryArgs? DockerHubRegistry { get; set; }
 
         /// <summary>
-        /// The GitHub registry configuration to use
+        /// The github*registry configuration to use
         /// </summary>
         [Input("githubRegistry")]
         public Inputs.GetSecretGithubRegistryArgs? GithubRegistry { get; set; }
 
         /// <summary>
-        /// The GitLab registry configuration to use
+        /// The gitlab*registry configuration to use
         /// </summary>
         [Input("gitlabRegistry")]
         public Inputs.GetSecretGitlabRegistryArgs? GitlabRegistry { get; set; }
@@ -96,7 +96,7 @@ namespace Pulumi.Koyeb
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// The DigitalOcean registry configuration to use
+        /// The private*registry configuration to use
         /// </summary>
         [Input("privateRegistry")]
         public Inputs.GetSecretPrivateRegistryArgs? PrivateRegistry { get; set; }
@@ -128,31 +128,31 @@ namespace Pulumi.Koyeb
     public sealed class GetSecretInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The Azure registry configuration to use
+        /// The azure*container*registry configuration to use
         /// </summary>
         [Input("azureContainerRegistry")]
         public Input<Inputs.GetSecretAzureContainerRegistryInputArgs>? AzureContainerRegistry { get; set; }
 
         /// <summary>
-        /// The DigitalOcean registry configuration to use
+        /// The digital*ocean*container*registry configuration to use
         /// </summary>
         [Input("digitalOceanContainerRegistry")]
         public Input<Inputs.GetSecretDigitalOceanContainerRegistryInputArgs>? DigitalOceanContainerRegistry { get; set; }
 
         /// <summary>
-        /// The DockerHub registry configuration to use
+        /// The docker*hub*registry configuration to use
         /// </summary>
         [Input("dockerHubRegistry")]
         public Input<Inputs.GetSecretDockerHubRegistryInputArgs>? DockerHubRegistry { get; set; }
 
         /// <summary>
-        /// The GitHub registry configuration to use
+        /// The github*registry configuration to use
         /// </summary>
         [Input("githubRegistry")]
         public Input<Inputs.GetSecretGithubRegistryInputArgs>? GithubRegistry { get; set; }
 
         /// <summary>
-        /// The GitLab registry configuration to use
+        /// The gitlab*registry configuration to use
         /// </summary>
         [Input("gitlabRegistry")]
         public Input<Inputs.GetSecretGitlabRegistryInputArgs>? GitlabRegistry { get; set; }
@@ -164,7 +164,7 @@ namespace Pulumi.Koyeb
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The DigitalOcean registry configuration to use
+        /// The private*registry configuration to use
         /// </summary>
         [Input("privateRegistry")]
         public Input<Inputs.GetSecretPrivateRegistryInputArgs>? PrivateRegistry { get; set; }
@@ -202,7 +202,7 @@ namespace Pulumi.Koyeb
     public sealed class GetSecretResult
     {
         /// <summary>
-        /// The Azure registry configuration to use
+        /// The azure*container*registry configuration to use
         /// </summary>
         public readonly Outputs.GetSecretAzureContainerRegistryResult? AzureContainerRegistry;
         /// <summary>
@@ -210,19 +210,19 @@ namespace Pulumi.Koyeb
         /// </summary>
         public readonly string CreatedAt;
         /// <summary>
-        /// The DigitalOcean registry configuration to use
+        /// The digital*ocean*container*registry configuration to use
         /// </summary>
         public readonly Outputs.GetSecretDigitalOceanContainerRegistryResult? DigitalOceanContainerRegistry;
         /// <summary>
-        /// The DockerHub registry configuration to use
+        /// The docker*hub*registry configuration to use
         /// </summary>
         public readonly Outputs.GetSecretDockerHubRegistryResult? DockerHubRegistry;
         /// <summary>
-        /// The GitHub registry configuration to use
+        /// The github*registry configuration to use
         /// </summary>
         public readonly Outputs.GetSecretGithubRegistryResult? GithubRegistry;
         /// <summary>
-        /// The GitLab registry configuration to use
+        /// The gitlab*registry configuration to use
         /// </summary>
         public readonly Outputs.GetSecretGitlabRegistryResult? GitlabRegistry;
         /// <summary>
@@ -238,7 +238,7 @@ namespace Pulumi.Koyeb
         /// </summary>
         public readonly string OrganizationId;
         /// <summary>
-        /// The DigitalOcean registry configuration to use
+        /// The private*registry configuration to use
         /// </summary>
         public readonly Outputs.GetSecretPrivateRegistryResult? PrivateRegistry;
         /// <summary>

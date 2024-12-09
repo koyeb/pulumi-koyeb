@@ -22,6 +22,14 @@ namespace Pulumi.Koyeb.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ServiceDefinitionScalingTargetAverageMem> AverageMems;
         /// <summary>
+        /// The number of concurrent requests across all Instances of your Service within a region
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ServiceDefinitionScalingTargetConcurrentRequest> ConcurrentRequests;
+        /// <summary>
+        /// The average response time of requests across all Instances of your Service within a region
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ServiceDefinitionScalingTargetRequestResponseTime> RequestResponseTimes;
+        /// <summary>
         /// The number of concurrent requests per second across all Instances of your Service within a region
         /// </summary>
         public readonly ImmutableArray<Outputs.ServiceDefinitionScalingTargetRequestsPerSecond> RequestsPerSeconds;
@@ -32,10 +40,16 @@ namespace Pulumi.Koyeb.Outputs
 
             ImmutableArray<Outputs.ServiceDefinitionScalingTargetAverageMem> averageMems,
 
+            ImmutableArray<Outputs.ServiceDefinitionScalingTargetConcurrentRequest> concurrentRequests,
+
+            ImmutableArray<Outputs.ServiceDefinitionScalingTargetRequestResponseTime> requestResponseTimes,
+
             ImmutableArray<Outputs.ServiceDefinitionScalingTargetRequestsPerSecond> requestsPerSeconds)
         {
             AverageCpus = averageCpus;
             AverageMems = averageMems;
+            ConcurrentRequests = concurrentRequests;
+            RequestResponseTimes = requestResponseTimes;
             RequestsPerSeconds = requestsPerSeconds;
         }
     }

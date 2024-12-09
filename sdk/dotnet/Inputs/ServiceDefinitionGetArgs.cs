@@ -48,7 +48,7 @@ namespace Pulumi.Koyeb.Inputs
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        [Input("ports", required: true)]
+        [Input("ports")]
         private InputList<Inputs.ServiceDefinitionPortGetArgs>? _ports;
         public InputList<Inputs.ServiceDefinitionPortGetArgs> Ports
         {

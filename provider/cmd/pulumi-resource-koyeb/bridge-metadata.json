@@ -63,7 +63,7 @@
                                     "maxItemsOne": false,
                                     "elem": {
                                         "fields": {
-                                            "scope": {
+                                            "scopes": {
                                                 "maxItemsOne": false
                                             }
                                         }
@@ -116,7 +116,7 @@
                                     "maxItemsOne": false,
                                     "elem": {
                                         "fields": {
-                                            "scope": {
+                                            "scopes": {
                                                 "maxItemsOne": false
                                             }
                                         }
@@ -135,7 +135,7 @@
                                     "maxItemsOne": false,
                                     "elem": {
                                         "fields": {
-                                            "scope": {
+                                            "scopes": {
                                                 "maxItemsOne": false
                                             },
                                             "targets": {
@@ -146,6 +146,12 @@
                                                             "maxItemsOne": false
                                                         },
                                                         "average_mem": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "concurrent_requests": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "request_response_time": {
                                                             "maxItemsOne": false
                                                         },
                                                         "requests_per_second": {
@@ -217,7 +223,143 @@
             },
             "koyeb_service": {
                 "current": "koyeb:index/getService:getService",
-                "majorVersion": 1
+                "majorVersion": 1,
+                "fields": {
+                    "definition": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "docker": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "args": {
+                                                "maxItemsOne": false
+                                            },
+                                            "entrypoint": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "env": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "scopes": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "git": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "buildpack": {
+                                                "maxItemsOne": true
+                                            },
+                                            "dockerfile": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "args": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "entrypoint": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "health_checks": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "http": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "headers": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "tcp": {
+                                                "maxItemsOne": true
+                                            }
+                                        }
+                                    }
+                                },
+                                "instance_types": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "scopes": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "ports": {
+                                    "maxItemsOne": false
+                                },
+                                "regions": {
+                                    "maxItemsOne": false
+                                },
+                                "routes": {
+                                    "maxItemsOne": false
+                                },
+                                "scalings": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "scopes": {
+                                                "maxItemsOne": false
+                                            },
+                                            "targets": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "average_cpu": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "average_mem": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "concurrent_requests": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "request_response_time": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "requests_per_second": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "volumes": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "scope": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     },

@@ -114,6 +114,10 @@ namespace Pulumi.Koyeb
         /// </summary>
         public readonly string CreatedAt;
         /// <summary>
+        /// The service deployment definition
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetServiceDefinitionResult> Definitions;
+        /// <summary>
         /// The id of the service
         /// </summary>
         public readonly string Id;
@@ -170,6 +174,8 @@ namespace Pulumi.Koyeb
 
             string createdAt,
 
+            ImmutableArray<Outputs.GetServiceDefinitionResult> definitions,
+
             string id,
 
             string latestDeployment,
@@ -197,6 +203,7 @@ namespace Pulumi.Koyeb
             ActiveDeployment = activeDeployment;
             AppId = appId;
             CreatedAt = createdAt;
+            Definitions = definitions;
             Id = id;
             LatestDeployment = latestDeployment;
             Messages = messages;

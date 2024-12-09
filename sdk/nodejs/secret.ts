@@ -48,7 +48,7 @@ export class Secret extends pulumi.CustomResource {
     }
 
     /**
-     * The Azure registry configuration to use
+     * The azure*container*registry configuration to use
      */
     public readonly azureContainerRegistry!: pulumi.Output<outputs.SecretAzureContainerRegistry | undefined>;
     /**
@@ -56,19 +56,19 @@ export class Secret extends pulumi.CustomResource {
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
     /**
-     * The DigitalOcean registry configuration to use
+     * The digital*ocean*container*registry configuration to use
      */
     public readonly digitalOceanContainerRegistry!: pulumi.Output<outputs.SecretDigitalOceanContainerRegistry | undefined>;
     /**
-     * The DockerHub registry configuration to use
+     * The docker*hub*registry configuration to use
      */
     public readonly dockerHubRegistry!: pulumi.Output<outputs.SecretDockerHubRegistry | undefined>;
     /**
-     * The GitHub registry configuration to use
+     * The github*registry configuration to use
      */
     public readonly githubRegistry!: pulumi.Output<outputs.SecretGithubRegistry | undefined>;
     /**
-     * The GitLab registry configuration to use
+     * The gitlab*registry configuration to use
      */
     public readonly gitlabRegistry!: pulumi.Output<outputs.SecretGitlabRegistry | undefined>;
     /**
@@ -80,7 +80,7 @@ export class Secret extends pulumi.CustomResource {
      */
     public /*out*/ readonly organizationId!: pulumi.Output<string>;
     /**
-     * The DigitalOcean registry configuration to use
+     * The private*registry configuration to use
      */
     public readonly privateRegistry!: pulumi.Output<outputs.SecretPrivateRegistry | undefined>;
     /**
@@ -148,7 +148,7 @@ export class Secret extends pulumi.CustomResource {
  */
 export interface SecretState {
     /**
-     * The Azure registry configuration to use
+     * The azure*container*registry configuration to use
      */
     azureContainerRegistry?: pulumi.Input<inputs.SecretAzureContainerRegistry>;
     /**
@@ -156,19 +156,19 @@ export interface SecretState {
      */
     createdAt?: pulumi.Input<string>;
     /**
-     * The DigitalOcean registry configuration to use
+     * The digital*ocean*container*registry configuration to use
      */
     digitalOceanContainerRegistry?: pulumi.Input<inputs.SecretDigitalOceanContainerRegistry>;
     /**
-     * The DockerHub registry configuration to use
+     * The docker*hub*registry configuration to use
      */
     dockerHubRegistry?: pulumi.Input<inputs.SecretDockerHubRegistry>;
     /**
-     * The GitHub registry configuration to use
+     * The github*registry configuration to use
      */
     githubRegistry?: pulumi.Input<inputs.SecretGithubRegistry>;
     /**
-     * The GitLab registry configuration to use
+     * The gitlab*registry configuration to use
      */
     gitlabRegistry?: pulumi.Input<inputs.SecretGitlabRegistry>;
     /**
@@ -180,7 +180,7 @@ export interface SecretState {
      */
     organizationId?: pulumi.Input<string>;
     /**
-     * The DigitalOcean registry configuration to use
+     * The private*registry configuration to use
      */
     privateRegistry?: pulumi.Input<inputs.SecretPrivateRegistry>;
     /**
@@ -202,23 +202,23 @@ export interface SecretState {
  */
 export interface SecretArgs {
     /**
-     * The Azure registry configuration to use
+     * The azure*container*registry configuration to use
      */
     azureContainerRegistry?: pulumi.Input<inputs.SecretAzureContainerRegistry>;
     /**
-     * The DigitalOcean registry configuration to use
+     * The digital*ocean*container*registry configuration to use
      */
     digitalOceanContainerRegistry?: pulumi.Input<inputs.SecretDigitalOceanContainerRegistry>;
     /**
-     * The DockerHub registry configuration to use
+     * The docker*hub*registry configuration to use
      */
     dockerHubRegistry?: pulumi.Input<inputs.SecretDockerHubRegistry>;
     /**
-     * The GitHub registry configuration to use
+     * The github*registry configuration to use
      */
     githubRegistry?: pulumi.Input<inputs.SecretGithubRegistry>;
     /**
-     * The GitLab registry configuration to use
+     * The gitlab*registry configuration to use
      */
     gitlabRegistry?: pulumi.Input<inputs.SecretGitlabRegistry>;
     /**
@@ -226,7 +226,7 @@ export interface SecretArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The DigitalOcean registry configuration to use
+     * The private*registry configuration to use
      */
     privateRegistry?: pulumi.Input<inputs.SecretPrivateRegistry>;
     /**

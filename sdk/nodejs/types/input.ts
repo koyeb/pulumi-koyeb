@@ -184,7 +184,7 @@ export interface GetSecretPrivateRegistry {
      */
     password: string;
     /**
-     * The registry url
+     * The registry URL
      */
     url: string;
     /**
@@ -199,7 +199,7 @@ export interface GetSecretPrivateRegistryArgs {
      */
     password: pulumi.Input<string>;
     /**
-     * The registry url
+     * The registry URL
      */
     url: pulumi.Input<string>;
     /**
@@ -273,7 +273,7 @@ export interface SecretPrivateRegistry {
      */
     password: pulumi.Input<string>;
     /**
-     * The registry url
+     * The registry URL
      */
     url: pulumi.Input<string>;
     /**
@@ -292,7 +292,7 @@ export interface ServiceDefinition {
      * The service name
      */
     name: pulumi.Input<string>;
-    ports: pulumi.Input<pulumi.Input<inputs.ServiceDefinitionPort>[]>;
+    ports?: pulumi.Input<pulumi.Input<inputs.ServiceDefinitionPort>[]>;
     /**
      * The service deployment regions to deploy to
      */
@@ -536,6 +536,14 @@ export interface ServiceDefinitionScalingTarget {
      */
     averageMems?: pulumi.Input<pulumi.Input<inputs.ServiceDefinitionScalingTargetAverageMem>[]>;
     /**
+     * The number of concurrent requests across all Instances of your Service within a region
+     */
+    concurrentRequests?: pulumi.Input<pulumi.Input<inputs.ServiceDefinitionScalingTargetConcurrentRequest>[]>;
+    /**
+     * The average response time of requests across all Instances of your Service within a region
+     */
+    requestResponseTimes?: pulumi.Input<pulumi.Input<inputs.ServiceDefinitionScalingTargetRequestResponseTime>[]>;
+    /**
      * The number of concurrent requests per second across all Instances of your Service within a region
      */
     requestsPerSeconds?: pulumi.Input<pulumi.Input<inputs.ServiceDefinitionScalingTargetRequestsPerSecond>[]>;
@@ -549,6 +557,20 @@ export interface ServiceDefinitionScalingTargetAverageCpus {
 }
 
 export interface ServiceDefinitionScalingTargetAverageMem {
+    /**
+     * The target value of the autoscaling target
+     */
+    value: pulumi.Input<number>;
+}
+
+export interface ServiceDefinitionScalingTargetConcurrentRequest {
+    /**
+     * The target value of the autoscaling target
+     */
+    value: pulumi.Input<number>;
+}
+
+export interface ServiceDefinitionScalingTargetRequestResponseTime {
     /**
      * The target value of the autoscaling target
      */

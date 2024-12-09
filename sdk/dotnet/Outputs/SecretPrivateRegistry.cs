@@ -18,7 +18,7 @@ namespace Pulumi.Koyeb.Outputs
         /// </summary>
         public readonly string Password;
         /// <summary>
-        /// The registry url
+        /// The registry URL
         /// </summary>
         public readonly string Url;
         /// <summary>

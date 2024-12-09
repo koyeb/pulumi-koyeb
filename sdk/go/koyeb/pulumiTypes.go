@@ -1020,7 +1020,7 @@ func (o SecretGitlabRegistryPtrOutput) Username() pulumi.StringPtrOutput {
 type SecretPrivateRegistry struct {
 	// The registry password
 	Password string `pulumi:"password"`
-	// The registry url
+	// The registry URL
 	Url string `pulumi:"url"`
 	// The registry username
 	Username string `pulumi:"username"`
@@ -1040,7 +1040,7 @@ type SecretPrivateRegistryInput interface {
 type SecretPrivateRegistryArgs struct {
 	// The registry password
 	Password pulumi.StringInput `pulumi:"password"`
-	// The registry url
+	// The registry URL
 	Url pulumi.StringInput `pulumi:"url"`
 	// The registry username
 	Username pulumi.StringInput `pulumi:"username"`
@@ -1128,7 +1128,7 @@ func (o SecretPrivateRegistryOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v SecretPrivateRegistry) string { return v.Password }).(pulumi.StringOutput)
 }
 
-// The registry url
+// The registry URL
 func (o SecretPrivateRegistryOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v SecretPrivateRegistry) string { return v.Url }).(pulumi.StringOutput)
 }
@@ -1172,7 +1172,7 @@ func (o SecretPrivateRegistryPtrOutput) Password() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The registry url
+// The registry URL
 func (o SecretPrivateRegistryPtrOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecretPrivateRegistry) *string {
 		if v == nil {
@@ -3525,6 +3525,10 @@ type ServiceDefinitionScalingTarget struct {
 	AverageCpus []ServiceDefinitionScalingTargetAverageCpus `pulumi:"averageCpus"`
 	// The memory usage (expressed as a percentage) across all Instances of your Service within a region
 	AverageMems []ServiceDefinitionScalingTargetAverageMem `pulumi:"averageMems"`
+	// The number of concurrent requests across all Instances of your Service within a region
+	ConcurrentRequests []ServiceDefinitionScalingTargetConcurrentRequest `pulumi:"concurrentRequests"`
+	// The average response time of requests across all Instances of your Service within a region
+	RequestResponseTimes []ServiceDefinitionScalingTargetRequestResponseTime `pulumi:"requestResponseTimes"`
 	// The number of concurrent requests per second across all Instances of your Service within a region
 	RequestsPerSeconds []ServiceDefinitionScalingTargetRequestsPerSecond `pulumi:"requestsPerSeconds"`
 }
@@ -3545,6 +3549,10 @@ type ServiceDefinitionScalingTargetArgs struct {
 	AverageCpus ServiceDefinitionScalingTargetAverageCpusArrayInput `pulumi:"averageCpus"`
 	// The memory usage (expressed as a percentage) across all Instances of your Service within a region
 	AverageMems ServiceDefinitionScalingTargetAverageMemArrayInput `pulumi:"averageMems"`
+	// The number of concurrent requests across all Instances of your Service within a region
+	ConcurrentRequests ServiceDefinitionScalingTargetConcurrentRequestArrayInput `pulumi:"concurrentRequests"`
+	// The average response time of requests across all Instances of your Service within a region
+	RequestResponseTimes ServiceDefinitionScalingTargetRequestResponseTimeArrayInput `pulumi:"requestResponseTimes"`
 	// The number of concurrent requests per second across all Instances of your Service within a region
 	RequestsPerSeconds ServiceDefinitionScalingTargetRequestsPerSecondArrayInput `pulumi:"requestsPerSeconds"`
 }
@@ -3612,6 +3620,20 @@ func (o ServiceDefinitionScalingTargetOutput) AverageMems() ServiceDefinitionSca
 	return o.ApplyT(func(v ServiceDefinitionScalingTarget) []ServiceDefinitionScalingTargetAverageMem {
 		return v.AverageMems
 	}).(ServiceDefinitionScalingTargetAverageMemArrayOutput)
+}
+
+// The number of concurrent requests across all Instances of your Service within a region
+func (o ServiceDefinitionScalingTargetOutput) ConcurrentRequests() ServiceDefinitionScalingTargetConcurrentRequestArrayOutput {
+	return o.ApplyT(func(v ServiceDefinitionScalingTarget) []ServiceDefinitionScalingTargetConcurrentRequest {
+		return v.ConcurrentRequests
+	}).(ServiceDefinitionScalingTargetConcurrentRequestArrayOutput)
+}
+
+// The average response time of requests across all Instances of your Service within a region
+func (o ServiceDefinitionScalingTargetOutput) RequestResponseTimes() ServiceDefinitionScalingTargetRequestResponseTimeArrayOutput {
+	return o.ApplyT(func(v ServiceDefinitionScalingTarget) []ServiceDefinitionScalingTargetRequestResponseTime {
+		return v.RequestResponseTimes
+	}).(ServiceDefinitionScalingTargetRequestResponseTimeArrayOutput)
 }
 
 // The number of concurrent requests per second across all Instances of your Service within a region
@@ -3833,6 +3855,200 @@ func (o ServiceDefinitionScalingTargetAverageMemArrayOutput) Index(i pulumi.IntI
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceDefinitionScalingTargetAverageMem {
 		return vs[0].([]ServiceDefinitionScalingTargetAverageMem)[vs[1].(int)]
 	}).(ServiceDefinitionScalingTargetAverageMemOutput)
+}
+
+type ServiceDefinitionScalingTargetConcurrentRequest struct {
+	// The target value of the autoscaling target
+	Value int `pulumi:"value"`
+}
+
+// ServiceDefinitionScalingTargetConcurrentRequestInput is an input type that accepts ServiceDefinitionScalingTargetConcurrentRequestArgs and ServiceDefinitionScalingTargetConcurrentRequestOutput values.
+// You can construct a concrete instance of `ServiceDefinitionScalingTargetConcurrentRequestInput` via:
+//
+//	ServiceDefinitionScalingTargetConcurrentRequestArgs{...}
+type ServiceDefinitionScalingTargetConcurrentRequestInput interface {
+	pulumi.Input
+
+	ToServiceDefinitionScalingTargetConcurrentRequestOutput() ServiceDefinitionScalingTargetConcurrentRequestOutput
+	ToServiceDefinitionScalingTargetConcurrentRequestOutputWithContext(context.Context) ServiceDefinitionScalingTargetConcurrentRequestOutput
+}
+
+type ServiceDefinitionScalingTargetConcurrentRequestArgs struct {
+	// The target value of the autoscaling target
+	Value pulumi.IntInput `pulumi:"value"`
+}
+
+func (ServiceDefinitionScalingTargetConcurrentRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceDefinitionScalingTargetConcurrentRequest)(nil)).Elem()
+}
+
+func (i ServiceDefinitionScalingTargetConcurrentRequestArgs) ToServiceDefinitionScalingTargetConcurrentRequestOutput() ServiceDefinitionScalingTargetConcurrentRequestOutput {
+	return i.ToServiceDefinitionScalingTargetConcurrentRequestOutputWithContext(context.Background())
+}
+
+func (i ServiceDefinitionScalingTargetConcurrentRequestArgs) ToServiceDefinitionScalingTargetConcurrentRequestOutputWithContext(ctx context.Context) ServiceDefinitionScalingTargetConcurrentRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceDefinitionScalingTargetConcurrentRequestOutput)
+}
+
+// ServiceDefinitionScalingTargetConcurrentRequestArrayInput is an input type that accepts ServiceDefinitionScalingTargetConcurrentRequestArray and ServiceDefinitionScalingTargetConcurrentRequestArrayOutput values.
+// You can construct a concrete instance of `ServiceDefinitionScalingTargetConcurrentRequestArrayInput` via:
+//
+//	ServiceDefinitionScalingTargetConcurrentRequestArray{ ServiceDefinitionScalingTargetConcurrentRequestArgs{...} }
+type ServiceDefinitionScalingTargetConcurrentRequestArrayInput interface {
+	pulumi.Input
+
+	ToServiceDefinitionScalingTargetConcurrentRequestArrayOutput() ServiceDefinitionScalingTargetConcurrentRequestArrayOutput
+	ToServiceDefinitionScalingTargetConcurrentRequestArrayOutputWithContext(context.Context) ServiceDefinitionScalingTargetConcurrentRequestArrayOutput
+}
+
+type ServiceDefinitionScalingTargetConcurrentRequestArray []ServiceDefinitionScalingTargetConcurrentRequestInput
+
+func (ServiceDefinitionScalingTargetConcurrentRequestArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceDefinitionScalingTargetConcurrentRequest)(nil)).Elem()
+}
+
+func (i ServiceDefinitionScalingTargetConcurrentRequestArray) ToServiceDefinitionScalingTargetConcurrentRequestArrayOutput() ServiceDefinitionScalingTargetConcurrentRequestArrayOutput {
+	return i.ToServiceDefinitionScalingTargetConcurrentRequestArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceDefinitionScalingTargetConcurrentRequestArray) ToServiceDefinitionScalingTargetConcurrentRequestArrayOutputWithContext(ctx context.Context) ServiceDefinitionScalingTargetConcurrentRequestArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceDefinitionScalingTargetConcurrentRequestArrayOutput)
+}
+
+type ServiceDefinitionScalingTargetConcurrentRequestOutput struct{ *pulumi.OutputState }
+
+func (ServiceDefinitionScalingTargetConcurrentRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceDefinitionScalingTargetConcurrentRequest)(nil)).Elem()
+}
+
+func (o ServiceDefinitionScalingTargetConcurrentRequestOutput) ToServiceDefinitionScalingTargetConcurrentRequestOutput() ServiceDefinitionScalingTargetConcurrentRequestOutput {
+	return o
+}
+
+func (o ServiceDefinitionScalingTargetConcurrentRequestOutput) ToServiceDefinitionScalingTargetConcurrentRequestOutputWithContext(ctx context.Context) ServiceDefinitionScalingTargetConcurrentRequestOutput {
+	return o
+}
+
+// The target value of the autoscaling target
+func (o ServiceDefinitionScalingTargetConcurrentRequestOutput) Value() pulumi.IntOutput {
+	return o.ApplyT(func(v ServiceDefinitionScalingTargetConcurrentRequest) int { return v.Value }).(pulumi.IntOutput)
+}
+
+type ServiceDefinitionScalingTargetConcurrentRequestArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceDefinitionScalingTargetConcurrentRequestArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceDefinitionScalingTargetConcurrentRequest)(nil)).Elem()
+}
+
+func (o ServiceDefinitionScalingTargetConcurrentRequestArrayOutput) ToServiceDefinitionScalingTargetConcurrentRequestArrayOutput() ServiceDefinitionScalingTargetConcurrentRequestArrayOutput {
+	return o
+}
+
+func (o ServiceDefinitionScalingTargetConcurrentRequestArrayOutput) ToServiceDefinitionScalingTargetConcurrentRequestArrayOutputWithContext(ctx context.Context) ServiceDefinitionScalingTargetConcurrentRequestArrayOutput {
+	return o
+}
+
+func (o ServiceDefinitionScalingTargetConcurrentRequestArrayOutput) Index(i pulumi.IntInput) ServiceDefinitionScalingTargetConcurrentRequestOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceDefinitionScalingTargetConcurrentRequest {
+		return vs[0].([]ServiceDefinitionScalingTargetConcurrentRequest)[vs[1].(int)]
+	}).(ServiceDefinitionScalingTargetConcurrentRequestOutput)
+}
+
+type ServiceDefinitionScalingTargetRequestResponseTime struct {
+	// The target value of the autoscaling target
+	Value int `pulumi:"value"`
+}
+
+// ServiceDefinitionScalingTargetRequestResponseTimeInput is an input type that accepts ServiceDefinitionScalingTargetRequestResponseTimeArgs and ServiceDefinitionScalingTargetRequestResponseTimeOutput values.
+// You can construct a concrete instance of `ServiceDefinitionScalingTargetRequestResponseTimeInput` via:
+//
+//	ServiceDefinitionScalingTargetRequestResponseTimeArgs{...}
+type ServiceDefinitionScalingTargetRequestResponseTimeInput interface {
+	pulumi.Input
+
+	ToServiceDefinitionScalingTargetRequestResponseTimeOutput() ServiceDefinitionScalingTargetRequestResponseTimeOutput
+	ToServiceDefinitionScalingTargetRequestResponseTimeOutputWithContext(context.Context) ServiceDefinitionScalingTargetRequestResponseTimeOutput
+}
+
+type ServiceDefinitionScalingTargetRequestResponseTimeArgs struct {
+	// The target value of the autoscaling target
+	Value pulumi.IntInput `pulumi:"value"`
+}
+
+func (ServiceDefinitionScalingTargetRequestResponseTimeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceDefinitionScalingTargetRequestResponseTime)(nil)).Elem()
+}
+
+func (i ServiceDefinitionScalingTargetRequestResponseTimeArgs) ToServiceDefinitionScalingTargetRequestResponseTimeOutput() ServiceDefinitionScalingTargetRequestResponseTimeOutput {
+	return i.ToServiceDefinitionScalingTargetRequestResponseTimeOutputWithContext(context.Background())
+}
+
+func (i ServiceDefinitionScalingTargetRequestResponseTimeArgs) ToServiceDefinitionScalingTargetRequestResponseTimeOutputWithContext(ctx context.Context) ServiceDefinitionScalingTargetRequestResponseTimeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceDefinitionScalingTargetRequestResponseTimeOutput)
+}
+
+// ServiceDefinitionScalingTargetRequestResponseTimeArrayInput is an input type that accepts ServiceDefinitionScalingTargetRequestResponseTimeArray and ServiceDefinitionScalingTargetRequestResponseTimeArrayOutput values.
+// You can construct a concrete instance of `ServiceDefinitionScalingTargetRequestResponseTimeArrayInput` via:
+//
+//	ServiceDefinitionScalingTargetRequestResponseTimeArray{ ServiceDefinitionScalingTargetRequestResponseTimeArgs{...} }
+type ServiceDefinitionScalingTargetRequestResponseTimeArrayInput interface {
+	pulumi.Input
+
+	ToServiceDefinitionScalingTargetRequestResponseTimeArrayOutput() ServiceDefinitionScalingTargetRequestResponseTimeArrayOutput
+	ToServiceDefinitionScalingTargetRequestResponseTimeArrayOutputWithContext(context.Context) ServiceDefinitionScalingTargetRequestResponseTimeArrayOutput
+}
+
+type ServiceDefinitionScalingTargetRequestResponseTimeArray []ServiceDefinitionScalingTargetRequestResponseTimeInput
+
+func (ServiceDefinitionScalingTargetRequestResponseTimeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceDefinitionScalingTargetRequestResponseTime)(nil)).Elem()
+}
+
+func (i ServiceDefinitionScalingTargetRequestResponseTimeArray) ToServiceDefinitionScalingTargetRequestResponseTimeArrayOutput() ServiceDefinitionScalingTargetRequestResponseTimeArrayOutput {
+	return i.ToServiceDefinitionScalingTargetRequestResponseTimeArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceDefinitionScalingTargetRequestResponseTimeArray) ToServiceDefinitionScalingTargetRequestResponseTimeArrayOutputWithContext(ctx context.Context) ServiceDefinitionScalingTargetRequestResponseTimeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceDefinitionScalingTargetRequestResponseTimeArrayOutput)
+}
+
+type ServiceDefinitionScalingTargetRequestResponseTimeOutput struct{ *pulumi.OutputState }
+
+func (ServiceDefinitionScalingTargetRequestResponseTimeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceDefinitionScalingTargetRequestResponseTime)(nil)).Elem()
+}
+
+func (o ServiceDefinitionScalingTargetRequestResponseTimeOutput) ToServiceDefinitionScalingTargetRequestResponseTimeOutput() ServiceDefinitionScalingTargetRequestResponseTimeOutput {
+	return o
+}
+
+func (o ServiceDefinitionScalingTargetRequestResponseTimeOutput) ToServiceDefinitionScalingTargetRequestResponseTimeOutputWithContext(ctx context.Context) ServiceDefinitionScalingTargetRequestResponseTimeOutput {
+	return o
+}
+
+// The target value of the autoscaling target
+func (o ServiceDefinitionScalingTargetRequestResponseTimeOutput) Value() pulumi.IntOutput {
+	return o.ApplyT(func(v ServiceDefinitionScalingTargetRequestResponseTime) int { return v.Value }).(pulumi.IntOutput)
+}
+
+type ServiceDefinitionScalingTargetRequestResponseTimeArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceDefinitionScalingTargetRequestResponseTimeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceDefinitionScalingTargetRequestResponseTime)(nil)).Elem()
+}
+
+func (o ServiceDefinitionScalingTargetRequestResponseTimeArrayOutput) ToServiceDefinitionScalingTargetRequestResponseTimeArrayOutput() ServiceDefinitionScalingTargetRequestResponseTimeArrayOutput {
+	return o
+}
+
+func (o ServiceDefinitionScalingTargetRequestResponseTimeArrayOutput) ToServiceDefinitionScalingTargetRequestResponseTimeArrayOutputWithContext(ctx context.Context) ServiceDefinitionScalingTargetRequestResponseTimeArrayOutput {
+	return o
+}
+
+func (o ServiceDefinitionScalingTargetRequestResponseTimeArrayOutput) Index(i pulumi.IntInput) ServiceDefinitionScalingTargetRequestResponseTimeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceDefinitionScalingTargetRequestResponseTime {
+		return vs[0].([]ServiceDefinitionScalingTargetRequestResponseTime)[vs[1].(int)]
+	}).(ServiceDefinitionScalingTargetRequestResponseTimeOutput)
 }
 
 type ServiceDefinitionScalingTargetRequestsPerSecond struct {
@@ -5063,7 +5279,7 @@ func (o GetSecretGitlabRegistryPtrOutput) Username() pulumi.StringPtrOutput {
 type GetSecretPrivateRegistry struct {
 	// The registry password
 	Password string `pulumi:"password"`
-	// The registry url
+	// The registry URL
 	Url string `pulumi:"url"`
 	// The registry username
 	Username string `pulumi:"username"`
@@ -5083,7 +5299,7 @@ type GetSecretPrivateRegistryInput interface {
 type GetSecretPrivateRegistryArgs struct {
 	// The registry password
 	Password pulumi.StringInput `pulumi:"password"`
-	// The registry url
+	// The registry URL
 	Url pulumi.StringInput `pulumi:"url"`
 	// The registry username
 	Username pulumi.StringInput `pulumi:"username"`
@@ -5171,7 +5387,7 @@ func (o GetSecretPrivateRegistryOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecretPrivateRegistry) string { return v.Password }).(pulumi.StringOutput)
 }
 
-// The registry url
+// The registry URL
 func (o GetSecretPrivateRegistryOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecretPrivateRegistry) string { return v.Url }).(pulumi.StringOutput)
 }
@@ -5215,7 +5431,7 @@ func (o GetSecretPrivateRegistryPtrOutput) Password() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The registry url
+// The registry URL
 func (o GetSecretPrivateRegistryPtrOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetSecretPrivateRegistry) *string {
 		if v == nil {
@@ -5233,6 +5449,2936 @@ func (o GetSecretPrivateRegistryPtrOutput) Username() pulumi.StringPtrOutput {
 		}
 		return &v.Username
 	}).(pulumi.StringPtrOutput)
+}
+
+type GetServiceDefinition struct {
+	Docker        *GetServiceDefinitionDocker        `pulumi:"docker"`
+	Envs          []GetServiceDefinitionEnv          `pulumi:"envs"`
+	Git           *GetServiceDefinitionGit           `pulumi:"git"`
+	HealthChecks  []GetServiceDefinitionHealthCheck  `pulumi:"healthChecks"`
+	InstanceTypes []GetServiceDefinitionInstanceType `pulumi:"instanceTypes"`
+	// The service name
+	Name  string                     `pulumi:"name"`
+	Ports []GetServiceDefinitionPort `pulumi:"ports"`
+	// The service deployment regions to deploy to
+	Regions  []string                      `pulumi:"regions"`
+	Routes   []GetServiceDefinitionRoute   `pulumi:"routes"`
+	Scalings []GetServiceDefinitionScaling `pulumi:"scalings"`
+	// If set to true, the service will be deployed without using the cache
+	SkipCache *bool `pulumi:"skipCache"`
+	// The service type, either WEB or WORKER (default WEB)
+	Type *string `pulumi:"type"`
+	// The volumes to attach and mount to the service
+	Volumes []GetServiceDefinitionVolume `pulumi:"volumes"`
+}
+
+// GetServiceDefinitionInput is an input type that accepts GetServiceDefinitionArgs and GetServiceDefinitionOutput values.
+// You can construct a concrete instance of `GetServiceDefinitionInput` via:
+//
+//	GetServiceDefinitionArgs{...}
+type GetServiceDefinitionInput interface {
+	pulumi.Input
+
+	ToGetServiceDefinitionOutput() GetServiceDefinitionOutput
+	ToGetServiceDefinitionOutputWithContext(context.Context) GetServiceDefinitionOutput
+}
+
+type GetServiceDefinitionArgs struct {
+	Docker        GetServiceDefinitionDockerPtrInput         `pulumi:"docker"`
+	Envs          GetServiceDefinitionEnvArrayInput          `pulumi:"envs"`
+	Git           GetServiceDefinitionGitPtrInput            `pulumi:"git"`
+	HealthChecks  GetServiceDefinitionHealthCheckArrayInput  `pulumi:"healthChecks"`
+	InstanceTypes GetServiceDefinitionInstanceTypeArrayInput `pulumi:"instanceTypes"`
+	// The service name
+	Name  pulumi.StringInput                 `pulumi:"name"`
+	Ports GetServiceDefinitionPortArrayInput `pulumi:"ports"`
+	// The service deployment regions to deploy to
+	Regions  pulumi.StringArrayInput               `pulumi:"regions"`
+	Routes   GetServiceDefinitionRouteArrayInput   `pulumi:"routes"`
+	Scalings GetServiceDefinitionScalingArrayInput `pulumi:"scalings"`
+	// If set to true, the service will be deployed without using the cache
+	SkipCache pulumi.BoolPtrInput `pulumi:"skipCache"`
+	// The service type, either WEB or WORKER (default WEB)
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// The volumes to attach and mount to the service
+	Volumes GetServiceDefinitionVolumeArrayInput `pulumi:"volumes"`
+}
+
+func (GetServiceDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceDefinition)(nil)).Elem()
+}
+
+func (i GetServiceDefinitionArgs) ToGetServiceDefinitionOutput() GetServiceDefinitionOutput {
+	return i.ToGetServiceDefinitionOutputWithContext(context.Background())
+}
+
+func (i GetServiceDefinitionArgs) ToGetServiceDefinitionOutputWithContext(ctx context.Context) GetServiceDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDefinitionOutput)
+}
+
+// GetServiceDefinitionArrayInput is an input type that accepts GetServiceDefinitionArray and GetServiceDefinitionArrayOutput values.
+// You can construct a concrete instance of `GetServiceDefinitionArrayInput` via:
+//
+//	GetServiceDefinitionArray{ GetServiceDefinitionArgs{...} }
+type GetServiceDefinitionArrayInput interface {
+	pulumi.Input
+
+	ToGetServiceDefinitionArrayOutput() GetServiceDefinitionArrayOutput
+	ToGetServiceDefinitionArrayOutputWithContext(context.Context) GetServiceDefinitionArrayOutput
+}
+
+type GetServiceDefinitionArray []GetServiceDefinitionInput
+
+func (GetServiceDefinitionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceDefinition)(nil)).Elem()
+}
+
+func (i GetServiceDefinitionArray) ToGetServiceDefinitionArrayOutput() GetServiceDefinitionArrayOutput {
+	return i.ToGetServiceDefinitionArrayOutputWithContext(context.Background())
+}
+
+func (i GetServiceDefinitionArray) ToGetServiceDefinitionArrayOutputWithContext(ctx context.Context) GetServiceDefinitionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDefinitionArrayOutput)
+}
+
+type GetServiceDefinitionOutput struct{ *pulumi.OutputState }
+
+func (GetServiceDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceDefinition)(nil)).Elem()
+}
+
+func (o GetServiceDefinitionOutput) ToGetServiceDefinitionOutput() GetServiceDefinitionOutput {
+	return o
+}
+
+func (o GetServiceDefinitionOutput) ToGetServiceDefinitionOutputWithContext(ctx context.Context) GetServiceDefinitionOutput {
+	return o
+}
+
+func (o GetServiceDefinitionOutput) Docker() GetServiceDefinitionDockerPtrOutput {
+	return o.ApplyT(func(v GetServiceDefinition) *GetServiceDefinitionDocker { return v.Docker }).(GetServiceDefinitionDockerPtrOutput)
+}
+
+func (o GetServiceDefinitionOutput) Envs() GetServiceDefinitionEnvArrayOutput {
+	return o.ApplyT(func(v GetServiceDefinition) []GetServiceDefinitionEnv { return v.Envs }).(GetServiceDefinitionEnvArrayOutput)
+}
+
+func (o GetServiceDefinitionOutput) Git() GetServiceDefinitionGitPtrOutput {
+	return o.ApplyT(func(v GetServiceDefinition) *GetServiceDefinitionGit { return v.Git }).(GetServiceDefinitionGitPtrOutput)
+}
+
+func (o GetServiceDefinitionOutput) HealthChecks() GetServiceDefinitionHealthCheckArrayOutput {
+	return o.ApplyT(func(v GetServiceDefinition) []GetServiceDefinitionHealthCheck { return v.HealthChecks }).(GetServiceDefinitionHealthCheckArrayOutput)
+}
+
+func (o GetServiceDefinitionOutput) InstanceTypes() GetServiceDefinitionInstanceTypeArrayOutput {
+	return o.ApplyT(func(v GetServiceDefinition) []GetServiceDefinitionInstanceType { return v.InstanceTypes }).(GetServiceDefinitionInstanceTypeArrayOutput)
+}
+
+// The service name
+func (o GetServiceDefinitionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceDefinition) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetServiceDefinitionOutput) Ports() GetServiceDefinitionPortArrayOutput {
+	return o.ApplyT(func(v GetServiceDefinition) []GetServiceDefinitionPort { return v.Ports }).(GetServiceDefinitionPortArrayOutput)
+}
+
+// The service deployment regions to deploy to
+func (o GetServiceDefinitionOutput) Regions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetServiceDefinition) []string { return v.Regions }).(pulumi.StringArrayOutput)
+}
+
+func (o GetServiceDefinitionOutput) Routes() GetServiceDefinitionRouteArrayOutput {
+	return o.ApplyT(func(v GetServiceDefinition) []GetServiceDefinitionRoute { return v.Routes }).(GetServiceDefinitionRouteArrayOutput)
+}
+
+func (o GetServiceDefinitionOutput) Scalings() GetServiceDefinitionScalingArrayOutput {
+	return o.ApplyT(func(v GetServiceDefinition) []GetServiceDefinitionScaling { return v.Scalings }).(GetServiceDefinitionScalingArrayOutput)
+}
+
+// If set to true, the service will be deployed without using the cache
+func (o GetServiceDefinitionOutput) SkipCache() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetServiceDefinition) *bool { return v.SkipCache }).(pulumi.BoolPtrOutput)
+}
+
+// The service type, either WEB or WORKER (default WEB)
+func (o GetServiceDefinitionOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetServiceDefinition) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// The volumes to attach and mount to the service
+func (o GetServiceDefinitionOutput) Volumes() GetServiceDefinitionVolumeArrayOutput {
+	return o.ApplyT(func(v GetServiceDefinition) []GetServiceDefinitionVolume { return v.Volumes }).(GetServiceDefinitionVolumeArrayOutput)
+}
+
+type GetServiceDefinitionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetServiceDefinitionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceDefinition)(nil)).Elem()
+}
+
+func (o GetServiceDefinitionArrayOutput) ToGetServiceDefinitionArrayOutput() GetServiceDefinitionArrayOutput {
+	return o
+}
+
+func (o GetServiceDefinitionArrayOutput) ToGetServiceDefinitionArrayOutputWithContext(ctx context.Context) GetServiceDefinitionArrayOutput {
+	return o
+}
+
+func (o GetServiceDefinitionArrayOutput) Index(i pulumi.IntInput) GetServiceDefinitionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServiceDefinition {
+		return vs[0].([]GetServiceDefinition)[vs[1].(int)]
+	}).(GetServiceDefinitionOutput)
+}
+
+type GetServiceDefinitionDocker struct {
+	// The Docker args to use
+	Args []string `pulumi:"args"`
+	// The Docker command to use
+	Command *string `pulumi:"command"`
+	// The Docker entrypoint to use
+	Entrypoints []string `pulumi:"entrypoints"`
+	// The Docker image to use to support your service
+	Image string `pulumi:"image"`
+	// The Koyeb secret containing the container registry credentials
+	ImageRegistrySecret *string `pulumi:"imageRegistrySecret"`
+	// When enabled, the service container will run in privileged mode. This advanced feature is useful to get advanced system privileges.
+	Privileged *bool `pulumi:"privileged"`
+}
+
+// GetServiceDefinitionDockerInput is an input type that accepts GetServiceDefinitionDockerArgs and GetServiceDefinitionDockerOutput values.
+// You can construct a concrete instance of `GetServiceDefinitionDockerInput` via:
+//
+//	GetServiceDefinitionDockerArgs{...}
+type GetServiceDefinitionDockerInput interface {
+	pulumi.Input
+
+	ToGetServiceDefinitionDockerOutput() GetServiceDefinitionDockerOutput
+	ToGetServiceDefinitionDockerOutputWithContext(context.Context) GetServiceDefinitionDockerOutput
+}
+
+type GetServiceDefinitionDockerArgs struct {
+	// The Docker args to use
+	Args pulumi.StringArrayInput `pulumi:"args"`
+	// The Docker command to use
+	Command pulumi.StringPtrInput `pulumi:"command"`
+	// The Docker entrypoint to use
+	Entrypoints pulumi.StringArrayInput `pulumi:"entrypoints"`
+	// The Docker image to use to support your service
+	Image pulumi.StringInput `pulumi:"image"`
+	// The Koyeb secret containing the container registry credentials
+	ImageRegistrySecret pulumi.StringPtrInput `pulumi:"imageRegistrySecret"`
+	// When enabled, the service container will run in privileged mode. This advanced feature is useful to get advanced system privileges.
+	Privileged pulumi.BoolPtrInput `pulumi:"privileged"`
+}
+
+func (GetServiceDefinitionDockerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceDefinitionDocker)(nil)).Elem()
+}
+
+func (i GetServiceDefinitionDockerArgs) ToGetServiceDefinitionDockerOutput() GetServiceDefinitionDockerOutput {
+	return i.ToGetServiceDefinitionDockerOutputWithContext(context.Background())
+}
+
+func (i GetServiceDefinitionDockerArgs) ToGetServiceDefinitionDockerOutputWithContext(ctx context.Context) GetServiceDefinitionDockerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDefinitionDockerOutput)
+}
+
+func (i GetServiceDefinitionDockerArgs) ToGetServiceDefinitionDockerPtrOutput() GetServiceDefinitionDockerPtrOutput {
+	return i.ToGetServiceDefinitionDockerPtrOutputWithContext(context.Background())
+}
+
+func (i GetServiceDefinitionDockerArgs) ToGetServiceDefinitionDockerPtrOutputWithContext(ctx context.Context) GetServiceDefinitionDockerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDefinitionDockerOutput).ToGetServiceDefinitionDockerPtrOutputWithContext(ctx)
+}
+
+// GetServiceDefinitionDockerPtrInput is an input type that accepts GetServiceDefinitionDockerArgs, GetServiceDefinitionDockerPtr and GetServiceDefinitionDockerPtrOutput values.
+// You can construct a concrete instance of `GetServiceDefinitionDockerPtrInput` via:
+//
+//	        GetServiceDefinitionDockerArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetServiceDefinitionDockerPtrInput interface {
+	pulumi.Input
+
+	ToGetServiceDefinitionDockerPtrOutput() GetServiceDefinitionDockerPtrOutput
+	ToGetServiceDefinitionDockerPtrOutputWithContext(context.Context) GetServiceDefinitionDockerPtrOutput
+}
+
+type getServiceDefinitionDockerPtrType GetServiceDefinitionDockerArgs
+
+func GetServiceDefinitionDockerPtr(v *GetServiceDefinitionDockerArgs) GetServiceDefinitionDockerPtrInput {
+	return (*getServiceDefinitionDockerPtrType)(v)
+}
+
+func (*getServiceDefinitionDockerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetServiceDefinitionDocker)(nil)).Elem()
+}
+
+func (i *getServiceDefinitionDockerPtrType) ToGetServiceDefinitionDockerPtrOutput() GetServiceDefinitionDockerPtrOutput {
+	return i.ToGetServiceDefinitionDockerPtrOutputWithContext(context.Background())
+}
+
+func (i *getServiceDefinitionDockerPtrType) ToGetServiceDefinitionDockerPtrOutputWithContext(ctx context.Context) GetServiceDefinitionDockerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDefinitionDockerPtrOutput)
+}
+
+type GetServiceDefinitionDockerOutput struct{ *pulumi.OutputState }
+
+func (GetServiceDefinitionDockerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceDefinitionDocker)(nil)).Elem()
+}
+
+func (o GetServiceDefinitionDockerOutput) ToGetServiceDefinitionDockerOutput() GetServiceDefinitionDockerOutput {
+	return o
+}
+
+func (o GetServiceDefinitionDockerOutput) ToGetServiceDefinitionDockerOutputWithContext(ctx context.Context) GetServiceDefinitionDockerOutput {
+	return o
+}
+
+func (o GetServiceDefinitionDockerOutput) ToGetServiceDefinitionDockerPtrOutput() GetServiceDefinitionDockerPtrOutput {
+	return o.ToGetServiceDefinitionDockerPtrOutputWithContext(context.Background())
+}
+
+func (o GetServiceDefinitionDockerOutput) ToGetServiceDefinitionDockerPtrOutputWithContext(ctx context.Context) GetServiceDefinitionDockerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetServiceDefinitionDocker) *GetServiceDefinitionDocker {
+		return &v
+	}).(GetServiceDefinitionDockerPtrOutput)
+}
+
+// The Docker args to use
+func (o GetServiceDefinitionDockerOutput) Args() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetServiceDefinitionDocker) []string { return v.Args }).(pulumi.StringArrayOutput)
+}
+
+// The Docker command to use
+func (o GetServiceDefinitionDockerOutput) Command() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetServiceDefinitionDocker) *string { return v.Command }).(pulumi.StringPtrOutput)
+}
+
+// The Docker entrypoint to use
+func (o GetServiceDefinitionDockerOutput) Entrypoints() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetServiceDefinitionDocker) []string { return v.Entrypoints }).(pulumi.StringArrayOutput)
+}
+
+// The Docker image to use to support your service
+func (o GetServiceDefinitionDockerOutput) Image() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceDefinitionDocker) string { return v.Image }).(pulumi.StringOutput)
+}
+
+// The Koyeb secret containing the container registry credentials
+func (o GetServiceDefinitionDockerOutput) ImageRegistrySecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetServiceDefinitionDocker) *string { return v.ImageRegistrySecret }).(pulumi.StringPtrOutput)
+}
+
+// When enabled, the service container will run in privileged mode. This advanced feature is useful to get advanced system privileges.
+func (o GetServiceDefinitionDockerOutput) Privileged() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetServiceDefinitionDocker) *bool { return v.Privileged }).(pulumi.BoolPtrOutput)
+}
+
+type GetServiceDefinitionDockerPtrOutput struct{ *pulumi.OutputState }
+
+func (GetServiceDefinitionDockerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetServiceDefinitionDocker)(nil)).Elem()
+}
+
+func (o GetServiceDefinitionDockerPtrOutput) ToGetServiceDefinitionDockerPtrOutput() GetServiceDefinitionDockerPtrOutput {
+	return o
+}
+
+func (o GetServiceDefinitionDockerPtrOutput) ToGetServiceDefinitionDockerPtrOutputWithContext(ctx context.Context) GetServiceDefinitionDockerPtrOutput {
+	return o
+}
+
+func (o GetServiceDefinitionDockerPtrOutput) Elem() GetServiceDefinitionDockerOutput {
+	return o.ApplyT(func(v *GetServiceDefinitionDocker) GetServiceDefinitionDocker {
+		if v != nil {
+			return *v
+		}
+		var ret GetServiceDefinitionDocker
+		return ret
+	}).(GetServiceDefinitionDockerOutput)
+}
+
+// The Docker args to use
+func (o GetServiceDefinitionDockerPtrOutput) Args() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GetServiceDefinitionDocker) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Args
+	}).(pulumi.StringArrayOutput)
+}
+
+// The Docker command to use
+func (o GetServiceDefinitionDockerPtrOutput) Command() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetServiceDefinitionDocker) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Command
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Docker entrypoint to use
+func (o GetServiceDefinitionDockerPtrOutput) Entrypoints() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GetServiceDefinitionDocker) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Entrypoints
+	}).(pulumi.StringArrayOutput)
+}
+
+// The Docker image to use to support your service
+func (o GetServiceDefinitionDockerPtrOutput) Image() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetServiceDefinitionDocker) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Image
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Koyeb secret containing the container registry credentials
+func (o GetServiceDefinitionDockerPtrOutput) ImageRegistrySecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetServiceDefinitionDocker) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ImageRegistrySecret
+	}).(pulumi.StringPtrOutput)
+}
+
+// When enabled, the service container will run in privileged mode. This advanced feature is useful to get advanced system privileges.
+func (o GetServiceDefinitionDockerPtrOutput) Privileged() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetServiceDefinitionDocker) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Privileged
+	}).(pulumi.BoolPtrOutput)
+}
+
+type GetServiceDefinitionEnv struct {
+	// The name of the environment variable
+	Key string `pulumi:"key"`
+	// The regions the environment variable needs to be exposed
+	Scopes []string `pulumi:"scopes"`
+	// The secret name to use as the value of the environment variable
+	Secret *string `pulumi:"secret"`
+	// The value of the environment variable
+	Value *string `pulumi:"value"`
+}
+
+// GetServiceDefinitionEnvInput is an input type that accepts GetServiceDefinitionEnvArgs and GetServiceDefinitionEnvOutput values.
+// You can construct a concrete instance of `GetServiceDefinitionEnvInput` via:
+//
+//	GetServiceDefinitionEnvArgs{...}
+type GetServiceDefinitionEnvInput interface {
+	pulumi.Input
+
+	ToGetServiceDefinitionEnvOutput() GetServiceDefinitionEnvOutput
+	ToGetServiceDefinitionEnvOutputWithContext(context.Context) GetServiceDefinitionEnvOutput
+}
+
+type GetServiceDefinitionEnvArgs struct {
+	// The name of the environment variable
+	Key pulumi.StringInput `pulumi:"key"`
+	// The regions the environment variable needs to be exposed
+	Scopes pulumi.StringArrayInput `pulumi:"scopes"`
+	// The secret name to use as the value of the environment variable
+	Secret pulumi.StringPtrInput `pulumi:"secret"`
+	// The value of the environment variable
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (GetServiceDefinitionEnvArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceDefinitionEnv)(nil)).Elem()
+}
+
+func (i GetServiceDefinitionEnvArgs) ToGetServiceDefinitionEnvOutput() GetServiceDefinitionEnvOutput {
+	return i.ToGetServiceDefinitionEnvOutputWithContext(context.Background())
+}
+
+func (i GetServiceDefinitionEnvArgs) ToGetServiceDefinitionEnvOutputWithContext(ctx context.Context) GetServiceDefinitionEnvOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDefinitionEnvOutput)
+}
+
+// GetServiceDefinitionEnvArrayInput is an input type that accepts GetServiceDefinitionEnvArray and GetServiceDefinitionEnvArrayOutput values.
+// You can construct a concrete instance of `GetServiceDefinitionEnvArrayInput` via:
+//
+//	GetServiceDefinitionEnvArray{ GetServiceDefinitionEnvArgs{...} }
+type GetServiceDefinitionEnvArrayInput interface {
+	pulumi.Input
+
+	ToGetServiceDefinitionEnvArrayOutput() GetServiceDefinitionEnvArrayOutput
+	ToGetServiceDefinitionEnvArrayOutputWithContext(context.Context) GetServiceDefinitionEnvArrayOutput
+}
+
+type GetServiceDefinitionEnvArray []GetServiceDefinitionEnvInput
+
+func (GetServiceDefinitionEnvArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceDefinitionEnv)(nil)).Elem()
+}
+
+func (i GetServiceDefinitionEnvArray) ToGetServiceDefinitionEnvArrayOutput() GetServiceDefinitionEnvArrayOutput {
+	return i.ToGetServiceDefinitionEnvArrayOutputWithContext(context.Background())
+}
+
+func (i GetServiceDefinitionEnvArray) ToGetServiceDefinitionEnvArrayOutputWithContext(ctx context.Context) GetServiceDefinitionEnvArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDefinitionEnvArrayOutput)
+}
+
+type GetServiceDefinitionEnvOutput struct{ *pulumi.OutputState }
+
+func (GetServiceDefinitionEnvOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceDefinitionEnv)(nil)).Elem()
+}
+
+func (o GetServiceDefinitionEnvOutput) ToGetServiceDefinitionEnvOutput() GetServiceDefinitionEnvOutput {
+	return o
+}
+
+func (o GetServiceDefinitionEnvOutput) ToGetServiceDefinitionEnvOutputWithContext(ctx context.Context) GetServiceDefinitionEnvOutput {
+	return o
+}
+
+// The name of the environment variable
+func (o GetServiceDefinitionEnvOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceDefinitionEnv) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The regions the environment variable needs to be exposed
+func (o GetServiceDefinitionEnvOutput) Scopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetServiceDefinitionEnv) []string { return v.Scopes }).(pulumi.StringArrayOutput)
+}
+
+// The secret name to use as the value of the environment variable
+func (o GetServiceDefinitionEnvOutput) Secret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetServiceDefinitionEnv) *string { return v.Secret }).(pulumi.StringPtrOutput)
+}
+
+// The value of the environment variable
+func (o GetServiceDefinitionEnvOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetServiceDefinitionEnv) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type GetServiceDefinitionEnvArrayOutput struct{ *pulumi.OutputState }
+
+func (GetServiceDefinitionEnvArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceDefinitionEnv)(nil)).Elem()
+}
+
+func (o GetServiceDefinitionEnvArrayOutput) ToGetServiceDefinitionEnvArrayOutput() GetServiceDefinitionEnvArrayOutput {
+	return o
+}
+
+func (o GetServiceDefinitionEnvArrayOutput) ToGetServiceDefinitionEnvArrayOutputWithContext(ctx context.Context) GetServiceDefinitionEnvArrayOutput {
+	return o
+}
+
+func (o GetServiceDefinitionEnvArrayOutput) Index(i pulumi.IntInput) GetServiceDefinitionEnvOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServiceDefinitionEnv {
+		return vs[0].([]GetServiceDefinitionEnv)[vs[1].(int)]
+	}).(GetServiceDefinitionEnvOutput)
+}
+
+type GetServiceDefinitionGit struct {
+	// The GitHub branch to deploy
+	Branch     string                             `pulumi:"branch"`
+	Buildpack  *GetServiceDefinitionGitBuildpack  `pulumi:"buildpack"`
+	Dockerfile *GetServiceDefinitionGitDockerfile `pulumi:"dockerfile"`
+	// If set to true, no Koyeb deployments will be triggered when changes are pushed to the GitHub repository branch
+	NoDeployOnPush *bool `pulumi:"noDeployOnPush"`
+	// The GitHub repository to deploy
+	Repository string `pulumi:"repository"`
+	// The directory where your source code is located. If not set, the work directory defaults to the root of the repository.
+	Workdir *string `pulumi:"workdir"`
+}
+
+// GetServiceDefinitionGitInput is an input type that accepts GetServiceDefinitionGitArgs and GetServiceDefinitionGitOutput values.
+// You can construct a concrete instance of `GetServiceDefinitionGitInput` via:
+//
+//	GetServiceDefinitionGitArgs{...}
+type GetServiceDefinitionGitInput interface {
+	pulumi.Input
+
+	ToGetServiceDefinitionGitOutput() GetServiceDefinitionGitOutput
+	ToGetServiceDefinitionGitOutputWithContext(context.Context) GetServiceDefinitionGitOutput
+}
+
+type GetServiceDefinitionGitArgs struct {
+	// The GitHub branch to deploy
+	Branch     pulumi.StringInput                        `pulumi:"branch"`
+	Buildpack  GetServiceDefinitionGitBuildpackPtrInput  `pulumi:"buildpack"`
+	Dockerfile GetServiceDefinitionGitDockerfilePtrInput `pulumi:"dockerfile"`
+	// If set to true, no Koyeb deployments will be triggered when changes are pushed to the GitHub repository branch
+	NoDeployOnPush pulumi.BoolPtrInput `pulumi:"noDeployOnPush"`
+	// The GitHub repository to deploy
+	Repository pulumi.StringInput `pulumi:"repository"`
+	// The directory where your source code is located. If not set, the work directory defaults to the root of the repository.
+	Workdir pulumi.StringPtrInput `pulumi:"workdir"`
+}
+
+func (GetServiceDefinitionGitArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceDefinitionGit)(nil)).Elem()
+}
+
+func (i GetServiceDefinitionGitArgs) ToGetServiceDefinitionGitOutput() GetServiceDefinitionGitOutput {
+	return i.ToGetServiceDefinitionGitOutputWithContext(context.Background())
+}
+
+func (i GetServiceDefinitionGitArgs) ToGetServiceDefinitionGitOutputWithContext(ctx context.Context) GetServiceDefinitionGitOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDefinitionGitOutput)
+}
+
+func (i GetServiceDefinitionGitArgs) ToGetServiceDefinitionGitPtrOutput() GetServiceDefinitionGitPtrOutput {
+	return i.ToGetServiceDefinitionGitPtrOutputWithContext(context.Background())
+}
+
+func (i GetServiceDefinitionGitArgs) ToGetServiceDefinitionGitPtrOutputWithContext(ctx context.Context) GetServiceDefinitionGitPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDefinitionGitOutput).ToGetServiceDefinitionGitPtrOutputWithContext(ctx)
+}
+
+// GetServiceDefinitionGitPtrInput is an input type that accepts GetServiceDefinitionGitArgs, GetServiceDefinitionGitPtr and GetServiceDefinitionGitPtrOutput values.
+// You can construct a concrete instance of `GetServiceDefinitionGitPtrInput` via:
+//
+//	        GetServiceDefinitionGitArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetServiceDefinitionGitPtrInput interface {
+	pulumi.Input
+
+	ToGetServiceDefinitionGitPtrOutput() GetServiceDefinitionGitPtrOutput
+	ToGetServiceDefinitionGitPtrOutputWithContext(context.Context) GetServiceDefinitionGitPtrOutput
+}
+
+type getServiceDefinitionGitPtrType GetServiceDefinitionGitArgs
+
+func GetServiceDefinitionGitPtr(v *GetServiceDefinitionGitArgs) GetServiceDefinitionGitPtrInput {
+	return (*getServiceDefinitionGitPtrType)(v)
+}
+
+func (*getServiceDefinitionGitPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetServiceDefinitionGit)(nil)).Elem()
+}
+
+func (i *getServiceDefinitionGitPtrType) ToGetServiceDefinitionGitPtrOutput() GetServiceDefinitionGitPtrOutput {
+	return i.ToGetServiceDefinitionGitPtrOutputWithContext(context.Background())
+}
+
+func (i *getServiceDefinitionGitPtrType) ToGetServiceDefinitionGitPtrOutputWithContext(ctx context.Context) GetServiceDefinitionGitPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDefinitionGitPtrOutput)
+}
+
+type GetServiceDefinitionGitOutput struct{ *pulumi.OutputState }
+
+func (GetServiceDefinitionGitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceDefinitionGit)(nil)).Elem()
+}
+
+func (o GetServiceDefinitionGitOutput) ToGetServiceDefinitionGitOutput() GetServiceDefinitionGitOutput {
+	return o
+}
+
+func (o GetServiceDefinitionGitOutput) ToGetServiceDefinitionGitOutputWithContext(ctx context.Context) GetServiceDefinitionGitOutput {
+	return o
+}
+
+func (o GetServiceDefinitionGitOutput) ToGetServiceDefinitionGitPtrOutput() GetServiceDefinitionGitPtrOutput {
+	return o.ToGetServiceDefinitionGitPtrOutputWithContext(context.Background())
+}
+
+func (o GetServiceDefinitionGitOutput) ToGetServiceDefinitionGitPtrOutputWithContext(ctx context.Context) GetServiceDefinitionGitPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetServiceDefinitionGit) *GetServiceDefinitionGit {
+		return &v
+	}).(GetServiceDefinitionGitPtrOutput)
+}
+
+// The GitHub branch to deploy
+func (o GetServiceDefinitionGitOutput) Branch() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceDefinitionGit) string { return v.Branch }).(pulumi.StringOutput)
+}
+
+func (o GetServiceDefinitionGitOutput) Buildpack() GetServiceDefinitionGitBuildpackPtrOutput {
+	return o.ApplyT(func(v GetServiceDefinitionGit) *GetServiceDefinitionGitBuildpack { return v.Buildpack }).(GetServiceDefinitionGitBuildpackPtrOutput)
+}
+
+func (o GetServiceDefinitionGitOutput) Dockerfile() GetServiceDefinitionGitDockerfilePtrOutput {
+	return o.ApplyT(func(v GetServiceDefinitionGit) *GetServiceDefinitionGitDockerfile { return v.Dockerfile }).(GetServiceDefinitionGitDockerfilePtrOutput)
+}
+
+// If set to true, no Koyeb deployments will be triggered when changes are pushed to the GitHub repository branch
+func (o GetServiceDefinitionGitOutput) NoDeployOnPush() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetServiceDefinitionGit) *bool { return v.NoDeployOnPush }).(pulumi.BoolPtrOutput)
+}
+
+// The GitHub repository to deploy
+func (o GetServiceDefinitionGitOutput) Repository() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceDefinitionGit) string { return v.Repository }).(pulumi.StringOutput)
+}
+
+// The directory where your source code is located. If not set, the work directory defaults to the root of the repository.
+func (o GetServiceDefinitionGitOutput) Workdir() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetServiceDefinitionGit) *string { return v.Workdir }).(pulumi.StringPtrOutput)
+}
+
+type GetServiceDefinitionGitPtrOutput struct{ *pulumi.OutputState }
+
+func (GetServiceDefinitionGitPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetServiceDefinitionGit)(nil)).Elem()
+}
+
+func (o GetServiceDefinitionGitPtrOutput) ToGetServiceDefinitionGitPtrOutput() GetServiceDefinitionGitPtrOutput {
+	return o
+}
+
+func (o GetServiceDefinitionGitPtrOutput) ToGetServiceDefinitionGitPtrOutputWithContext(ctx context.Context) GetServiceDefinitionGitPtrOutput {
+	return o
+}
+
+func (o GetServiceDefinitionGitPtrOutput) Elem() GetServiceDefinitionGitOutput {
+	return o.ApplyT(func(v *GetServiceDefinitionGit) GetServiceDefinitionGit {
+		if v != nil {
+			return *v
+		}
+		var ret GetServiceDefinitionGit
+		return ret
+	}).(GetServiceDefinitionGitOutput)
+}
+
+// The GitHub branch to deploy
+func (o GetServiceDefinitionGitPtrOutput) Branch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetServiceDefinitionGit) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Branch
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetServiceDefinitionGitPtrOutput) Buildpack() GetServiceDefinitionGitBuildpackPtrOutput {
+	return o.ApplyT(func(v *GetServiceDefinitionGit) *GetServiceDefinitionGitBuildpack {
+		if v == nil {
+			return nil
+		}
+		return v.Buildpack
+	}).(GetServiceDefinitionGitBuildpackPtrOutput)
+}
+
+func (o GetServiceDefinitionGitPtrOutput) Dockerfile() GetServiceDefinitionGitDockerfilePtrOutput {
+	return o.ApplyT(func(v *GetServiceDefinitionGit) *GetServiceDefinitionGitDockerfile {
+		if v == nil {
+			return nil
+		}
+		return v.Dockerfile
+	}).(GetServiceDefinitionGitDockerfilePtrOutput)
+}
+
+// If set to true, no Koyeb deployments will be triggered when changes are pushed to the GitHub repository branch
+func (o GetServiceDefinitionGitPtrOutput) NoDeployOnPush() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetServiceDefinitionGit) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.NoDeployOnPush
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The GitHub repository to deploy
+func (o GetServiceDefinitionGitPtrOutput) Repository() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetServiceDefinitionGit) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Repository
+	}).(pulumi.StringPtrOutput)
+}
+
+// The directory where your source code is located. If not set, the work directory defaults to the root of the repository.
+func (o GetServiceDefinitionGitPtrOutput) Workdir() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetServiceDefinitionGit) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Workdir
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetServiceDefinitionGitBuildpack struct {
+	// The command to build your application during the build phase. If your application does not require a build command, leave this field empty
+	BuildCommand *string `pulumi:"buildCommand"`
+	// When enabled, the service container will run in privileged mode. This advanced feature is useful to get advanced system privileges.
+	Privileged *bool `pulumi:"privileged"`
+	// The command to run your application once the built is completed
+	RunCommand *string `pulumi:"runCommand"`
+}
+
+// GetServiceDefinitionGitBuildpackInput is an input type that accepts GetServiceDefinitionGitBuildpackArgs and GetServiceDefinitionGitBuildpackOutput values.
+// You can construct a concrete instance of `GetServiceDefinitionGitBuildpackInput` via:
+//
+//	GetServiceDefinitionGitBuildpackArgs{...}
+type GetServiceDefinitionGitBuildpackInput interface {
+	pulumi.Input
+
+	ToGetServiceDefinitionGitBuildpackOutput() GetServiceDefinitionGitBuildpackOutput
+	ToGetServiceDefinitionGitBuildpackOutputWithContext(context.Context) GetServiceDefinitionGitBuildpackOutput
+}
+
+type GetServiceDefinitionGitBuildpackArgs struct {
+	// The command to build your application during the build phase. If your application does not require a build command, leave this field empty
+	BuildCommand pulumi.StringPtrInput `pulumi:"buildCommand"`
+	// When enabled, the service container will run in privileged mode. This advanced feature is useful to get advanced system privileges.
+	Privileged pulumi.BoolPtrInput `pulumi:"privileged"`
+	// The command to run your application once the built is completed
+	RunCommand pulumi.StringPtrInput `pulumi:"runCommand"`
+}
+
+func (GetServiceDefinitionGitBuildpackArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceDefinitionGitBuildpack)(nil)).Elem()
+}
+
+func (i GetServiceDefinitionGitBuildpackArgs) ToGetServiceDefinitionGitBuildpackOutput() GetServiceDefinitionGitBuildpackOutput {
+	return i.ToGetServiceDefinitionGitBuildpackOutputWithContext(context.Background())
+}
+
+func (i GetServiceDefinitionGitBuildpackArgs) ToGetServiceDefinitionGitBuildpackOutputWithContext(ctx context.Context) GetServiceDefinitionGitBuildpackOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDefinitionGitBuildpackOutput)
+}
+
+func (i GetServiceDefinitionGitBuildpackArgs) ToGetServiceDefinitionGitBuildpackPtrOutput() GetServiceDefinitionGitBuildpackPtrOutput {
+	return i.ToGetServiceDefinitionGitBuildpackPtrOutputWithContext(context.Background())
+}
+
+func (i GetServiceDefinitionGitBuildpackArgs) ToGetServiceDefinitionGitBuildpackPtrOutputWithContext(ctx context.Context) GetServiceDefinitionGitBuildpackPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDefinitionGitBuildpackOutput).ToGetServiceDefinitionGitBuildpackPtrOutputWithContext(ctx)
+}
+
+// GetServiceDefinitionGitBuildpackPtrInput is an input type that accepts GetServiceDefinitionGitBuildpackArgs, GetServiceDefinitionGitBuildpackPtr and GetServiceDefinitionGitBuildpackPtrOutput values.
+// You can construct a concrete instance of `GetServiceDefinitionGitBuildpackPtrInput` via:
+//
+//	        GetServiceDefinitionGitBuildpackArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetServiceDefinitionGitBuildpackPtrInput interface {
+	pulumi.Input
+
+	ToGetServiceDefinitionGitBuildpackPtrOutput() GetServiceDefinitionGitBuildpackPtrOutput
+	ToGetServiceDefinitionGitBuildpackPtrOutputWithContext(context.Context) GetServiceDefinitionGitBuildpackPtrOutput
+}
+
+type getServiceDefinitionGitBuildpackPtrType GetServiceDefinitionGitBuildpackArgs
+
+func GetServiceDefinitionGitBuildpackPtr(v *GetServiceDefinitionGitBuildpackArgs) GetServiceDefinitionGitBuildpackPtrInput {
+	return (*getServiceDefinitionGitBuildpackPtrType)(v)
+}
+
+func (*getServiceDefinitionGitBuildpackPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetServiceDefinitionGitBuildpack)(nil)).Elem()
+}
+
+func (i *getServiceDefinitionGitBuildpackPtrType) ToGetServiceDefinitionGitBuildpackPtrOutput() GetServiceDefinitionGitBuildpackPtrOutput {
+	return i.ToGetServiceDefinitionGitBuildpackPtrOutputWithContext(context.Background())
+}
+
+func (i *getServiceDefinitionGitBuildpackPtrType) ToGetServiceDefinitionGitBuildpackPtrOutputWithContext(ctx context.Context) GetServiceDefinitionGitBuildpackPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDefinitionGitBuildpackPtrOutput)
+}
+
+type GetServiceDefinitionGitBuildpackOutput struct{ *pulumi.OutputState }
+
+func (GetServiceDefinitionGitBuildpackOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceDefinitionGitBuildpack)(nil)).Elem()
+}
+
+func (o GetServiceDefinitionGitBuildpackOutput) ToGetServiceDefinitionGitBuildpackOutput() GetServiceDefinitionGitBuildpackOutput {
+	return o
+}
+
+func (o GetServiceDefinitionGitBuildpackOutput) ToGetServiceDefinitionGitBuildpackOutputWithContext(ctx context.Context) GetServiceDefinitionGitBuildpackOutput {
+	return o
+}
+
+func (o GetServiceDefinitionGitBuildpackOutput) ToGetServiceDefinitionGitBuildpackPtrOutput() GetServiceDefinitionGitBuildpackPtrOutput {
+	return o.ToGetServiceDefinitionGitBuildpackPtrOutputWithContext(context.Background())
+}
+
+func (o GetServiceDefinitionGitBuildpackOutput) ToGetServiceDefinitionGitBuildpackPtrOutputWithContext(ctx context.Context) GetServiceDefinitionGitBuildpackPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetServiceDefinitionGitBuildpack) *GetServiceDefinitionGitBuildpack {
+		return &v
+	}).(GetServiceDefinitionGitBuildpackPtrOutput)
+}
+
+// The command to build your application during the build phase. If your application does not require a build command, leave this field empty
+func (o GetServiceDefinitionGitBuildpackOutput) BuildCommand() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetServiceDefinitionGitBuildpack) *string { return v.BuildCommand }).(pulumi.StringPtrOutput)
+}
+
+// When enabled, the service container will run in privileged mode. This advanced feature is useful to get advanced system privileges.
+func (o GetServiceDefinitionGitBuildpackOutput) Privileged() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetServiceDefinitionGitBuildpack) *bool { return v.Privileged }).(pulumi.BoolPtrOutput)
+}
+
+// The command to run your application once the built is completed
+func (o GetServiceDefinitionGitBuildpackOutput) RunCommand() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetServiceDefinitionGitBuildpack) *string { return v.RunCommand }).(pulumi.StringPtrOutput)
+}
+
+type GetServiceDefinitionGitBuildpackPtrOutput struct{ *pulumi.OutputState }
+
+func (GetServiceDefinitionGitBuildpackPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetServiceDefinitionGitBuildpack)(nil)).Elem()
+}
+
+func (o GetServiceDefinitionGitBuildpackPtrOutput) ToGetServiceDefinitionGitBuildpackPtrOutput() GetServiceDefinitionGitBuildpackPtrOutput {
+	return o
+}
+
+func (o GetServiceDefinitionGitBuildpackPtrOutput) ToGetServiceDefinitionGitBuildpackPtrOutputWithContext(ctx context.Context) GetServiceDefinitionGitBuildpackPtrOutput {
+	return o
+}
+
+func (o GetServiceDefinitionGitBuildpackPtrOutput) Elem() GetServiceDefinitionGitBuildpackOutput {
+	return o.ApplyT(func(v *GetServiceDefinitionGitBuildpack) GetServiceDefinitionGitBuildpack {
+		if v != nil {
+			return *v
+		}
+		var ret GetServiceDefinitionGitBuildpack
+		return ret
+	}).(GetServiceDefinitionGitBuildpackOutput)
+}
+
+// The command to build your application during the build phase. If your application does not require a build command, leave this field empty
+func (o GetServiceDefinitionGitBuildpackPtrOutput) BuildCommand() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetServiceDefinitionGitBuildpack) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BuildCommand
+	}).(pulumi.StringPtrOutput)
+}
+
+// When enabled, the service container will run in privileged mode. This advanced feature is useful to get advanced system privileges.
+func (o GetServiceDefinitionGitBuildpackPtrOutput) Privileged() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetServiceDefinitionGitBuildpack) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Privileged
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The command to run your application once the built is completed
+func (o GetServiceDefinitionGitBuildpackPtrOutput) RunCommand() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetServiceDefinitionGitBuildpack) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RunCommand
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetServiceDefinitionGitDockerfile struct {
+	// The arguments to pass to the Docker command
+	Args []string `pulumi:"args"`
+	// Override the command to execute on the container
+	Command *string `pulumi:"command"`
+	// The location of your Dockerfile relative to the work directory. If not set, the work directory defaults to the root of the repository.
+	Dockerfile *string `pulumi:"dockerfile"`
+	// Override the default entrypoint to execute on the container
+	Entrypoints []string `pulumi:"entrypoints"`
+	// When enabled, the service container will run in privileged mode. This advanced feature is useful to get advanced system privileges.
+	Privileged *bool `pulumi:"privileged"`
+	// Target build stage: If your Dockerfile contains multi-stage builds, you can choose the target stage to build and deploy by entering its name
+	Target *string `pulumi:"target"`
+}
+
+// GetServiceDefinitionGitDockerfileInput is an input type that accepts GetServiceDefinitionGitDockerfileArgs and GetServiceDefinitionGitDockerfileOutput values.
+// You can construct a concrete instance of `GetServiceDefinitionGitDockerfileInput` via:
+//
+//	GetServiceDefinitionGitDockerfileArgs{...}
+type GetServiceDefinitionGitDockerfileInput interface {
+	pulumi.Input
+
+	ToGetServiceDefinitionGitDockerfileOutput() GetServiceDefinitionGitDockerfileOutput
+	ToGetServiceDefinitionGitDockerfileOutputWithContext(context.Context) GetServiceDefinitionGitDockerfileOutput
+}
+
+type GetServiceDefinitionGitDockerfileArgs struct {
+	// The arguments to pass to the Docker command
+	Args pulumi.StringArrayInput `pulumi:"args"`
+	// Override the command to execute on the container
+	Command pulumi.StringPtrInput `pulumi:"command"`
+	// The location of your Dockerfile relative to the work directory. If not set, the work directory defaults to the root of the repository.
+	Dockerfile pulumi.StringPtrInput `pulumi:"dockerfile"`
+	// Override the default entrypoint to execute on the container
+	Entrypoints pulumi.StringArrayInput `pulumi:"entrypoints"`
+	// When enabled, the service container will run in privileged mode. This advanced feature is useful to get advanced system privileges.
+	Privileged pulumi.BoolPtrInput `pulumi:"privileged"`
+	// Target build stage: If your Dockerfile contains multi-stage builds, you can choose the target stage to build and deploy by entering its name
+	Target pulumi.StringPtrInput `pulumi:"target"`
+}
+
+func (GetServiceDefinitionGitDockerfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceDefinitionGitDockerfile)(nil)).Elem()
+}
+
+func (i GetServiceDefinitionGitDockerfileArgs) ToGetServiceDefinitionGitDockerfileOutput() GetServiceDefinitionGitDockerfileOutput {
+	return i.ToGetServiceDefinitionGitDockerfileOutputWithContext(context.Background())
+}
+
+func (i GetServiceDefinitionGitDockerfileArgs) ToGetServiceDefinitionGitDockerfileOutputWithContext(ctx context.Context) GetServiceDefinitionGitDockerfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDefinitionGitDockerfileOutput)
+}
+
+func (i GetServiceDefinitionGitDockerfileArgs) ToGetServiceDefinitionGitDockerfilePtrOutput() GetServiceDefinitionGitDockerfilePtrOutput {
+	return i.ToGetServiceDefinitionGitDockerfilePtrOutputWithContext(context.Background())
+}
+
+func (i GetServiceDefinitionGitDockerfileArgs) ToGetServiceDefinitionGitDockerfilePtrOutputWithContext(ctx context.Context) GetServiceDefinitionGitDockerfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDefinitionGitDockerfileOutput).ToGetServiceDefinitionGitDockerfilePtrOutputWithContext(ctx)
+}
+
+// GetServiceDefinitionGitDockerfilePtrInput is an input type that accepts GetServiceDefinitionGitDockerfileArgs, GetServiceDefinitionGitDockerfilePtr and GetServiceDefinitionGitDockerfilePtrOutput values.
+// You can construct a concrete instance of `GetServiceDefinitionGitDockerfilePtrInput` via:
+//
+//	        GetServiceDefinitionGitDockerfileArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetServiceDefinitionGitDockerfilePtrInput interface {
+	pulumi.Input
+
+	ToGetServiceDefinitionGitDockerfilePtrOutput() GetServiceDefinitionGitDockerfilePtrOutput
+	ToGetServiceDefinitionGitDockerfilePtrOutputWithContext(context.Context) GetServiceDefinitionGitDockerfilePtrOutput
+}
+
+type getServiceDefinitionGitDockerfilePtrType GetServiceDefinitionGitDockerfileArgs
+
+func GetServiceDefinitionGitDockerfilePtr(v *GetServiceDefinitionGitDockerfileArgs) GetServiceDefinitionGitDockerfilePtrInput {
+	return (*getServiceDefinitionGitDockerfilePtrType)(v)
+}
+
+func (*getServiceDefinitionGitDockerfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetServiceDefinitionGitDockerfile)(nil)).Elem()
+}
+
+func (i *getServiceDefinitionGitDockerfilePtrType) ToGetServiceDefinitionGitDockerfilePtrOutput() GetServiceDefinitionGitDockerfilePtrOutput {
+	return i.ToGetServiceDefinitionGitDockerfilePtrOutputWithContext(context.Background())
+}
+
+func (i *getServiceDefinitionGitDockerfilePtrType) ToGetServiceDefinitionGitDockerfilePtrOutputWithContext(ctx context.Context) GetServiceDefinitionGitDockerfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDefinitionGitDockerfilePtrOutput)
+}
+
+type GetServiceDefinitionGitDockerfileOutput struct{ *pulumi.OutputState }
+
+func (GetServiceDefinitionGitDockerfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceDefinitionGitDockerfile)(nil)).Elem()
+}
+
+func (o GetServiceDefinitionGitDockerfileOutput) ToGetServiceDefinitionGitDockerfileOutput() GetServiceDefinitionGitDockerfileOutput {
+	return o
+}
+
+func (o GetServiceDefinitionGitDockerfileOutput) ToGetServiceDefinitionGitDockerfileOutputWithContext(ctx context.Context) GetServiceDefinitionGitDockerfileOutput {
+	return o
+}
+
+func (o GetServiceDefinitionGitDockerfileOutput) ToGetServiceDefinitionGitDockerfilePtrOutput() GetServiceDefinitionGitDockerfilePtrOutput {
+	return o.ToGetServiceDefinitionGitDockerfilePtrOutputWithContext(context.Background())
+}
+
+func (o GetServiceDefinitionGitDockerfileOutput) ToGetServiceDefinitionGitDockerfilePtrOutputWithContext(ctx context.Context) GetServiceDefinitionGitDockerfilePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetServiceDefinitionGitDockerfile) *GetServiceDefinitionGitDockerfile {
+		return &v
+	}).(GetServiceDefinitionGitDockerfilePtrOutput)
+}
+
+// The arguments to pass to the Docker command
+func (o GetServiceDefinitionGitDockerfileOutput) Args() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetServiceDefinitionGitDockerfile) []string { return v.Args }).(pulumi.StringArrayOutput)
+}
+
+// Override the command to execute on the container
+func (o GetServiceDefinitionGitDockerfileOutput) Command() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetServiceDefinitionGitDockerfile) *string { return v.Command }).(pulumi.StringPtrOutput)
+}
+
+// The location of your Dockerfile relative to the work directory. If not set, the work directory defaults to the root of the repository.
+func (o GetServiceDefinitionGitDockerfileOutput) Dockerfile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetServiceDefinitionGitDockerfile) *string { return v.Dockerfile }).(pulumi.StringPtrOutput)
+}
+
+// Override the default entrypoint to execute on the container
+func (o GetServiceDefinitionGitDockerfileOutput) Entrypoints() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetServiceDefinitionGitDockerfile) []string { return v.Entrypoints }).(pulumi.StringArrayOutput)
+}
+
+// When enabled, the service container will run in privileged mode. This advanced feature is useful to get advanced system privileges.
+func (o GetServiceDefinitionGitDockerfileOutput) Privileged() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetServiceDefinitionGitDockerfile) *bool { return v.Privileged }).(pulumi.BoolPtrOutput)
+}
+
+// Target build stage: If your Dockerfile contains multi-stage builds, you can choose the target stage to build and deploy by entering its name
+func (o GetServiceDefinitionGitDockerfileOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetServiceDefinitionGitDockerfile) *string { return v.Target }).(pulumi.StringPtrOutput)
+}
+
+type GetServiceDefinitionGitDockerfilePtrOutput struct{ *pulumi.OutputState }
+
+func (GetServiceDefinitionGitDockerfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetServiceDefinitionGitDockerfile)(nil)).Elem()
+}
+
+func (o GetServiceDefinitionGitDockerfilePtrOutput) ToGetServiceDefinitionGitDockerfilePtrOutput() GetServiceDefinitionGitDockerfilePtrOutput {
+	return o
+}
+
+func (o GetServiceDefinitionGitDockerfilePtrOutput) ToGetServiceDefinitionGitDockerfilePtrOutputWithContext(ctx context.Context) GetServiceDefinitionGitDockerfilePtrOutput {
+	return o
+}
+
+func (o GetServiceDefinitionGitDockerfilePtrOutput) Elem() GetServiceDefinitionGitDockerfileOutput {
+	return o.ApplyT(func(v *GetServiceDefinitionGitDockerfile) GetServiceDefinitionGitDockerfile {
+		if v != nil {
+			return *v
+		}
+		var ret GetServiceDefinitionGitDockerfile
+		return ret
+	}).(GetServiceDefinitionGitDockerfileOutput)
+}
+
+// The arguments to pass to the Docker command
+func (o GetServiceDefinitionGitDockerfilePtrOutput) Args() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GetServiceDefinitionGitDockerfile) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Args
+	}).(pulumi.StringArrayOutput)
+}
+
+// Override the command to execute on the container
+func (o GetServiceDefinitionGitDockerfilePtrOutput) Command() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetServiceDefinitionGitDockerfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Command
+	}).(pulumi.StringPtrOutput)
+}
+
+// The location of your Dockerfile relative to the work directory. If not set, the work directory defaults to the root of the repository.
+func (o GetServiceDefinitionGitDockerfilePtrOutput) Dockerfile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetServiceDefinitionGitDockerfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Dockerfile
+	}).(pulumi.StringPtrOutput)
+}
+
+// Override the default entrypoint to execute on the container
+func (o GetServiceDefinitionGitDockerfilePtrOutput) Entrypoints() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GetServiceDefinitionGitDockerfile) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Entrypoints
+	}).(pulumi.StringArrayOutput)
+}
+
+// When enabled, the service container will run in privileged mode. This advanced feature is useful to get advanced system privileges.
+func (o GetServiceDefinitionGitDockerfilePtrOutput) Privileged() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetServiceDefinitionGitDockerfile) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Privileged
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Target build stage: If your Dockerfile contains multi-stage builds, you can choose the target stage to build and deploy by entering its name
+func (o GetServiceDefinitionGitDockerfilePtrOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetServiceDefinitionGitDockerfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Target
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetServiceDefinitionHealthCheck struct {
+	// The period in seconds to wait for the instance to become healthy, default is 5s
+	GracePeriod *int                                 `pulumi:"gracePeriod"`
+	Http        *GetServiceDefinitionHealthCheckHttp `pulumi:"http"`
+	// The period in seconds between two health checks, default is 60s
+	Interval *int `pulumi:"interval"`
+	// The number of consecutive failures before attempting to restart the service, default is 3
+	RestartLimit *int                                `pulumi:"restartLimit"`
+	Tcp          *GetServiceDefinitionHealthCheckTcp `pulumi:"tcp"`
+	// The maximum time to wait in seconds before considering the check as a failure, default is 5s
+	Timeout *int `pulumi:"timeout"`
+}
+
+// GetServiceDefinitionHealthCheckInput is an input type that accepts GetServiceDefinitionHealthCheckArgs and GetServiceDefinitionHealthCheckOutput values.
+// You can construct a concrete instance of `GetServiceDefinitionHealthCheckInput` via:
+//
+//	GetServiceDefinitionHealthCheckArgs{...}
+type GetServiceDefinitionHealthCheckInput interface {
+	pulumi.Input
+
+	ToGetServiceDefinitionHealthCheckOutput() GetServiceDefinitionHealthCheckOutput
+	ToGetServiceDefinitionHealthCheckOutputWithContext(context.Context) GetServiceDefinitionHealthCheckOutput
+}
+
+type GetServiceDefinitionHealthCheckArgs struct {
+	// The period in seconds to wait for the instance to become healthy, default is 5s
+	GracePeriod pulumi.IntPtrInput                          `pulumi:"gracePeriod"`
+	Http        GetServiceDefinitionHealthCheckHttpPtrInput `pulumi:"http"`
+	// The period in seconds between two health checks, default is 60s
+	Interval pulumi.IntPtrInput `pulumi:"interval"`
+	// The number of consecutive failures before attempting to restart the service, default is 3
+	RestartLimit pulumi.IntPtrInput                         `pulumi:"restartLimit"`
+	Tcp          GetServiceDefinitionHealthCheckTcpPtrInput `pulumi:"tcp"`
+	// The maximum time to wait in seconds before considering the check as a failure, default is 5s
+	Timeout pulumi.IntPtrInput `pulumi:"timeout"`
+}
+
+func (GetServiceDefinitionHealthCheckArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceDefinitionHealthCheck)(nil)).Elem()
+}
+
+func (i GetServiceDefinitionHealthCheckArgs) ToGetServiceDefinitionHealthCheckOutput() GetServiceDefinitionHealthCheckOutput {
+	return i.ToGetServiceDefinitionHealthCheckOutputWithContext(context.Background())
+}
+
+func (i GetServiceDefinitionHealthCheckArgs) ToGetServiceDefinitionHealthCheckOutputWithContext(ctx context.Context) GetServiceDefinitionHealthCheckOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDefinitionHealthCheckOutput)
+}
+
+// GetServiceDefinitionHealthCheckArrayInput is an input type that accepts GetServiceDefinitionHealthCheckArray and GetServiceDefinitionHealthCheckArrayOutput values.
+// You can construct a concrete instance of `GetServiceDefinitionHealthCheckArrayInput` via:
+//
+//	GetServiceDefinitionHealthCheckArray{ GetServiceDefinitionHealthCheckArgs{...} }
+type GetServiceDefinitionHealthCheckArrayInput interface {
+	pulumi.Input
+
+	ToGetServiceDefinitionHealthCheckArrayOutput() GetServiceDefinitionHealthCheckArrayOutput
+	ToGetServiceDefinitionHealthCheckArrayOutputWithContext(context.Context) GetServiceDefinitionHealthCheckArrayOutput
+}
+
+type GetServiceDefinitionHealthCheckArray []GetServiceDefinitionHealthCheckInput
+
+func (GetServiceDefinitionHealthCheckArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceDefinitionHealthCheck)(nil)).Elem()
+}
+
+func (i GetServiceDefinitionHealthCheckArray) ToGetServiceDefinitionHealthCheckArrayOutput() GetServiceDefinitionHealthCheckArrayOutput {
+	return i.ToGetServiceDefinitionHealthCheckArrayOutputWithContext(context.Background())
+}
+
+func (i GetServiceDefinitionHealthCheckArray) ToGetServiceDefinitionHealthCheckArrayOutputWithContext(ctx context.Context) GetServiceDefinitionHealthCheckArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDefinitionHealthCheckArrayOutput)
+}
+
+type GetServiceDefinitionHealthCheckOutput struct{ *pulumi.OutputState }
+
+func (GetServiceDefinitionHealthCheckOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceDefinitionHealthCheck)(nil)).Elem()
+}
+
+func (o GetServiceDefinitionHealthCheckOutput) ToGetServiceDefinitionHealthCheckOutput() GetServiceDefinitionHealthCheckOutput {
+	return o
+}
+
+func (o GetServiceDefinitionHealthCheckOutput) ToGetServiceDefinitionHealthCheckOutputWithContext(ctx context.Context) GetServiceDefinitionHealthCheckOutput {
+	return o
+}
+
+// The period in seconds to wait for the instance to become healthy, default is 5s
+func (o GetServiceDefinitionHealthCheckOutput) GracePeriod() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetServiceDefinitionHealthCheck) *int { return v.GracePeriod }).(pulumi.IntPtrOutput)
+}
+
+func (o GetServiceDefinitionHealthCheckOutput) Http() GetServiceDefinitionHealthCheckHttpPtrOutput {
+	return o.ApplyT(func(v GetServiceDefinitionHealthCheck) *GetServiceDefinitionHealthCheckHttp { return v.Http }).(GetServiceDefinitionHealthCheckHttpPtrOutput)
+}
+
+// The period in seconds between two health checks, default is 60s
+func (o GetServiceDefinitionHealthCheckOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetServiceDefinitionHealthCheck) *int { return v.Interval }).(pulumi.IntPtrOutput)
+}
+
+// The number of consecutive failures before attempting to restart the service, default is 3
+func (o GetServiceDefinitionHealthCheckOutput) RestartLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetServiceDefinitionHealthCheck) *int { return v.RestartLimit }).(pulumi.IntPtrOutput)
+}
+
+func (o GetServiceDefinitionHealthCheckOutput) Tcp() GetServiceDefinitionHealthCheckTcpPtrOutput {
+	return o.ApplyT(func(v GetServiceDefinitionHealthCheck) *GetServiceDefinitionHealthCheckTcp { return v.Tcp }).(GetServiceDefinitionHealthCheckTcpPtrOutput)
+}
+
+// The maximum time to wait in seconds before considering the check as a failure, default is 5s
+func (o GetServiceDefinitionHealthCheckOutput) Timeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetServiceDefinitionHealthCheck) *int { return v.Timeout }).(pulumi.IntPtrOutput)
+}
+
+type GetServiceDefinitionHealthCheckArrayOutput struct{ *pulumi.OutputState }
+
+func (GetServiceDefinitionHealthCheckArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceDefinitionHealthCheck)(nil)).Elem()
+}
+
+func (o GetServiceDefinitionHealthCheckArrayOutput) ToGetServiceDefinitionHealthCheckArrayOutput() GetServiceDefinitionHealthCheckArrayOutput {
+	return o
+}
+
+func (o GetServiceDefinitionHealthCheckArrayOutput) ToGetServiceDefinitionHealthCheckArrayOutputWithContext(ctx context.Context) GetServiceDefinitionHealthCheckArrayOutput {
+	return o
+}
+
+func (o GetServiceDefinitionHealthCheckArrayOutput) Index(i pulumi.IntInput) GetServiceDefinitionHealthCheckOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServiceDefinitionHealthCheck {
+		return vs[0].([]GetServiceDefinitionHealthCheck)[vs[1].(int)]
+	}).(GetServiceDefinitionHealthCheckOutput)
+}
+
+type GetServiceDefinitionHealthCheckHttp struct {
+	Headers []GetServiceDefinitionHealthCheckHttpHeader `pulumi:"headers"`
+	// An optional HTTP method to use to perform the health check, default is GET
+	Method *string `pulumi:"method"`
+	// The path to use to perform the HTTP health check
+	Path string `pulumi:"path"`
+	// The port to use to perform the health check
+	Port int `pulumi:"port"`
+}
+
+// GetServiceDefinitionHealthCheckHttpInput is an input type that accepts GetServiceDefinitionHealthCheckHttpArgs and GetServiceDefinitionHealthCheckHttpOutput values.
+// You can construct a concrete instance of `GetServiceDefinitionHealthCheckHttpInput` via:
+//
+//	GetServiceDefinitionHealthCheckHttpArgs{...}
+type GetServiceDefinitionHealthCheckHttpInput interface {
+	pulumi.Input
+
+	ToGetServiceDefinitionHealthCheckHttpOutput() GetServiceDefinitionHealthCheckHttpOutput
+	ToGetServiceDefinitionHealthCheckHttpOutputWithContext(context.Context) GetServiceDefinitionHealthCheckHttpOutput
+}
+
+type GetServiceDefinitionHealthCheckHttpArgs struct {
+	Headers GetServiceDefinitionHealthCheckHttpHeaderArrayInput `pulumi:"headers"`
+	// An optional HTTP method to use to perform the health check, default is GET
+	Method pulumi.StringPtrInput `pulumi:"method"`
+	// The path to use to perform the HTTP health check
+	Path pulumi.StringInput `pulumi:"path"`
+	// The port to use to perform the health check
+	Port pulumi.IntInput `pulumi:"port"`
+}
+
+func (GetServiceDefinitionHealthCheckHttpArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceDefinitionHealthCheckHttp)(nil)).Elem()
+}
+
+func (i GetServiceDefinitionHealthCheckHttpArgs) ToGetServiceDefinitionHealthCheckHttpOutput() GetServiceDefinitionHealthCheckHttpOutput {
+	return i.ToGetServiceDefinitionHealthCheckHttpOutputWithContext(context.Background())
+}
+
+func (i GetServiceDefinitionHealthCheckHttpArgs) ToGetServiceDefinitionHealthCheckHttpOutputWithContext(ctx context.Context) GetServiceDefinitionHealthCheckHttpOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDefinitionHealthCheckHttpOutput)
+}
+
+func (i GetServiceDefinitionHealthCheckHttpArgs) ToGetServiceDefinitionHealthCheckHttpPtrOutput() GetServiceDefinitionHealthCheckHttpPtrOutput {
+	return i.ToGetServiceDefinitionHealthCheckHttpPtrOutputWithContext(context.Background())
+}
+
+func (i GetServiceDefinitionHealthCheckHttpArgs) ToGetServiceDefinitionHealthCheckHttpPtrOutputWithContext(ctx context.Context) GetServiceDefinitionHealthCheckHttpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDefinitionHealthCheckHttpOutput).ToGetServiceDefinitionHealthCheckHttpPtrOutputWithContext(ctx)
+}
+
+// GetServiceDefinitionHealthCheckHttpPtrInput is an input type that accepts GetServiceDefinitionHealthCheckHttpArgs, GetServiceDefinitionHealthCheckHttpPtr and GetServiceDefinitionHealthCheckHttpPtrOutput values.
+// You can construct a concrete instance of `GetServiceDefinitionHealthCheckHttpPtrInput` via:
+//
+//	        GetServiceDefinitionHealthCheckHttpArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetServiceDefinitionHealthCheckHttpPtrInput interface {
+	pulumi.Input
+
+	ToGetServiceDefinitionHealthCheckHttpPtrOutput() GetServiceDefinitionHealthCheckHttpPtrOutput
+	ToGetServiceDefinitionHealthCheckHttpPtrOutputWithContext(context.Context) GetServiceDefinitionHealthCheckHttpPtrOutput
+}
+
+type getServiceDefinitionHealthCheckHttpPtrType GetServiceDefinitionHealthCheckHttpArgs
+
+func GetServiceDefinitionHealthCheckHttpPtr(v *GetServiceDefinitionHealthCheckHttpArgs) GetServiceDefinitionHealthCheckHttpPtrInput {
+	return (*getServiceDefinitionHealthCheckHttpPtrType)(v)
+}
+
+func (*getServiceDefinitionHealthCheckHttpPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetServiceDefinitionHealthCheckHttp)(nil)).Elem()
+}
+
+func (i *getServiceDefinitionHealthCheckHttpPtrType) ToGetServiceDefinitionHealthCheckHttpPtrOutput() GetServiceDefinitionHealthCheckHttpPtrOutput {
+	return i.ToGetServiceDefinitionHealthCheckHttpPtrOutputWithContext(context.Background())
+}
+
+func (i *getServiceDefinitionHealthCheckHttpPtrType) ToGetServiceDefinitionHealthCheckHttpPtrOutputWithContext(ctx context.Context) GetServiceDefinitionHealthCheckHttpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDefinitionHealthCheckHttpPtrOutput)
+}
+
+type GetServiceDefinitionHealthCheckHttpOutput struct{ *pulumi.OutputState }
+
+func (GetServiceDefinitionHealthCheckHttpOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceDefinitionHealthCheckHttp)(nil)).Elem()
+}
+
+func (o GetServiceDefinitionHealthCheckHttpOutput) ToGetServiceDefinitionHealthCheckHttpOutput() GetServiceDefinitionHealthCheckHttpOutput {
+	return o
+}
+
+func (o GetServiceDefinitionHealthCheckHttpOutput) ToGetServiceDefinitionHealthCheckHttpOutputWithContext(ctx context.Context) GetServiceDefinitionHealthCheckHttpOutput {
+	return o
+}
+
+func (o GetServiceDefinitionHealthCheckHttpOutput) ToGetServiceDefinitionHealthCheckHttpPtrOutput() GetServiceDefinitionHealthCheckHttpPtrOutput {
+	return o.ToGetServiceDefinitionHealthCheckHttpPtrOutputWithContext(context.Background())
+}
+
+func (o GetServiceDefinitionHealthCheckHttpOutput) ToGetServiceDefinitionHealthCheckHttpPtrOutputWithContext(ctx context.Context) GetServiceDefinitionHealthCheckHttpPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetServiceDefinitionHealthCheckHttp) *GetServiceDefinitionHealthCheckHttp {
+		return &v
+	}).(GetServiceDefinitionHealthCheckHttpPtrOutput)
+}
+
+func (o GetServiceDefinitionHealthCheckHttpOutput) Headers() GetServiceDefinitionHealthCheckHttpHeaderArrayOutput {
+	return o.ApplyT(func(v GetServiceDefinitionHealthCheckHttp) []GetServiceDefinitionHealthCheckHttpHeader {
+		return v.Headers
+	}).(GetServiceDefinitionHealthCheckHttpHeaderArrayOutput)
+}
+
+// An optional HTTP method to use to perform the health check, default is GET
+func (o GetServiceDefinitionHealthCheckHttpOutput) Method() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetServiceDefinitionHealthCheckHttp) *string { return v.Method }).(pulumi.StringPtrOutput)
+}
+
+// The path to use to perform the HTTP health check
+func (o GetServiceDefinitionHealthCheckHttpOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceDefinitionHealthCheckHttp) string { return v.Path }).(pulumi.StringOutput)
+}
+
+// The port to use to perform the health check
+func (o GetServiceDefinitionHealthCheckHttpOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v GetServiceDefinitionHealthCheckHttp) int { return v.Port }).(pulumi.IntOutput)
+}
+
+type GetServiceDefinitionHealthCheckHttpPtrOutput struct{ *pulumi.OutputState }
+
+func (GetServiceDefinitionHealthCheckHttpPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetServiceDefinitionHealthCheckHttp)(nil)).Elem()
+}
+
+func (o GetServiceDefinitionHealthCheckHttpPtrOutput) ToGetServiceDefinitionHealthCheckHttpPtrOutput() GetServiceDefinitionHealthCheckHttpPtrOutput {
+	return o
+}
+
+func (o GetServiceDefinitionHealthCheckHttpPtrOutput) ToGetServiceDefinitionHealthCheckHttpPtrOutputWithContext(ctx context.Context) GetServiceDefinitionHealthCheckHttpPtrOutput {
+	return o
+}
+
+func (o GetServiceDefinitionHealthCheckHttpPtrOutput) Elem() GetServiceDefinitionHealthCheckHttpOutput {
+	return o.ApplyT(func(v *GetServiceDefinitionHealthCheckHttp) GetServiceDefinitionHealthCheckHttp {
+		if v != nil {
+			return *v
+		}
+		var ret GetServiceDefinitionHealthCheckHttp
+		return ret
+	}).(GetServiceDefinitionHealthCheckHttpOutput)
+}
+
+func (o GetServiceDefinitionHealthCheckHttpPtrOutput) Headers() GetServiceDefinitionHealthCheckHttpHeaderArrayOutput {
+	return o.ApplyT(func(v *GetServiceDefinitionHealthCheckHttp) []GetServiceDefinitionHealthCheckHttpHeader {
+		if v == nil {
+			return nil
+		}
+		return v.Headers
+	}).(GetServiceDefinitionHealthCheckHttpHeaderArrayOutput)
+}
+
+// An optional HTTP method to use to perform the health check, default is GET
+func (o GetServiceDefinitionHealthCheckHttpPtrOutput) Method() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetServiceDefinitionHealthCheckHttp) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Method
+	}).(pulumi.StringPtrOutput)
+}
+
+// The path to use to perform the HTTP health check
+func (o GetServiceDefinitionHealthCheckHttpPtrOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetServiceDefinitionHealthCheckHttp) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Path
+	}).(pulumi.StringPtrOutput)
+}
+
+// The port to use to perform the health check
+func (o GetServiceDefinitionHealthCheckHttpPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GetServiceDefinitionHealthCheckHttp) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+type GetServiceDefinitionHealthCheckHttpHeader struct {
+	// The name of the header
+	Key string `pulumi:"key"`
+	// The value of the header
+	Value *string `pulumi:"value"`
+}
+
+// GetServiceDefinitionHealthCheckHttpHeaderInput is an input type that accepts GetServiceDefinitionHealthCheckHttpHeaderArgs and GetServiceDefinitionHealthCheckHttpHeaderOutput values.
+// You can construct a concrete instance of `GetServiceDefinitionHealthCheckHttpHeaderInput` via:
+//
+//	GetServiceDefinitionHealthCheckHttpHeaderArgs{...}
+type GetServiceDefinitionHealthCheckHttpHeaderInput interface {
+	pulumi.Input
+
+	ToGetServiceDefinitionHealthCheckHttpHeaderOutput() GetServiceDefinitionHealthCheckHttpHeaderOutput
+	ToGetServiceDefinitionHealthCheckHttpHeaderOutputWithContext(context.Context) GetServiceDefinitionHealthCheckHttpHeaderOutput
+}
+
+type GetServiceDefinitionHealthCheckHttpHeaderArgs struct {
+	// The name of the header
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value of the header
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (GetServiceDefinitionHealthCheckHttpHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceDefinitionHealthCheckHttpHeader)(nil)).Elem()
+}
+
+func (i GetServiceDefinitionHealthCheckHttpHeaderArgs) ToGetServiceDefinitionHealthCheckHttpHeaderOutput() GetServiceDefinitionHealthCheckHttpHeaderOutput {
+	return i.ToGetServiceDefinitionHealthCheckHttpHeaderOutputWithContext(context.Background())
+}
+
+func (i GetServiceDefinitionHealthCheckHttpHeaderArgs) ToGetServiceDefinitionHealthCheckHttpHeaderOutputWithContext(ctx context.Context) GetServiceDefinitionHealthCheckHttpHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDefinitionHealthCheckHttpHeaderOutput)
+}
+
+// GetServiceDefinitionHealthCheckHttpHeaderArrayInput is an input type that accepts GetServiceDefinitionHealthCheckHttpHeaderArray and GetServiceDefinitionHealthCheckHttpHeaderArrayOutput values.
+// You can construct a concrete instance of `GetServiceDefinitionHealthCheckHttpHeaderArrayInput` via:
+//
+//	GetServiceDefinitionHealthCheckHttpHeaderArray{ GetServiceDefinitionHealthCheckHttpHeaderArgs{...} }
+type GetServiceDefinitionHealthCheckHttpHeaderArrayInput interface {
+	pulumi.Input
+
+	ToGetServiceDefinitionHealthCheckHttpHeaderArrayOutput() GetServiceDefinitionHealthCheckHttpHeaderArrayOutput
+	ToGetServiceDefinitionHealthCheckHttpHeaderArrayOutputWithContext(context.Context) GetServiceDefinitionHealthCheckHttpHeaderArrayOutput
+}
+
+type GetServiceDefinitionHealthCheckHttpHeaderArray []GetServiceDefinitionHealthCheckHttpHeaderInput
+
+func (GetServiceDefinitionHealthCheckHttpHeaderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceDefinitionHealthCheckHttpHeader)(nil)).Elem()
+}
+
+func (i GetServiceDefinitionHealthCheckHttpHeaderArray) ToGetServiceDefinitionHealthCheckHttpHeaderArrayOutput() GetServiceDefinitionHealthCheckHttpHeaderArrayOutput {
+	return i.ToGetServiceDefinitionHealthCheckHttpHeaderArrayOutputWithContext(context.Background())
+}
+
+func (i GetServiceDefinitionHealthCheckHttpHeaderArray) ToGetServiceDefinitionHealthCheckHttpHeaderArrayOutputWithContext(ctx context.Context) GetServiceDefinitionHealthCheckHttpHeaderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDefinitionHealthCheckHttpHeaderArrayOutput)
+}
+
+type GetServiceDefinitionHealthCheckHttpHeaderOutput struct{ *pulumi.OutputState }
+
+func (GetServiceDefinitionHealthCheckHttpHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceDefinitionHealthCheckHttpHeader)(nil)).Elem()
+}
+
+func (o GetServiceDefinitionHealthCheckHttpHeaderOutput) ToGetServiceDefinitionHealthCheckHttpHeaderOutput() GetServiceDefinitionHealthCheckHttpHeaderOutput {
+	return o
+}
+
+func (o GetServiceDefinitionHealthCheckHttpHeaderOutput) ToGetServiceDefinitionHealthCheckHttpHeaderOutputWithContext(ctx context.Context) GetServiceDefinitionHealthCheckHttpHeaderOutput {
+	return o
+}
+
+// The name of the header
+func (o GetServiceDefinitionHealthCheckHttpHeaderOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceDefinitionHealthCheckHttpHeader) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value of the header
+func (o GetServiceDefinitionHealthCheckHttpHeaderOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetServiceDefinitionHealthCheckHttpHeader) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type GetServiceDefinitionHealthCheckHttpHeaderArrayOutput struct{ *pulumi.OutputState }
+
+func (GetServiceDefinitionHealthCheckHttpHeaderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceDefinitionHealthCheckHttpHeader)(nil)).Elem()
+}
+
+func (o GetServiceDefinitionHealthCheckHttpHeaderArrayOutput) ToGetServiceDefinitionHealthCheckHttpHeaderArrayOutput() GetServiceDefinitionHealthCheckHttpHeaderArrayOutput {
+	return o
+}
+
+func (o GetServiceDefinitionHealthCheckHttpHeaderArrayOutput) ToGetServiceDefinitionHealthCheckHttpHeaderArrayOutputWithContext(ctx context.Context) GetServiceDefinitionHealthCheckHttpHeaderArrayOutput {
+	return o
+}
+
+func (o GetServiceDefinitionHealthCheckHttpHeaderArrayOutput) Index(i pulumi.IntInput) GetServiceDefinitionHealthCheckHttpHeaderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServiceDefinitionHealthCheckHttpHeader {
+		return vs[0].([]GetServiceDefinitionHealthCheckHttpHeader)[vs[1].(int)]
+	}).(GetServiceDefinitionHealthCheckHttpHeaderOutput)
+}
+
+type GetServiceDefinitionHealthCheckTcp struct {
+	// The port to use to perform the health check
+	Port int `pulumi:"port"`
+}
+
+// GetServiceDefinitionHealthCheckTcpInput is an input type that accepts GetServiceDefinitionHealthCheckTcpArgs and GetServiceDefinitionHealthCheckTcpOutput values.
+// You can construct a concrete instance of `GetServiceDefinitionHealthCheckTcpInput` via:
+//
+//	GetServiceDefinitionHealthCheckTcpArgs{...}
+type GetServiceDefinitionHealthCheckTcpInput interface {
+	pulumi.Input
+
+	ToGetServiceDefinitionHealthCheckTcpOutput() GetServiceDefinitionHealthCheckTcpOutput
+	ToGetServiceDefinitionHealthCheckTcpOutputWithContext(context.Context) GetServiceDefinitionHealthCheckTcpOutput
+}
+
+type GetServiceDefinitionHealthCheckTcpArgs struct {
+	// The port to use to perform the health check
+	Port pulumi.IntInput `pulumi:"port"`
+}
+
+func (GetServiceDefinitionHealthCheckTcpArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceDefinitionHealthCheckTcp)(nil)).Elem()
+}
+
+func (i GetServiceDefinitionHealthCheckTcpArgs) ToGetServiceDefinitionHealthCheckTcpOutput() GetServiceDefinitionHealthCheckTcpOutput {
+	return i.ToGetServiceDefinitionHealthCheckTcpOutputWithContext(context.Background())
+}
+
+func (i GetServiceDefinitionHealthCheckTcpArgs) ToGetServiceDefinitionHealthCheckTcpOutputWithContext(ctx context.Context) GetServiceDefinitionHealthCheckTcpOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDefinitionHealthCheckTcpOutput)
+}
+
+func (i GetServiceDefinitionHealthCheckTcpArgs) ToGetServiceDefinitionHealthCheckTcpPtrOutput() GetServiceDefinitionHealthCheckTcpPtrOutput {
+	return i.ToGetServiceDefinitionHealthCheckTcpPtrOutputWithContext(context.Background())
+}
+
+func (i GetServiceDefinitionHealthCheckTcpArgs) ToGetServiceDefinitionHealthCheckTcpPtrOutputWithContext(ctx context.Context) GetServiceDefinitionHealthCheckTcpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDefinitionHealthCheckTcpOutput).ToGetServiceDefinitionHealthCheckTcpPtrOutputWithContext(ctx)
+}
+
+// GetServiceDefinitionHealthCheckTcpPtrInput is an input type that accepts GetServiceDefinitionHealthCheckTcpArgs, GetServiceDefinitionHealthCheckTcpPtr and GetServiceDefinitionHealthCheckTcpPtrOutput values.
+// You can construct a concrete instance of `GetServiceDefinitionHealthCheckTcpPtrInput` via:
+//
+//	        GetServiceDefinitionHealthCheckTcpArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetServiceDefinitionHealthCheckTcpPtrInput interface {
+	pulumi.Input
+
+	ToGetServiceDefinitionHealthCheckTcpPtrOutput() GetServiceDefinitionHealthCheckTcpPtrOutput
+	ToGetServiceDefinitionHealthCheckTcpPtrOutputWithContext(context.Context) GetServiceDefinitionHealthCheckTcpPtrOutput
+}
+
+type getServiceDefinitionHealthCheckTcpPtrType GetServiceDefinitionHealthCheckTcpArgs
+
+func GetServiceDefinitionHealthCheckTcpPtr(v *GetServiceDefinitionHealthCheckTcpArgs) GetServiceDefinitionHealthCheckTcpPtrInput {
+	return (*getServiceDefinitionHealthCheckTcpPtrType)(v)
+}
+
+func (*getServiceDefinitionHealthCheckTcpPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetServiceDefinitionHealthCheckTcp)(nil)).Elem()
+}
+
+func (i *getServiceDefinitionHealthCheckTcpPtrType) ToGetServiceDefinitionHealthCheckTcpPtrOutput() GetServiceDefinitionHealthCheckTcpPtrOutput {
+	return i.ToGetServiceDefinitionHealthCheckTcpPtrOutputWithContext(context.Background())
+}
+
+func (i *getServiceDefinitionHealthCheckTcpPtrType) ToGetServiceDefinitionHealthCheckTcpPtrOutputWithContext(ctx context.Context) GetServiceDefinitionHealthCheckTcpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDefinitionHealthCheckTcpPtrOutput)
+}
+
+type GetServiceDefinitionHealthCheckTcpOutput struct{ *pulumi.OutputState }
+
+func (GetServiceDefinitionHealthCheckTcpOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceDefinitionHealthCheckTcp)(nil)).Elem()
+}
+
+func (o GetServiceDefinitionHealthCheckTcpOutput) ToGetServiceDefinitionHealthCheckTcpOutput() GetServiceDefinitionHealthCheckTcpOutput {
+	return o
+}
+
+func (o GetServiceDefinitionHealthCheckTcpOutput) ToGetServiceDefinitionHealthCheckTcpOutputWithContext(ctx context.Context) GetServiceDefinitionHealthCheckTcpOutput {
+	return o
+}
+
+func (o GetServiceDefinitionHealthCheckTcpOutput) ToGetServiceDefinitionHealthCheckTcpPtrOutput() GetServiceDefinitionHealthCheckTcpPtrOutput {
+	return o.ToGetServiceDefinitionHealthCheckTcpPtrOutputWithContext(context.Background())
+}
+
+func (o GetServiceDefinitionHealthCheckTcpOutput) ToGetServiceDefinitionHealthCheckTcpPtrOutputWithContext(ctx context.Context) GetServiceDefinitionHealthCheckTcpPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetServiceDefinitionHealthCheckTcp) *GetServiceDefinitionHealthCheckTcp {
+		return &v
+	}).(GetServiceDefinitionHealthCheckTcpPtrOutput)
+}
+
+// The port to use to perform the health check
+func (o GetServiceDefinitionHealthCheckTcpOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v GetServiceDefinitionHealthCheckTcp) int { return v.Port }).(pulumi.IntOutput)
+}
+
+type GetServiceDefinitionHealthCheckTcpPtrOutput struct{ *pulumi.OutputState }
+
+func (GetServiceDefinitionHealthCheckTcpPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetServiceDefinitionHealthCheckTcp)(nil)).Elem()
+}
+
+func (o GetServiceDefinitionHealthCheckTcpPtrOutput) ToGetServiceDefinitionHealthCheckTcpPtrOutput() GetServiceDefinitionHealthCheckTcpPtrOutput {
+	return o
+}
+
+func (o GetServiceDefinitionHealthCheckTcpPtrOutput) ToGetServiceDefinitionHealthCheckTcpPtrOutputWithContext(ctx context.Context) GetServiceDefinitionHealthCheckTcpPtrOutput {
+	return o
+}
+
+func (o GetServiceDefinitionHealthCheckTcpPtrOutput) Elem() GetServiceDefinitionHealthCheckTcpOutput {
+	return o.ApplyT(func(v *GetServiceDefinitionHealthCheckTcp) GetServiceDefinitionHealthCheckTcp {
+		if v != nil {
+			return *v
+		}
+		var ret GetServiceDefinitionHealthCheckTcp
+		return ret
+	}).(GetServiceDefinitionHealthCheckTcpOutput)
+}
+
+// The port to use to perform the health check
+func (o GetServiceDefinitionHealthCheckTcpPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GetServiceDefinitionHealthCheckTcp) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+type GetServiceDefinitionInstanceType struct {
+	// The regions to use the instance type
+	Scopes []string `pulumi:"scopes"`
+	// The instance type to use to support your service
+	Type string `pulumi:"type"`
+}
+
+// GetServiceDefinitionInstanceTypeInput is an input type that accepts GetServiceDefinitionInstanceTypeArgs and GetServiceDefinitionInstanceTypeOutput values.
+// You can construct a concrete instance of `GetServiceDefinitionInstanceTypeInput` via:
+//
+//	GetServiceDefinitionInstanceTypeArgs{...}
+type GetServiceDefinitionInstanceTypeInput interface {
+	pulumi.Input
+
+	ToGetServiceDefinitionInstanceTypeOutput() GetServiceDefinitionInstanceTypeOutput
+	ToGetServiceDefinitionInstanceTypeOutputWithContext(context.Context) GetServiceDefinitionInstanceTypeOutput
+}
+
+type GetServiceDefinitionInstanceTypeArgs struct {
+	// The regions to use the instance type
+	Scopes pulumi.StringArrayInput `pulumi:"scopes"`
+	// The instance type to use to support your service
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetServiceDefinitionInstanceTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceDefinitionInstanceType)(nil)).Elem()
+}
+
+func (i GetServiceDefinitionInstanceTypeArgs) ToGetServiceDefinitionInstanceTypeOutput() GetServiceDefinitionInstanceTypeOutput {
+	return i.ToGetServiceDefinitionInstanceTypeOutputWithContext(context.Background())
+}
+
+func (i GetServiceDefinitionInstanceTypeArgs) ToGetServiceDefinitionInstanceTypeOutputWithContext(ctx context.Context) GetServiceDefinitionInstanceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDefinitionInstanceTypeOutput)
+}
+
+// GetServiceDefinitionInstanceTypeArrayInput is an input type that accepts GetServiceDefinitionInstanceTypeArray and GetServiceDefinitionInstanceTypeArrayOutput values.
+// You can construct a concrete instance of `GetServiceDefinitionInstanceTypeArrayInput` via:
+//
+//	GetServiceDefinitionInstanceTypeArray{ GetServiceDefinitionInstanceTypeArgs{...} }
+type GetServiceDefinitionInstanceTypeArrayInput interface {
+	pulumi.Input
+
+	ToGetServiceDefinitionInstanceTypeArrayOutput() GetServiceDefinitionInstanceTypeArrayOutput
+	ToGetServiceDefinitionInstanceTypeArrayOutputWithContext(context.Context) GetServiceDefinitionInstanceTypeArrayOutput
+}
+
+type GetServiceDefinitionInstanceTypeArray []GetServiceDefinitionInstanceTypeInput
+
+func (GetServiceDefinitionInstanceTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceDefinitionInstanceType)(nil)).Elem()
+}
+
+func (i GetServiceDefinitionInstanceTypeArray) ToGetServiceDefinitionInstanceTypeArrayOutput() GetServiceDefinitionInstanceTypeArrayOutput {
+	return i.ToGetServiceDefinitionInstanceTypeArrayOutputWithContext(context.Background())
+}
+
+func (i GetServiceDefinitionInstanceTypeArray) ToGetServiceDefinitionInstanceTypeArrayOutputWithContext(ctx context.Context) GetServiceDefinitionInstanceTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDefinitionInstanceTypeArrayOutput)
+}
+
+type GetServiceDefinitionInstanceTypeOutput struct{ *pulumi.OutputState }
+
+func (GetServiceDefinitionInstanceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceDefinitionInstanceType)(nil)).Elem()
+}
+
+func (o GetServiceDefinitionInstanceTypeOutput) ToGetServiceDefinitionInstanceTypeOutput() GetServiceDefinitionInstanceTypeOutput {
+	return o
+}
+
+func (o GetServiceDefinitionInstanceTypeOutput) ToGetServiceDefinitionInstanceTypeOutputWithContext(ctx context.Context) GetServiceDefinitionInstanceTypeOutput {
+	return o
+}
+
+// The regions to use the instance type
+func (o GetServiceDefinitionInstanceTypeOutput) Scopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetServiceDefinitionInstanceType) []string { return v.Scopes }).(pulumi.StringArrayOutput)
+}
+
+// The instance type to use to support your service
+func (o GetServiceDefinitionInstanceTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceDefinitionInstanceType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetServiceDefinitionInstanceTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetServiceDefinitionInstanceTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceDefinitionInstanceType)(nil)).Elem()
+}
+
+func (o GetServiceDefinitionInstanceTypeArrayOutput) ToGetServiceDefinitionInstanceTypeArrayOutput() GetServiceDefinitionInstanceTypeArrayOutput {
+	return o
+}
+
+func (o GetServiceDefinitionInstanceTypeArrayOutput) ToGetServiceDefinitionInstanceTypeArrayOutputWithContext(ctx context.Context) GetServiceDefinitionInstanceTypeArrayOutput {
+	return o
+}
+
+func (o GetServiceDefinitionInstanceTypeArrayOutput) Index(i pulumi.IntInput) GetServiceDefinitionInstanceTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServiceDefinitionInstanceType {
+		return vs[0].([]GetServiceDefinitionInstanceType)[vs[1].(int)]
+	}).(GetServiceDefinitionInstanceTypeOutput)
+}
+
+type GetServiceDefinitionPort struct {
+	// The internal port on which this service's run command will listen
+	Port int `pulumi:"port"`
+	// The protocol used by your service
+	Protocol string `pulumi:"protocol"`
+}
+
+// GetServiceDefinitionPortInput is an input type that accepts GetServiceDefinitionPortArgs and GetServiceDefinitionPortOutput values.
+// You can construct a concrete instance of `GetServiceDefinitionPortInput` via:
+//
+//	GetServiceDefinitionPortArgs{...}
+type GetServiceDefinitionPortInput interface {
+	pulumi.Input
+
+	ToGetServiceDefinitionPortOutput() GetServiceDefinitionPortOutput
+	ToGetServiceDefinitionPortOutputWithContext(context.Context) GetServiceDefinitionPortOutput
+}
+
+type GetServiceDefinitionPortArgs struct {
+	// The internal port on which this service's run command will listen
+	Port pulumi.IntInput `pulumi:"port"`
+	// The protocol used by your service
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+}
+
+func (GetServiceDefinitionPortArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceDefinitionPort)(nil)).Elem()
+}
+
+func (i GetServiceDefinitionPortArgs) ToGetServiceDefinitionPortOutput() GetServiceDefinitionPortOutput {
+	return i.ToGetServiceDefinitionPortOutputWithContext(context.Background())
+}
+
+func (i GetServiceDefinitionPortArgs) ToGetServiceDefinitionPortOutputWithContext(ctx context.Context) GetServiceDefinitionPortOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDefinitionPortOutput)
+}
+
+// GetServiceDefinitionPortArrayInput is an input type that accepts GetServiceDefinitionPortArray and GetServiceDefinitionPortArrayOutput values.
+// You can construct a concrete instance of `GetServiceDefinitionPortArrayInput` via:
+//
+//	GetServiceDefinitionPortArray{ GetServiceDefinitionPortArgs{...} }
+type GetServiceDefinitionPortArrayInput interface {
+	pulumi.Input
+
+	ToGetServiceDefinitionPortArrayOutput() GetServiceDefinitionPortArrayOutput
+	ToGetServiceDefinitionPortArrayOutputWithContext(context.Context) GetServiceDefinitionPortArrayOutput
+}
+
+type GetServiceDefinitionPortArray []GetServiceDefinitionPortInput
+
+func (GetServiceDefinitionPortArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceDefinitionPort)(nil)).Elem()
+}
+
+func (i GetServiceDefinitionPortArray) ToGetServiceDefinitionPortArrayOutput() GetServiceDefinitionPortArrayOutput {
+	return i.ToGetServiceDefinitionPortArrayOutputWithContext(context.Background())
+}
+
+func (i GetServiceDefinitionPortArray) ToGetServiceDefinitionPortArrayOutputWithContext(ctx context.Context) GetServiceDefinitionPortArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDefinitionPortArrayOutput)
+}
+
+type GetServiceDefinitionPortOutput struct{ *pulumi.OutputState }
+
+func (GetServiceDefinitionPortOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceDefinitionPort)(nil)).Elem()
+}
+
+func (o GetServiceDefinitionPortOutput) ToGetServiceDefinitionPortOutput() GetServiceDefinitionPortOutput {
+	return o
+}
+
+func (o GetServiceDefinitionPortOutput) ToGetServiceDefinitionPortOutputWithContext(ctx context.Context) GetServiceDefinitionPortOutput {
+	return o
+}
+
+// The internal port on which this service's run command will listen
+func (o GetServiceDefinitionPortOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v GetServiceDefinitionPort) int { return v.Port }).(pulumi.IntOutput)
+}
+
+// The protocol used by your service
+func (o GetServiceDefinitionPortOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceDefinitionPort) string { return v.Protocol }).(pulumi.StringOutput)
+}
+
+type GetServiceDefinitionPortArrayOutput struct{ *pulumi.OutputState }
+
+func (GetServiceDefinitionPortArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceDefinitionPort)(nil)).Elem()
+}
+
+func (o GetServiceDefinitionPortArrayOutput) ToGetServiceDefinitionPortArrayOutput() GetServiceDefinitionPortArrayOutput {
+	return o
+}
+
+func (o GetServiceDefinitionPortArrayOutput) ToGetServiceDefinitionPortArrayOutputWithContext(ctx context.Context) GetServiceDefinitionPortArrayOutput {
+	return o
+}
+
+func (o GetServiceDefinitionPortArrayOutput) Index(i pulumi.IntInput) GetServiceDefinitionPortOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServiceDefinitionPort {
+		return vs[0].([]GetServiceDefinitionPort)[vs[1].(int)]
+	}).(GetServiceDefinitionPortOutput)
+}
+
+type GetServiceDefinitionRoute struct {
+	// Path specifies a route by HTTP path prefix. Paths must start with / and must be unique within the app
+	Path string `pulumi:"path"`
+	// The internal port on which this service's run command will listen
+	Port int `pulumi:"port"`
+}
+
+// GetServiceDefinitionRouteInput is an input type that accepts GetServiceDefinitionRouteArgs and GetServiceDefinitionRouteOutput values.
+// You can construct a concrete instance of `GetServiceDefinitionRouteInput` via:
+//
+//	GetServiceDefinitionRouteArgs{...}
+type GetServiceDefinitionRouteInput interface {
+	pulumi.Input
+
+	ToGetServiceDefinitionRouteOutput() GetServiceDefinitionRouteOutput
+	ToGetServiceDefinitionRouteOutputWithContext(context.Context) GetServiceDefinitionRouteOutput
+}
+
+type GetServiceDefinitionRouteArgs struct {
+	// Path specifies a route by HTTP path prefix. Paths must start with / and must be unique within the app
+	Path pulumi.StringInput `pulumi:"path"`
+	// The internal port on which this service's run command will listen
+	Port pulumi.IntInput `pulumi:"port"`
+}
+
+func (GetServiceDefinitionRouteArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceDefinitionRoute)(nil)).Elem()
+}
+
+func (i GetServiceDefinitionRouteArgs) ToGetServiceDefinitionRouteOutput() GetServiceDefinitionRouteOutput {
+	return i.ToGetServiceDefinitionRouteOutputWithContext(context.Background())
+}
+
+func (i GetServiceDefinitionRouteArgs) ToGetServiceDefinitionRouteOutputWithContext(ctx context.Context) GetServiceDefinitionRouteOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDefinitionRouteOutput)
+}
+
+// GetServiceDefinitionRouteArrayInput is an input type that accepts GetServiceDefinitionRouteArray and GetServiceDefinitionRouteArrayOutput values.
+// You can construct a concrete instance of `GetServiceDefinitionRouteArrayInput` via:
+//
+//	GetServiceDefinitionRouteArray{ GetServiceDefinitionRouteArgs{...} }
+type GetServiceDefinitionRouteArrayInput interface {
+	pulumi.Input
+
+	ToGetServiceDefinitionRouteArrayOutput() GetServiceDefinitionRouteArrayOutput
+	ToGetServiceDefinitionRouteArrayOutputWithContext(context.Context) GetServiceDefinitionRouteArrayOutput
+}
+
+type GetServiceDefinitionRouteArray []GetServiceDefinitionRouteInput
+
+func (GetServiceDefinitionRouteArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceDefinitionRoute)(nil)).Elem()
+}
+
+func (i GetServiceDefinitionRouteArray) ToGetServiceDefinitionRouteArrayOutput() GetServiceDefinitionRouteArrayOutput {
+	return i.ToGetServiceDefinitionRouteArrayOutputWithContext(context.Background())
+}
+
+func (i GetServiceDefinitionRouteArray) ToGetServiceDefinitionRouteArrayOutputWithContext(ctx context.Context) GetServiceDefinitionRouteArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDefinitionRouteArrayOutput)
+}
+
+type GetServiceDefinitionRouteOutput struct{ *pulumi.OutputState }
+
+func (GetServiceDefinitionRouteOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceDefinitionRoute)(nil)).Elem()
+}
+
+func (o GetServiceDefinitionRouteOutput) ToGetServiceDefinitionRouteOutput() GetServiceDefinitionRouteOutput {
+	return o
+}
+
+func (o GetServiceDefinitionRouteOutput) ToGetServiceDefinitionRouteOutputWithContext(ctx context.Context) GetServiceDefinitionRouteOutput {
+	return o
+}
+
+// Path specifies a route by HTTP path prefix. Paths must start with / and must be unique within the app
+func (o GetServiceDefinitionRouteOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceDefinitionRoute) string { return v.Path }).(pulumi.StringOutput)
+}
+
+// The internal port on which this service's run command will listen
+func (o GetServiceDefinitionRouteOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v GetServiceDefinitionRoute) int { return v.Port }).(pulumi.IntOutput)
+}
+
+type GetServiceDefinitionRouteArrayOutput struct{ *pulumi.OutputState }
+
+func (GetServiceDefinitionRouteArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceDefinitionRoute)(nil)).Elem()
+}
+
+func (o GetServiceDefinitionRouteArrayOutput) ToGetServiceDefinitionRouteArrayOutput() GetServiceDefinitionRouteArrayOutput {
+	return o
+}
+
+func (o GetServiceDefinitionRouteArrayOutput) ToGetServiceDefinitionRouteArrayOutputWithContext(ctx context.Context) GetServiceDefinitionRouteArrayOutput {
+	return o
+}
+
+func (o GetServiceDefinitionRouteArrayOutput) Index(i pulumi.IntInput) GetServiceDefinitionRouteOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServiceDefinitionRoute {
+		return vs[0].([]GetServiceDefinitionRoute)[vs[1].(int)]
+	}).(GetServiceDefinitionRouteOutput)
+}
+
+type GetServiceDefinitionScaling struct {
+	// The maximum number of instance to use to support your service
+	Max *int `pulumi:"max"`
+	// The minimal number of instances to use to support your service
+	Min *int `pulumi:"min"`
+	// The regions to apply the scaling configuration
+	Scopes  []string                            `pulumi:"scopes"`
+	Targets []GetServiceDefinitionScalingTarget `pulumi:"targets"`
+}
+
+// GetServiceDefinitionScalingInput is an input type that accepts GetServiceDefinitionScalingArgs and GetServiceDefinitionScalingOutput values.
+// You can construct a concrete instance of `GetServiceDefinitionScalingInput` via:
+//
+//	GetServiceDefinitionScalingArgs{...}
+type GetServiceDefinitionScalingInput interface {
+	pulumi.Input
+
+	ToGetServiceDefinitionScalingOutput() GetServiceDefinitionScalingOutput
+	ToGetServiceDefinitionScalingOutputWithContext(context.Context) GetServiceDefinitionScalingOutput
+}
+
+type GetServiceDefinitionScalingArgs struct {
+	// The maximum number of instance to use to support your service
+	Max pulumi.IntPtrInput `pulumi:"max"`
+	// The minimal number of instances to use to support your service
+	Min pulumi.IntPtrInput `pulumi:"min"`
+	// The regions to apply the scaling configuration
+	Scopes  pulumi.StringArrayInput                     `pulumi:"scopes"`
+	Targets GetServiceDefinitionScalingTargetArrayInput `pulumi:"targets"`
+}
+
+func (GetServiceDefinitionScalingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceDefinitionScaling)(nil)).Elem()
+}
+
+func (i GetServiceDefinitionScalingArgs) ToGetServiceDefinitionScalingOutput() GetServiceDefinitionScalingOutput {
+	return i.ToGetServiceDefinitionScalingOutputWithContext(context.Background())
+}
+
+func (i GetServiceDefinitionScalingArgs) ToGetServiceDefinitionScalingOutputWithContext(ctx context.Context) GetServiceDefinitionScalingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDefinitionScalingOutput)
+}
+
+// GetServiceDefinitionScalingArrayInput is an input type that accepts GetServiceDefinitionScalingArray and GetServiceDefinitionScalingArrayOutput values.
+// You can construct a concrete instance of `GetServiceDefinitionScalingArrayInput` via:
+//
+//	GetServiceDefinitionScalingArray{ GetServiceDefinitionScalingArgs{...} }
+type GetServiceDefinitionScalingArrayInput interface {
+	pulumi.Input
+
+	ToGetServiceDefinitionScalingArrayOutput() GetServiceDefinitionScalingArrayOutput
+	ToGetServiceDefinitionScalingArrayOutputWithContext(context.Context) GetServiceDefinitionScalingArrayOutput
+}
+
+type GetServiceDefinitionScalingArray []GetServiceDefinitionScalingInput
+
+func (GetServiceDefinitionScalingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceDefinitionScaling)(nil)).Elem()
+}
+
+func (i GetServiceDefinitionScalingArray) ToGetServiceDefinitionScalingArrayOutput() GetServiceDefinitionScalingArrayOutput {
+	return i.ToGetServiceDefinitionScalingArrayOutputWithContext(context.Background())
+}
+
+func (i GetServiceDefinitionScalingArray) ToGetServiceDefinitionScalingArrayOutputWithContext(ctx context.Context) GetServiceDefinitionScalingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDefinitionScalingArrayOutput)
+}
+
+type GetServiceDefinitionScalingOutput struct{ *pulumi.OutputState }
+
+func (GetServiceDefinitionScalingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceDefinitionScaling)(nil)).Elem()
+}
+
+func (o GetServiceDefinitionScalingOutput) ToGetServiceDefinitionScalingOutput() GetServiceDefinitionScalingOutput {
+	return o
+}
+
+func (o GetServiceDefinitionScalingOutput) ToGetServiceDefinitionScalingOutputWithContext(ctx context.Context) GetServiceDefinitionScalingOutput {
+	return o
+}
+
+// The maximum number of instance to use to support your service
+func (o GetServiceDefinitionScalingOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetServiceDefinitionScaling) *int { return v.Max }).(pulumi.IntPtrOutput)
+}
+
+// The minimal number of instances to use to support your service
+func (o GetServiceDefinitionScalingOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetServiceDefinitionScaling) *int { return v.Min }).(pulumi.IntPtrOutput)
+}
+
+// The regions to apply the scaling configuration
+func (o GetServiceDefinitionScalingOutput) Scopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetServiceDefinitionScaling) []string { return v.Scopes }).(pulumi.StringArrayOutput)
+}
+
+func (o GetServiceDefinitionScalingOutput) Targets() GetServiceDefinitionScalingTargetArrayOutput {
+	return o.ApplyT(func(v GetServiceDefinitionScaling) []GetServiceDefinitionScalingTarget { return v.Targets }).(GetServiceDefinitionScalingTargetArrayOutput)
+}
+
+type GetServiceDefinitionScalingArrayOutput struct{ *pulumi.OutputState }
+
+func (GetServiceDefinitionScalingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceDefinitionScaling)(nil)).Elem()
+}
+
+func (o GetServiceDefinitionScalingArrayOutput) ToGetServiceDefinitionScalingArrayOutput() GetServiceDefinitionScalingArrayOutput {
+	return o
+}
+
+func (o GetServiceDefinitionScalingArrayOutput) ToGetServiceDefinitionScalingArrayOutputWithContext(ctx context.Context) GetServiceDefinitionScalingArrayOutput {
+	return o
+}
+
+func (o GetServiceDefinitionScalingArrayOutput) Index(i pulumi.IntInput) GetServiceDefinitionScalingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServiceDefinitionScaling {
+		return vs[0].([]GetServiceDefinitionScaling)[vs[1].(int)]
+	}).(GetServiceDefinitionScalingOutput)
+}
+
+type GetServiceDefinitionScalingTarget struct {
+	// The CPU usage (expressed as a percentage) across all Instances of your Service within a region
+	AverageCpus []GetServiceDefinitionScalingTargetAverageCpus `pulumi:"averageCpus"`
+	// The memory usage (expressed as a percentage) across all Instances of your Service within a region
+	AverageMems []GetServiceDefinitionScalingTargetAverageMem `pulumi:"averageMems"`
+	// The number of concurrent requests across all Instances of your Service within a region
+	ConcurrentRequests []GetServiceDefinitionScalingTargetConcurrentRequest `pulumi:"concurrentRequests"`
+	// The average response time of requests across all Instances of your Service within a region
+	RequestResponseTimes []GetServiceDefinitionScalingTargetRequestResponseTime `pulumi:"requestResponseTimes"`
+	// The number of concurrent requests per second across all Instances of your Service within a region
+	RequestsPerSeconds []GetServiceDefinitionScalingTargetRequestsPerSecond `pulumi:"requestsPerSeconds"`
+}
+
+// GetServiceDefinitionScalingTargetInput is an input type that accepts GetServiceDefinitionScalingTargetArgs and GetServiceDefinitionScalingTargetOutput values.
+// You can construct a concrete instance of `GetServiceDefinitionScalingTargetInput` via:
+//
+//	GetServiceDefinitionScalingTargetArgs{...}
+type GetServiceDefinitionScalingTargetInput interface {
+	pulumi.Input
+
+	ToGetServiceDefinitionScalingTargetOutput() GetServiceDefinitionScalingTargetOutput
+	ToGetServiceDefinitionScalingTargetOutputWithContext(context.Context) GetServiceDefinitionScalingTargetOutput
+}
+
+type GetServiceDefinitionScalingTargetArgs struct {
+	// The CPU usage (expressed as a percentage) across all Instances of your Service within a region
+	AverageCpus GetServiceDefinitionScalingTargetAverageCpusArrayInput `pulumi:"averageCpus"`
+	// The memory usage (expressed as a percentage) across all Instances of your Service within a region
+	AverageMems GetServiceDefinitionScalingTargetAverageMemArrayInput `pulumi:"averageMems"`
+	// The number of concurrent requests across all Instances of your Service within a region
+	ConcurrentRequests GetServiceDefinitionScalingTargetConcurrentRequestArrayInput `pulumi:"concurrentRequests"`
+	// The average response time of requests across all Instances of your Service within a region
+	RequestResponseTimes GetServiceDefinitionScalingTargetRequestResponseTimeArrayInput `pulumi:"requestResponseTimes"`
+	// The number of concurrent requests per second across all Instances of your Service within a region
+	RequestsPerSeconds GetServiceDefinitionScalingTargetRequestsPerSecondArrayInput `pulumi:"requestsPerSeconds"`
+}
+
+func (GetServiceDefinitionScalingTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceDefinitionScalingTarget)(nil)).Elem()
+}
+
+func (i GetServiceDefinitionScalingTargetArgs) ToGetServiceDefinitionScalingTargetOutput() GetServiceDefinitionScalingTargetOutput {
+	return i.ToGetServiceDefinitionScalingTargetOutputWithContext(context.Background())
+}
+
+func (i GetServiceDefinitionScalingTargetArgs) ToGetServiceDefinitionScalingTargetOutputWithContext(ctx context.Context) GetServiceDefinitionScalingTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDefinitionScalingTargetOutput)
+}
+
+// GetServiceDefinitionScalingTargetArrayInput is an input type that accepts GetServiceDefinitionScalingTargetArray and GetServiceDefinitionScalingTargetArrayOutput values.
+// You can construct a concrete instance of `GetServiceDefinitionScalingTargetArrayInput` via:
+//
+//	GetServiceDefinitionScalingTargetArray{ GetServiceDefinitionScalingTargetArgs{...} }
+type GetServiceDefinitionScalingTargetArrayInput interface {
+	pulumi.Input
+
+	ToGetServiceDefinitionScalingTargetArrayOutput() GetServiceDefinitionScalingTargetArrayOutput
+	ToGetServiceDefinitionScalingTargetArrayOutputWithContext(context.Context) GetServiceDefinitionScalingTargetArrayOutput
+}
+
+type GetServiceDefinitionScalingTargetArray []GetServiceDefinitionScalingTargetInput
+
+func (GetServiceDefinitionScalingTargetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceDefinitionScalingTarget)(nil)).Elem()
+}
+
+func (i GetServiceDefinitionScalingTargetArray) ToGetServiceDefinitionScalingTargetArrayOutput() GetServiceDefinitionScalingTargetArrayOutput {
+	return i.ToGetServiceDefinitionScalingTargetArrayOutputWithContext(context.Background())
+}
+
+func (i GetServiceDefinitionScalingTargetArray) ToGetServiceDefinitionScalingTargetArrayOutputWithContext(ctx context.Context) GetServiceDefinitionScalingTargetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDefinitionScalingTargetArrayOutput)
+}
+
+type GetServiceDefinitionScalingTargetOutput struct{ *pulumi.OutputState }
+
+func (GetServiceDefinitionScalingTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceDefinitionScalingTarget)(nil)).Elem()
+}
+
+func (o GetServiceDefinitionScalingTargetOutput) ToGetServiceDefinitionScalingTargetOutput() GetServiceDefinitionScalingTargetOutput {
+	return o
+}
+
+func (o GetServiceDefinitionScalingTargetOutput) ToGetServiceDefinitionScalingTargetOutputWithContext(ctx context.Context) GetServiceDefinitionScalingTargetOutput {
+	return o
+}
+
+// The CPU usage (expressed as a percentage) across all Instances of your Service within a region
+func (o GetServiceDefinitionScalingTargetOutput) AverageCpus() GetServiceDefinitionScalingTargetAverageCpusArrayOutput {
+	return o.ApplyT(func(v GetServiceDefinitionScalingTarget) []GetServiceDefinitionScalingTargetAverageCpus {
+		return v.AverageCpus
+	}).(GetServiceDefinitionScalingTargetAverageCpusArrayOutput)
+}
+
+// The memory usage (expressed as a percentage) across all Instances of your Service within a region
+func (o GetServiceDefinitionScalingTargetOutput) AverageMems() GetServiceDefinitionScalingTargetAverageMemArrayOutput {
+	return o.ApplyT(func(v GetServiceDefinitionScalingTarget) []GetServiceDefinitionScalingTargetAverageMem {
+		return v.AverageMems
+	}).(GetServiceDefinitionScalingTargetAverageMemArrayOutput)
+}
+
+// The number of concurrent requests across all Instances of your Service within a region
+func (o GetServiceDefinitionScalingTargetOutput) ConcurrentRequests() GetServiceDefinitionScalingTargetConcurrentRequestArrayOutput {
+	return o.ApplyT(func(v GetServiceDefinitionScalingTarget) []GetServiceDefinitionScalingTargetConcurrentRequest {
+		return v.ConcurrentRequests
+	}).(GetServiceDefinitionScalingTargetConcurrentRequestArrayOutput)
+}
+
+// The average response time of requests across all Instances of your Service within a region
+func (o GetServiceDefinitionScalingTargetOutput) RequestResponseTimes() GetServiceDefinitionScalingTargetRequestResponseTimeArrayOutput {
+	return o.ApplyT(func(v GetServiceDefinitionScalingTarget) []GetServiceDefinitionScalingTargetRequestResponseTime {
+		return v.RequestResponseTimes
+	}).(GetServiceDefinitionScalingTargetRequestResponseTimeArrayOutput)
+}
+
+// The number of concurrent requests per second across all Instances of your Service within a region
+func (o GetServiceDefinitionScalingTargetOutput) RequestsPerSeconds() GetServiceDefinitionScalingTargetRequestsPerSecondArrayOutput {
+	return o.ApplyT(func(v GetServiceDefinitionScalingTarget) []GetServiceDefinitionScalingTargetRequestsPerSecond {
+		return v.RequestsPerSeconds
+	}).(GetServiceDefinitionScalingTargetRequestsPerSecondArrayOutput)
+}
+
+type GetServiceDefinitionScalingTargetArrayOutput struct{ *pulumi.OutputState }
+
+func (GetServiceDefinitionScalingTargetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceDefinitionScalingTarget)(nil)).Elem()
+}
+
+func (o GetServiceDefinitionScalingTargetArrayOutput) ToGetServiceDefinitionScalingTargetArrayOutput() GetServiceDefinitionScalingTargetArrayOutput {
+	return o
+}
+
+func (o GetServiceDefinitionScalingTargetArrayOutput) ToGetServiceDefinitionScalingTargetArrayOutputWithContext(ctx context.Context) GetServiceDefinitionScalingTargetArrayOutput {
+	return o
+}
+
+func (o GetServiceDefinitionScalingTargetArrayOutput) Index(i pulumi.IntInput) GetServiceDefinitionScalingTargetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServiceDefinitionScalingTarget {
+		return vs[0].([]GetServiceDefinitionScalingTarget)[vs[1].(int)]
+	}).(GetServiceDefinitionScalingTargetOutput)
+}
+
+type GetServiceDefinitionScalingTargetAverageCpus struct {
+	// The target value of the autoscaling target
+	Value int `pulumi:"value"`
+}
+
+// GetServiceDefinitionScalingTargetAverageCpusInput is an input type that accepts GetServiceDefinitionScalingTargetAverageCpusArgs and GetServiceDefinitionScalingTargetAverageCpusOutput values.
+// You can construct a concrete instance of `GetServiceDefinitionScalingTargetAverageCpusInput` via:
+//
+//	GetServiceDefinitionScalingTargetAverageCpusArgs{...}
+type GetServiceDefinitionScalingTargetAverageCpusInput interface {
+	pulumi.Input
+
+	ToGetServiceDefinitionScalingTargetAverageCpusOutput() GetServiceDefinitionScalingTargetAverageCpusOutput
+	ToGetServiceDefinitionScalingTargetAverageCpusOutputWithContext(context.Context) GetServiceDefinitionScalingTargetAverageCpusOutput
+}
+
+type GetServiceDefinitionScalingTargetAverageCpusArgs struct {
+	// The target value of the autoscaling target
+	Value pulumi.IntInput `pulumi:"value"`
+}
+
+func (GetServiceDefinitionScalingTargetAverageCpusArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceDefinitionScalingTargetAverageCpus)(nil)).Elem()
+}
+
+func (i GetServiceDefinitionScalingTargetAverageCpusArgs) ToGetServiceDefinitionScalingTargetAverageCpusOutput() GetServiceDefinitionScalingTargetAverageCpusOutput {
+	return i.ToGetServiceDefinitionScalingTargetAverageCpusOutputWithContext(context.Background())
+}
+
+func (i GetServiceDefinitionScalingTargetAverageCpusArgs) ToGetServiceDefinitionScalingTargetAverageCpusOutputWithContext(ctx context.Context) GetServiceDefinitionScalingTargetAverageCpusOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDefinitionScalingTargetAverageCpusOutput)
+}
+
+// GetServiceDefinitionScalingTargetAverageCpusArrayInput is an input type that accepts GetServiceDefinitionScalingTargetAverageCpusArray and GetServiceDefinitionScalingTargetAverageCpusArrayOutput values.
+// You can construct a concrete instance of `GetServiceDefinitionScalingTargetAverageCpusArrayInput` via:
+//
+//	GetServiceDefinitionScalingTargetAverageCpusArray{ GetServiceDefinitionScalingTargetAverageCpusArgs{...} }
+type GetServiceDefinitionScalingTargetAverageCpusArrayInput interface {
+	pulumi.Input
+
+	ToGetServiceDefinitionScalingTargetAverageCpusArrayOutput() GetServiceDefinitionScalingTargetAverageCpusArrayOutput
+	ToGetServiceDefinitionScalingTargetAverageCpusArrayOutputWithContext(context.Context) GetServiceDefinitionScalingTargetAverageCpusArrayOutput
+}
+
+type GetServiceDefinitionScalingTargetAverageCpusArray []GetServiceDefinitionScalingTargetAverageCpusInput
+
+func (GetServiceDefinitionScalingTargetAverageCpusArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceDefinitionScalingTargetAverageCpus)(nil)).Elem()
+}
+
+func (i GetServiceDefinitionScalingTargetAverageCpusArray) ToGetServiceDefinitionScalingTargetAverageCpusArrayOutput() GetServiceDefinitionScalingTargetAverageCpusArrayOutput {
+	return i.ToGetServiceDefinitionScalingTargetAverageCpusArrayOutputWithContext(context.Background())
+}
+
+func (i GetServiceDefinitionScalingTargetAverageCpusArray) ToGetServiceDefinitionScalingTargetAverageCpusArrayOutputWithContext(ctx context.Context) GetServiceDefinitionScalingTargetAverageCpusArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDefinitionScalingTargetAverageCpusArrayOutput)
+}
+
+type GetServiceDefinitionScalingTargetAverageCpusOutput struct{ *pulumi.OutputState }
+
+func (GetServiceDefinitionScalingTargetAverageCpusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceDefinitionScalingTargetAverageCpus)(nil)).Elem()
+}
+
+func (o GetServiceDefinitionScalingTargetAverageCpusOutput) ToGetServiceDefinitionScalingTargetAverageCpusOutput() GetServiceDefinitionScalingTargetAverageCpusOutput {
+	return o
+}
+
+func (o GetServiceDefinitionScalingTargetAverageCpusOutput) ToGetServiceDefinitionScalingTargetAverageCpusOutputWithContext(ctx context.Context) GetServiceDefinitionScalingTargetAverageCpusOutput {
+	return o
+}
+
+// The target value of the autoscaling target
+func (o GetServiceDefinitionScalingTargetAverageCpusOutput) Value() pulumi.IntOutput {
+	return o.ApplyT(func(v GetServiceDefinitionScalingTargetAverageCpus) int { return v.Value }).(pulumi.IntOutput)
+}
+
+type GetServiceDefinitionScalingTargetAverageCpusArrayOutput struct{ *pulumi.OutputState }
+
+func (GetServiceDefinitionScalingTargetAverageCpusArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceDefinitionScalingTargetAverageCpus)(nil)).Elem()
+}
+
+func (o GetServiceDefinitionScalingTargetAverageCpusArrayOutput) ToGetServiceDefinitionScalingTargetAverageCpusArrayOutput() GetServiceDefinitionScalingTargetAverageCpusArrayOutput {
+	return o
+}
+
+func (o GetServiceDefinitionScalingTargetAverageCpusArrayOutput) ToGetServiceDefinitionScalingTargetAverageCpusArrayOutputWithContext(ctx context.Context) GetServiceDefinitionScalingTargetAverageCpusArrayOutput {
+	return o
+}
+
+func (o GetServiceDefinitionScalingTargetAverageCpusArrayOutput) Index(i pulumi.IntInput) GetServiceDefinitionScalingTargetAverageCpusOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServiceDefinitionScalingTargetAverageCpus {
+		return vs[0].([]GetServiceDefinitionScalingTargetAverageCpus)[vs[1].(int)]
+	}).(GetServiceDefinitionScalingTargetAverageCpusOutput)
+}
+
+type GetServiceDefinitionScalingTargetAverageMem struct {
+	// The target value of the autoscaling target
+	Value int `pulumi:"value"`
+}
+
+// GetServiceDefinitionScalingTargetAverageMemInput is an input type that accepts GetServiceDefinitionScalingTargetAverageMemArgs and GetServiceDefinitionScalingTargetAverageMemOutput values.
+// You can construct a concrete instance of `GetServiceDefinitionScalingTargetAverageMemInput` via:
+//
+//	GetServiceDefinitionScalingTargetAverageMemArgs{...}
+type GetServiceDefinitionScalingTargetAverageMemInput interface {
+	pulumi.Input
+
+	ToGetServiceDefinitionScalingTargetAverageMemOutput() GetServiceDefinitionScalingTargetAverageMemOutput
+	ToGetServiceDefinitionScalingTargetAverageMemOutputWithContext(context.Context) GetServiceDefinitionScalingTargetAverageMemOutput
+}
+
+type GetServiceDefinitionScalingTargetAverageMemArgs struct {
+	// The target value of the autoscaling target
+	Value pulumi.IntInput `pulumi:"value"`
+}
+
+func (GetServiceDefinitionScalingTargetAverageMemArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceDefinitionScalingTargetAverageMem)(nil)).Elem()
+}
+
+func (i GetServiceDefinitionScalingTargetAverageMemArgs) ToGetServiceDefinitionScalingTargetAverageMemOutput() GetServiceDefinitionScalingTargetAverageMemOutput {
+	return i.ToGetServiceDefinitionScalingTargetAverageMemOutputWithContext(context.Background())
+}
+
+func (i GetServiceDefinitionScalingTargetAverageMemArgs) ToGetServiceDefinitionScalingTargetAverageMemOutputWithContext(ctx context.Context) GetServiceDefinitionScalingTargetAverageMemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDefinitionScalingTargetAverageMemOutput)
+}
+
+// GetServiceDefinitionScalingTargetAverageMemArrayInput is an input type that accepts GetServiceDefinitionScalingTargetAverageMemArray and GetServiceDefinitionScalingTargetAverageMemArrayOutput values.
+// You can construct a concrete instance of `GetServiceDefinitionScalingTargetAverageMemArrayInput` via:
+//
+//	GetServiceDefinitionScalingTargetAverageMemArray{ GetServiceDefinitionScalingTargetAverageMemArgs{...} }
+type GetServiceDefinitionScalingTargetAverageMemArrayInput interface {
+	pulumi.Input
+
+	ToGetServiceDefinitionScalingTargetAverageMemArrayOutput() GetServiceDefinitionScalingTargetAverageMemArrayOutput
+	ToGetServiceDefinitionScalingTargetAverageMemArrayOutputWithContext(context.Context) GetServiceDefinitionScalingTargetAverageMemArrayOutput
+}
+
+type GetServiceDefinitionScalingTargetAverageMemArray []GetServiceDefinitionScalingTargetAverageMemInput
+
+func (GetServiceDefinitionScalingTargetAverageMemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceDefinitionScalingTargetAverageMem)(nil)).Elem()
+}
+
+func (i GetServiceDefinitionScalingTargetAverageMemArray) ToGetServiceDefinitionScalingTargetAverageMemArrayOutput() GetServiceDefinitionScalingTargetAverageMemArrayOutput {
+	return i.ToGetServiceDefinitionScalingTargetAverageMemArrayOutputWithContext(context.Background())
+}
+
+func (i GetServiceDefinitionScalingTargetAverageMemArray) ToGetServiceDefinitionScalingTargetAverageMemArrayOutputWithContext(ctx context.Context) GetServiceDefinitionScalingTargetAverageMemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDefinitionScalingTargetAverageMemArrayOutput)
+}
+
+type GetServiceDefinitionScalingTargetAverageMemOutput struct{ *pulumi.OutputState }
+
+func (GetServiceDefinitionScalingTargetAverageMemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceDefinitionScalingTargetAverageMem)(nil)).Elem()
+}
+
+func (o GetServiceDefinitionScalingTargetAverageMemOutput) ToGetServiceDefinitionScalingTargetAverageMemOutput() GetServiceDefinitionScalingTargetAverageMemOutput {
+	return o
+}
+
+func (o GetServiceDefinitionScalingTargetAverageMemOutput) ToGetServiceDefinitionScalingTargetAverageMemOutputWithContext(ctx context.Context) GetServiceDefinitionScalingTargetAverageMemOutput {
+	return o
+}
+
+// The target value of the autoscaling target
+func (o GetServiceDefinitionScalingTargetAverageMemOutput) Value() pulumi.IntOutput {
+	return o.ApplyT(func(v GetServiceDefinitionScalingTargetAverageMem) int { return v.Value }).(pulumi.IntOutput)
+}
+
+type GetServiceDefinitionScalingTargetAverageMemArrayOutput struct{ *pulumi.OutputState }
+
+func (GetServiceDefinitionScalingTargetAverageMemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceDefinitionScalingTargetAverageMem)(nil)).Elem()
+}
+
+func (o GetServiceDefinitionScalingTargetAverageMemArrayOutput) ToGetServiceDefinitionScalingTargetAverageMemArrayOutput() GetServiceDefinitionScalingTargetAverageMemArrayOutput {
+	return o
+}
+
+func (o GetServiceDefinitionScalingTargetAverageMemArrayOutput) ToGetServiceDefinitionScalingTargetAverageMemArrayOutputWithContext(ctx context.Context) GetServiceDefinitionScalingTargetAverageMemArrayOutput {
+	return o
+}
+
+func (o GetServiceDefinitionScalingTargetAverageMemArrayOutput) Index(i pulumi.IntInput) GetServiceDefinitionScalingTargetAverageMemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServiceDefinitionScalingTargetAverageMem {
+		return vs[0].([]GetServiceDefinitionScalingTargetAverageMem)[vs[1].(int)]
+	}).(GetServiceDefinitionScalingTargetAverageMemOutput)
+}
+
+type GetServiceDefinitionScalingTargetConcurrentRequest struct {
+	// The target value of the autoscaling target
+	Value int `pulumi:"value"`
+}
+
+// GetServiceDefinitionScalingTargetConcurrentRequestInput is an input type that accepts GetServiceDefinitionScalingTargetConcurrentRequestArgs and GetServiceDefinitionScalingTargetConcurrentRequestOutput values.
+// You can construct a concrete instance of `GetServiceDefinitionScalingTargetConcurrentRequestInput` via:
+//
+//	GetServiceDefinitionScalingTargetConcurrentRequestArgs{...}
+type GetServiceDefinitionScalingTargetConcurrentRequestInput interface {
+	pulumi.Input
+
+	ToGetServiceDefinitionScalingTargetConcurrentRequestOutput() GetServiceDefinitionScalingTargetConcurrentRequestOutput
+	ToGetServiceDefinitionScalingTargetConcurrentRequestOutputWithContext(context.Context) GetServiceDefinitionScalingTargetConcurrentRequestOutput
+}
+
+type GetServiceDefinitionScalingTargetConcurrentRequestArgs struct {
+	// The target value of the autoscaling target
+	Value pulumi.IntInput `pulumi:"value"`
+}
+
+func (GetServiceDefinitionScalingTargetConcurrentRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceDefinitionScalingTargetConcurrentRequest)(nil)).Elem()
+}
+
+func (i GetServiceDefinitionScalingTargetConcurrentRequestArgs) ToGetServiceDefinitionScalingTargetConcurrentRequestOutput() GetServiceDefinitionScalingTargetConcurrentRequestOutput {
+	return i.ToGetServiceDefinitionScalingTargetConcurrentRequestOutputWithContext(context.Background())
+}
+
+func (i GetServiceDefinitionScalingTargetConcurrentRequestArgs) ToGetServiceDefinitionScalingTargetConcurrentRequestOutputWithContext(ctx context.Context) GetServiceDefinitionScalingTargetConcurrentRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDefinitionScalingTargetConcurrentRequestOutput)
+}
+
+// GetServiceDefinitionScalingTargetConcurrentRequestArrayInput is an input type that accepts GetServiceDefinitionScalingTargetConcurrentRequestArray and GetServiceDefinitionScalingTargetConcurrentRequestArrayOutput values.
+// You can construct a concrete instance of `GetServiceDefinitionScalingTargetConcurrentRequestArrayInput` via:
+//
+//	GetServiceDefinitionScalingTargetConcurrentRequestArray{ GetServiceDefinitionScalingTargetConcurrentRequestArgs{...} }
+type GetServiceDefinitionScalingTargetConcurrentRequestArrayInput interface {
+	pulumi.Input
+
+	ToGetServiceDefinitionScalingTargetConcurrentRequestArrayOutput() GetServiceDefinitionScalingTargetConcurrentRequestArrayOutput
+	ToGetServiceDefinitionScalingTargetConcurrentRequestArrayOutputWithContext(context.Context) GetServiceDefinitionScalingTargetConcurrentRequestArrayOutput
+}
+
+type GetServiceDefinitionScalingTargetConcurrentRequestArray []GetServiceDefinitionScalingTargetConcurrentRequestInput
+
+func (GetServiceDefinitionScalingTargetConcurrentRequestArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceDefinitionScalingTargetConcurrentRequest)(nil)).Elem()
+}
+
+func (i GetServiceDefinitionScalingTargetConcurrentRequestArray) ToGetServiceDefinitionScalingTargetConcurrentRequestArrayOutput() GetServiceDefinitionScalingTargetConcurrentRequestArrayOutput {
+	return i.ToGetServiceDefinitionScalingTargetConcurrentRequestArrayOutputWithContext(context.Background())
+}
+
+func (i GetServiceDefinitionScalingTargetConcurrentRequestArray) ToGetServiceDefinitionScalingTargetConcurrentRequestArrayOutputWithContext(ctx context.Context) GetServiceDefinitionScalingTargetConcurrentRequestArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDefinitionScalingTargetConcurrentRequestArrayOutput)
+}
+
+type GetServiceDefinitionScalingTargetConcurrentRequestOutput struct{ *pulumi.OutputState }
+
+func (GetServiceDefinitionScalingTargetConcurrentRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceDefinitionScalingTargetConcurrentRequest)(nil)).Elem()
+}
+
+func (o GetServiceDefinitionScalingTargetConcurrentRequestOutput) ToGetServiceDefinitionScalingTargetConcurrentRequestOutput() GetServiceDefinitionScalingTargetConcurrentRequestOutput {
+	return o
+}
+
+func (o GetServiceDefinitionScalingTargetConcurrentRequestOutput) ToGetServiceDefinitionScalingTargetConcurrentRequestOutputWithContext(ctx context.Context) GetServiceDefinitionScalingTargetConcurrentRequestOutput {
+	return o
+}
+
+// The target value of the autoscaling target
+func (o GetServiceDefinitionScalingTargetConcurrentRequestOutput) Value() pulumi.IntOutput {
+	return o.ApplyT(func(v GetServiceDefinitionScalingTargetConcurrentRequest) int { return v.Value }).(pulumi.IntOutput)
+}
+
+type GetServiceDefinitionScalingTargetConcurrentRequestArrayOutput struct{ *pulumi.OutputState }
+
+func (GetServiceDefinitionScalingTargetConcurrentRequestArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceDefinitionScalingTargetConcurrentRequest)(nil)).Elem()
+}
+
+func (o GetServiceDefinitionScalingTargetConcurrentRequestArrayOutput) ToGetServiceDefinitionScalingTargetConcurrentRequestArrayOutput() GetServiceDefinitionScalingTargetConcurrentRequestArrayOutput {
+	return o
+}
+
+func (o GetServiceDefinitionScalingTargetConcurrentRequestArrayOutput) ToGetServiceDefinitionScalingTargetConcurrentRequestArrayOutputWithContext(ctx context.Context) GetServiceDefinitionScalingTargetConcurrentRequestArrayOutput {
+	return o
+}
+
+func (o GetServiceDefinitionScalingTargetConcurrentRequestArrayOutput) Index(i pulumi.IntInput) GetServiceDefinitionScalingTargetConcurrentRequestOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServiceDefinitionScalingTargetConcurrentRequest {
+		return vs[0].([]GetServiceDefinitionScalingTargetConcurrentRequest)[vs[1].(int)]
+	}).(GetServiceDefinitionScalingTargetConcurrentRequestOutput)
+}
+
+type GetServiceDefinitionScalingTargetRequestResponseTime struct {
+	// The target value of the autoscaling target
+	Value int `pulumi:"value"`
+}
+
+// GetServiceDefinitionScalingTargetRequestResponseTimeInput is an input type that accepts GetServiceDefinitionScalingTargetRequestResponseTimeArgs and GetServiceDefinitionScalingTargetRequestResponseTimeOutput values.
+// You can construct a concrete instance of `GetServiceDefinitionScalingTargetRequestResponseTimeInput` via:
+//
+//	GetServiceDefinitionScalingTargetRequestResponseTimeArgs{...}
+type GetServiceDefinitionScalingTargetRequestResponseTimeInput interface {
+	pulumi.Input
+
+	ToGetServiceDefinitionScalingTargetRequestResponseTimeOutput() GetServiceDefinitionScalingTargetRequestResponseTimeOutput
+	ToGetServiceDefinitionScalingTargetRequestResponseTimeOutputWithContext(context.Context) GetServiceDefinitionScalingTargetRequestResponseTimeOutput
+}
+
+type GetServiceDefinitionScalingTargetRequestResponseTimeArgs struct {
+	// The target value of the autoscaling target
+	Value pulumi.IntInput `pulumi:"value"`
+}
+
+func (GetServiceDefinitionScalingTargetRequestResponseTimeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceDefinitionScalingTargetRequestResponseTime)(nil)).Elem()
+}
+
+func (i GetServiceDefinitionScalingTargetRequestResponseTimeArgs) ToGetServiceDefinitionScalingTargetRequestResponseTimeOutput() GetServiceDefinitionScalingTargetRequestResponseTimeOutput {
+	return i.ToGetServiceDefinitionScalingTargetRequestResponseTimeOutputWithContext(context.Background())
+}
+
+func (i GetServiceDefinitionScalingTargetRequestResponseTimeArgs) ToGetServiceDefinitionScalingTargetRequestResponseTimeOutputWithContext(ctx context.Context) GetServiceDefinitionScalingTargetRequestResponseTimeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDefinitionScalingTargetRequestResponseTimeOutput)
+}
+
+// GetServiceDefinitionScalingTargetRequestResponseTimeArrayInput is an input type that accepts GetServiceDefinitionScalingTargetRequestResponseTimeArray and GetServiceDefinitionScalingTargetRequestResponseTimeArrayOutput values.
+// You can construct a concrete instance of `GetServiceDefinitionScalingTargetRequestResponseTimeArrayInput` via:
+//
+//	GetServiceDefinitionScalingTargetRequestResponseTimeArray{ GetServiceDefinitionScalingTargetRequestResponseTimeArgs{...} }
+type GetServiceDefinitionScalingTargetRequestResponseTimeArrayInput interface {
+	pulumi.Input
+
+	ToGetServiceDefinitionScalingTargetRequestResponseTimeArrayOutput() GetServiceDefinitionScalingTargetRequestResponseTimeArrayOutput
+	ToGetServiceDefinitionScalingTargetRequestResponseTimeArrayOutputWithContext(context.Context) GetServiceDefinitionScalingTargetRequestResponseTimeArrayOutput
+}
+
+type GetServiceDefinitionScalingTargetRequestResponseTimeArray []GetServiceDefinitionScalingTargetRequestResponseTimeInput
+
+func (GetServiceDefinitionScalingTargetRequestResponseTimeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceDefinitionScalingTargetRequestResponseTime)(nil)).Elem()
+}
+
+func (i GetServiceDefinitionScalingTargetRequestResponseTimeArray) ToGetServiceDefinitionScalingTargetRequestResponseTimeArrayOutput() GetServiceDefinitionScalingTargetRequestResponseTimeArrayOutput {
+	return i.ToGetServiceDefinitionScalingTargetRequestResponseTimeArrayOutputWithContext(context.Background())
+}
+
+func (i GetServiceDefinitionScalingTargetRequestResponseTimeArray) ToGetServiceDefinitionScalingTargetRequestResponseTimeArrayOutputWithContext(ctx context.Context) GetServiceDefinitionScalingTargetRequestResponseTimeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDefinitionScalingTargetRequestResponseTimeArrayOutput)
+}
+
+type GetServiceDefinitionScalingTargetRequestResponseTimeOutput struct{ *pulumi.OutputState }
+
+func (GetServiceDefinitionScalingTargetRequestResponseTimeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceDefinitionScalingTargetRequestResponseTime)(nil)).Elem()
+}
+
+func (o GetServiceDefinitionScalingTargetRequestResponseTimeOutput) ToGetServiceDefinitionScalingTargetRequestResponseTimeOutput() GetServiceDefinitionScalingTargetRequestResponseTimeOutput {
+	return o
+}
+
+func (o GetServiceDefinitionScalingTargetRequestResponseTimeOutput) ToGetServiceDefinitionScalingTargetRequestResponseTimeOutputWithContext(ctx context.Context) GetServiceDefinitionScalingTargetRequestResponseTimeOutput {
+	return o
+}
+
+// The target value of the autoscaling target
+func (o GetServiceDefinitionScalingTargetRequestResponseTimeOutput) Value() pulumi.IntOutput {
+	return o.ApplyT(func(v GetServiceDefinitionScalingTargetRequestResponseTime) int { return v.Value }).(pulumi.IntOutput)
+}
+
+type GetServiceDefinitionScalingTargetRequestResponseTimeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetServiceDefinitionScalingTargetRequestResponseTimeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceDefinitionScalingTargetRequestResponseTime)(nil)).Elem()
+}
+
+func (o GetServiceDefinitionScalingTargetRequestResponseTimeArrayOutput) ToGetServiceDefinitionScalingTargetRequestResponseTimeArrayOutput() GetServiceDefinitionScalingTargetRequestResponseTimeArrayOutput {
+	return o
+}
+
+func (o GetServiceDefinitionScalingTargetRequestResponseTimeArrayOutput) ToGetServiceDefinitionScalingTargetRequestResponseTimeArrayOutputWithContext(ctx context.Context) GetServiceDefinitionScalingTargetRequestResponseTimeArrayOutput {
+	return o
+}
+
+func (o GetServiceDefinitionScalingTargetRequestResponseTimeArrayOutput) Index(i pulumi.IntInput) GetServiceDefinitionScalingTargetRequestResponseTimeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServiceDefinitionScalingTargetRequestResponseTime {
+		return vs[0].([]GetServiceDefinitionScalingTargetRequestResponseTime)[vs[1].(int)]
+	}).(GetServiceDefinitionScalingTargetRequestResponseTimeOutput)
+}
+
+type GetServiceDefinitionScalingTargetRequestsPerSecond struct {
+	// The target value of the autoscaling target
+	Value int `pulumi:"value"`
+}
+
+// GetServiceDefinitionScalingTargetRequestsPerSecondInput is an input type that accepts GetServiceDefinitionScalingTargetRequestsPerSecondArgs and GetServiceDefinitionScalingTargetRequestsPerSecondOutput values.
+// You can construct a concrete instance of `GetServiceDefinitionScalingTargetRequestsPerSecondInput` via:
+//
+//	GetServiceDefinitionScalingTargetRequestsPerSecondArgs{...}
+type GetServiceDefinitionScalingTargetRequestsPerSecondInput interface {
+	pulumi.Input
+
+	ToGetServiceDefinitionScalingTargetRequestsPerSecondOutput() GetServiceDefinitionScalingTargetRequestsPerSecondOutput
+	ToGetServiceDefinitionScalingTargetRequestsPerSecondOutputWithContext(context.Context) GetServiceDefinitionScalingTargetRequestsPerSecondOutput
+}
+
+type GetServiceDefinitionScalingTargetRequestsPerSecondArgs struct {
+	// The target value of the autoscaling target
+	Value pulumi.IntInput `pulumi:"value"`
+}
+
+func (GetServiceDefinitionScalingTargetRequestsPerSecondArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceDefinitionScalingTargetRequestsPerSecond)(nil)).Elem()
+}
+
+func (i GetServiceDefinitionScalingTargetRequestsPerSecondArgs) ToGetServiceDefinitionScalingTargetRequestsPerSecondOutput() GetServiceDefinitionScalingTargetRequestsPerSecondOutput {
+	return i.ToGetServiceDefinitionScalingTargetRequestsPerSecondOutputWithContext(context.Background())
+}
+
+func (i GetServiceDefinitionScalingTargetRequestsPerSecondArgs) ToGetServiceDefinitionScalingTargetRequestsPerSecondOutputWithContext(ctx context.Context) GetServiceDefinitionScalingTargetRequestsPerSecondOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDefinitionScalingTargetRequestsPerSecondOutput)
+}
+
+// GetServiceDefinitionScalingTargetRequestsPerSecondArrayInput is an input type that accepts GetServiceDefinitionScalingTargetRequestsPerSecondArray and GetServiceDefinitionScalingTargetRequestsPerSecondArrayOutput values.
+// You can construct a concrete instance of `GetServiceDefinitionScalingTargetRequestsPerSecondArrayInput` via:
+//
+//	GetServiceDefinitionScalingTargetRequestsPerSecondArray{ GetServiceDefinitionScalingTargetRequestsPerSecondArgs{...} }
+type GetServiceDefinitionScalingTargetRequestsPerSecondArrayInput interface {
+	pulumi.Input
+
+	ToGetServiceDefinitionScalingTargetRequestsPerSecondArrayOutput() GetServiceDefinitionScalingTargetRequestsPerSecondArrayOutput
+	ToGetServiceDefinitionScalingTargetRequestsPerSecondArrayOutputWithContext(context.Context) GetServiceDefinitionScalingTargetRequestsPerSecondArrayOutput
+}
+
+type GetServiceDefinitionScalingTargetRequestsPerSecondArray []GetServiceDefinitionScalingTargetRequestsPerSecondInput
+
+func (GetServiceDefinitionScalingTargetRequestsPerSecondArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceDefinitionScalingTargetRequestsPerSecond)(nil)).Elem()
+}
+
+func (i GetServiceDefinitionScalingTargetRequestsPerSecondArray) ToGetServiceDefinitionScalingTargetRequestsPerSecondArrayOutput() GetServiceDefinitionScalingTargetRequestsPerSecondArrayOutput {
+	return i.ToGetServiceDefinitionScalingTargetRequestsPerSecondArrayOutputWithContext(context.Background())
+}
+
+func (i GetServiceDefinitionScalingTargetRequestsPerSecondArray) ToGetServiceDefinitionScalingTargetRequestsPerSecondArrayOutputWithContext(ctx context.Context) GetServiceDefinitionScalingTargetRequestsPerSecondArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDefinitionScalingTargetRequestsPerSecondArrayOutput)
+}
+
+type GetServiceDefinitionScalingTargetRequestsPerSecondOutput struct{ *pulumi.OutputState }
+
+func (GetServiceDefinitionScalingTargetRequestsPerSecondOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceDefinitionScalingTargetRequestsPerSecond)(nil)).Elem()
+}
+
+func (o GetServiceDefinitionScalingTargetRequestsPerSecondOutput) ToGetServiceDefinitionScalingTargetRequestsPerSecondOutput() GetServiceDefinitionScalingTargetRequestsPerSecondOutput {
+	return o
+}
+
+func (o GetServiceDefinitionScalingTargetRequestsPerSecondOutput) ToGetServiceDefinitionScalingTargetRequestsPerSecondOutputWithContext(ctx context.Context) GetServiceDefinitionScalingTargetRequestsPerSecondOutput {
+	return o
+}
+
+// The target value of the autoscaling target
+func (o GetServiceDefinitionScalingTargetRequestsPerSecondOutput) Value() pulumi.IntOutput {
+	return o.ApplyT(func(v GetServiceDefinitionScalingTargetRequestsPerSecond) int { return v.Value }).(pulumi.IntOutput)
+}
+
+type GetServiceDefinitionScalingTargetRequestsPerSecondArrayOutput struct{ *pulumi.OutputState }
+
+func (GetServiceDefinitionScalingTargetRequestsPerSecondArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceDefinitionScalingTargetRequestsPerSecond)(nil)).Elem()
+}
+
+func (o GetServiceDefinitionScalingTargetRequestsPerSecondArrayOutput) ToGetServiceDefinitionScalingTargetRequestsPerSecondArrayOutput() GetServiceDefinitionScalingTargetRequestsPerSecondArrayOutput {
+	return o
+}
+
+func (o GetServiceDefinitionScalingTargetRequestsPerSecondArrayOutput) ToGetServiceDefinitionScalingTargetRequestsPerSecondArrayOutputWithContext(ctx context.Context) GetServiceDefinitionScalingTargetRequestsPerSecondArrayOutput {
+	return o
+}
+
+func (o GetServiceDefinitionScalingTargetRequestsPerSecondArrayOutput) Index(i pulumi.IntInput) GetServiceDefinitionScalingTargetRequestsPerSecondOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServiceDefinitionScalingTargetRequestsPerSecond {
+		return vs[0].([]GetServiceDefinitionScalingTargetRequestsPerSecond)[vs[1].(int)]
+	}).(GetServiceDefinitionScalingTargetRequestsPerSecondOutput)
+}
+
+type GetServiceDefinitionVolume struct {
+	// The volume ID to mount to the service
+	Id string `pulumi:"id"`
+	// The path where to mount the volume
+	Path string `pulumi:"path"`
+	// Explicitly specify the replica index to mount the volume to
+	ReplicaIndex *int `pulumi:"replicaIndex"`
+	// The regions to apply the scaling configuration
+	Scopes []string `pulumi:"scopes"`
+}
+
+// GetServiceDefinitionVolumeInput is an input type that accepts GetServiceDefinitionVolumeArgs and GetServiceDefinitionVolumeOutput values.
+// You can construct a concrete instance of `GetServiceDefinitionVolumeInput` via:
+//
+//	GetServiceDefinitionVolumeArgs{...}
+type GetServiceDefinitionVolumeInput interface {
+	pulumi.Input
+
+	ToGetServiceDefinitionVolumeOutput() GetServiceDefinitionVolumeOutput
+	ToGetServiceDefinitionVolumeOutputWithContext(context.Context) GetServiceDefinitionVolumeOutput
+}
+
+type GetServiceDefinitionVolumeArgs struct {
+	// The volume ID to mount to the service
+	Id pulumi.StringInput `pulumi:"id"`
+	// The path where to mount the volume
+	Path pulumi.StringInput `pulumi:"path"`
+	// Explicitly specify the replica index to mount the volume to
+	ReplicaIndex pulumi.IntPtrInput `pulumi:"replicaIndex"`
+	// The regions to apply the scaling configuration
+	Scopes pulumi.StringArrayInput `pulumi:"scopes"`
+}
+
+func (GetServiceDefinitionVolumeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceDefinitionVolume)(nil)).Elem()
+}
+
+func (i GetServiceDefinitionVolumeArgs) ToGetServiceDefinitionVolumeOutput() GetServiceDefinitionVolumeOutput {
+	return i.ToGetServiceDefinitionVolumeOutputWithContext(context.Background())
+}
+
+func (i GetServiceDefinitionVolumeArgs) ToGetServiceDefinitionVolumeOutputWithContext(ctx context.Context) GetServiceDefinitionVolumeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDefinitionVolumeOutput)
+}
+
+// GetServiceDefinitionVolumeArrayInput is an input type that accepts GetServiceDefinitionVolumeArray and GetServiceDefinitionVolumeArrayOutput values.
+// You can construct a concrete instance of `GetServiceDefinitionVolumeArrayInput` via:
+//
+//	GetServiceDefinitionVolumeArray{ GetServiceDefinitionVolumeArgs{...} }
+type GetServiceDefinitionVolumeArrayInput interface {
+	pulumi.Input
+
+	ToGetServiceDefinitionVolumeArrayOutput() GetServiceDefinitionVolumeArrayOutput
+	ToGetServiceDefinitionVolumeArrayOutputWithContext(context.Context) GetServiceDefinitionVolumeArrayOutput
+}
+
+type GetServiceDefinitionVolumeArray []GetServiceDefinitionVolumeInput
+
+func (GetServiceDefinitionVolumeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceDefinitionVolume)(nil)).Elem()
+}
+
+func (i GetServiceDefinitionVolumeArray) ToGetServiceDefinitionVolumeArrayOutput() GetServiceDefinitionVolumeArrayOutput {
+	return i.ToGetServiceDefinitionVolumeArrayOutputWithContext(context.Background())
+}
+
+func (i GetServiceDefinitionVolumeArray) ToGetServiceDefinitionVolumeArrayOutputWithContext(ctx context.Context) GetServiceDefinitionVolumeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDefinitionVolumeArrayOutput)
+}
+
+type GetServiceDefinitionVolumeOutput struct{ *pulumi.OutputState }
+
+func (GetServiceDefinitionVolumeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceDefinitionVolume)(nil)).Elem()
+}
+
+func (o GetServiceDefinitionVolumeOutput) ToGetServiceDefinitionVolumeOutput() GetServiceDefinitionVolumeOutput {
+	return o
+}
+
+func (o GetServiceDefinitionVolumeOutput) ToGetServiceDefinitionVolumeOutputWithContext(ctx context.Context) GetServiceDefinitionVolumeOutput {
+	return o
+}
+
+// The volume ID to mount to the service
+func (o GetServiceDefinitionVolumeOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceDefinitionVolume) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The path where to mount the volume
+func (o GetServiceDefinitionVolumeOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceDefinitionVolume) string { return v.Path }).(pulumi.StringOutput)
+}
+
+// Explicitly specify the replica index to mount the volume to
+func (o GetServiceDefinitionVolumeOutput) ReplicaIndex() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetServiceDefinitionVolume) *int { return v.ReplicaIndex }).(pulumi.IntPtrOutput)
+}
+
+// The regions to apply the scaling configuration
+func (o GetServiceDefinitionVolumeOutput) Scopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetServiceDefinitionVolume) []string { return v.Scopes }).(pulumi.StringArrayOutput)
+}
+
+type GetServiceDefinitionVolumeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetServiceDefinitionVolumeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceDefinitionVolume)(nil)).Elem()
+}
+
+func (o GetServiceDefinitionVolumeArrayOutput) ToGetServiceDefinitionVolumeArrayOutput() GetServiceDefinitionVolumeArrayOutput {
+	return o
+}
+
+func (o GetServiceDefinitionVolumeArrayOutput) ToGetServiceDefinitionVolumeArrayOutputWithContext(ctx context.Context) GetServiceDefinitionVolumeArrayOutput {
+	return o
+}
+
+func (o GetServiceDefinitionVolumeArrayOutput) Index(i pulumi.IntInput) GetServiceDefinitionVolumeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServiceDefinitionVolume {
+		return vs[0].([]GetServiceDefinitionVolume)[vs[1].(int)]
+	}).(GetServiceDefinitionVolumeOutput)
 }
 
 func init() {
@@ -5284,6 +8430,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDefinitionScalingTargetAverageCpusArrayInput)(nil)).Elem(), ServiceDefinitionScalingTargetAverageCpusArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDefinitionScalingTargetAverageMemInput)(nil)).Elem(), ServiceDefinitionScalingTargetAverageMemArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDefinitionScalingTargetAverageMemArrayInput)(nil)).Elem(), ServiceDefinitionScalingTargetAverageMemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDefinitionScalingTargetConcurrentRequestInput)(nil)).Elem(), ServiceDefinitionScalingTargetConcurrentRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDefinitionScalingTargetConcurrentRequestArrayInput)(nil)).Elem(), ServiceDefinitionScalingTargetConcurrentRequestArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDefinitionScalingTargetRequestResponseTimeInput)(nil)).Elem(), ServiceDefinitionScalingTargetRequestResponseTimeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDefinitionScalingTargetRequestResponseTimeArrayInput)(nil)).Elem(), ServiceDefinitionScalingTargetRequestResponseTimeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDefinitionScalingTargetRequestsPerSecondInput)(nil)).Elem(), ServiceDefinitionScalingTargetRequestsPerSecondArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDefinitionScalingTargetRequestsPerSecondArrayInput)(nil)).Elem(), ServiceDefinitionScalingTargetRequestsPerSecondArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDefinitionVolumeInput)(nil)).Elem(), ServiceDefinitionVolumeArgs{})
@@ -5302,6 +8452,48 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecretGitlabRegistryPtrInput)(nil)).Elem(), GetSecretGitlabRegistryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecretPrivateRegistryInput)(nil)).Elem(), GetSecretPrivateRegistryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecretPrivateRegistryPtrInput)(nil)).Elem(), GetSecretPrivateRegistryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDefinitionInput)(nil)).Elem(), GetServiceDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDefinitionArrayInput)(nil)).Elem(), GetServiceDefinitionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDefinitionDockerInput)(nil)).Elem(), GetServiceDefinitionDockerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDefinitionDockerPtrInput)(nil)).Elem(), GetServiceDefinitionDockerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDefinitionEnvInput)(nil)).Elem(), GetServiceDefinitionEnvArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDefinitionEnvArrayInput)(nil)).Elem(), GetServiceDefinitionEnvArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDefinitionGitInput)(nil)).Elem(), GetServiceDefinitionGitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDefinitionGitPtrInput)(nil)).Elem(), GetServiceDefinitionGitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDefinitionGitBuildpackInput)(nil)).Elem(), GetServiceDefinitionGitBuildpackArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDefinitionGitBuildpackPtrInput)(nil)).Elem(), GetServiceDefinitionGitBuildpackArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDefinitionGitDockerfileInput)(nil)).Elem(), GetServiceDefinitionGitDockerfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDefinitionGitDockerfilePtrInput)(nil)).Elem(), GetServiceDefinitionGitDockerfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDefinitionHealthCheckInput)(nil)).Elem(), GetServiceDefinitionHealthCheckArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDefinitionHealthCheckArrayInput)(nil)).Elem(), GetServiceDefinitionHealthCheckArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDefinitionHealthCheckHttpInput)(nil)).Elem(), GetServiceDefinitionHealthCheckHttpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDefinitionHealthCheckHttpPtrInput)(nil)).Elem(), GetServiceDefinitionHealthCheckHttpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDefinitionHealthCheckHttpHeaderInput)(nil)).Elem(), GetServiceDefinitionHealthCheckHttpHeaderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDefinitionHealthCheckHttpHeaderArrayInput)(nil)).Elem(), GetServiceDefinitionHealthCheckHttpHeaderArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDefinitionHealthCheckTcpInput)(nil)).Elem(), GetServiceDefinitionHealthCheckTcpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDefinitionHealthCheckTcpPtrInput)(nil)).Elem(), GetServiceDefinitionHealthCheckTcpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDefinitionInstanceTypeInput)(nil)).Elem(), GetServiceDefinitionInstanceTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDefinitionInstanceTypeArrayInput)(nil)).Elem(), GetServiceDefinitionInstanceTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDefinitionPortInput)(nil)).Elem(), GetServiceDefinitionPortArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDefinitionPortArrayInput)(nil)).Elem(), GetServiceDefinitionPortArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDefinitionRouteInput)(nil)).Elem(), GetServiceDefinitionRouteArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDefinitionRouteArrayInput)(nil)).Elem(), GetServiceDefinitionRouteArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDefinitionScalingInput)(nil)).Elem(), GetServiceDefinitionScalingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDefinitionScalingArrayInput)(nil)).Elem(), GetServiceDefinitionScalingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDefinitionScalingTargetInput)(nil)).Elem(), GetServiceDefinitionScalingTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDefinitionScalingTargetArrayInput)(nil)).Elem(), GetServiceDefinitionScalingTargetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDefinitionScalingTargetAverageCpusInput)(nil)).Elem(), GetServiceDefinitionScalingTargetAverageCpusArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDefinitionScalingTargetAverageCpusArrayInput)(nil)).Elem(), GetServiceDefinitionScalingTargetAverageCpusArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDefinitionScalingTargetAverageMemInput)(nil)).Elem(), GetServiceDefinitionScalingTargetAverageMemArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDefinitionScalingTargetAverageMemArrayInput)(nil)).Elem(), GetServiceDefinitionScalingTargetAverageMemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDefinitionScalingTargetConcurrentRequestInput)(nil)).Elem(), GetServiceDefinitionScalingTargetConcurrentRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDefinitionScalingTargetConcurrentRequestArrayInput)(nil)).Elem(), GetServiceDefinitionScalingTargetConcurrentRequestArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDefinitionScalingTargetRequestResponseTimeInput)(nil)).Elem(), GetServiceDefinitionScalingTargetRequestResponseTimeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDefinitionScalingTargetRequestResponseTimeArrayInput)(nil)).Elem(), GetServiceDefinitionScalingTargetRequestResponseTimeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDefinitionScalingTargetRequestsPerSecondInput)(nil)).Elem(), GetServiceDefinitionScalingTargetRequestsPerSecondArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDefinitionScalingTargetRequestsPerSecondArrayInput)(nil)).Elem(), GetServiceDefinitionScalingTargetRequestsPerSecondArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDefinitionVolumeInput)(nil)).Elem(), GetServiceDefinitionVolumeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDefinitionVolumeArrayInput)(nil)).Elem(), GetServiceDefinitionVolumeArray{})
 	pulumi.RegisterOutputType(AppDomainOutput{})
 	pulumi.RegisterOutputType(AppDomainArrayOutput{})
 	pulumi.RegisterOutputType(SecretAzureContainerRegistryOutput{})
@@ -5350,6 +8542,10 @@ func init() {
 	pulumi.RegisterOutputType(ServiceDefinitionScalingTargetAverageCpusArrayOutput{})
 	pulumi.RegisterOutputType(ServiceDefinitionScalingTargetAverageMemOutput{})
 	pulumi.RegisterOutputType(ServiceDefinitionScalingTargetAverageMemArrayOutput{})
+	pulumi.RegisterOutputType(ServiceDefinitionScalingTargetConcurrentRequestOutput{})
+	pulumi.RegisterOutputType(ServiceDefinitionScalingTargetConcurrentRequestArrayOutput{})
+	pulumi.RegisterOutputType(ServiceDefinitionScalingTargetRequestResponseTimeOutput{})
+	pulumi.RegisterOutputType(ServiceDefinitionScalingTargetRequestResponseTimeArrayOutput{})
 	pulumi.RegisterOutputType(ServiceDefinitionScalingTargetRequestsPerSecondOutput{})
 	pulumi.RegisterOutputType(ServiceDefinitionScalingTargetRequestsPerSecondArrayOutput{})
 	pulumi.RegisterOutputType(ServiceDefinitionVolumeOutput{})
@@ -5368,4 +8564,46 @@ func init() {
 	pulumi.RegisterOutputType(GetSecretGitlabRegistryPtrOutput{})
 	pulumi.RegisterOutputType(GetSecretPrivateRegistryOutput{})
 	pulumi.RegisterOutputType(GetSecretPrivateRegistryPtrOutput{})
+	pulumi.RegisterOutputType(GetServiceDefinitionOutput{})
+	pulumi.RegisterOutputType(GetServiceDefinitionArrayOutput{})
+	pulumi.RegisterOutputType(GetServiceDefinitionDockerOutput{})
+	pulumi.RegisterOutputType(GetServiceDefinitionDockerPtrOutput{})
+	pulumi.RegisterOutputType(GetServiceDefinitionEnvOutput{})
+	pulumi.RegisterOutputType(GetServiceDefinitionEnvArrayOutput{})
+	pulumi.RegisterOutputType(GetServiceDefinitionGitOutput{})
+	pulumi.RegisterOutputType(GetServiceDefinitionGitPtrOutput{})
+	pulumi.RegisterOutputType(GetServiceDefinitionGitBuildpackOutput{})
+	pulumi.RegisterOutputType(GetServiceDefinitionGitBuildpackPtrOutput{})
+	pulumi.RegisterOutputType(GetServiceDefinitionGitDockerfileOutput{})
+	pulumi.RegisterOutputType(GetServiceDefinitionGitDockerfilePtrOutput{})
+	pulumi.RegisterOutputType(GetServiceDefinitionHealthCheckOutput{})
+	pulumi.RegisterOutputType(GetServiceDefinitionHealthCheckArrayOutput{})
+	pulumi.RegisterOutputType(GetServiceDefinitionHealthCheckHttpOutput{})
+	pulumi.RegisterOutputType(GetServiceDefinitionHealthCheckHttpPtrOutput{})
+	pulumi.RegisterOutputType(GetServiceDefinitionHealthCheckHttpHeaderOutput{})
+	pulumi.RegisterOutputType(GetServiceDefinitionHealthCheckHttpHeaderArrayOutput{})
+	pulumi.RegisterOutputType(GetServiceDefinitionHealthCheckTcpOutput{})
+	pulumi.RegisterOutputType(GetServiceDefinitionHealthCheckTcpPtrOutput{})
+	pulumi.RegisterOutputType(GetServiceDefinitionInstanceTypeOutput{})
+	pulumi.RegisterOutputType(GetServiceDefinitionInstanceTypeArrayOutput{})
+	pulumi.RegisterOutputType(GetServiceDefinitionPortOutput{})
+	pulumi.RegisterOutputType(GetServiceDefinitionPortArrayOutput{})
+	pulumi.RegisterOutputType(GetServiceDefinitionRouteOutput{})
+	pulumi.RegisterOutputType(GetServiceDefinitionRouteArrayOutput{})
+	pulumi.RegisterOutputType(GetServiceDefinitionScalingOutput{})
+	pulumi.RegisterOutputType(GetServiceDefinitionScalingArrayOutput{})
+	pulumi.RegisterOutputType(GetServiceDefinitionScalingTargetOutput{})
+	pulumi.RegisterOutputType(GetServiceDefinitionScalingTargetArrayOutput{})
+	pulumi.RegisterOutputType(GetServiceDefinitionScalingTargetAverageCpusOutput{})
+	pulumi.RegisterOutputType(GetServiceDefinitionScalingTargetAverageCpusArrayOutput{})
+	pulumi.RegisterOutputType(GetServiceDefinitionScalingTargetAverageMemOutput{})
+	pulumi.RegisterOutputType(GetServiceDefinitionScalingTargetAverageMemArrayOutput{})
+	pulumi.RegisterOutputType(GetServiceDefinitionScalingTargetConcurrentRequestOutput{})
+	pulumi.RegisterOutputType(GetServiceDefinitionScalingTargetConcurrentRequestArrayOutput{})
+	pulumi.RegisterOutputType(GetServiceDefinitionScalingTargetRequestResponseTimeOutput{})
+	pulumi.RegisterOutputType(GetServiceDefinitionScalingTargetRequestResponseTimeArrayOutput{})
+	pulumi.RegisterOutputType(GetServiceDefinitionScalingTargetRequestsPerSecondOutput{})
+	pulumi.RegisterOutputType(GetServiceDefinitionScalingTargetRequestsPerSecondArrayOutput{})
+	pulumi.RegisterOutputType(GetServiceDefinitionVolumeOutput{})
+	pulumi.RegisterOutputType(GetServiceDefinitionVolumeArrayOutput{})
 }

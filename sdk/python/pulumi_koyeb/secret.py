@@ -32,13 +32,13 @@ class SecretArgs:
                  value: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Secret resource.
-        :param pulumi.Input['SecretAzureContainerRegistryArgs'] azure_container_registry: The Azure registry configuration to use
-        :param pulumi.Input['SecretDigitalOceanContainerRegistryArgs'] digital_ocean_container_registry: The DigitalOcean registry configuration to use
-        :param pulumi.Input['SecretDockerHubRegistryArgs'] docker_hub_registry: The DockerHub registry configuration to use
-        :param pulumi.Input['SecretGithubRegistryArgs'] github_registry: The GitHub registry configuration to use
-        :param pulumi.Input['SecretGitlabRegistryArgs'] gitlab_registry: The GitLab registry configuration to use
+        :param pulumi.Input['SecretAzureContainerRegistryArgs'] azure_container_registry: The azure*container*registry configuration to use
+        :param pulumi.Input['SecretDigitalOceanContainerRegistryArgs'] digital_ocean_container_registry: The digital*ocean*container*registry configuration to use
+        :param pulumi.Input['SecretDockerHubRegistryArgs'] docker_hub_registry: The docker*hub*registry configuration to use
+        :param pulumi.Input['SecretGithubRegistryArgs'] github_registry: The github*registry configuration to use
+        :param pulumi.Input['SecretGitlabRegistryArgs'] gitlab_registry: The gitlab*registry configuration to use
         :param pulumi.Input[str] name: The secret name
-        :param pulumi.Input['SecretPrivateRegistryArgs'] private_registry: The DigitalOcean registry configuration to use
+        :param pulumi.Input['SecretPrivateRegistryArgs'] private_registry: The private*registry configuration to use
         :param pulumi.Input[str] type: The secret type
         :param pulumi.Input[str] value: The secret value
         """
@@ -65,7 +65,7 @@ class SecretArgs:
     @pulumi.getter(name="azureContainerRegistry")
     def azure_container_registry(self) -> Optional[pulumi.Input['SecretAzureContainerRegistryArgs']]:
         """
-        The Azure registry configuration to use
+        The azure*container*registry configuration to use
         """
         return pulumi.get(self, "azure_container_registry")
 
@@ -77,7 +77,7 @@ class SecretArgs:
     @pulumi.getter(name="digitalOceanContainerRegistry")
     def digital_ocean_container_registry(self) -> Optional[pulumi.Input['SecretDigitalOceanContainerRegistryArgs']]:
         """
-        The DigitalOcean registry configuration to use
+        The digital*ocean*container*registry configuration to use
         """
         return pulumi.get(self, "digital_ocean_container_registry")
 
@@ -89,7 +89,7 @@ class SecretArgs:
     @pulumi.getter(name="dockerHubRegistry")
     def docker_hub_registry(self) -> Optional[pulumi.Input['SecretDockerHubRegistryArgs']]:
         """
-        The DockerHub registry configuration to use
+        The docker*hub*registry configuration to use
         """
         return pulumi.get(self, "docker_hub_registry")
 
@@ -101,7 +101,7 @@ class SecretArgs:
     @pulumi.getter(name="githubRegistry")
     def github_registry(self) -> Optional[pulumi.Input['SecretGithubRegistryArgs']]:
         """
-        The GitHub registry configuration to use
+        The github*registry configuration to use
         """
         return pulumi.get(self, "github_registry")
 
@@ -113,7 +113,7 @@ class SecretArgs:
     @pulumi.getter(name="gitlabRegistry")
     def gitlab_registry(self) -> Optional[pulumi.Input['SecretGitlabRegistryArgs']]:
         """
-        The GitLab registry configuration to use
+        The gitlab*registry configuration to use
         """
         return pulumi.get(self, "gitlab_registry")
 
@@ -137,7 +137,7 @@ class SecretArgs:
     @pulumi.getter(name="privateRegistry")
     def private_registry(self) -> Optional[pulumi.Input['SecretPrivateRegistryArgs']]:
         """
-        The DigitalOcean registry configuration to use
+        The private*registry configuration to use
         """
         return pulumi.get(self, "private_registry")
 
@@ -187,15 +187,15 @@ class _SecretState:
                  value: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Secret resources.
-        :param pulumi.Input['SecretAzureContainerRegistryArgs'] azure_container_registry: The Azure registry configuration to use
+        :param pulumi.Input['SecretAzureContainerRegistryArgs'] azure_container_registry: The azure*container*registry configuration to use
         :param pulumi.Input[str] created_at: The date and time of when the secret was created
-        :param pulumi.Input['SecretDigitalOceanContainerRegistryArgs'] digital_ocean_container_registry: The DigitalOcean registry configuration to use
-        :param pulumi.Input['SecretDockerHubRegistryArgs'] docker_hub_registry: The DockerHub registry configuration to use
-        :param pulumi.Input['SecretGithubRegistryArgs'] github_registry: The GitHub registry configuration to use
-        :param pulumi.Input['SecretGitlabRegistryArgs'] gitlab_registry: The GitLab registry configuration to use
+        :param pulumi.Input['SecretDigitalOceanContainerRegistryArgs'] digital_ocean_container_registry: The digital*ocean*container*registry configuration to use
+        :param pulumi.Input['SecretDockerHubRegistryArgs'] docker_hub_registry: The docker*hub*registry configuration to use
+        :param pulumi.Input['SecretGithubRegistryArgs'] github_registry: The github*registry configuration to use
+        :param pulumi.Input['SecretGitlabRegistryArgs'] gitlab_registry: The gitlab*registry configuration to use
         :param pulumi.Input[str] name: The secret name
         :param pulumi.Input[str] organization_id: The organization ID owning the secret
-        :param pulumi.Input['SecretPrivateRegistryArgs'] private_registry: The DigitalOcean registry configuration to use
+        :param pulumi.Input['SecretPrivateRegistryArgs'] private_registry: The private*registry configuration to use
         :param pulumi.Input[str] type: The secret type
         :param pulumi.Input[str] updated_at: The date and time of when the secret was last updated
         :param pulumi.Input[str] value: The secret value
@@ -229,7 +229,7 @@ class _SecretState:
     @pulumi.getter(name="azureContainerRegistry")
     def azure_container_registry(self) -> Optional[pulumi.Input['SecretAzureContainerRegistryArgs']]:
         """
-        The Azure registry configuration to use
+        The azure*container*registry configuration to use
         """
         return pulumi.get(self, "azure_container_registry")
 
@@ -253,7 +253,7 @@ class _SecretState:
     @pulumi.getter(name="digitalOceanContainerRegistry")
     def digital_ocean_container_registry(self) -> Optional[pulumi.Input['SecretDigitalOceanContainerRegistryArgs']]:
         """
-        The DigitalOcean registry configuration to use
+        The digital*ocean*container*registry configuration to use
         """
         return pulumi.get(self, "digital_ocean_container_registry")
 
@@ -265,7 +265,7 @@ class _SecretState:
     @pulumi.getter(name="dockerHubRegistry")
     def docker_hub_registry(self) -> Optional[pulumi.Input['SecretDockerHubRegistryArgs']]:
         """
-        The DockerHub registry configuration to use
+        The docker*hub*registry configuration to use
         """
         return pulumi.get(self, "docker_hub_registry")
 
@@ -277,7 +277,7 @@ class _SecretState:
     @pulumi.getter(name="githubRegistry")
     def github_registry(self) -> Optional[pulumi.Input['SecretGithubRegistryArgs']]:
         """
-        The GitHub registry configuration to use
+        The github*registry configuration to use
         """
         return pulumi.get(self, "github_registry")
 
@@ -289,7 +289,7 @@ class _SecretState:
     @pulumi.getter(name="gitlabRegistry")
     def gitlab_registry(self) -> Optional[pulumi.Input['SecretGitlabRegistryArgs']]:
         """
-        The GitLab registry configuration to use
+        The gitlab*registry configuration to use
         """
         return pulumi.get(self, "gitlab_registry")
 
@@ -325,7 +325,7 @@ class _SecretState:
     @pulumi.getter(name="privateRegistry")
     def private_registry(self) -> Optional[pulumi.Input['SecretPrivateRegistryArgs']]:
         """
-        The DigitalOcean registry configuration to use
+        The private*registry configuration to use
         """
         return pulumi.get(self, "private_registry")
 
@@ -399,13 +399,13 @@ class Secret(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['SecretAzureContainerRegistryArgs', 'SecretAzureContainerRegistryArgsDict']] azure_container_registry: The Azure registry configuration to use
-        :param pulumi.Input[Union['SecretDigitalOceanContainerRegistryArgs', 'SecretDigitalOceanContainerRegistryArgsDict']] digital_ocean_container_registry: The DigitalOcean registry configuration to use
-        :param pulumi.Input[Union['SecretDockerHubRegistryArgs', 'SecretDockerHubRegistryArgsDict']] docker_hub_registry: The DockerHub registry configuration to use
-        :param pulumi.Input[Union['SecretGithubRegistryArgs', 'SecretGithubRegistryArgsDict']] github_registry: The GitHub registry configuration to use
-        :param pulumi.Input[Union['SecretGitlabRegistryArgs', 'SecretGitlabRegistryArgsDict']] gitlab_registry: The GitLab registry configuration to use
+        :param pulumi.Input[Union['SecretAzureContainerRegistryArgs', 'SecretAzureContainerRegistryArgsDict']] azure_container_registry: The azure*container*registry configuration to use
+        :param pulumi.Input[Union['SecretDigitalOceanContainerRegistryArgs', 'SecretDigitalOceanContainerRegistryArgsDict']] digital_ocean_container_registry: The digital*ocean*container*registry configuration to use
+        :param pulumi.Input[Union['SecretDockerHubRegistryArgs', 'SecretDockerHubRegistryArgsDict']] docker_hub_registry: The docker*hub*registry configuration to use
+        :param pulumi.Input[Union['SecretGithubRegistryArgs', 'SecretGithubRegistryArgsDict']] github_registry: The github*registry configuration to use
+        :param pulumi.Input[Union['SecretGitlabRegistryArgs', 'SecretGitlabRegistryArgsDict']] gitlab_registry: The gitlab*registry configuration to use
         :param pulumi.Input[str] name: The secret name
-        :param pulumi.Input[Union['SecretPrivateRegistryArgs', 'SecretPrivateRegistryArgsDict']] private_registry: The DigitalOcean registry configuration to use
+        :param pulumi.Input[Union['SecretPrivateRegistryArgs', 'SecretPrivateRegistryArgsDict']] private_registry: The private*registry configuration to use
         :param pulumi.Input[str] type: The secret type
         :param pulumi.Input[str] value: The secret value
         """
@@ -503,15 +503,15 @@ class Secret(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['SecretAzureContainerRegistryArgs', 'SecretAzureContainerRegistryArgsDict']] azure_container_registry: The Azure registry configuration to use
+        :param pulumi.Input[Union['SecretAzureContainerRegistryArgs', 'SecretAzureContainerRegistryArgsDict']] azure_container_registry: The azure*container*registry configuration to use
         :param pulumi.Input[str] created_at: The date and time of when the secret was created
-        :param pulumi.Input[Union['SecretDigitalOceanContainerRegistryArgs', 'SecretDigitalOceanContainerRegistryArgsDict']] digital_ocean_container_registry: The DigitalOcean registry configuration to use
-        :param pulumi.Input[Union['SecretDockerHubRegistryArgs', 'SecretDockerHubRegistryArgsDict']] docker_hub_registry: The DockerHub registry configuration to use
-        :param pulumi.Input[Union['SecretGithubRegistryArgs', 'SecretGithubRegistryArgsDict']] github_registry: The GitHub registry configuration to use
-        :param pulumi.Input[Union['SecretGitlabRegistryArgs', 'SecretGitlabRegistryArgsDict']] gitlab_registry: The GitLab registry configuration to use
+        :param pulumi.Input[Union['SecretDigitalOceanContainerRegistryArgs', 'SecretDigitalOceanContainerRegistryArgsDict']] digital_ocean_container_registry: The digital*ocean*container*registry configuration to use
+        :param pulumi.Input[Union['SecretDockerHubRegistryArgs', 'SecretDockerHubRegistryArgsDict']] docker_hub_registry: The docker*hub*registry configuration to use
+        :param pulumi.Input[Union['SecretGithubRegistryArgs', 'SecretGithubRegistryArgsDict']] github_registry: The github*registry configuration to use
+        :param pulumi.Input[Union['SecretGitlabRegistryArgs', 'SecretGitlabRegistryArgsDict']] gitlab_registry: The gitlab*registry configuration to use
         :param pulumi.Input[str] name: The secret name
         :param pulumi.Input[str] organization_id: The organization ID owning the secret
-        :param pulumi.Input[Union['SecretPrivateRegistryArgs', 'SecretPrivateRegistryArgsDict']] private_registry: The DigitalOcean registry configuration to use
+        :param pulumi.Input[Union['SecretPrivateRegistryArgs', 'SecretPrivateRegistryArgsDict']] private_registry: The private*registry configuration to use
         :param pulumi.Input[str] type: The secret type
         :param pulumi.Input[str] updated_at: The date and time of when the secret was last updated
         :param pulumi.Input[str] value: The secret value
@@ -538,7 +538,7 @@ class Secret(pulumi.CustomResource):
     @pulumi.getter(name="azureContainerRegistry")
     def azure_container_registry(self) -> pulumi.Output[Optional['outputs.SecretAzureContainerRegistry']]:
         """
-        The Azure registry configuration to use
+        The azure*container*registry configuration to use
         """
         return pulumi.get(self, "azure_container_registry")
 
@@ -554,7 +554,7 @@ class Secret(pulumi.CustomResource):
     @pulumi.getter(name="digitalOceanContainerRegistry")
     def digital_ocean_container_registry(self) -> pulumi.Output[Optional['outputs.SecretDigitalOceanContainerRegistry']]:
         """
-        The DigitalOcean registry configuration to use
+        The digital*ocean*container*registry configuration to use
         """
         return pulumi.get(self, "digital_ocean_container_registry")
 
@@ -562,7 +562,7 @@ class Secret(pulumi.CustomResource):
     @pulumi.getter(name="dockerHubRegistry")
     def docker_hub_registry(self) -> pulumi.Output[Optional['outputs.SecretDockerHubRegistry']]:
         """
-        The DockerHub registry configuration to use
+        The docker*hub*registry configuration to use
         """
         return pulumi.get(self, "docker_hub_registry")
 
@@ -570,7 +570,7 @@ class Secret(pulumi.CustomResource):
     @pulumi.getter(name="githubRegistry")
     def github_registry(self) -> pulumi.Output[Optional['outputs.SecretGithubRegistry']]:
         """
-        The GitHub registry configuration to use
+        The github*registry configuration to use
         """
         return pulumi.get(self, "github_registry")
 
@@ -578,7 +578,7 @@ class Secret(pulumi.CustomResource):
     @pulumi.getter(name="gitlabRegistry")
     def gitlab_registry(self) -> pulumi.Output[Optional['outputs.SecretGitlabRegistry']]:
         """
-        The GitLab registry configuration to use
+        The gitlab*registry configuration to use
         """
         return pulumi.get(self, "gitlab_registry")
 
@@ -602,7 +602,7 @@ class Secret(pulumi.CustomResource):
     @pulumi.getter(name="privateRegistry")
     def private_registry(self) -> pulumi.Output[Optional['outputs.SecretPrivateRegistry']]:
         """
-        The DigitalOcean registry configuration to use
+        The private*registry configuration to use
         """
         return pulumi.get(self, "private_registry")
 
