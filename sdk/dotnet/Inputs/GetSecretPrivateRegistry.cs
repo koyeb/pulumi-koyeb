@@ -25,7 +25,7 @@ namespace Pulumi.Koyeb.Inputs
         }
 
         /// <summary>
-        /// The registry url
+        /// The registry URL
         /// </summary>
         [Input("url", required: true)]
         public string Url { get; set; } = null!;

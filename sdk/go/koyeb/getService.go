@@ -62,6 +62,8 @@ type LookupServiceResult struct {
 	AppId string `pulumi:"appId"`
 	// The date and time of when the service was created
 	CreatedAt string `pulumi:"createdAt"`
+	// The service deployment definition
+	Definitions []GetServiceDefinition `pulumi:"definitions"`
 	// The id of the service
 	Id string `pulumi:"id"`
 	// The service latest deployment id
@@ -147,6 +149,11 @@ func (o LookupServiceResultOutput) AppId() pulumi.StringOutput {
 // The date and time of when the service was created
 func (o LookupServiceResultOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceResult) string { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+// The service deployment definition
+func (o LookupServiceResultOutput) Definitions() GetServiceDefinitionArrayOutput {
+	return o.ApplyT(func(v LookupServiceResult) []GetServiceDefinition { return v.Definitions }).(GetServiceDefinitionArrayOutput)
 }
 
 // The id of the service

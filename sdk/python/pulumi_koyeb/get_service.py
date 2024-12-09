@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
+from . import outputs
 
 __all__ = [
     'GetServiceResult',
@@ -26,7 +27,7 @@ class GetServiceResult:
     """
     A collection of values returned by getService.
     """
-    def __init__(__self__, active_deployment=None, app_id=None, created_at=None, id=None, latest_deployment=None, messages=None, name=None, organization_id=None, paused_at=None, resumed_at=None, slug=None, status=None, terminated_at=None, updated_at=None, version=None):
+    def __init__(__self__, active_deployment=None, app_id=None, created_at=None, definitions=None, id=None, latest_deployment=None, messages=None, name=None, organization_id=None, paused_at=None, resumed_at=None, slug=None, status=None, terminated_at=None, updated_at=None, version=None):
         if active_deployment and not isinstance(active_deployment, str):
             raise TypeError("Expected argument 'active_deployment' to be a str")
         pulumi.set(__self__, "active_deployment", active_deployment)
@@ -36,6 +37,9 @@ class GetServiceResult:
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
+        if definitions and not isinstance(definitions, list):
+            raise TypeError("Expected argument 'definitions' to be a list")
+        pulumi.set(__self__, "definitions", definitions)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -96,6 +100,14 @@ class GetServiceResult:
         The date and time of when the service was created
         """
         return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter
+    def definitions(self) -> Sequence['outputs.GetServiceDefinitionResult']:
+        """
+        The service deployment definition
+        """
+        return pulumi.get(self, "definitions")
 
     @property
     @pulumi.getter
@@ -203,6 +215,7 @@ class AwaitableGetServiceResult(GetServiceResult):
             active_deployment=self.active_deployment,
             app_id=self.app_id,
             created_at=self.created_at,
+            definitions=self.definitions,
             id=self.id,
             latest_deployment=self.latest_deployment,
             messages=self.messages,
@@ -244,6 +257,7 @@ def get_service(messages: Optional[str] = None,
         active_deployment=pulumi.get(__ret__, 'active_deployment'),
         app_id=pulumi.get(__ret__, 'app_id'),
         created_at=pulumi.get(__ret__, 'created_at'),
+        definitions=pulumi.get(__ret__, 'definitions'),
         id=pulumi.get(__ret__, 'id'),
         latest_deployment=pulumi.get(__ret__, 'latest_deployment'),
         messages=pulumi.get(__ret__, 'messages'),
@@ -282,6 +296,7 @@ def get_service_output(messages: Optional[pulumi.Input[Optional[str]]] = None,
         active_deployment=pulumi.get(__response__, 'active_deployment'),
         app_id=pulumi.get(__response__, 'app_id'),
         created_at=pulumi.get(__response__, 'created_at'),
+        definitions=pulumi.get(__response__, 'definitions'),
         id=pulumi.get(__response__, 'id'),
         latest_deployment=pulumi.get(__response__, 'latest_deployment'),
         messages=pulumi.get(__response__, 'messages'),

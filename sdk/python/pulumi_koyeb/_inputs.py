@@ -63,6 +63,10 @@ __all__ = [
     'ServiceDefinitionScalingTargetAverageCpusArgsDict',
     'ServiceDefinitionScalingTargetAverageMemArgs',
     'ServiceDefinitionScalingTargetAverageMemArgsDict',
+    'ServiceDefinitionScalingTargetConcurrentRequestArgs',
+    'ServiceDefinitionScalingTargetConcurrentRequestArgsDict',
+    'ServiceDefinitionScalingTargetRequestResponseTimeArgs',
+    'ServiceDefinitionScalingTargetRequestResponseTimeArgsDict',
     'ServiceDefinitionScalingTargetRequestsPerSecondArgs',
     'ServiceDefinitionScalingTargetRequestsPerSecondArgsDict',
     'ServiceDefinitionVolumeArgs',
@@ -631,7 +635,7 @@ if not MYPY:
         """
         url: pulumi.Input[str]
         """
-        The registry url
+        The registry URL
         """
         username: pulumi.Input[str]
         """
@@ -648,7 +652,7 @@ class SecretPrivateRegistryArgs:
                  username: pulumi.Input[str]):
         """
         :param pulumi.Input[str] password: The registry password
-        :param pulumi.Input[str] url: The registry url
+        :param pulumi.Input[str] url: The registry URL
         :param pulumi.Input[str] username: The registry username
         """
         pulumi.set(__self__, "password", password)
@@ -671,7 +675,7 @@ class SecretPrivateRegistryArgs:
     @pulumi.getter
     def url(self) -> pulumi.Input[str]:
         """
-        The registry url
+        The registry URL
         """
         return pulumi.get(self, "url")
 
@@ -699,7 +703,6 @@ if not MYPY:
         """
         The service name
         """
-        ports: pulumi.Input[Sequence[pulumi.Input['ServiceDefinitionPortArgsDict']]]
         regions: pulumi.Input[Sequence[pulumi.Input[str]]]
         """
         The service deployment regions to deploy to
@@ -709,6 +712,7 @@ if not MYPY:
         envs: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceDefinitionEnvArgsDict']]]]
         git: NotRequired[pulumi.Input['ServiceDefinitionGitArgsDict']]
         health_checks: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceDefinitionHealthCheckArgsDict']]]]
+        ports: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceDefinitionPortArgsDict']]]]
         routes: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceDefinitionRouteArgsDict']]]]
         skip_cache: NotRequired[pulumi.Input[bool]]
         """
@@ -730,13 +734,13 @@ class ServiceDefinitionArgs:
     def __init__(__self__, *,
                  instance_types: pulumi.Input[Sequence[pulumi.Input['ServiceDefinitionInstanceTypeArgs']]],
                  name: pulumi.Input[str],
-                 ports: pulumi.Input[Sequence[pulumi.Input['ServiceDefinitionPortArgs']]],
                  regions: pulumi.Input[Sequence[pulumi.Input[str]]],
                  scalings: pulumi.Input[Sequence[pulumi.Input['ServiceDefinitionScalingArgs']]],
                  docker: Optional[pulumi.Input['ServiceDefinitionDockerArgs']] = None,
                  envs: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceDefinitionEnvArgs']]]] = None,
                  git: Optional[pulumi.Input['ServiceDefinitionGitArgs']] = None,
                  health_checks: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceDefinitionHealthCheckArgs']]]] = None,
+                 ports: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceDefinitionPortArgs']]]] = None,
                  routes: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceDefinitionRouteArgs']]]] = None,
                  skip_cache: Optional[pulumi.Input[bool]] = None,
                  type: Optional[pulumi.Input[str]] = None,
@@ -750,7 +754,6 @@ class ServiceDefinitionArgs:
         """
         pulumi.set(__self__, "instance_types", instance_types)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "ports", ports)
         pulumi.set(__self__, "regions", regions)
         pulumi.set(__self__, "scalings", scalings)
         if docker is not None:
@@ -761,6 +764,8 @@ class ServiceDefinitionArgs:
             pulumi.set(__self__, "git", git)
         if health_checks is not None:
             pulumi.set(__self__, "health_checks", health_checks)
+        if ports is not None:
+            pulumi.set(__self__, "ports", ports)
         if routes is not None:
             pulumi.set(__self__, "routes", routes)
         if skip_cache is not None:
@@ -790,15 +795,6 @@ class ServiceDefinitionArgs:
     @name.setter
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def ports(self) -> pulumi.Input[Sequence[pulumi.Input['ServiceDefinitionPortArgs']]]:
-        return pulumi.get(self, "ports")
-
-    @ports.setter
-    def ports(self, value: pulumi.Input[Sequence[pulumi.Input['ServiceDefinitionPortArgs']]]):
-        pulumi.set(self, "ports", value)
 
     @property
     @pulumi.getter
@@ -856,6 +852,15 @@ class ServiceDefinitionArgs:
     @health_checks.setter
     def health_checks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceDefinitionHealthCheckArgs']]]]):
         pulumi.set(self, "health_checks", value)
+
+    @property
+    @pulumi.getter
+    def ports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceDefinitionPortArgs']]]]:
+        return pulumi.get(self, "ports")
+
+    @ports.setter
+    def ports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceDefinitionPortArgs']]]]):
+        pulumi.set(self, "ports", value)
 
     @property
     @pulumi.getter
@@ -1974,6 +1979,14 @@ if not MYPY:
         """
         The memory usage (expressed as a percentage) across all Instances of your Service within a region
         """
+        concurrent_requests: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceDefinitionScalingTargetConcurrentRequestArgsDict']]]]
+        """
+        The number of concurrent requests across all Instances of your Service within a region
+        """
+        request_response_times: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceDefinitionScalingTargetRequestResponseTimeArgsDict']]]]
+        """
+        The average response time of requests across all Instances of your Service within a region
+        """
         requests_per_seconds: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceDefinitionScalingTargetRequestsPerSecondArgsDict']]]]
         """
         The number of concurrent requests per second across all Instances of your Service within a region
@@ -1986,16 +1999,24 @@ class ServiceDefinitionScalingTargetArgs:
     def __init__(__self__, *,
                  average_cpus: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceDefinitionScalingTargetAverageCpusArgs']]]] = None,
                  average_mems: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceDefinitionScalingTargetAverageMemArgs']]]] = None,
+                 concurrent_requests: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceDefinitionScalingTargetConcurrentRequestArgs']]]] = None,
+                 request_response_times: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceDefinitionScalingTargetRequestResponseTimeArgs']]]] = None,
                  requests_per_seconds: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceDefinitionScalingTargetRequestsPerSecondArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['ServiceDefinitionScalingTargetAverageCpusArgs']]] average_cpus: The CPU usage (expressed as a percentage) across all Instances of your Service within a region
         :param pulumi.Input[Sequence[pulumi.Input['ServiceDefinitionScalingTargetAverageMemArgs']]] average_mems: The memory usage (expressed as a percentage) across all Instances of your Service within a region
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceDefinitionScalingTargetConcurrentRequestArgs']]] concurrent_requests: The number of concurrent requests across all Instances of your Service within a region
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceDefinitionScalingTargetRequestResponseTimeArgs']]] request_response_times: The average response time of requests across all Instances of your Service within a region
         :param pulumi.Input[Sequence[pulumi.Input['ServiceDefinitionScalingTargetRequestsPerSecondArgs']]] requests_per_seconds: The number of concurrent requests per second across all Instances of your Service within a region
         """
         if average_cpus is not None:
             pulumi.set(__self__, "average_cpus", average_cpus)
         if average_mems is not None:
             pulumi.set(__self__, "average_mems", average_mems)
+        if concurrent_requests is not None:
+            pulumi.set(__self__, "concurrent_requests", concurrent_requests)
+        if request_response_times is not None:
+            pulumi.set(__self__, "request_response_times", request_response_times)
         if requests_per_seconds is not None:
             pulumi.set(__self__, "requests_per_seconds", requests_per_seconds)
 
@@ -2022,6 +2043,30 @@ class ServiceDefinitionScalingTargetArgs:
     @average_mems.setter
     def average_mems(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceDefinitionScalingTargetAverageMemArgs']]]]):
         pulumi.set(self, "average_mems", value)
+
+    @property
+    @pulumi.getter(name="concurrentRequests")
+    def concurrent_requests(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceDefinitionScalingTargetConcurrentRequestArgs']]]]:
+        """
+        The number of concurrent requests across all Instances of your Service within a region
+        """
+        return pulumi.get(self, "concurrent_requests")
+
+    @concurrent_requests.setter
+    def concurrent_requests(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceDefinitionScalingTargetConcurrentRequestArgs']]]]):
+        pulumi.set(self, "concurrent_requests", value)
+
+    @property
+    @pulumi.getter(name="requestResponseTimes")
+    def request_response_times(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceDefinitionScalingTargetRequestResponseTimeArgs']]]]:
+        """
+        The average response time of requests across all Instances of your Service within a region
+        """
+        return pulumi.get(self, "request_response_times")
+
+    @request_response_times.setter
+    def request_response_times(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceDefinitionScalingTargetRequestResponseTimeArgs']]]]):
+        pulumi.set(self, "request_response_times", value)
 
     @property
     @pulumi.getter(name="requestsPerSeconds")
@@ -2078,6 +2123,68 @@ elif False:
 
 @pulumi.input_type
 class ServiceDefinitionScalingTargetAverageMemArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] value: The target value of the autoscaling target
+        """
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[int]:
+        """
+        The target value of the autoscaling target
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[int]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class ServiceDefinitionScalingTargetConcurrentRequestArgsDict(TypedDict):
+        value: pulumi.Input[int]
+        """
+        The target value of the autoscaling target
+        """
+elif False:
+    ServiceDefinitionScalingTargetConcurrentRequestArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ServiceDefinitionScalingTargetConcurrentRequestArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] value: The target value of the autoscaling target
+        """
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[int]:
+        """
+        The target value of the autoscaling target
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[int]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class ServiceDefinitionScalingTargetRequestResponseTimeArgsDict(TypedDict):
+        value: pulumi.Input[int]
+        """
+        The target value of the autoscaling target
+        """
+elif False:
+    ServiceDefinitionScalingTargetRequestResponseTimeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ServiceDefinitionScalingTargetRequestResponseTimeArgs:
     def __init__(__self__, *,
                  value: pulumi.Input[int]):
         """
@@ -2496,7 +2603,7 @@ if not MYPY:
         """
         url: str
         """
-        The registry url
+        The registry URL
         """
         username: str
         """
@@ -2513,7 +2620,7 @@ class GetSecretPrivateRegistryArgs:
                  username: str):
         """
         :param str password: The registry password
-        :param str url: The registry url
+        :param str url: The registry URL
         :param str username: The registry username
         """
         pulumi.set(__self__, "password", password)
@@ -2536,7 +2643,7 @@ class GetSecretPrivateRegistryArgs:
     @pulumi.getter
     def url(self) -> str:
         """
-        The registry url
+        The registry URL
         """
         return pulumi.get(self, "url")
 

@@ -230,7 +230,7 @@
                 },
                 "url": {
                     "type": "string",
-                    "description": "The registry url\n"
+                    "description": "The registry URL\n"
                 },
                 "username": {
                     "type": "string",
@@ -320,7 +320,6 @@
             "required": [
                 "instanceTypes",
                 "name",
-                "ports",
                 "regions",
                 "scalings"
             ]
@@ -389,7 +388,15 @@
             "type": "object",
             "required": [
                 "key"
-            ]
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "key",
+                        "scopes"
+                    ]
+                }
+            }
         },
         "koyeb:index/ServiceDefinitionGit:ServiceDefinitionGit": {
             "properties": {
@@ -573,7 +580,15 @@
             "type": "object",
             "required": [
                 "type"
-            ]
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "scopes",
+                        "type"
+                    ]
+                }
+            }
         },
         "koyeb:index/ServiceDefinitionPort:ServiceDefinitionPort": {
             "properties": {
@@ -633,7 +648,14 @@
                     }
                 }
             },
-            "type": "object"
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "scopes"
+                    ]
+                }
+            }
         },
         "koyeb:index/ServiceDefinitionScalingTarget:ServiceDefinitionScalingTarget": {
             "properties": {
@@ -650,6 +672,20 @@
                         "$ref": "#/types/koyeb:index/ServiceDefinitionScalingTargetAverageMem:ServiceDefinitionScalingTargetAverageMem"
                     },
                     "description": "The memory usage (expressed as a percentage) across all Instances of your Service within a region\n"
+                },
+                "concurrentRequests": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/koyeb:index/ServiceDefinitionScalingTargetConcurrentRequest:ServiceDefinitionScalingTargetConcurrentRequest"
+                    },
+                    "description": "The number of concurrent requests across all Instances of your Service within a region\n"
+                },
+                "requestResponseTimes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/koyeb:index/ServiceDefinitionScalingTargetRequestResponseTime:ServiceDefinitionScalingTargetRequestResponseTime"
+                    },
+                    "description": "The average response time of requests across all Instances of your Service within a region\n"
                 },
                 "requestsPerSeconds": {
                     "type": "array",
@@ -674,6 +710,30 @@
             ]
         },
         "koyeb:index/ServiceDefinitionScalingTargetAverageMem:ServiceDefinitionScalingTargetAverageMem": {
+            "properties": {
+                "value": {
+                    "type": "integer",
+                    "description": "The target value of the autoscaling target\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "value"
+            ]
+        },
+        "koyeb:index/ServiceDefinitionScalingTargetConcurrentRequest:ServiceDefinitionScalingTargetConcurrentRequest": {
+            "properties": {
+                "value": {
+                    "type": "integer",
+                    "description": "The target value of the autoscaling target\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "value"
+            ]
+        },
+        "koyeb:index/ServiceDefinitionScalingTargetRequestResponseTime:ServiceDefinitionScalingTargetRequestResponseTime": {
             "properties": {
                 "value": {
                     "type": "integer",
@@ -905,7 +965,7 @@
                 },
                 "url": {
                     "type": "string",
-                    "description": "The registry url\n"
+                    "description": "The registry URL\n"
                 },
                 "username": {
                     "type": "string",
@@ -918,6 +978,613 @@
                 "url",
                 "username"
             ]
+        },
+        "koyeb:index/getServiceDefinition:getServiceDefinition": {
+            "properties": {
+                "docker": {
+                    "$ref": "#/types/koyeb:index/getServiceDefinitionDocker:getServiceDefinitionDocker"
+                },
+                "envs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/koyeb:index/getServiceDefinitionEnv:getServiceDefinitionEnv"
+                    }
+                },
+                "git": {
+                    "$ref": "#/types/koyeb:index/getServiceDefinitionGit:getServiceDefinitionGit"
+                },
+                "healthChecks": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/koyeb:index/getServiceDefinitionHealthCheck:getServiceDefinitionHealthCheck"
+                    }
+                },
+                "instanceTypes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/koyeb:index/getServiceDefinitionInstanceType:getServiceDefinitionInstanceType"
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The service name\n"
+                },
+                "ports": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/koyeb:index/getServiceDefinitionPort:getServiceDefinitionPort"
+                    }
+                },
+                "regions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The service deployment regions to deploy to\n"
+                },
+                "routes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/koyeb:index/getServiceDefinitionRoute:getServiceDefinitionRoute"
+                    }
+                },
+                "scalings": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/koyeb:index/getServiceDefinitionScaling:getServiceDefinitionScaling"
+                    }
+                },
+                "skipCache": {
+                    "type": "boolean",
+                    "description": "If set to true, the service will be deployed without using the cache\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The service type, either WEB or WORKER (default WEB)\n"
+                },
+                "volumes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/koyeb:index/getServiceDefinitionVolume:getServiceDefinitionVolume"
+                    },
+                    "description": "The volumes to attach and mount to the service\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "instanceTypes",
+                "name",
+                "regions",
+                "scalings"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "koyeb:index/getServiceDefinitionDocker:getServiceDefinitionDocker": {
+            "properties": {
+                "args": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The Docker args to use\n"
+                },
+                "command": {
+                    "type": "string",
+                    "description": "The Docker command to use\n"
+                },
+                "entrypoints": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The Docker entrypoint to use\n"
+                },
+                "image": {
+                    "type": "string",
+                    "description": "The Docker image to use to support your service\n"
+                },
+                "imageRegistrySecret": {
+                    "type": "string",
+                    "description": "The Koyeb secret containing the container registry credentials\n"
+                },
+                "privileged": {
+                    "type": "boolean",
+                    "description": "When enabled, the service container will run in privileged mode. This advanced feature is useful to get advanced system privileges.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "image"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "koyeb:index/getServiceDefinitionEnv:getServiceDefinitionEnv": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The name of the environment variable\n"
+                },
+                "scopes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The regions the environment variable needs to be exposed\n"
+                },
+                "secret": {
+                    "type": "string",
+                    "description": "The secret name to use as the value of the environment variable\n",
+                    "secret": true
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value of the environment variable\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "scopes"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "koyeb:index/getServiceDefinitionGit:getServiceDefinitionGit": {
+            "properties": {
+                "branch": {
+                    "type": "string",
+                    "description": "The GitHub branch to deploy\n"
+                },
+                "buildpack": {
+                    "$ref": "#/types/koyeb:index/getServiceDefinitionGitBuildpack:getServiceDefinitionGitBuildpack"
+                },
+                "dockerfile": {
+                    "$ref": "#/types/koyeb:index/getServiceDefinitionGitDockerfile:getServiceDefinitionGitDockerfile"
+                },
+                "noDeployOnPush": {
+                    "type": "boolean",
+                    "description": "If set to true, no Koyeb deployments will be triggered when changes are pushed to the GitHub repository branch\n"
+                },
+                "repository": {
+                    "type": "string",
+                    "description": "The GitHub repository to deploy\n"
+                },
+                "workdir": {
+                    "type": "string",
+                    "description": "The directory where your source code is located. If not set, the work directory defaults to the root of the repository.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "branch",
+                "repository"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "koyeb:index/getServiceDefinitionGitBuildpack:getServiceDefinitionGitBuildpack": {
+            "properties": {
+                "buildCommand": {
+                    "type": "string",
+                    "description": "The command to build your application during the build phase. If your application does not require a build command, leave this field empty\n"
+                },
+                "privileged": {
+                    "type": "boolean",
+                    "description": "When enabled, the service container will run in privileged mode. This advanced feature is useful to get advanced system privileges.\n"
+                },
+                "runCommand": {
+                    "type": "string",
+                    "description": "The command to run your application once the built is completed\n"
+                }
+            },
+            "type": "object"
+        },
+        "koyeb:index/getServiceDefinitionGitDockerfile:getServiceDefinitionGitDockerfile": {
+            "properties": {
+                "args": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The arguments to pass to the Docker command\n"
+                },
+                "command": {
+                    "type": "string",
+                    "description": "Override the command to execute on the container\n"
+                },
+                "dockerfile": {
+                    "type": "string",
+                    "description": "The location of your Dockerfile relative to the work directory. If not set, the work directory defaults to the root of the repository.\n"
+                },
+                "entrypoints": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Override the default entrypoint to execute on the container\n"
+                },
+                "privileged": {
+                    "type": "boolean",
+                    "description": "When enabled, the service container will run in privileged mode. This advanced feature is useful to get advanced system privileges.\n"
+                },
+                "target": {
+                    "type": "string",
+                    "description": "Target build stage: If your Dockerfile contains multi-stage builds, you can choose the target stage to build and deploy by entering its name\n"
+                }
+            },
+            "type": "object"
+        },
+        "koyeb:index/getServiceDefinitionHealthCheck:getServiceDefinitionHealthCheck": {
+            "properties": {
+                "gracePeriod": {
+                    "type": "integer",
+                    "description": "The period in seconds to wait for the instance to become healthy, default is 5s\n"
+                },
+                "http": {
+                    "$ref": "#/types/koyeb:index/getServiceDefinitionHealthCheckHttp:getServiceDefinitionHealthCheckHttp"
+                },
+                "interval": {
+                    "type": "integer",
+                    "description": "The period in seconds between two health checks, default is 60s\n"
+                },
+                "restartLimit": {
+                    "type": "integer",
+                    "description": "The number of consecutive failures before attempting to restart the service, default is 3\n"
+                },
+                "tcp": {
+                    "$ref": "#/types/koyeb:index/getServiceDefinitionHealthCheckTcp:getServiceDefinitionHealthCheckTcp"
+                },
+                "timeout": {
+                    "type": "integer",
+                    "description": "The maximum time to wait in seconds before considering the check as a failure, default is 5s\n"
+                }
+            },
+            "type": "object"
+        },
+        "koyeb:index/getServiceDefinitionHealthCheckHttp:getServiceDefinitionHealthCheckHttp": {
+            "properties": {
+                "headers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/koyeb:index/getServiceDefinitionHealthCheckHttpHeader:getServiceDefinitionHealthCheckHttpHeader"
+                    }
+                },
+                "method": {
+                    "type": "string",
+                    "description": "An optional HTTP method to use to perform the health check, default is GET\n"
+                },
+                "path": {
+                    "type": "string",
+                    "description": "The path to use to perform the HTTP health check\n"
+                },
+                "port": {
+                    "type": "integer",
+                    "description": "The port to use to perform the health check\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "path",
+                "port"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "koyeb:index/getServiceDefinitionHealthCheckHttpHeader:getServiceDefinitionHealthCheckHttpHeader": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The name of the header\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value of the header\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "key"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "koyeb:index/getServiceDefinitionHealthCheckTcp:getServiceDefinitionHealthCheckTcp": {
+            "properties": {
+                "port": {
+                    "type": "integer",
+                    "description": "The port to use to perform the health check\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "port"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "koyeb:index/getServiceDefinitionInstanceType:getServiceDefinitionInstanceType": {
+            "properties": {
+                "scopes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The regions to use the instance type\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The instance type to use to support your service\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "scopes",
+                "type"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "koyeb:index/getServiceDefinitionPort:getServiceDefinitionPort": {
+            "properties": {
+                "port": {
+                    "type": "integer",
+                    "description": "The internal port on which this service's run command will listen\n"
+                },
+                "protocol": {
+                    "type": "string",
+                    "description": "The protocol used by your service\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "port",
+                "protocol"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "koyeb:index/getServiceDefinitionRoute:getServiceDefinitionRoute": {
+            "properties": {
+                "path": {
+                    "type": "string",
+                    "description": "Path specifies a route by HTTP path prefix. Paths must start with / and must be unique within the app\n"
+                },
+                "port": {
+                    "type": "integer",
+                    "description": "The internal port on which this service's run command will listen\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "path",
+                "port"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "koyeb:index/getServiceDefinitionScaling:getServiceDefinitionScaling": {
+            "properties": {
+                "max": {
+                    "type": "integer",
+                    "description": "The maximum number of instance to use to support your service\n"
+                },
+                "min": {
+                    "type": "integer",
+                    "description": "The minimal number of instances to use to support your service\n"
+                },
+                "scopes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The regions to apply the scaling configuration\n"
+                },
+                "targets": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/koyeb:index/getServiceDefinitionScalingTarget:getServiceDefinitionScalingTarget"
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "scopes"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "koyeb:index/getServiceDefinitionScalingTarget:getServiceDefinitionScalingTarget": {
+            "properties": {
+                "averageCpus": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/koyeb:index/getServiceDefinitionScalingTargetAverageCpus:getServiceDefinitionScalingTargetAverageCpus"
+                    },
+                    "description": "The CPU usage (expressed as a percentage) across all Instances of your Service within a region\n"
+                },
+                "averageMems": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/koyeb:index/getServiceDefinitionScalingTargetAverageMem:getServiceDefinitionScalingTargetAverageMem"
+                    },
+                    "description": "The memory usage (expressed as a percentage) across all Instances of your Service within a region\n"
+                },
+                "concurrentRequests": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/koyeb:index/getServiceDefinitionScalingTargetConcurrentRequest:getServiceDefinitionScalingTargetConcurrentRequest"
+                    },
+                    "description": "The number of concurrent requests across all Instances of your Service within a region\n"
+                },
+                "requestResponseTimes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/koyeb:index/getServiceDefinitionScalingTargetRequestResponseTime:getServiceDefinitionScalingTargetRequestResponseTime"
+                    },
+                    "description": "The average response time of requests across all Instances of your Service within a region\n"
+                },
+                "requestsPerSeconds": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/koyeb:index/getServiceDefinitionScalingTargetRequestsPerSecond:getServiceDefinitionScalingTargetRequestsPerSecond"
+                    },
+                    "description": "The number of concurrent requests per second across all Instances of your Service within a region\n"
+                }
+            },
+            "type": "object"
+        },
+        "koyeb:index/getServiceDefinitionScalingTargetAverageCpus:getServiceDefinitionScalingTargetAverageCpus": {
+            "properties": {
+                "value": {
+                    "type": "integer",
+                    "description": "The target value of the autoscaling target\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "value"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "koyeb:index/getServiceDefinitionScalingTargetAverageMem:getServiceDefinitionScalingTargetAverageMem": {
+            "properties": {
+                "value": {
+                    "type": "integer",
+                    "description": "The target value of the autoscaling target\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "value"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "koyeb:index/getServiceDefinitionScalingTargetConcurrentRequest:getServiceDefinitionScalingTargetConcurrentRequest": {
+            "properties": {
+                "value": {
+                    "type": "integer",
+                    "description": "The target value of the autoscaling target\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "value"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "koyeb:index/getServiceDefinitionScalingTargetRequestResponseTime:getServiceDefinitionScalingTargetRequestResponseTime": {
+            "properties": {
+                "value": {
+                    "type": "integer",
+                    "description": "The target value of the autoscaling target\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "value"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "koyeb:index/getServiceDefinitionScalingTargetRequestsPerSecond:getServiceDefinitionScalingTargetRequestsPerSecond": {
+            "properties": {
+                "value": {
+                    "type": "integer",
+                    "description": "The target value of the autoscaling target\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "value"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "koyeb:index/getServiceDefinitionVolume:getServiceDefinitionVolume": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The volume ID to mount to the service\n"
+                },
+                "path": {
+                    "type": "string",
+                    "description": "The path where to mount the volume\n"
+                },
+                "replicaIndex": {
+                    "type": "integer",
+                    "description": "Explicitly specify the replica index to mount the volume to\n"
+                },
+                "scopes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The regions to apply the scaling configuration\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id",
+                "path"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
         }
     },
     "provider": {
@@ -1149,7 +1816,7 @@
             "properties": {
                 "azureContainerRegistry": {
                     "$ref": "#/types/koyeb:index/SecretAzureContainerRegistry:SecretAzureContainerRegistry",
-                    "description": "The Azure registry configuration to use\n"
+                    "description": "The azure*container*registry configuration to use\n"
                 },
                 "createdAt": {
                     "type": "string",
@@ -1157,19 +1824,19 @@
                 },
                 "digitalOceanContainerRegistry": {
                     "$ref": "#/types/koyeb:index/SecretDigitalOceanContainerRegistry:SecretDigitalOceanContainerRegistry",
-                    "description": "The DigitalOcean registry configuration to use\n"
+                    "description": "The digital*ocean*container*registry configuration to use\n"
                 },
                 "dockerHubRegistry": {
                     "$ref": "#/types/koyeb:index/SecretDockerHubRegistry:SecretDockerHubRegistry",
-                    "description": "The DockerHub registry configuration to use\n"
+                    "description": "The docker*hub*registry configuration to use\n"
                 },
                 "githubRegistry": {
                     "$ref": "#/types/koyeb:index/SecretGithubRegistry:SecretGithubRegistry",
-                    "description": "The GitHub registry configuration to use\n"
+                    "description": "The github*registry configuration to use\n"
                 },
                 "gitlabRegistry": {
                     "$ref": "#/types/koyeb:index/SecretGitlabRegistry:SecretGitlabRegistry",
-                    "description": "The GitLab registry configuration to use\n"
+                    "description": "The gitlab*registry configuration to use\n"
                 },
                 "name": {
                     "type": "string",
@@ -1181,7 +1848,7 @@
                 },
                 "privateRegistry": {
                     "$ref": "#/types/koyeb:index/SecretPrivateRegistry:SecretPrivateRegistry",
-                    "description": "The DigitalOcean registry configuration to use\n"
+                    "description": "The private*registry configuration to use\n"
                 },
                 "type": {
                     "type": "string",
@@ -1206,23 +1873,23 @@
             "inputProperties": {
                 "azureContainerRegistry": {
                     "$ref": "#/types/koyeb:index/SecretAzureContainerRegistry:SecretAzureContainerRegistry",
-                    "description": "The Azure registry configuration to use\n"
+                    "description": "The azure*container*registry configuration to use\n"
                 },
                 "digitalOceanContainerRegistry": {
                     "$ref": "#/types/koyeb:index/SecretDigitalOceanContainerRegistry:SecretDigitalOceanContainerRegistry",
-                    "description": "The DigitalOcean registry configuration to use\n"
+                    "description": "The digital*ocean*container*registry configuration to use\n"
                 },
                 "dockerHubRegistry": {
                     "$ref": "#/types/koyeb:index/SecretDockerHubRegistry:SecretDockerHubRegistry",
-                    "description": "The DockerHub registry configuration to use\n"
+                    "description": "The docker*hub*registry configuration to use\n"
                 },
                 "githubRegistry": {
                     "$ref": "#/types/koyeb:index/SecretGithubRegistry:SecretGithubRegistry",
-                    "description": "The GitHub registry configuration to use\n"
+                    "description": "The github*registry configuration to use\n"
                 },
                 "gitlabRegistry": {
                     "$ref": "#/types/koyeb:index/SecretGitlabRegistry:SecretGitlabRegistry",
-                    "description": "The GitLab registry configuration to use\n"
+                    "description": "The gitlab*registry configuration to use\n"
                 },
                 "name": {
                     "type": "string",
@@ -1231,7 +1898,7 @@
                 },
                 "privateRegistry": {
                     "$ref": "#/types/koyeb:index/SecretPrivateRegistry:SecretPrivateRegistry",
-                    "description": "The DigitalOcean registry configuration to use\n"
+                    "description": "The private*registry configuration to use\n"
                 },
                 "type": {
                     "type": "string",
@@ -1249,7 +1916,7 @@
                 "properties": {
                     "azureContainerRegistry": {
                         "$ref": "#/types/koyeb:index/SecretAzureContainerRegistry:SecretAzureContainerRegistry",
-                        "description": "The Azure registry configuration to use\n"
+                        "description": "The azure*container*registry configuration to use\n"
                     },
                     "createdAt": {
                         "type": "string",
@@ -1257,19 +1924,19 @@
                     },
                     "digitalOceanContainerRegistry": {
                         "$ref": "#/types/koyeb:index/SecretDigitalOceanContainerRegistry:SecretDigitalOceanContainerRegistry",
-                        "description": "The DigitalOcean registry configuration to use\n"
+                        "description": "The digital*ocean*container*registry configuration to use\n"
                     },
                     "dockerHubRegistry": {
                         "$ref": "#/types/koyeb:index/SecretDockerHubRegistry:SecretDockerHubRegistry",
-                        "description": "The DockerHub registry configuration to use\n"
+                        "description": "The docker*hub*registry configuration to use\n"
                     },
                     "githubRegistry": {
                         "$ref": "#/types/koyeb:index/SecretGithubRegistry:SecretGithubRegistry",
-                        "description": "The GitHub registry configuration to use\n"
+                        "description": "The github*registry configuration to use\n"
                     },
                     "gitlabRegistry": {
                         "$ref": "#/types/koyeb:index/SecretGitlabRegistry:SecretGitlabRegistry",
-                        "description": "The GitLab registry configuration to use\n"
+                        "description": "The gitlab*registry configuration to use\n"
                     },
                     "name": {
                         "type": "string",
@@ -1282,7 +1949,7 @@
                     },
                     "privateRegistry": {
                         "$ref": "#/types/koyeb:index/SecretPrivateRegistry:SecretPrivateRegistry",
-                        "description": "The DigitalOcean registry configuration to use\n"
+                        "description": "The private*registry configuration to use\n"
                     },
                     "type": {
                         "type": "string",
@@ -1559,8 +2226,7 @@
                 },
                 "volumeType": {
                     "type": "string",
-                    "description": "The volume type\n",
-                    "willReplaceOnChanges": true
+                    "description": "The volume type\n"
                 }
             },
             "requiredInputs": [
@@ -1622,8 +2288,7 @@
                     },
                     "volumeType": {
                         "type": "string",
-                        "description": "The volume type\n",
-                        "willReplaceOnChanges": true
+                        "description": "The volume type\n"
                     }
                 },
                 "type": "object"
@@ -1805,23 +2470,23 @@
                 "properties": {
                     "azureContainerRegistry": {
                         "$ref": "#/types/koyeb:index/getSecretAzureContainerRegistry:getSecretAzureContainerRegistry",
-                        "description": "The Azure registry configuration to use\n"
+                        "description": "The azure*container*registry configuration to use\n"
                     },
                     "digitalOceanContainerRegistry": {
                         "$ref": "#/types/koyeb:index/getSecretDigitalOceanContainerRegistry:getSecretDigitalOceanContainerRegistry",
-                        "description": "The DigitalOcean registry configuration to use\n"
+                        "description": "The digital*ocean*container*registry configuration to use\n"
                     },
                     "dockerHubRegistry": {
                         "$ref": "#/types/koyeb:index/getSecretDockerHubRegistry:getSecretDockerHubRegistry",
-                        "description": "The DockerHub registry configuration to use\n"
+                        "description": "The docker*hub*registry configuration to use\n"
                     },
                     "githubRegistry": {
                         "$ref": "#/types/koyeb:index/getSecretGithubRegistry:getSecretGithubRegistry",
-                        "description": "The GitHub registry configuration to use\n"
+                        "description": "The github*registry configuration to use\n"
                     },
                     "gitlabRegistry": {
                         "$ref": "#/types/koyeb:index/getSecretGitlabRegistry:getSecretGitlabRegistry",
-                        "description": "The GitLab registry configuration to use\n"
+                        "description": "The gitlab*registry configuration to use\n"
                     },
                     "name": {
                         "type": "string",
@@ -1830,7 +2495,7 @@
                     },
                     "privateRegistry": {
                         "$ref": "#/types/koyeb:index/getSecretPrivateRegistry:getSecretPrivateRegistry",
-                        "description": "The DigitalOcean registry configuration to use\n"
+                        "description": "The private*registry configuration to use\n"
                     },
                     "type": {
                         "type": "string",
@@ -1853,7 +2518,7 @@
                 "properties": {
                     "azureContainerRegistry": {
                         "$ref": "#/types/koyeb:index/getSecretAzureContainerRegistry:getSecretAzureContainerRegistry",
-                        "description": "The Azure registry configuration to use\n"
+                        "description": "The azure*container*registry configuration to use\n"
                     },
                     "createdAt": {
                         "description": "The date and time of when the secret was created\n",
@@ -1861,19 +2526,19 @@
                     },
                     "digitalOceanContainerRegistry": {
                         "$ref": "#/types/koyeb:index/getSecretDigitalOceanContainerRegistry:getSecretDigitalOceanContainerRegistry",
-                        "description": "The DigitalOcean registry configuration to use\n"
+                        "description": "The digital*ocean*container*registry configuration to use\n"
                     },
                     "dockerHubRegistry": {
                         "$ref": "#/types/koyeb:index/getSecretDockerHubRegistry:getSecretDockerHubRegistry",
-                        "description": "The DockerHub registry configuration to use\n"
+                        "description": "The docker*hub*registry configuration to use\n"
                     },
                     "githubRegistry": {
                         "$ref": "#/types/koyeb:index/getSecretGithubRegistry:getSecretGithubRegistry",
-                        "description": "The GitHub registry configuration to use\n"
+                        "description": "The github*registry configuration to use\n"
                     },
                     "gitlabRegistry": {
                         "$ref": "#/types/koyeb:index/getSecretGitlabRegistry:getSecretGitlabRegistry",
-                        "description": "The GitLab registry configuration to use\n"
+                        "description": "The gitlab*registry configuration to use\n"
                     },
                     "id": {
                         "description": "The secret ID\n",
@@ -1889,7 +2554,7 @@
                     },
                     "privateRegistry": {
                         "$ref": "#/types/koyeb:index/getSecretPrivateRegistry:getSecretPrivateRegistry",
-                        "description": "The DigitalOcean registry configuration to use\n"
+                        "description": "The private*registry configuration to use\n"
                     },
                     "type": {
                         "description": "The secret type\n",
@@ -1949,6 +2614,13 @@
                         "description": "The date and time of when the service was created\n",
                         "type": "string"
                     },
+                    "definitions": {
+                        "description": "The service deployment definition\n",
+                        "items": {
+                            "$ref": "#/types/koyeb:index/getServiceDefinition:getServiceDefinition"
+                        },
+                        "type": "array"
+                    },
                     "id": {
                         "description": "The id of the service\n",
                         "type": "string"
@@ -2002,6 +2674,7 @@
                     "activeDeployment",
                     "appId",
                     "createdAt",
+                    "definitions",
                     "id",
                     "latestDeployment",
                     "messages",

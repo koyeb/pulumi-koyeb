@@ -40,6 +40,8 @@ __all__ = [
     'ServiceDefinitionScalingTarget',
     'ServiceDefinitionScalingTargetAverageCpus',
     'ServiceDefinitionScalingTargetAverageMem',
+    'ServiceDefinitionScalingTargetConcurrentRequest',
+    'ServiceDefinitionScalingTargetRequestResponseTime',
     'ServiceDefinitionScalingTargetRequestsPerSecond',
     'ServiceDefinitionVolume',
     'GetAppDomainResult',
@@ -49,6 +51,27 @@ __all__ = [
     'GetSecretGithubRegistryResult',
     'GetSecretGitlabRegistryResult',
     'GetSecretPrivateRegistryResult',
+    'GetServiceDefinitionResult',
+    'GetServiceDefinitionDockerResult',
+    'GetServiceDefinitionEnvResult',
+    'GetServiceDefinitionGitResult',
+    'GetServiceDefinitionGitBuildpackResult',
+    'GetServiceDefinitionGitDockerfileResult',
+    'GetServiceDefinitionHealthCheckResult',
+    'GetServiceDefinitionHealthCheckHttpResult',
+    'GetServiceDefinitionHealthCheckHttpHeaderResult',
+    'GetServiceDefinitionHealthCheckTcpResult',
+    'GetServiceDefinitionInstanceTypeResult',
+    'GetServiceDefinitionPortResult',
+    'GetServiceDefinitionRouteResult',
+    'GetServiceDefinitionScalingResult',
+    'GetServiceDefinitionScalingTargetResult',
+    'GetServiceDefinitionScalingTargetAverageCpusResult',
+    'GetServiceDefinitionScalingTargetAverageMemResult',
+    'GetServiceDefinitionScalingTargetConcurrentRequestResult',
+    'GetServiceDefinitionScalingTargetRequestResponseTimeResult',
+    'GetServiceDefinitionScalingTargetRequestsPerSecondResult',
+    'GetServiceDefinitionVolumeResult',
 ]
 
 @pulumi.output_type
@@ -423,7 +446,7 @@ class SecretPrivateRegistry(dict):
                  username: str):
         """
         :param str password: The registry password
-        :param str url: The registry url
+        :param str url: The registry URL
         :param str username: The registry username
         """
         pulumi.set(__self__, "password", password)
@@ -442,7 +465,7 @@ class SecretPrivateRegistry(dict):
     @pulumi.getter
     def url(self) -> str:
         """
-        The registry url
+        The registry URL
         """
         return pulumi.get(self, "url")
 
@@ -481,13 +504,13 @@ class ServiceDefinition(dict):
     def __init__(__self__, *,
                  instance_types: Sequence['outputs.ServiceDefinitionInstanceType'],
                  name: str,
-                 ports: Sequence['outputs.ServiceDefinitionPort'],
                  regions: Sequence[str],
                  scalings: Sequence['outputs.ServiceDefinitionScaling'],
                  docker: Optional['outputs.ServiceDefinitionDocker'] = None,
                  envs: Optional[Sequence['outputs.ServiceDefinitionEnv']] = None,
                  git: Optional['outputs.ServiceDefinitionGit'] = None,
                  health_checks: Optional[Sequence['outputs.ServiceDefinitionHealthCheck']] = None,
+                 ports: Optional[Sequence['outputs.ServiceDefinitionPort']] = None,
                  routes: Optional[Sequence['outputs.ServiceDefinitionRoute']] = None,
                  skip_cache: Optional[bool] = None,
                  type: Optional[str] = None,
@@ -501,7 +524,6 @@ class ServiceDefinition(dict):
         """
         pulumi.set(__self__, "instance_types", instance_types)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "ports", ports)
         pulumi.set(__self__, "regions", regions)
         pulumi.set(__self__, "scalings", scalings)
         if docker is not None:
@@ -512,6 +534,8 @@ class ServiceDefinition(dict):
             pulumi.set(__self__, "git", git)
         if health_checks is not None:
             pulumi.set(__self__, "health_checks", health_checks)
+        if ports is not None:
+            pulumi.set(__self__, "ports", ports)
         if routes is not None:
             pulumi.set(__self__, "routes", routes)
         if skip_cache is not None:
@@ -533,11 +557,6 @@ class ServiceDefinition(dict):
         The service name
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def ports(self) -> Sequence['outputs.ServiceDefinitionPort']:
-        return pulumi.get(self, "ports")
 
     @property
     @pulumi.getter
@@ -571,6 +590,11 @@ class ServiceDefinition(dict):
     @pulumi.getter(name="healthChecks")
     def health_checks(self) -> Optional[Sequence['outputs.ServiceDefinitionHealthCheck']]:
         return pulumi.get(self, "health_checks")
+
+    @property
+    @pulumi.getter
+    def ports(self) -> Optional[Sequence['outputs.ServiceDefinitionPort']]:
+        return pulumi.get(self, "ports")
 
     @property
     @pulumi.getter
@@ -1313,6 +1337,10 @@ class ServiceDefinitionScalingTarget(dict):
             suggest = "average_cpus"
         elif key == "averageMems":
             suggest = "average_mems"
+        elif key == "concurrentRequests":
+            suggest = "concurrent_requests"
+        elif key == "requestResponseTimes":
+            suggest = "request_response_times"
         elif key == "requestsPerSeconds":
             suggest = "requests_per_seconds"
 
@@ -1330,16 +1358,24 @@ class ServiceDefinitionScalingTarget(dict):
     def __init__(__self__, *,
                  average_cpus: Optional[Sequence['outputs.ServiceDefinitionScalingTargetAverageCpus']] = None,
                  average_mems: Optional[Sequence['outputs.ServiceDefinitionScalingTargetAverageMem']] = None,
+                 concurrent_requests: Optional[Sequence['outputs.ServiceDefinitionScalingTargetConcurrentRequest']] = None,
+                 request_response_times: Optional[Sequence['outputs.ServiceDefinitionScalingTargetRequestResponseTime']] = None,
                  requests_per_seconds: Optional[Sequence['outputs.ServiceDefinitionScalingTargetRequestsPerSecond']] = None):
         """
         :param Sequence['ServiceDefinitionScalingTargetAverageCpusArgs'] average_cpus: The CPU usage (expressed as a percentage) across all Instances of your Service within a region
         :param Sequence['ServiceDefinitionScalingTargetAverageMemArgs'] average_mems: The memory usage (expressed as a percentage) across all Instances of your Service within a region
+        :param Sequence['ServiceDefinitionScalingTargetConcurrentRequestArgs'] concurrent_requests: The number of concurrent requests across all Instances of your Service within a region
+        :param Sequence['ServiceDefinitionScalingTargetRequestResponseTimeArgs'] request_response_times: The average response time of requests across all Instances of your Service within a region
         :param Sequence['ServiceDefinitionScalingTargetRequestsPerSecondArgs'] requests_per_seconds: The number of concurrent requests per second across all Instances of your Service within a region
         """
         if average_cpus is not None:
             pulumi.set(__self__, "average_cpus", average_cpus)
         if average_mems is not None:
             pulumi.set(__self__, "average_mems", average_mems)
+        if concurrent_requests is not None:
+            pulumi.set(__self__, "concurrent_requests", concurrent_requests)
+        if request_response_times is not None:
+            pulumi.set(__self__, "request_response_times", request_response_times)
         if requests_per_seconds is not None:
             pulumi.set(__self__, "requests_per_seconds", requests_per_seconds)
 
@@ -1358,6 +1394,22 @@ class ServiceDefinitionScalingTarget(dict):
         The memory usage (expressed as a percentage) across all Instances of your Service within a region
         """
         return pulumi.get(self, "average_mems")
+
+    @property
+    @pulumi.getter(name="concurrentRequests")
+    def concurrent_requests(self) -> Optional[Sequence['outputs.ServiceDefinitionScalingTargetConcurrentRequest']]:
+        """
+        The number of concurrent requests across all Instances of your Service within a region
+        """
+        return pulumi.get(self, "concurrent_requests")
+
+    @property
+    @pulumi.getter(name="requestResponseTimes")
+    def request_response_times(self) -> Optional[Sequence['outputs.ServiceDefinitionScalingTargetRequestResponseTime']]:
+        """
+        The average response time of requests across all Instances of your Service within a region
+        """
+        return pulumi.get(self, "request_response_times")
 
     @property
     @pulumi.getter(name="requestsPerSeconds")
@@ -1388,6 +1440,42 @@ class ServiceDefinitionScalingTargetAverageCpus(dict):
 
 @pulumi.output_type
 class ServiceDefinitionScalingTargetAverageMem(dict):
+    def __init__(__self__, *,
+                 value: int):
+        """
+        :param int value: The target value of the autoscaling target
+        """
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> int:
+        """
+        The target value of the autoscaling target
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ServiceDefinitionScalingTargetConcurrentRequest(dict):
+    def __init__(__self__, *,
+                 value: int):
+        """
+        :param int value: The target value of the autoscaling target
+        """
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> int:
+        """
+        The target value of the autoscaling target
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ServiceDefinitionScalingTargetRequestResponseTime(dict):
     def __init__(__self__, *,
                  value: int):
         """
@@ -1807,7 +1895,7 @@ class GetSecretPrivateRegistryResult(dict):
                  username: str):
         """
         :param str password: The registry password
-        :param str url: The registry url
+        :param str url: The registry URL
         :param str username: The registry username
         """
         pulumi.set(__self__, "password", password)
@@ -1826,7 +1914,7 @@ class GetSecretPrivateRegistryResult(dict):
     @pulumi.getter
     def url(self) -> str:
         """
-        The registry url
+        The registry URL
         """
         return pulumi.get(self, "url")
 
@@ -1837,5 +1925,969 @@ class GetSecretPrivateRegistryResult(dict):
         The registry username
         """
         return pulumi.get(self, "username")
+
+
+@pulumi.output_type
+class GetServiceDefinitionResult(dict):
+    def __init__(__self__, *,
+                 instance_types: Sequence['outputs.GetServiceDefinitionInstanceTypeResult'],
+                 name: str,
+                 regions: Sequence[str],
+                 scalings: Sequence['outputs.GetServiceDefinitionScalingResult'],
+                 docker: Optional['outputs.GetServiceDefinitionDockerResult'] = None,
+                 envs: Optional[Sequence['outputs.GetServiceDefinitionEnvResult']] = None,
+                 git: Optional['outputs.GetServiceDefinitionGitResult'] = None,
+                 health_checks: Optional[Sequence['outputs.GetServiceDefinitionHealthCheckResult']] = None,
+                 ports: Optional[Sequence['outputs.GetServiceDefinitionPortResult']] = None,
+                 routes: Optional[Sequence['outputs.GetServiceDefinitionRouteResult']] = None,
+                 skip_cache: Optional[bool] = None,
+                 type: Optional[str] = None,
+                 volumes: Optional[Sequence['outputs.GetServiceDefinitionVolumeResult']] = None):
+        """
+        :param str name: The service name
+        :param Sequence[str] regions: The service deployment regions to deploy to
+        :param bool skip_cache: If set to true, the service will be deployed without using the cache
+        :param str type: The service type, either WEB or WORKER (default WEB)
+        :param Sequence['GetServiceDefinitionVolumeArgs'] volumes: The volumes to attach and mount to the service
+        """
+        pulumi.set(__self__, "instance_types", instance_types)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "regions", regions)
+        pulumi.set(__self__, "scalings", scalings)
+        if docker is not None:
+            pulumi.set(__self__, "docker", docker)
+        if envs is not None:
+            pulumi.set(__self__, "envs", envs)
+        if git is not None:
+            pulumi.set(__self__, "git", git)
+        if health_checks is not None:
+            pulumi.set(__self__, "health_checks", health_checks)
+        if ports is not None:
+            pulumi.set(__self__, "ports", ports)
+        if routes is not None:
+            pulumi.set(__self__, "routes", routes)
+        if skip_cache is not None:
+            pulumi.set(__self__, "skip_cache", skip_cache)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if volumes is not None:
+            pulumi.set(__self__, "volumes", volumes)
+
+    @property
+    @pulumi.getter(name="instanceTypes")
+    def instance_types(self) -> Sequence['outputs.GetServiceDefinitionInstanceTypeResult']:
+        return pulumi.get(self, "instance_types")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The service name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def regions(self) -> Sequence[str]:
+        """
+        The service deployment regions to deploy to
+        """
+        return pulumi.get(self, "regions")
+
+    @property
+    @pulumi.getter
+    def scalings(self) -> Sequence['outputs.GetServiceDefinitionScalingResult']:
+        return pulumi.get(self, "scalings")
+
+    @property
+    @pulumi.getter
+    def docker(self) -> Optional['outputs.GetServiceDefinitionDockerResult']:
+        return pulumi.get(self, "docker")
+
+    @property
+    @pulumi.getter
+    def envs(self) -> Optional[Sequence['outputs.GetServiceDefinitionEnvResult']]:
+        return pulumi.get(self, "envs")
+
+    @property
+    @pulumi.getter
+    def git(self) -> Optional['outputs.GetServiceDefinitionGitResult']:
+        return pulumi.get(self, "git")
+
+    @property
+    @pulumi.getter(name="healthChecks")
+    def health_checks(self) -> Optional[Sequence['outputs.GetServiceDefinitionHealthCheckResult']]:
+        return pulumi.get(self, "health_checks")
+
+    @property
+    @pulumi.getter
+    def ports(self) -> Optional[Sequence['outputs.GetServiceDefinitionPortResult']]:
+        return pulumi.get(self, "ports")
+
+    @property
+    @pulumi.getter
+    def routes(self) -> Optional[Sequence['outputs.GetServiceDefinitionRouteResult']]:
+        return pulumi.get(self, "routes")
+
+    @property
+    @pulumi.getter(name="skipCache")
+    def skip_cache(self) -> Optional[bool]:
+        """
+        If set to true, the service will be deployed without using the cache
+        """
+        return pulumi.get(self, "skip_cache")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The service type, either WEB or WORKER (default WEB)
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def volumes(self) -> Optional[Sequence['outputs.GetServiceDefinitionVolumeResult']]:
+        """
+        The volumes to attach and mount to the service
+        """
+        return pulumi.get(self, "volumes")
+
+
+@pulumi.output_type
+class GetServiceDefinitionDockerResult(dict):
+    def __init__(__self__, *,
+                 image: str,
+                 args: Optional[Sequence[str]] = None,
+                 command: Optional[str] = None,
+                 entrypoints: Optional[Sequence[str]] = None,
+                 image_registry_secret: Optional[str] = None,
+                 privileged: Optional[bool] = None):
+        """
+        :param str image: The Docker image to use to support your service
+        :param Sequence[str] args: The Docker args to use
+        :param str command: The Docker command to use
+        :param Sequence[str] entrypoints: The Docker entrypoint to use
+        :param str image_registry_secret: The Koyeb secret containing the container registry credentials
+        :param bool privileged: When enabled, the service container will run in privileged mode. This advanced feature is useful to get advanced system privileges.
+        """
+        pulumi.set(__self__, "image", image)
+        if args is not None:
+            pulumi.set(__self__, "args", args)
+        if command is not None:
+            pulumi.set(__self__, "command", command)
+        if entrypoints is not None:
+            pulumi.set(__self__, "entrypoints", entrypoints)
+        if image_registry_secret is not None:
+            pulumi.set(__self__, "image_registry_secret", image_registry_secret)
+        if privileged is not None:
+            pulumi.set(__self__, "privileged", privileged)
+
+    @property
+    @pulumi.getter
+    def image(self) -> str:
+        """
+        The Docker image to use to support your service
+        """
+        return pulumi.get(self, "image")
+
+    @property
+    @pulumi.getter
+    def args(self) -> Optional[Sequence[str]]:
+        """
+        The Docker args to use
+        """
+        return pulumi.get(self, "args")
+
+    @property
+    @pulumi.getter
+    def command(self) -> Optional[str]:
+        """
+        The Docker command to use
+        """
+        return pulumi.get(self, "command")
+
+    @property
+    @pulumi.getter
+    def entrypoints(self) -> Optional[Sequence[str]]:
+        """
+        The Docker entrypoint to use
+        """
+        return pulumi.get(self, "entrypoints")
+
+    @property
+    @pulumi.getter(name="imageRegistrySecret")
+    def image_registry_secret(self) -> Optional[str]:
+        """
+        The Koyeb secret containing the container registry credentials
+        """
+        return pulumi.get(self, "image_registry_secret")
+
+    @property
+    @pulumi.getter
+    def privileged(self) -> Optional[bool]:
+        """
+        When enabled, the service container will run in privileged mode. This advanced feature is useful to get advanced system privileges.
+        """
+        return pulumi.get(self, "privileged")
+
+
+@pulumi.output_type
+class GetServiceDefinitionEnvResult(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 scopes: Sequence[str],
+                 secret: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        :param str key: The name of the environment variable
+        :param Sequence[str] scopes: The regions the environment variable needs to be exposed
+        :param str secret: The secret name to use as the value of the environment variable
+        :param str value: The value of the environment variable
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "scopes", scopes)
+        if secret is not None:
+            pulumi.set(__self__, "secret", secret)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The name of the environment variable
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def scopes(self) -> Sequence[str]:
+        """
+        The regions the environment variable needs to be exposed
+        """
+        return pulumi.get(self, "scopes")
+
+    @property
+    @pulumi.getter
+    def secret(self) -> Optional[str]:
+        """
+        The secret name to use as the value of the environment variable
+        """
+        return pulumi.get(self, "secret")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        The value of the environment variable
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetServiceDefinitionGitResult(dict):
+    def __init__(__self__, *,
+                 branch: str,
+                 repository: str,
+                 buildpack: Optional['outputs.GetServiceDefinitionGitBuildpackResult'] = None,
+                 dockerfile: Optional['outputs.GetServiceDefinitionGitDockerfileResult'] = None,
+                 no_deploy_on_push: Optional[bool] = None,
+                 workdir: Optional[str] = None):
+        """
+        :param str branch: The GitHub branch to deploy
+        :param str repository: The GitHub repository to deploy
+        :param bool no_deploy_on_push: If set to true, no Koyeb deployments will be triggered when changes are pushed to the GitHub repository branch
+        :param str workdir: The directory where your source code is located. If not set, the work directory defaults to the root of the repository.
+        """
+        pulumi.set(__self__, "branch", branch)
+        pulumi.set(__self__, "repository", repository)
+        if buildpack is not None:
+            pulumi.set(__self__, "buildpack", buildpack)
+        if dockerfile is not None:
+            pulumi.set(__self__, "dockerfile", dockerfile)
+        if no_deploy_on_push is not None:
+            pulumi.set(__self__, "no_deploy_on_push", no_deploy_on_push)
+        if workdir is not None:
+            pulumi.set(__self__, "workdir", workdir)
+
+    @property
+    @pulumi.getter
+    def branch(self) -> str:
+        """
+        The GitHub branch to deploy
+        """
+        return pulumi.get(self, "branch")
+
+    @property
+    @pulumi.getter
+    def repository(self) -> str:
+        """
+        The GitHub repository to deploy
+        """
+        return pulumi.get(self, "repository")
+
+    @property
+    @pulumi.getter
+    def buildpack(self) -> Optional['outputs.GetServiceDefinitionGitBuildpackResult']:
+        return pulumi.get(self, "buildpack")
+
+    @property
+    @pulumi.getter
+    def dockerfile(self) -> Optional['outputs.GetServiceDefinitionGitDockerfileResult']:
+        return pulumi.get(self, "dockerfile")
+
+    @property
+    @pulumi.getter(name="noDeployOnPush")
+    def no_deploy_on_push(self) -> Optional[bool]:
+        """
+        If set to true, no Koyeb deployments will be triggered when changes are pushed to the GitHub repository branch
+        """
+        return pulumi.get(self, "no_deploy_on_push")
+
+    @property
+    @pulumi.getter
+    def workdir(self) -> Optional[str]:
+        """
+        The directory where your source code is located. If not set, the work directory defaults to the root of the repository.
+        """
+        return pulumi.get(self, "workdir")
+
+
+@pulumi.output_type
+class GetServiceDefinitionGitBuildpackResult(dict):
+    def __init__(__self__, *,
+                 build_command: Optional[str] = None,
+                 privileged: Optional[bool] = None,
+                 run_command: Optional[str] = None):
+        """
+        :param str build_command: The command to build your application during the build phase. If your application does not require a build command, leave this field empty
+        :param bool privileged: When enabled, the service container will run in privileged mode. This advanced feature is useful to get advanced system privileges.
+        :param str run_command: The command to run your application once the built is completed
+        """
+        if build_command is not None:
+            pulumi.set(__self__, "build_command", build_command)
+        if privileged is not None:
+            pulumi.set(__self__, "privileged", privileged)
+        if run_command is not None:
+            pulumi.set(__self__, "run_command", run_command)
+
+    @property
+    @pulumi.getter(name="buildCommand")
+    def build_command(self) -> Optional[str]:
+        """
+        The command to build your application during the build phase. If your application does not require a build command, leave this field empty
+        """
+        return pulumi.get(self, "build_command")
+
+    @property
+    @pulumi.getter
+    def privileged(self) -> Optional[bool]:
+        """
+        When enabled, the service container will run in privileged mode. This advanced feature is useful to get advanced system privileges.
+        """
+        return pulumi.get(self, "privileged")
+
+    @property
+    @pulumi.getter(name="runCommand")
+    def run_command(self) -> Optional[str]:
+        """
+        The command to run your application once the built is completed
+        """
+        return pulumi.get(self, "run_command")
+
+
+@pulumi.output_type
+class GetServiceDefinitionGitDockerfileResult(dict):
+    def __init__(__self__, *,
+                 args: Optional[Sequence[str]] = None,
+                 command: Optional[str] = None,
+                 dockerfile: Optional[str] = None,
+                 entrypoints: Optional[Sequence[str]] = None,
+                 privileged: Optional[bool] = None,
+                 target: Optional[str] = None):
+        """
+        :param Sequence[str] args: The arguments to pass to the Docker command
+        :param str command: Override the command to execute on the container
+        :param str dockerfile: The location of your Dockerfile relative to the work directory. If not set, the work directory defaults to the root of the repository.
+        :param Sequence[str] entrypoints: Override the default entrypoint to execute on the container
+        :param bool privileged: When enabled, the service container will run in privileged mode. This advanced feature is useful to get advanced system privileges.
+        :param str target: Target build stage: If your Dockerfile contains multi-stage builds, you can choose the target stage to build and deploy by entering its name
+        """
+        if args is not None:
+            pulumi.set(__self__, "args", args)
+        if command is not None:
+            pulumi.set(__self__, "command", command)
+        if dockerfile is not None:
+            pulumi.set(__self__, "dockerfile", dockerfile)
+        if entrypoints is not None:
+            pulumi.set(__self__, "entrypoints", entrypoints)
+        if privileged is not None:
+            pulumi.set(__self__, "privileged", privileged)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+
+    @property
+    @pulumi.getter
+    def args(self) -> Optional[Sequence[str]]:
+        """
+        The arguments to pass to the Docker command
+        """
+        return pulumi.get(self, "args")
+
+    @property
+    @pulumi.getter
+    def command(self) -> Optional[str]:
+        """
+        Override the command to execute on the container
+        """
+        return pulumi.get(self, "command")
+
+    @property
+    @pulumi.getter
+    def dockerfile(self) -> Optional[str]:
+        """
+        The location of your Dockerfile relative to the work directory. If not set, the work directory defaults to the root of the repository.
+        """
+        return pulumi.get(self, "dockerfile")
+
+    @property
+    @pulumi.getter
+    def entrypoints(self) -> Optional[Sequence[str]]:
+        """
+        Override the default entrypoint to execute on the container
+        """
+        return pulumi.get(self, "entrypoints")
+
+    @property
+    @pulumi.getter
+    def privileged(self) -> Optional[bool]:
+        """
+        When enabled, the service container will run in privileged mode. This advanced feature is useful to get advanced system privileges.
+        """
+        return pulumi.get(self, "privileged")
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional[str]:
+        """
+        Target build stage: If your Dockerfile contains multi-stage builds, you can choose the target stage to build and deploy by entering its name
+        """
+        return pulumi.get(self, "target")
+
+
+@pulumi.output_type
+class GetServiceDefinitionHealthCheckResult(dict):
+    def __init__(__self__, *,
+                 grace_period: Optional[int] = None,
+                 http: Optional['outputs.GetServiceDefinitionHealthCheckHttpResult'] = None,
+                 interval: Optional[int] = None,
+                 restart_limit: Optional[int] = None,
+                 tcp: Optional['outputs.GetServiceDefinitionHealthCheckTcpResult'] = None,
+                 timeout: Optional[int] = None):
+        """
+        :param int grace_period: The period in seconds to wait for the instance to become healthy, default is 5s
+        :param int interval: The period in seconds between two health checks, default is 60s
+        :param int restart_limit: The number of consecutive failures before attempting to restart the service, default is 3
+        :param int timeout: The maximum time to wait in seconds before considering the check as a failure, default is 5s
+        """
+        if grace_period is not None:
+            pulumi.set(__self__, "grace_period", grace_period)
+        if http is not None:
+            pulumi.set(__self__, "http", http)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+        if restart_limit is not None:
+            pulumi.set(__self__, "restart_limit", restart_limit)
+        if tcp is not None:
+            pulumi.set(__self__, "tcp", tcp)
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
+
+    @property
+    @pulumi.getter(name="gracePeriod")
+    def grace_period(self) -> Optional[int]:
+        """
+        The period in seconds to wait for the instance to become healthy, default is 5s
+        """
+        return pulumi.get(self, "grace_period")
+
+    @property
+    @pulumi.getter
+    def http(self) -> Optional['outputs.GetServiceDefinitionHealthCheckHttpResult']:
+        return pulumi.get(self, "http")
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[int]:
+        """
+        The period in seconds between two health checks, default is 60s
+        """
+        return pulumi.get(self, "interval")
+
+    @property
+    @pulumi.getter(name="restartLimit")
+    def restart_limit(self) -> Optional[int]:
+        """
+        The number of consecutive failures before attempting to restart the service, default is 3
+        """
+        return pulumi.get(self, "restart_limit")
+
+    @property
+    @pulumi.getter
+    def tcp(self) -> Optional['outputs.GetServiceDefinitionHealthCheckTcpResult']:
+        return pulumi.get(self, "tcp")
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> Optional[int]:
+        """
+        The maximum time to wait in seconds before considering the check as a failure, default is 5s
+        """
+        return pulumi.get(self, "timeout")
+
+
+@pulumi.output_type
+class GetServiceDefinitionHealthCheckHttpResult(dict):
+    def __init__(__self__, *,
+                 path: str,
+                 port: int,
+                 headers: Optional[Sequence['outputs.GetServiceDefinitionHealthCheckHttpHeaderResult']] = None,
+                 method: Optional[str] = None):
+        """
+        :param str path: The path to use to perform the HTTP health check
+        :param int port: The port to use to perform the health check
+        :param str method: An optional HTTP method to use to perform the health check, default is GET
+        """
+        pulumi.set(__self__, "path", path)
+        pulumi.set(__self__, "port", port)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if method is not None:
+            pulumi.set(__self__, "method", method)
+
+    @property
+    @pulumi.getter
+    def path(self) -> str:
+        """
+        The path to use to perform the HTTP health check
+        """
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter
+    def port(self) -> int:
+        """
+        The port to use to perform the health check
+        """
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[Sequence['outputs.GetServiceDefinitionHealthCheckHttpHeaderResult']]:
+        return pulumi.get(self, "headers")
+
+    @property
+    @pulumi.getter
+    def method(self) -> Optional[str]:
+        """
+        An optional HTTP method to use to perform the health check, default is GET
+        """
+        return pulumi.get(self, "method")
+
+
+@pulumi.output_type
+class GetServiceDefinitionHealthCheckHttpHeaderResult(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: Optional[str] = None):
+        """
+        :param str key: The name of the header
+        :param str value: The value of the header
+        """
+        pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The name of the header
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        The value of the header
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetServiceDefinitionHealthCheckTcpResult(dict):
+    def __init__(__self__, *,
+                 port: int):
+        """
+        :param int port: The port to use to perform the health check
+        """
+        pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter
+    def port(self) -> int:
+        """
+        The port to use to perform the health check
+        """
+        return pulumi.get(self, "port")
+
+
+@pulumi.output_type
+class GetServiceDefinitionInstanceTypeResult(dict):
+    def __init__(__self__, *,
+                 scopes: Sequence[str],
+                 type: str):
+        """
+        :param Sequence[str] scopes: The regions to use the instance type
+        :param str type: The instance type to use to support your service
+        """
+        pulumi.set(__self__, "scopes", scopes)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def scopes(self) -> Sequence[str]:
+        """
+        The regions to use the instance type
+        """
+        return pulumi.get(self, "scopes")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The instance type to use to support your service
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetServiceDefinitionPortResult(dict):
+    def __init__(__self__, *,
+                 port: int,
+                 protocol: str):
+        """
+        :param int port: The internal port on which this service's run command will listen
+        :param str protocol: The protocol used by your service
+        """
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "protocol", protocol)
+
+    @property
+    @pulumi.getter
+    def port(self) -> int:
+        """
+        The internal port on which this service's run command will listen
+        """
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> str:
+        """
+        The protocol used by your service
+        """
+        return pulumi.get(self, "protocol")
+
+
+@pulumi.output_type
+class GetServiceDefinitionRouteResult(dict):
+    def __init__(__self__, *,
+                 path: str,
+                 port: int):
+        """
+        :param str path: Path specifies a route by HTTP path prefix. Paths must start with / and must be unique within the app
+        :param int port: The internal port on which this service's run command will listen
+        """
+        pulumi.set(__self__, "path", path)
+        pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter
+    def path(self) -> str:
+        """
+        Path specifies a route by HTTP path prefix. Paths must start with / and must be unique within the app
+        """
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter
+    def port(self) -> int:
+        """
+        The internal port on which this service's run command will listen
+        """
+        return pulumi.get(self, "port")
+
+
+@pulumi.output_type
+class GetServiceDefinitionScalingResult(dict):
+    def __init__(__self__, *,
+                 scopes: Sequence[str],
+                 max: Optional[int] = None,
+                 min: Optional[int] = None,
+                 targets: Optional[Sequence['outputs.GetServiceDefinitionScalingTargetResult']] = None):
+        """
+        :param Sequence[str] scopes: The regions to apply the scaling configuration
+        :param int max: The maximum number of instance to use to support your service
+        :param int min: The minimal number of instances to use to support your service
+        """
+        pulumi.set(__self__, "scopes", scopes)
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+        if targets is not None:
+            pulumi.set(__self__, "targets", targets)
+
+    @property
+    @pulumi.getter
+    def scopes(self) -> Sequence[str]:
+        """
+        The regions to apply the scaling configuration
+        """
+        return pulumi.get(self, "scopes")
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[int]:
+        """
+        The maximum number of instance to use to support your service
+        """
+        return pulumi.get(self, "max")
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[int]:
+        """
+        The minimal number of instances to use to support your service
+        """
+        return pulumi.get(self, "min")
+
+    @property
+    @pulumi.getter
+    def targets(self) -> Optional[Sequence['outputs.GetServiceDefinitionScalingTargetResult']]:
+        return pulumi.get(self, "targets")
+
+
+@pulumi.output_type
+class GetServiceDefinitionScalingTargetResult(dict):
+    def __init__(__self__, *,
+                 average_cpus: Optional[Sequence['outputs.GetServiceDefinitionScalingTargetAverageCpusResult']] = None,
+                 average_mems: Optional[Sequence['outputs.GetServiceDefinitionScalingTargetAverageMemResult']] = None,
+                 concurrent_requests: Optional[Sequence['outputs.GetServiceDefinitionScalingTargetConcurrentRequestResult']] = None,
+                 request_response_times: Optional[Sequence['outputs.GetServiceDefinitionScalingTargetRequestResponseTimeResult']] = None,
+                 requests_per_seconds: Optional[Sequence['outputs.GetServiceDefinitionScalingTargetRequestsPerSecondResult']] = None):
+        """
+        :param Sequence['GetServiceDefinitionScalingTargetAverageCpusArgs'] average_cpus: The CPU usage (expressed as a percentage) across all Instances of your Service within a region
+        :param Sequence['GetServiceDefinitionScalingTargetAverageMemArgs'] average_mems: The memory usage (expressed as a percentage) across all Instances of your Service within a region
+        :param Sequence['GetServiceDefinitionScalingTargetConcurrentRequestArgs'] concurrent_requests: The number of concurrent requests across all Instances of your Service within a region
+        :param Sequence['GetServiceDefinitionScalingTargetRequestResponseTimeArgs'] request_response_times: The average response time of requests across all Instances of your Service within a region
+        :param Sequence['GetServiceDefinitionScalingTargetRequestsPerSecondArgs'] requests_per_seconds: The number of concurrent requests per second across all Instances of your Service within a region
+        """
+        if average_cpus is not None:
+            pulumi.set(__self__, "average_cpus", average_cpus)
+        if average_mems is not None:
+            pulumi.set(__self__, "average_mems", average_mems)
+        if concurrent_requests is not None:
+            pulumi.set(__self__, "concurrent_requests", concurrent_requests)
+        if request_response_times is not None:
+            pulumi.set(__self__, "request_response_times", request_response_times)
+        if requests_per_seconds is not None:
+            pulumi.set(__self__, "requests_per_seconds", requests_per_seconds)
+
+    @property
+    @pulumi.getter(name="averageCpus")
+    def average_cpus(self) -> Optional[Sequence['outputs.GetServiceDefinitionScalingTargetAverageCpusResult']]:
+        """
+        The CPU usage (expressed as a percentage) across all Instances of your Service within a region
+        """
+        return pulumi.get(self, "average_cpus")
+
+    @property
+    @pulumi.getter(name="averageMems")
+    def average_mems(self) -> Optional[Sequence['outputs.GetServiceDefinitionScalingTargetAverageMemResult']]:
+        """
+        The memory usage (expressed as a percentage) across all Instances of your Service within a region
+        """
+        return pulumi.get(self, "average_mems")
+
+    @property
+    @pulumi.getter(name="concurrentRequests")
+    def concurrent_requests(self) -> Optional[Sequence['outputs.GetServiceDefinitionScalingTargetConcurrentRequestResult']]:
+        """
+        The number of concurrent requests across all Instances of your Service within a region
+        """
+        return pulumi.get(self, "concurrent_requests")
+
+    @property
+    @pulumi.getter(name="requestResponseTimes")
+    def request_response_times(self) -> Optional[Sequence['outputs.GetServiceDefinitionScalingTargetRequestResponseTimeResult']]:
+        """
+        The average response time of requests across all Instances of your Service within a region
+        """
+        return pulumi.get(self, "request_response_times")
+
+    @property
+    @pulumi.getter(name="requestsPerSeconds")
+    def requests_per_seconds(self) -> Optional[Sequence['outputs.GetServiceDefinitionScalingTargetRequestsPerSecondResult']]:
+        """
+        The number of concurrent requests per second across all Instances of your Service within a region
+        """
+        return pulumi.get(self, "requests_per_seconds")
+
+
+@pulumi.output_type
+class GetServiceDefinitionScalingTargetAverageCpusResult(dict):
+    def __init__(__self__, *,
+                 value: int):
+        """
+        :param int value: The target value of the autoscaling target
+        """
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> int:
+        """
+        The target value of the autoscaling target
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetServiceDefinitionScalingTargetAverageMemResult(dict):
+    def __init__(__self__, *,
+                 value: int):
+        """
+        :param int value: The target value of the autoscaling target
+        """
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> int:
+        """
+        The target value of the autoscaling target
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetServiceDefinitionScalingTargetConcurrentRequestResult(dict):
+    def __init__(__self__, *,
+                 value: int):
+        """
+        :param int value: The target value of the autoscaling target
+        """
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> int:
+        """
+        The target value of the autoscaling target
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetServiceDefinitionScalingTargetRequestResponseTimeResult(dict):
+    def __init__(__self__, *,
+                 value: int):
+        """
+        :param int value: The target value of the autoscaling target
+        """
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> int:
+        """
+        The target value of the autoscaling target
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetServiceDefinitionScalingTargetRequestsPerSecondResult(dict):
+    def __init__(__self__, *,
+                 value: int):
+        """
+        :param int value: The target value of the autoscaling target
+        """
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> int:
+        """
+        The target value of the autoscaling target
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetServiceDefinitionVolumeResult(dict):
+    def __init__(__self__, *,
+                 id: str,
+                 path: str,
+                 replica_index: Optional[int] = None,
+                 scopes: Optional[Sequence[str]] = None):
+        """
+        :param str id: The volume ID to mount to the service
+        :param str path: The path where to mount the volume
+        :param int replica_index: Explicitly specify the replica index to mount the volume to
+        :param Sequence[str] scopes: The regions to apply the scaling configuration
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "path", path)
+        if replica_index is not None:
+            pulumi.set(__self__, "replica_index", replica_index)
+        if scopes is not None:
+            pulumi.set(__self__, "scopes", scopes)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The volume ID to mount to the service
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def path(self) -> str:
+        """
+        The path where to mount the volume
+        """
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter(name="replicaIndex")
+    def replica_index(self) -> Optional[int]:
+        """
+        Explicitly specify the replica index to mount the volume to
+        """
+        return pulumi.get(self, "replica_index")
+
+    @property
+    @pulumi.getter
+    def scopes(self) -> Optional[Sequence[str]]:
+        """
+        The regions to apply the scaling configuration
+        """
+        return pulumi.get(self, "scopes")
 
 

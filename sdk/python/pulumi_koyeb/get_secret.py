@@ -73,7 +73,7 @@ class GetSecretResult:
     @pulumi.getter(name="azureContainerRegistry")
     def azure_container_registry(self) -> Optional['outputs.GetSecretAzureContainerRegistryResult']:
         """
-        The Azure registry configuration to use
+        The azure*container*registry configuration to use
         """
         return pulumi.get(self, "azure_container_registry")
 
@@ -89,7 +89,7 @@ class GetSecretResult:
     @pulumi.getter(name="digitalOceanContainerRegistry")
     def digital_ocean_container_registry(self) -> Optional['outputs.GetSecretDigitalOceanContainerRegistryResult']:
         """
-        The DigitalOcean registry configuration to use
+        The digital*ocean*container*registry configuration to use
         """
         return pulumi.get(self, "digital_ocean_container_registry")
 
@@ -97,7 +97,7 @@ class GetSecretResult:
     @pulumi.getter(name="dockerHubRegistry")
     def docker_hub_registry(self) -> Optional['outputs.GetSecretDockerHubRegistryResult']:
         """
-        The DockerHub registry configuration to use
+        The docker*hub*registry configuration to use
         """
         return pulumi.get(self, "docker_hub_registry")
 
@@ -105,7 +105,7 @@ class GetSecretResult:
     @pulumi.getter(name="githubRegistry")
     def github_registry(self) -> Optional['outputs.GetSecretGithubRegistryResult']:
         """
-        The GitHub registry configuration to use
+        The github*registry configuration to use
         """
         return pulumi.get(self, "github_registry")
 
@@ -113,7 +113,7 @@ class GetSecretResult:
     @pulumi.getter(name="gitlabRegistry")
     def gitlab_registry(self) -> Optional['outputs.GetSecretGitlabRegistryResult']:
         """
-        The GitLab registry configuration to use
+        The gitlab*registry configuration to use
         """
         return pulumi.get(self, "gitlab_registry")
 
@@ -145,7 +145,7 @@ class GetSecretResult:
     @pulumi.getter(name="privateRegistry")
     def private_registry(self) -> Optional['outputs.GetSecretPrivateRegistryResult']:
         """
-        The DigitalOcean registry configuration to use
+        The private*registry configuration to use
         """
         return pulumi.get(self, "private_registry")
 
@@ -216,13 +216,13 @@ def get_secret(azure_container_registry: Optional[Union['GetSecretAzureContainer
     ```
 
 
-    :param Union['GetSecretAzureContainerRegistryArgs', 'GetSecretAzureContainerRegistryArgsDict'] azure_container_registry: The Azure registry configuration to use
-    :param Union['GetSecretDigitalOceanContainerRegistryArgs', 'GetSecretDigitalOceanContainerRegistryArgsDict'] digital_ocean_container_registry: The DigitalOcean registry configuration to use
-    :param Union['GetSecretDockerHubRegistryArgs', 'GetSecretDockerHubRegistryArgsDict'] docker_hub_registry: The DockerHub registry configuration to use
-    :param Union['GetSecretGithubRegistryArgs', 'GetSecretGithubRegistryArgsDict'] github_registry: The GitHub registry configuration to use
-    :param Union['GetSecretGitlabRegistryArgs', 'GetSecretGitlabRegistryArgsDict'] gitlab_registry: The GitLab registry configuration to use
+    :param Union['GetSecretAzureContainerRegistryArgs', 'GetSecretAzureContainerRegistryArgsDict'] azure_container_registry: The azure*container*registry configuration to use
+    :param Union['GetSecretDigitalOceanContainerRegistryArgs', 'GetSecretDigitalOceanContainerRegistryArgsDict'] digital_ocean_container_registry: The digital*ocean*container*registry configuration to use
+    :param Union['GetSecretDockerHubRegistryArgs', 'GetSecretDockerHubRegistryArgsDict'] docker_hub_registry: The docker*hub*registry configuration to use
+    :param Union['GetSecretGithubRegistryArgs', 'GetSecretGithubRegistryArgsDict'] github_registry: The github*registry configuration to use
+    :param Union['GetSecretGitlabRegistryArgs', 'GetSecretGitlabRegistryArgsDict'] gitlab_registry: The gitlab*registry configuration to use
     :param str name: The secret name
-    :param Union['GetSecretPrivateRegistryArgs', 'GetSecretPrivateRegistryArgsDict'] private_registry: The DigitalOcean registry configuration to use
+    :param Union['GetSecretPrivateRegistryArgs', 'GetSecretPrivateRegistryArgsDict'] private_registry: The private*registry configuration to use
     :param str type: The secret type
     :param str value: The secret value
     """
@@ -274,13 +274,13 @@ def get_secret_output(azure_container_registry: Optional[pulumi.Input[Optional[U
     ```
 
 
-    :param Union['GetSecretAzureContainerRegistryArgs', 'GetSecretAzureContainerRegistryArgsDict'] azure_container_registry: The Azure registry configuration to use
-    :param Union['GetSecretDigitalOceanContainerRegistryArgs', 'GetSecretDigitalOceanContainerRegistryArgsDict'] digital_ocean_container_registry: The DigitalOcean registry configuration to use
-    :param Union['GetSecretDockerHubRegistryArgs', 'GetSecretDockerHubRegistryArgsDict'] docker_hub_registry: The DockerHub registry configuration to use
-    :param Union['GetSecretGithubRegistryArgs', 'GetSecretGithubRegistryArgsDict'] github_registry: The GitHub registry configuration to use
-    :param Union['GetSecretGitlabRegistryArgs', 'GetSecretGitlabRegistryArgsDict'] gitlab_registry: The GitLab registry configuration to use
+    :param Union['GetSecretAzureContainerRegistryArgs', 'GetSecretAzureContainerRegistryArgsDict'] azure_container_registry: The azure*container*registry configuration to use
+    :param Union['GetSecretDigitalOceanContainerRegistryArgs', 'GetSecretDigitalOceanContainerRegistryArgsDict'] digital_ocean_container_registry: The digital*ocean*container*registry configuration to use
+    :param Union['GetSecretDockerHubRegistryArgs', 'GetSecretDockerHubRegistryArgsDict'] docker_hub_registry: The docker*hub*registry configuration to use
+    :param Union['GetSecretGithubRegistryArgs', 'GetSecretGithubRegistryArgsDict'] github_registry: The github*registry configuration to use
+    :param Union['GetSecretGitlabRegistryArgs', 'GetSecretGitlabRegistryArgsDict'] gitlab_registry: The gitlab*registry configuration to use
     :param str name: The secret name
-    :param Union['GetSecretPrivateRegistryArgs', 'GetSecretPrivateRegistryArgsDict'] private_registry: The DigitalOcean registry configuration to use
+    :param Union['GetSecretPrivateRegistryArgs', 'GetSecretPrivateRegistryArgsDict'] private_registry: The private*registry configuration to use
     :param str type: The secret type
     :param str value: The secret value
     """

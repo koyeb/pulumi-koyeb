@@ -38,23 +38,23 @@ export function getSecret(args: GetSecretArgs, opts?: pulumi.InvokeOptions): Pro
  */
 export interface GetSecretArgs {
     /**
-     * The Azure registry configuration to use
+     * The azure*container*registry configuration to use
      */
     azureContainerRegistry?: inputs.GetSecretAzureContainerRegistry;
     /**
-     * The DigitalOcean registry configuration to use
+     * The digital*ocean*container*registry configuration to use
      */
     digitalOceanContainerRegistry?: inputs.GetSecretDigitalOceanContainerRegistry;
     /**
-     * The DockerHub registry configuration to use
+     * The docker*hub*registry configuration to use
      */
     dockerHubRegistry?: inputs.GetSecretDockerHubRegistry;
     /**
-     * The GitHub registry configuration to use
+     * The github*registry configuration to use
      */
     githubRegistry?: inputs.GetSecretGithubRegistry;
     /**
-     * The GitLab registry configuration to use
+     * The gitlab*registry configuration to use
      */
     gitlabRegistry?: inputs.GetSecretGitlabRegistry;
     /**
@@ -62,7 +62,7 @@ export interface GetSecretArgs {
      */
     name: string;
     /**
-     * The DigitalOcean registry configuration to use
+     * The private*registry configuration to use
      */
     privateRegistry?: inputs.GetSecretPrivateRegistry;
     /**
@@ -80,7 +80,7 @@ export interface GetSecretArgs {
  */
 export interface GetSecretResult {
     /**
-     * The Azure registry configuration to use
+     * The azure*container*registry configuration to use
      */
     readonly azureContainerRegistry?: outputs.GetSecretAzureContainerRegistry;
     /**
@@ -88,19 +88,19 @@ export interface GetSecretResult {
      */
     readonly createdAt: string;
     /**
-     * The DigitalOcean registry configuration to use
+     * The digital*ocean*container*registry configuration to use
      */
     readonly digitalOceanContainerRegistry?: outputs.GetSecretDigitalOceanContainerRegistry;
     /**
-     * The DockerHub registry configuration to use
+     * The docker*hub*registry configuration to use
      */
     readonly dockerHubRegistry?: outputs.GetSecretDockerHubRegistry;
     /**
-     * The GitHub registry configuration to use
+     * The github*registry configuration to use
      */
     readonly githubRegistry?: outputs.GetSecretGithubRegistry;
     /**
-     * The GitLab registry configuration to use
+     * The gitlab*registry configuration to use
      */
     readonly gitlabRegistry?: outputs.GetSecretGitlabRegistry;
     /**
@@ -116,7 +116,7 @@ export interface GetSecretResult {
      */
     readonly organizationId: string;
     /**
-     * The DigitalOcean registry configuration to use
+     * The private*registry configuration to use
      */
     readonly privateRegistry?: outputs.GetSecretPrivateRegistry;
     /**
@@ -164,23 +164,23 @@ export function getSecretOutput(args: GetSecretOutputArgs, opts?: pulumi.InvokeO
  */
 export interface GetSecretOutputArgs {
     /**
-     * The Azure registry configuration to use
+     * The azure*container*registry configuration to use
      */
     azureContainerRegistry?: pulumi.Input<inputs.GetSecretAzureContainerRegistryArgs>;
     /**
-     * The DigitalOcean registry configuration to use
+     * The digital*ocean*container*registry configuration to use
      */
     digitalOceanContainerRegistry?: pulumi.Input<inputs.GetSecretDigitalOceanContainerRegistryArgs>;
     /**
-     * The DockerHub registry configuration to use
+     * The docker*hub*registry configuration to use
      */
     dockerHubRegistry?: pulumi.Input<inputs.GetSecretDockerHubRegistryArgs>;
     /**
-     * The GitHub registry configuration to use
+     * The github*registry configuration to use
      */
     githubRegistry?: pulumi.Input<inputs.GetSecretGithubRegistryArgs>;
     /**
-     * The GitLab registry configuration to use
+     * The gitlab*registry configuration to use
      */
     gitlabRegistry?: pulumi.Input<inputs.GetSecretGitlabRegistryArgs>;
     /**
@@ -188,7 +188,7 @@ export interface GetSecretOutputArgs {
      */
     name: pulumi.Input<string>;
     /**
-     * The DigitalOcean registry configuration to use
+     * The private*registry configuration to use
      */
     privateRegistry?: pulumi.Input<inputs.GetSecretPrivateRegistryArgs>;
     /**

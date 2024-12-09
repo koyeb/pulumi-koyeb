@@ -36,6 +36,30 @@ namespace Pulumi.Koyeb.Inputs
             set => _averageMems = value;
         }
 
+        [Input("concurrentRequests")]
+        private InputList<Inputs.ServiceDefinitionScalingTargetConcurrentRequestArgs>? _concurrentRequests;
+
+        /// <summary>
+        /// The number of concurrent requests across all Instances of your Service within a region
+        /// </summary>
+        public InputList<Inputs.ServiceDefinitionScalingTargetConcurrentRequestArgs> ConcurrentRequests
+        {
+            get => _concurrentRequests ?? (_concurrentRequests = new InputList<Inputs.ServiceDefinitionScalingTargetConcurrentRequestArgs>());
+            set => _concurrentRequests = value;
+        }
+
+        [Input("requestResponseTimes")]
+        private InputList<Inputs.ServiceDefinitionScalingTargetRequestResponseTimeArgs>? _requestResponseTimes;
+
+        /// <summary>
+        /// The average response time of requests across all Instances of your Service within a region
+        /// </summary>
+        public InputList<Inputs.ServiceDefinitionScalingTargetRequestResponseTimeArgs> RequestResponseTimes
+        {
+            get => _requestResponseTimes ?? (_requestResponseTimes = new InputList<Inputs.ServiceDefinitionScalingTargetRequestResponseTimeArgs>());
+            set => _requestResponseTimes = value;
+        }
+
         [Input("requestsPerSeconds")]
         private InputList<Inputs.ServiceDefinitionScalingTargetRequestsPerSecondArgs>? _requestsPerSeconds;
 

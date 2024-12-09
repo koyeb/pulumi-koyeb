@@ -48,19 +48,19 @@ func LookupSecret(ctx *pulumi.Context, args *LookupSecretArgs, opts ...pulumi.In
 
 // A collection of arguments for invoking getSecret.
 type LookupSecretArgs struct {
-	// The Azure registry configuration to use
+	// The azure*container*registry configuration to use
 	AzureContainerRegistry *GetSecretAzureContainerRegistry `pulumi:"azureContainerRegistry"`
-	// The DigitalOcean registry configuration to use
+	// The digital*ocean*container*registry configuration to use
 	DigitalOceanContainerRegistry *GetSecretDigitalOceanContainerRegistry `pulumi:"digitalOceanContainerRegistry"`
-	// The DockerHub registry configuration to use
+	// The docker*hub*registry configuration to use
 	DockerHubRegistry *GetSecretDockerHubRegistry `pulumi:"dockerHubRegistry"`
-	// The GitHub registry configuration to use
+	// The github*registry configuration to use
 	GithubRegistry *GetSecretGithubRegistry `pulumi:"githubRegistry"`
-	// The GitLab registry configuration to use
+	// The gitlab*registry configuration to use
 	GitlabRegistry *GetSecretGitlabRegistry `pulumi:"gitlabRegistry"`
 	// The secret name
 	Name string `pulumi:"name"`
-	// The DigitalOcean registry configuration to use
+	// The private*registry configuration to use
 	PrivateRegistry *GetSecretPrivateRegistry `pulumi:"privateRegistry"`
 	// The secret type
 	Type *string `pulumi:"type"`
@@ -70,17 +70,17 @@ type LookupSecretArgs struct {
 
 // A collection of values returned by getSecret.
 type LookupSecretResult struct {
-	// The Azure registry configuration to use
+	// The azure*container*registry configuration to use
 	AzureContainerRegistry *GetSecretAzureContainerRegistry `pulumi:"azureContainerRegistry"`
 	// The date and time of when the secret was created
 	CreatedAt string `pulumi:"createdAt"`
-	// The DigitalOcean registry configuration to use
+	// The digital*ocean*container*registry configuration to use
 	DigitalOceanContainerRegistry *GetSecretDigitalOceanContainerRegistry `pulumi:"digitalOceanContainerRegistry"`
-	// The DockerHub registry configuration to use
+	// The docker*hub*registry configuration to use
 	DockerHubRegistry *GetSecretDockerHubRegistry `pulumi:"dockerHubRegistry"`
-	// The GitHub registry configuration to use
+	// The github*registry configuration to use
 	GithubRegistry *GetSecretGithubRegistry `pulumi:"githubRegistry"`
-	// The GitLab registry configuration to use
+	// The gitlab*registry configuration to use
 	GitlabRegistry *GetSecretGitlabRegistry `pulumi:"gitlabRegistry"`
 	// The secret ID
 	Id string `pulumi:"id"`
@@ -88,7 +88,7 @@ type LookupSecretResult struct {
 	Name string `pulumi:"name"`
 	// The organization ID owning the secret
 	OrganizationId string `pulumi:"organizationId"`
-	// The DigitalOcean registry configuration to use
+	// The private*registry configuration to use
 	PrivateRegistry *GetSecretPrivateRegistry `pulumi:"privateRegistry"`
 	// The secret type
 	Type *string `pulumi:"type"`
@@ -119,19 +119,19 @@ func LookupSecretOutput(ctx *pulumi.Context, args LookupSecretOutputArgs, opts .
 
 // A collection of arguments for invoking getSecret.
 type LookupSecretOutputArgs struct {
-	// The Azure registry configuration to use
+	// The azure*container*registry configuration to use
 	AzureContainerRegistry GetSecretAzureContainerRegistryPtrInput `pulumi:"azureContainerRegistry"`
-	// The DigitalOcean registry configuration to use
+	// The digital*ocean*container*registry configuration to use
 	DigitalOceanContainerRegistry GetSecretDigitalOceanContainerRegistryPtrInput `pulumi:"digitalOceanContainerRegistry"`
-	// The DockerHub registry configuration to use
+	// The docker*hub*registry configuration to use
 	DockerHubRegistry GetSecretDockerHubRegistryPtrInput `pulumi:"dockerHubRegistry"`
-	// The GitHub registry configuration to use
+	// The github*registry configuration to use
 	GithubRegistry GetSecretGithubRegistryPtrInput `pulumi:"githubRegistry"`
-	// The GitLab registry configuration to use
+	// The gitlab*registry configuration to use
 	GitlabRegistry GetSecretGitlabRegistryPtrInput `pulumi:"gitlabRegistry"`
 	// The secret name
 	Name pulumi.StringInput `pulumi:"name"`
-	// The DigitalOcean registry configuration to use
+	// The private*registry configuration to use
 	PrivateRegistry GetSecretPrivateRegistryPtrInput `pulumi:"privateRegistry"`
 	// The secret type
 	Type pulumi.StringPtrInput `pulumi:"type"`
@@ -158,7 +158,7 @@ func (o LookupSecretResultOutput) ToLookupSecretResultOutputWithContext(ctx cont
 	return o
 }
 
-// The Azure registry configuration to use
+// The azure*container*registry configuration to use
 func (o LookupSecretResultOutput) AzureContainerRegistry() GetSecretAzureContainerRegistryPtrOutput {
 	return o.ApplyT(func(v LookupSecretResult) *GetSecretAzureContainerRegistry { return v.AzureContainerRegistry }).(GetSecretAzureContainerRegistryPtrOutput)
 }
@@ -168,24 +168,24 @@ func (o LookupSecretResultOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecretResult) string { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// The DigitalOcean registry configuration to use
+// The digital*ocean*container*registry configuration to use
 func (o LookupSecretResultOutput) DigitalOceanContainerRegistry() GetSecretDigitalOceanContainerRegistryPtrOutput {
 	return o.ApplyT(func(v LookupSecretResult) *GetSecretDigitalOceanContainerRegistry {
 		return v.DigitalOceanContainerRegistry
 	}).(GetSecretDigitalOceanContainerRegistryPtrOutput)
 }
 
-// The DockerHub registry configuration to use
+// The docker*hub*registry configuration to use
 func (o LookupSecretResultOutput) DockerHubRegistry() GetSecretDockerHubRegistryPtrOutput {
 	return o.ApplyT(func(v LookupSecretResult) *GetSecretDockerHubRegistry { return v.DockerHubRegistry }).(GetSecretDockerHubRegistryPtrOutput)
 }
 
-// The GitHub registry configuration to use
+// The github*registry configuration to use
 func (o LookupSecretResultOutput) GithubRegistry() GetSecretGithubRegistryPtrOutput {
 	return o.ApplyT(func(v LookupSecretResult) *GetSecretGithubRegistry { return v.GithubRegistry }).(GetSecretGithubRegistryPtrOutput)
 }
 
-// The GitLab registry configuration to use
+// The gitlab*registry configuration to use
 func (o LookupSecretResultOutput) GitlabRegistry() GetSecretGitlabRegistryPtrOutput {
 	return o.ApplyT(func(v LookupSecretResult) *GetSecretGitlabRegistry { return v.GitlabRegistry }).(GetSecretGitlabRegistryPtrOutput)
 }
@@ -205,7 +205,7 @@ func (o LookupSecretResultOutput) OrganizationId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecretResult) string { return v.OrganizationId }).(pulumi.StringOutput)
 }
 
-// The DigitalOcean registry configuration to use
+// The private*registry configuration to use
 func (o LookupSecretResultOutput) PrivateRegistry() GetSecretPrivateRegistryPtrOutput {
 	return o.ApplyT(func(v LookupSecretResult) *GetSecretPrivateRegistry { return v.PrivateRegistry }).(GetSecretPrivateRegistryPtrOutput)
 }
