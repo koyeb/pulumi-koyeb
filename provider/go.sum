@@ -1709,8 +1709,6 @@ github.com/koyeb/koyeb-api-client-go v0.0.0-20241129081540-9cecbc45397f h1:jzyPh
 github.com/koyeb/koyeb-api-client-go v0.0.0-20241129081540-9cecbc45397f/go.mod h1:+oQfFj2WL3gi9Pb+UHbob4D7xaT52mPfKyH1UvWa4PQ=
 github.com/koyeb/koyeb-cli v1.2.1-0.20241129081629-de122264b54e h1:yEUx8X038vulmBW+9OjsZRWrgdaqCKicQJsG9YhAjHE=
 github.com/koyeb/koyeb-cli v1.2.1-0.20241129081629-de122264b54e/go.mod h1:WxwXGkoVkw/0yMfqDkJociNTCIZVGzzQnBlZfJqoVDQ=
-github.com/koyeb/terraform-provider-koyeb v0.1.9 h1:ajBfsdj3LQYD/pGGHkvP/p6jQD8Xc6F+4eALNuvnblA=
-github.com/koyeb/terraform-provider-koyeb v0.1.9/go.mod h1:HQkNAtUzDhPhJrmBITTTFsj6NhOD+Fi5OKfhijYgWB8=
 github.com/kr/fs v0.1.0/go.mod h1:FFnZGqtBN9Gxj7eW1uZ42v5BccTP0vu6NEaFoC2HwRg=
 github.com/kr/pretty v0.1.0/go.mod h1:dAy3ld7l9f0ibDNOQOHHMYYIIbhfbHSm3C4ZsoJORNo=
 github.com/kr/pretty v0.2.1/go.mod h1:ipq/a2n7PKx3OHsz4KJII5eveXtPO4qwEXGdVfWzfnI=

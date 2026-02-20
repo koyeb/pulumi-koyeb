@@ -6,6 +6,8 @@ toolchain go1.23.0
 
 replace github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20240520223432-0c0bf0d65f10
 
+replace github.com/koyeb/terraform-provider-koyeb => /home/jon/dev/terraform-provider-koyeb
+
 require (
 	github.com/koyeb/terraform-provider-koyeb v0.1.9
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.95.0
