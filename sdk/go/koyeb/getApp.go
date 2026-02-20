@@ -11,31 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/koyeb/pulumi-koyeb/sdk/go/koyeb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := koyeb.LookupApp(ctx, &koyeb.LookupAppArgs{
-//				Name: "my-app",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupApp(ctx *pulumi.Context, args *LookupAppArgs, opts ...pulumi.InvokeOption) (*LookupAppResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAppResult
@@ -48,24 +23,17 @@ func LookupApp(ctx *pulumi.Context, args *LookupAppArgs, opts ...pulumi.InvokeOp
 
 // A collection of arguments for invoking getApp.
 type LookupAppArgs struct {
-	// The app name
 	Name string `pulumi:"name"`
 }
 
 // A collection of values returned by getApp.
 type LookupAppResult struct {
-	// The date and time of when the app was created
-	CreatedAt string `pulumi:"createdAt"`
-	// The app domains
-	Domains []GetAppDomain `pulumi:"domains"`
-	// The app ID
-	Id string `pulumi:"id"`
-	// The app name
-	Name string `pulumi:"name"`
-	// The organization ID owning the app
-	OrganizationId string `pulumi:"organizationId"`
-	// The date and time of when the app was last updated
-	UpdatedAt string `pulumi:"updatedAt"`
+	CreatedAt      string         `pulumi:"createdAt"`
+	Domains        []GetAppDomain `pulumi:"domains"`
+	Id             string         `pulumi:"id"`
+	Name           string         `pulumi:"name"`
+	OrganizationId string         `pulumi:"organizationId"`
+	UpdatedAt      string         `pulumi:"updatedAt"`
 }
 
 func LookupAppOutput(ctx *pulumi.Context, args LookupAppOutputArgs, opts ...pulumi.InvokeOption) LookupAppResultOutput {
@@ -89,7 +57,6 @@ func LookupAppOutput(ctx *pulumi.Context, args LookupAppOutputArgs, opts ...pulu
 
 // A collection of arguments for invoking getApp.
 type LookupAppOutputArgs struct {
-	// The app name
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -112,32 +79,26 @@ func (o LookupAppResultOutput) ToLookupAppResultOutputWithContext(ctx context.Co
 	return o
 }
 
-// The date and time of when the app was created
 func (o LookupAppResultOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAppResult) string { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// The app domains
 func (o LookupAppResultOutput) Domains() GetAppDomainArrayOutput {
 	return o.ApplyT(func(v LookupAppResult) []GetAppDomain { return v.Domains }).(GetAppDomainArrayOutput)
 }
 
-// The app ID
 func (o LookupAppResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAppResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The app name
 func (o LookupAppResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAppResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The organization ID owning the app
 func (o LookupAppResultOutput) OrganizationId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAppResult) string { return v.OrganizationId }).(pulumi.StringOutput)
 }
 
-// The date and time of when the app was last updated
 func (o LookupAppResultOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAppResult) string { return v.UpdatedAt }).(pulumi.StringOutput)
 }

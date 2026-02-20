@@ -3531,6 +3531,8 @@ type ServiceDefinitionScalingTarget struct {
 	RequestResponseTimes []ServiceDefinitionScalingTargetRequestResponseTime `pulumi:"requestResponseTimes"`
 	// The number of concurrent requests per second across all Instances of your Service within a region
 	RequestsPerSeconds []ServiceDefinitionScalingTargetRequestsPerSecond `pulumi:"requestsPerSeconds"`
+	// The delay in seconds after which a service that received no requests is scaled to zero
+	SleepIdleDelays []ServiceDefinitionScalingTargetSleepIdleDelay `pulumi:"sleepIdleDelays"`
 }
 
 // ServiceDefinitionScalingTargetInput is an input type that accepts ServiceDefinitionScalingTargetArgs and ServiceDefinitionScalingTargetOutput values.
@@ -3555,6 +3557,8 @@ type ServiceDefinitionScalingTargetArgs struct {
 	RequestResponseTimes ServiceDefinitionScalingTargetRequestResponseTimeArrayInput `pulumi:"requestResponseTimes"`
 	// The number of concurrent requests per second across all Instances of your Service within a region
 	RequestsPerSeconds ServiceDefinitionScalingTargetRequestsPerSecondArrayInput `pulumi:"requestsPerSeconds"`
+	// The delay in seconds after which a service that received no requests is scaled to zero
+	SleepIdleDelays ServiceDefinitionScalingTargetSleepIdleDelayArrayInput `pulumi:"sleepIdleDelays"`
 }
 
 func (ServiceDefinitionScalingTargetArgs) ElementType() reflect.Type {
@@ -3641,6 +3645,13 @@ func (o ServiceDefinitionScalingTargetOutput) RequestsPerSeconds() ServiceDefini
 	return o.ApplyT(func(v ServiceDefinitionScalingTarget) []ServiceDefinitionScalingTargetRequestsPerSecond {
 		return v.RequestsPerSeconds
 	}).(ServiceDefinitionScalingTargetRequestsPerSecondArrayOutput)
+}
+
+// The delay in seconds after which a service that received no requests is scaled to zero
+func (o ServiceDefinitionScalingTargetOutput) SleepIdleDelays() ServiceDefinitionScalingTargetSleepIdleDelayArrayOutput {
+	return o.ApplyT(func(v ServiceDefinitionScalingTarget) []ServiceDefinitionScalingTargetSleepIdleDelay {
+		return v.SleepIdleDelays
+	}).(ServiceDefinitionScalingTargetSleepIdleDelayArrayOutput)
 }
 
 type ServiceDefinitionScalingTargetArrayOutput struct{ *pulumi.OutputState }
@@ -4146,6 +4157,103 @@ func (o ServiceDefinitionScalingTargetRequestsPerSecondArrayOutput) Index(i pulu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceDefinitionScalingTargetRequestsPerSecond {
 		return vs[0].([]ServiceDefinitionScalingTargetRequestsPerSecond)[vs[1].(int)]
 	}).(ServiceDefinitionScalingTargetRequestsPerSecondOutput)
+}
+
+type ServiceDefinitionScalingTargetSleepIdleDelay struct {
+	// The target value of the autoscaling target
+	Value int `pulumi:"value"`
+}
+
+// ServiceDefinitionScalingTargetSleepIdleDelayInput is an input type that accepts ServiceDefinitionScalingTargetSleepIdleDelayArgs and ServiceDefinitionScalingTargetSleepIdleDelayOutput values.
+// You can construct a concrete instance of `ServiceDefinitionScalingTargetSleepIdleDelayInput` via:
+//
+//	ServiceDefinitionScalingTargetSleepIdleDelayArgs{...}
+type ServiceDefinitionScalingTargetSleepIdleDelayInput interface {
+	pulumi.Input
+
+	ToServiceDefinitionScalingTargetSleepIdleDelayOutput() ServiceDefinitionScalingTargetSleepIdleDelayOutput
+	ToServiceDefinitionScalingTargetSleepIdleDelayOutputWithContext(context.Context) ServiceDefinitionScalingTargetSleepIdleDelayOutput
+}
+
+type ServiceDefinitionScalingTargetSleepIdleDelayArgs struct {
+	// The target value of the autoscaling target
+	Value pulumi.IntInput `pulumi:"value"`
+}
+
+func (ServiceDefinitionScalingTargetSleepIdleDelayArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceDefinitionScalingTargetSleepIdleDelay)(nil)).Elem()
+}
+
+func (i ServiceDefinitionScalingTargetSleepIdleDelayArgs) ToServiceDefinitionScalingTargetSleepIdleDelayOutput() ServiceDefinitionScalingTargetSleepIdleDelayOutput {
+	return i.ToServiceDefinitionScalingTargetSleepIdleDelayOutputWithContext(context.Background())
+}
+
+func (i ServiceDefinitionScalingTargetSleepIdleDelayArgs) ToServiceDefinitionScalingTargetSleepIdleDelayOutputWithContext(ctx context.Context) ServiceDefinitionScalingTargetSleepIdleDelayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceDefinitionScalingTargetSleepIdleDelayOutput)
+}
+
+// ServiceDefinitionScalingTargetSleepIdleDelayArrayInput is an input type that accepts ServiceDefinitionScalingTargetSleepIdleDelayArray and ServiceDefinitionScalingTargetSleepIdleDelayArrayOutput values.
+// You can construct a concrete instance of `ServiceDefinitionScalingTargetSleepIdleDelayArrayInput` via:
+//
+//	ServiceDefinitionScalingTargetSleepIdleDelayArray{ ServiceDefinitionScalingTargetSleepIdleDelayArgs{...} }
+type ServiceDefinitionScalingTargetSleepIdleDelayArrayInput interface {
+	pulumi.Input
+
+	ToServiceDefinitionScalingTargetSleepIdleDelayArrayOutput() ServiceDefinitionScalingTargetSleepIdleDelayArrayOutput
+	ToServiceDefinitionScalingTargetSleepIdleDelayArrayOutputWithContext(context.Context) ServiceDefinitionScalingTargetSleepIdleDelayArrayOutput
+}
+
+type ServiceDefinitionScalingTargetSleepIdleDelayArray []ServiceDefinitionScalingTargetSleepIdleDelayInput
+
+func (ServiceDefinitionScalingTargetSleepIdleDelayArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceDefinitionScalingTargetSleepIdleDelay)(nil)).Elem()
+}
+
+func (i ServiceDefinitionScalingTargetSleepIdleDelayArray) ToServiceDefinitionScalingTargetSleepIdleDelayArrayOutput() ServiceDefinitionScalingTargetSleepIdleDelayArrayOutput {
+	return i.ToServiceDefinitionScalingTargetSleepIdleDelayArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceDefinitionScalingTargetSleepIdleDelayArray) ToServiceDefinitionScalingTargetSleepIdleDelayArrayOutputWithContext(ctx context.Context) ServiceDefinitionScalingTargetSleepIdleDelayArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceDefinitionScalingTargetSleepIdleDelayArrayOutput)
+}
+
+type ServiceDefinitionScalingTargetSleepIdleDelayOutput struct{ *pulumi.OutputState }
+
+func (ServiceDefinitionScalingTargetSleepIdleDelayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceDefinitionScalingTargetSleepIdleDelay)(nil)).Elem()
+}
+
+func (o ServiceDefinitionScalingTargetSleepIdleDelayOutput) ToServiceDefinitionScalingTargetSleepIdleDelayOutput() ServiceDefinitionScalingTargetSleepIdleDelayOutput {
+	return o
+}
+
+func (o ServiceDefinitionScalingTargetSleepIdleDelayOutput) ToServiceDefinitionScalingTargetSleepIdleDelayOutputWithContext(ctx context.Context) ServiceDefinitionScalingTargetSleepIdleDelayOutput {
+	return o
+}
+
+// The target value of the autoscaling target
+func (o ServiceDefinitionScalingTargetSleepIdleDelayOutput) Value() pulumi.IntOutput {
+	return o.ApplyT(func(v ServiceDefinitionScalingTargetSleepIdleDelay) int { return v.Value }).(pulumi.IntOutput)
+}
+
+type ServiceDefinitionScalingTargetSleepIdleDelayArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceDefinitionScalingTargetSleepIdleDelayArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceDefinitionScalingTargetSleepIdleDelay)(nil)).Elem()
+}
+
+func (o ServiceDefinitionScalingTargetSleepIdleDelayArrayOutput) ToServiceDefinitionScalingTargetSleepIdleDelayArrayOutput() ServiceDefinitionScalingTargetSleepIdleDelayArrayOutput {
+	return o
+}
+
+func (o ServiceDefinitionScalingTargetSleepIdleDelayArrayOutput) ToServiceDefinitionScalingTargetSleepIdleDelayArrayOutputWithContext(ctx context.Context) ServiceDefinitionScalingTargetSleepIdleDelayArrayOutput {
+	return o
+}
+
+func (o ServiceDefinitionScalingTargetSleepIdleDelayArrayOutput) Index(i pulumi.IntInput) ServiceDefinitionScalingTargetSleepIdleDelayOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceDefinitionScalingTargetSleepIdleDelay {
+		return vs[0].([]ServiceDefinitionScalingTargetSleepIdleDelay)[vs[1].(int)]
+	}).(ServiceDefinitionScalingTargetSleepIdleDelayOutput)
 }
 
 type ServiceDefinitionVolume struct {
@@ -7640,6 +7748,8 @@ type GetServiceDefinitionScalingTarget struct {
 	RequestResponseTimes []GetServiceDefinitionScalingTargetRequestResponseTime `pulumi:"requestResponseTimes"`
 	// The number of concurrent requests per second across all Instances of your Service within a region
 	RequestsPerSeconds []GetServiceDefinitionScalingTargetRequestsPerSecond `pulumi:"requestsPerSeconds"`
+	// The delay in seconds after which a service that received no requests is scaled to zero
+	SleepIdleDelays []GetServiceDefinitionScalingTargetSleepIdleDelay `pulumi:"sleepIdleDelays"`
 }
 
 // GetServiceDefinitionScalingTargetInput is an input type that accepts GetServiceDefinitionScalingTargetArgs and GetServiceDefinitionScalingTargetOutput values.
@@ -7664,6 +7774,8 @@ type GetServiceDefinitionScalingTargetArgs struct {
 	RequestResponseTimes GetServiceDefinitionScalingTargetRequestResponseTimeArrayInput `pulumi:"requestResponseTimes"`
 	// The number of concurrent requests per second across all Instances of your Service within a region
 	RequestsPerSeconds GetServiceDefinitionScalingTargetRequestsPerSecondArrayInput `pulumi:"requestsPerSeconds"`
+	// The delay in seconds after which a service that received no requests is scaled to zero
+	SleepIdleDelays GetServiceDefinitionScalingTargetSleepIdleDelayArrayInput `pulumi:"sleepIdleDelays"`
 }
 
 func (GetServiceDefinitionScalingTargetArgs) ElementType() reflect.Type {
@@ -7750,6 +7862,13 @@ func (o GetServiceDefinitionScalingTargetOutput) RequestsPerSeconds() GetService
 	return o.ApplyT(func(v GetServiceDefinitionScalingTarget) []GetServiceDefinitionScalingTargetRequestsPerSecond {
 		return v.RequestsPerSeconds
 	}).(GetServiceDefinitionScalingTargetRequestsPerSecondArrayOutput)
+}
+
+// The delay in seconds after which a service that received no requests is scaled to zero
+func (o GetServiceDefinitionScalingTargetOutput) SleepIdleDelays() GetServiceDefinitionScalingTargetSleepIdleDelayArrayOutput {
+	return o.ApplyT(func(v GetServiceDefinitionScalingTarget) []GetServiceDefinitionScalingTargetSleepIdleDelay {
+		return v.SleepIdleDelays
+	}).(GetServiceDefinitionScalingTargetSleepIdleDelayArrayOutput)
 }
 
 type GetServiceDefinitionScalingTargetArrayOutput struct{ *pulumi.OutputState }
@@ -8257,6 +8376,103 @@ func (o GetServiceDefinitionScalingTargetRequestsPerSecondArrayOutput) Index(i p
 	}).(GetServiceDefinitionScalingTargetRequestsPerSecondOutput)
 }
 
+type GetServiceDefinitionScalingTargetSleepIdleDelay struct {
+	// The target value of the autoscaling target
+	Value int `pulumi:"value"`
+}
+
+// GetServiceDefinitionScalingTargetSleepIdleDelayInput is an input type that accepts GetServiceDefinitionScalingTargetSleepIdleDelayArgs and GetServiceDefinitionScalingTargetSleepIdleDelayOutput values.
+// You can construct a concrete instance of `GetServiceDefinitionScalingTargetSleepIdleDelayInput` via:
+//
+//	GetServiceDefinitionScalingTargetSleepIdleDelayArgs{...}
+type GetServiceDefinitionScalingTargetSleepIdleDelayInput interface {
+	pulumi.Input
+
+	ToGetServiceDefinitionScalingTargetSleepIdleDelayOutput() GetServiceDefinitionScalingTargetSleepIdleDelayOutput
+	ToGetServiceDefinitionScalingTargetSleepIdleDelayOutputWithContext(context.Context) GetServiceDefinitionScalingTargetSleepIdleDelayOutput
+}
+
+type GetServiceDefinitionScalingTargetSleepIdleDelayArgs struct {
+	// The target value of the autoscaling target
+	Value pulumi.IntInput `pulumi:"value"`
+}
+
+func (GetServiceDefinitionScalingTargetSleepIdleDelayArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceDefinitionScalingTargetSleepIdleDelay)(nil)).Elem()
+}
+
+func (i GetServiceDefinitionScalingTargetSleepIdleDelayArgs) ToGetServiceDefinitionScalingTargetSleepIdleDelayOutput() GetServiceDefinitionScalingTargetSleepIdleDelayOutput {
+	return i.ToGetServiceDefinitionScalingTargetSleepIdleDelayOutputWithContext(context.Background())
+}
+
+func (i GetServiceDefinitionScalingTargetSleepIdleDelayArgs) ToGetServiceDefinitionScalingTargetSleepIdleDelayOutputWithContext(ctx context.Context) GetServiceDefinitionScalingTargetSleepIdleDelayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDefinitionScalingTargetSleepIdleDelayOutput)
+}
+
+// GetServiceDefinitionScalingTargetSleepIdleDelayArrayInput is an input type that accepts GetServiceDefinitionScalingTargetSleepIdleDelayArray and GetServiceDefinitionScalingTargetSleepIdleDelayArrayOutput values.
+// You can construct a concrete instance of `GetServiceDefinitionScalingTargetSleepIdleDelayArrayInput` via:
+//
+//	GetServiceDefinitionScalingTargetSleepIdleDelayArray{ GetServiceDefinitionScalingTargetSleepIdleDelayArgs{...} }
+type GetServiceDefinitionScalingTargetSleepIdleDelayArrayInput interface {
+	pulumi.Input
+
+	ToGetServiceDefinitionScalingTargetSleepIdleDelayArrayOutput() GetServiceDefinitionScalingTargetSleepIdleDelayArrayOutput
+	ToGetServiceDefinitionScalingTargetSleepIdleDelayArrayOutputWithContext(context.Context) GetServiceDefinitionScalingTargetSleepIdleDelayArrayOutput
+}
+
+type GetServiceDefinitionScalingTargetSleepIdleDelayArray []GetServiceDefinitionScalingTargetSleepIdleDelayInput
+
+func (GetServiceDefinitionScalingTargetSleepIdleDelayArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceDefinitionScalingTargetSleepIdleDelay)(nil)).Elem()
+}
+
+func (i GetServiceDefinitionScalingTargetSleepIdleDelayArray) ToGetServiceDefinitionScalingTargetSleepIdleDelayArrayOutput() GetServiceDefinitionScalingTargetSleepIdleDelayArrayOutput {
+	return i.ToGetServiceDefinitionScalingTargetSleepIdleDelayArrayOutputWithContext(context.Background())
+}
+
+func (i GetServiceDefinitionScalingTargetSleepIdleDelayArray) ToGetServiceDefinitionScalingTargetSleepIdleDelayArrayOutputWithContext(ctx context.Context) GetServiceDefinitionScalingTargetSleepIdleDelayArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDefinitionScalingTargetSleepIdleDelayArrayOutput)
+}
+
+type GetServiceDefinitionScalingTargetSleepIdleDelayOutput struct{ *pulumi.OutputState }
+
+func (GetServiceDefinitionScalingTargetSleepIdleDelayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceDefinitionScalingTargetSleepIdleDelay)(nil)).Elem()
+}
+
+func (o GetServiceDefinitionScalingTargetSleepIdleDelayOutput) ToGetServiceDefinitionScalingTargetSleepIdleDelayOutput() GetServiceDefinitionScalingTargetSleepIdleDelayOutput {
+	return o
+}
+
+func (o GetServiceDefinitionScalingTargetSleepIdleDelayOutput) ToGetServiceDefinitionScalingTargetSleepIdleDelayOutputWithContext(ctx context.Context) GetServiceDefinitionScalingTargetSleepIdleDelayOutput {
+	return o
+}
+
+// The target value of the autoscaling target
+func (o GetServiceDefinitionScalingTargetSleepIdleDelayOutput) Value() pulumi.IntOutput {
+	return o.ApplyT(func(v GetServiceDefinitionScalingTargetSleepIdleDelay) int { return v.Value }).(pulumi.IntOutput)
+}
+
+type GetServiceDefinitionScalingTargetSleepIdleDelayArrayOutput struct{ *pulumi.OutputState }
+
+func (GetServiceDefinitionScalingTargetSleepIdleDelayArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceDefinitionScalingTargetSleepIdleDelay)(nil)).Elem()
+}
+
+func (o GetServiceDefinitionScalingTargetSleepIdleDelayArrayOutput) ToGetServiceDefinitionScalingTargetSleepIdleDelayArrayOutput() GetServiceDefinitionScalingTargetSleepIdleDelayArrayOutput {
+	return o
+}
+
+func (o GetServiceDefinitionScalingTargetSleepIdleDelayArrayOutput) ToGetServiceDefinitionScalingTargetSleepIdleDelayArrayOutputWithContext(ctx context.Context) GetServiceDefinitionScalingTargetSleepIdleDelayArrayOutput {
+	return o
+}
+
+func (o GetServiceDefinitionScalingTargetSleepIdleDelayArrayOutput) Index(i pulumi.IntInput) GetServiceDefinitionScalingTargetSleepIdleDelayOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServiceDefinitionScalingTargetSleepIdleDelay {
+		return vs[0].([]GetServiceDefinitionScalingTargetSleepIdleDelay)[vs[1].(int)]
+	}).(GetServiceDefinitionScalingTargetSleepIdleDelayOutput)
+}
+
 type GetServiceDefinitionVolume struct {
 	// The volume ID to mount to the service
 	Id string `pulumi:"id"`
@@ -8436,6 +8652,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDefinitionScalingTargetRequestResponseTimeArrayInput)(nil)).Elem(), ServiceDefinitionScalingTargetRequestResponseTimeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDefinitionScalingTargetRequestsPerSecondInput)(nil)).Elem(), ServiceDefinitionScalingTargetRequestsPerSecondArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDefinitionScalingTargetRequestsPerSecondArrayInput)(nil)).Elem(), ServiceDefinitionScalingTargetRequestsPerSecondArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDefinitionScalingTargetSleepIdleDelayInput)(nil)).Elem(), ServiceDefinitionScalingTargetSleepIdleDelayArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDefinitionScalingTargetSleepIdleDelayArrayInput)(nil)).Elem(), ServiceDefinitionScalingTargetSleepIdleDelayArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDefinitionVolumeInput)(nil)).Elem(), ServiceDefinitionVolumeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDefinitionVolumeArrayInput)(nil)).Elem(), ServiceDefinitionVolumeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAppDomainInput)(nil)).Elem(), GetAppDomainArgs{})
@@ -8492,6 +8710,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDefinitionScalingTargetRequestResponseTimeArrayInput)(nil)).Elem(), GetServiceDefinitionScalingTargetRequestResponseTimeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDefinitionScalingTargetRequestsPerSecondInput)(nil)).Elem(), GetServiceDefinitionScalingTargetRequestsPerSecondArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDefinitionScalingTargetRequestsPerSecondArrayInput)(nil)).Elem(), GetServiceDefinitionScalingTargetRequestsPerSecondArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDefinitionScalingTargetSleepIdleDelayInput)(nil)).Elem(), GetServiceDefinitionScalingTargetSleepIdleDelayArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDefinitionScalingTargetSleepIdleDelayArrayInput)(nil)).Elem(), GetServiceDefinitionScalingTargetSleepIdleDelayArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDefinitionVolumeInput)(nil)).Elem(), GetServiceDefinitionVolumeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDefinitionVolumeArrayInput)(nil)).Elem(), GetServiceDefinitionVolumeArray{})
 	pulumi.RegisterOutputType(AppDomainOutput{})
@@ -8548,6 +8768,8 @@ func init() {
 	pulumi.RegisterOutputType(ServiceDefinitionScalingTargetRequestResponseTimeArrayOutput{})
 	pulumi.RegisterOutputType(ServiceDefinitionScalingTargetRequestsPerSecondOutput{})
 	pulumi.RegisterOutputType(ServiceDefinitionScalingTargetRequestsPerSecondArrayOutput{})
+	pulumi.RegisterOutputType(ServiceDefinitionScalingTargetSleepIdleDelayOutput{})
+	pulumi.RegisterOutputType(ServiceDefinitionScalingTargetSleepIdleDelayArrayOutput{})
 	pulumi.RegisterOutputType(ServiceDefinitionVolumeOutput{})
 	pulumi.RegisterOutputType(ServiceDefinitionVolumeArrayOutput{})
 	pulumi.RegisterOutputType(GetAppDomainOutput{})
@@ -8604,6 +8826,8 @@ func init() {
 	pulumi.RegisterOutputType(GetServiceDefinitionScalingTargetRequestResponseTimeArrayOutput{})
 	pulumi.RegisterOutputType(GetServiceDefinitionScalingTargetRequestsPerSecondOutput{})
 	pulumi.RegisterOutputType(GetServiceDefinitionScalingTargetRequestsPerSecondArrayOutput{})
+	pulumi.RegisterOutputType(GetServiceDefinitionScalingTargetSleepIdleDelayOutput{})
+	pulumi.RegisterOutputType(GetServiceDefinitionScalingTargetSleepIdleDelayArrayOutput{})
 	pulumi.RegisterOutputType(GetServiceDefinitionVolumeOutput{})
 	pulumi.RegisterOutputType(GetServiceDefinitionVolumeArrayOutput{})
 }

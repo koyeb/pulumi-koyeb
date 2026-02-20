@@ -156,6 +156,9 @@
                                                         },
                                                         "requests_per_second": {
                                                             "maxItemsOne": false
+                                                        },
+                                                        "sleep_idle_delay": {
+                                                            "maxItemsOne": false
                                                         }
                                                     }
                                                 }
@@ -338,6 +341,9 @@
                                                             "maxItemsOne": false
                                                         },
                                                         "requests_per_second": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "sleep_idle_delay": {
                                                             "maxItemsOne": false
                                                         }
                                                     }
